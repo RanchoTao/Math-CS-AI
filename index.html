@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="纯数学、计算机科学与人工智能交互式知识图谱" />
+  <title>Math · CS · AI Atlas</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="返回知识地图">
+        <span class="brand-mark">M</span>
+        <span>
+          <strong>Math · CS · AI Atlas</strong>
+          <small>从基础课程到研究方向</small>
+        </span>
+      </a>
+
+      <div class="topbar-actions">
+        <label class="search-box">
+          <span aria-hidden="true">⌕</span>
+          <input id="searchInput" type="search" placeholder="搜索课程或方向…" autocomplete="off" />
+        </label>
+        <a class="github-link" href="https://github.com/RanchoTao/Math-CS-AI" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <aside class="sidebar" aria-label="地图筛选器">
+        <section>
+          <p class="eyebrow">领域</p>
+          <div class="filter-stack" id="domainFilters">
+            <button class="filter-button active" data-domain="all"><span class="dot all"></span>全部领域</button>
+            <button class="filter-button" data-domain="math"><span class="dot math"></span>纯数学</button>
+            <button class="filter-button" data-domain="cs"><span class="dot cs"></span>计算机科学</button>
+            <button class="filter-button" data-domain="ai"><span class="dot ai"></span>人工智能</button>
+          </div>
+        </section>
+
+        <section>
+          <p class="eyebrow">图例</p>
+          <div class="legend">
+            <div><span class="line solid"></span>严格前置</div>
+            <div><span class="line dashed"></span>建议前置</div>
+            <div><span class="line dotted"></span>应用 / 关联</div>
+          </div>
+        </section>
+
+        <section class="path-card">
+          <p class="eyebrow">示例学习路径</p>
+          <button id="pathButton" class="path-button">高亮「大语言模型」路径</button>
+          <p>查看从数学基础、编程与机器学习走向 LLM 的一条主干路线。</p>
+        </section>
+
+        <section class="status-card">
+          <span class="status-pulse"></span>
+          <div>
+            <strong>Prototype v0.1</strong>
+            <p>当前为静态交互原型，课程正文将逐步补全。</p>
+          </div>
+        </section>
+      </aside>
+
+      <section class="map-panel" aria-label="交互式知识地图">
+        <div class="map-toolbar">
+          <div>
+            <strong id="visibleCount">0 个节点</strong>
+            <span>拖动画布 · 滚轮缩放 · 点击节点查看课程</span>
+          </div>
+          <div class="zoom-controls" aria-label="缩放控制">
+            <button id="zoomOut" title="缩小">−</button>
+            <button id="resetView" title="重置视图">重置</button>
+            <button id="zoomIn" title="放大">＋</button>
+          </div>
+        </div>
+
+        <div id="mapViewport" class="map-viewport">
+          <svg id="knowledgeGraph" viewBox="0 0 1600 980" role="img" aria-label="数学、计算机与人工智能课程知识图谱">
+            <defs>
+              <marker id="arrow-prerequisite" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,6 L9,3 z" class="arrow prerequisite" />
+              </marker>
+              <marker id="arrow-recommended" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,6 L9,3 z" class="arrow recommended" />
+              </marker>
+              <marker id="arrow-application" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,6 L9,3 z" class="arrow application" />
+              </marker>
+              <filter id="nodeGlow" x="-60%" y="-60%" width="220%" height="220%">
+                <feGaussianBlur stdDeviation="7" result="blur" />
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
+            <g id="graphTransform">
+              <g id="regionLayer"></g>
+              <g id="edgeLayer"></g>
+              <g id="nodeLayer"></g>
+            </g>
+          </svg>
+          <div class="map-hint">按住空白处拖动地图</div>
+        </div>
+      </section>
+
+      <aside id="detailPanel" class="detail-panel" aria-label="课程详情">
+        <button id="closeDetail" class="close-detail" aria-label="关闭课程详情">×</button>
+        <div id="detailContent" class="detail-content">
+          <div class="empty-detail">
+            <span>◎</span>
+            <h2>选择一个节点</h2>
+            <p>点击地图中的课程或研究方向，查看简介、前置知识、章节和后续路线。</p>
+          </div>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <template id="detailTemplate">
+    <article>
+      <div class="detail-heading">
+        <span class="detail-domain"></span>
+        <span class="detail-level"></span>
+      </div>
+      <h1 class="detail-title"></h1>
+      <p class="detail-summary"></p>
+
+      <div class="detail-metrics">
+        <div><small>建议学时</small><strong class="detail-hours"></strong></div>
+        <div><small>前置节点</small><strong class="detail-prereq-count"></strong></div>
+      </div>
+
+      <section>
+        <h2>你会学到什么</h2>
+        <ul class="detail-topics"></ul>
+      </section>
+
+      <section>
+        <h2>前置知识</h2>
+        <div class="detail-prerequisites chip-list"></div>
+      </section>
+
+      <section>
+        <h2>后续方向</h2>
+        <div class="detail-next chip-list"></div>
+      </section>
+
+      <button class="course-button">进入课程页面 <span>→</span></button>
+      <p class="course-note">课程页当前使用同一页面的锚点原型，后续会拆分为独立内容页面。</p>
+    </article>
+  </template>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
