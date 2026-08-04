@@ -28,12 +28,18 @@ jobs:
         run: |
           mkdir -p _site
           cp index.html styles.css app.js .nojekyll _site/
+          cp -R data styles _site/
 
       - name: Validate static site
         run: |
           test -s _site/index.html
           test -s _site/styles.css
           test -s _site/app.js
+          test -s _site/data/catalog.js
+          test -s _site/data/catalog.part5.js
+          test -s _site/data/app.part3.js
+          test -s _site/styles/base.css
+          test -s _site/styles/graph.css
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
