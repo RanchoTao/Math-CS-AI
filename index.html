@@ -4,17 +4,17 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="纯数学、计算机科学与人工智能多尺度知识图谱" />
-  <title>Math · CS · AI Atlas</title>
+  <title>数学·计算机·人工智能知识图谱</title>
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
   <div class="app-shell">
     <header class="topbar">
-      <button class="brand" id="homeButton" aria-label="返回知识总览">
-        <span class="brand-mark">M</span>
+      <button class="brand" id="homeButton" aria-label="返回完整知识图谱">
+        <span class="brand-mark">知</span>
         <span>
-          <strong>Math · CS · AI Atlas</strong>
-          <small>多尺度知识图谱 · v0.2</small>
+          <strong>数学·计算机·人工智能知识图谱</strong>
+          <small>从基础知识到研究前沿</small>
         </span>
       </button>
 
@@ -22,22 +22,16 @@
         <div class="search-wrap">
           <label class="search-box">
             <span aria-hidden="true">⌕</span>
-            <input id="searchInput" type="search" placeholder="搜索 296 个知识节点…" autocomplete="off" />
+            <input id="searchInput" type="search" placeholder="搜索知识节点……" autocomplete="off" />
           </label>
           <div id="searchResults" class="search-results" hidden></div>
         </div>
-        <a class="github-link" href="https://github.com/RanchoTao/Math-CS-AI" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="github-link" href="https://github.com/RanchoTao/Math-CS-AI" target="_blank" rel="noreferrer">代码仓库</a>
       </div>
     </header>
 
     <main id="workspace" class="workspace">
       <aside class="sidebar" aria-label="知识图谱控制器">
-        <section>
-          <p class="eyebrow">视图</p>
-          <button id="overviewButton" class="control-button active">知识总览 <span>G1</span></button>
-          <button id="backButton" class="control-button" disabled>返回上一级 <span>Esc</span></button>
-        </section>
-
         <section>
           <p class="eyebrow">领域</p>
           <div id="domainFilters" class="filter-stack">
@@ -57,7 +51,7 @@
         <section>
           <p class="eyebrow">学习阶段</p>
           <div id="stageFilters" class="stage-grid"></div>
-          <p class="section-note">L0 初等基础；L8 研究前沿。层级不是简单的难度排名。</p>
+          <p class="section-note">第0层是初等基础，第8层是研究前沿；层级表示学习阶段，不是简单的难度排名。</p>
         </section>
 
         <section>
@@ -70,53 +64,48 @@
           <div class="legend">
             <div><span class="legend-shape course"></span>课程级知识</div>
             <div><span class="legend-shape practice"></span>实践与规范</div>
-            <div><span class="legend-shape frontier"></span>研究前沿</div>
-            <div><span class="legend-shape external"></span>跨学科前置</div>
+            <div><span class="legend-shape tool"></span>工具与环境</div>
+            <div><span class="legend-shape frontier"></span>研究方向</div>
           </div>
         </section>
 
         <section class="status-card">
           <span class="status-pulse"></span>
           <div>
-            <strong>Atlas v0.2</strong>
-            <p><span id="catalogStats"></span><br />已支持学科群—课程两级导航。清华与求真等官方培养方案将作为独立映射层继续导入。</p>
+            <strong>嵌套总览版</strong>
+            <p><span id="catalogStats">正在载入知识图谱……</span><br />学科群只作为视觉分区，所有知识节点直接显示，不再像文件夹一样逐层打开。</p>
           </div>
         </section>
       </aside>
 
-      <section class="map-panel" aria-label="交互式知识地图">
+      <section class="map-panel" aria-label="交互式知识图谱">
         <div class="map-toolbar">
-          <div class="breadcrumb" id="breadcrumb">
-            <button data-action="overview">全部知识</button>
+          <div>
+            <strong>完整知识图谱</strong>
+            <span>领域框内嵌学科群，学科群内直接展示知识节点</span>
           </div>
           <div class="toolbar-meta">
             <strong id="visibleCount">0 个节点</strong>
-            <span id="viewHint">点击学科群进入课程级地图</span>
+            <span id="viewHint">点击节点查看前置关系与后续方向</span>
           </div>
           <div class="zoom-controls" aria-label="缩放控制">
             <button id="zoomOut" title="缩小">−</button>
-            <button id="resetView" title="重置视图">重置</button>
+            <button id="resetView" title="适应窗口">适应</button>
             <button id="zoomIn" title="放大">＋</button>
           </div>
         </div>
 
         <div id="mapViewport" class="map-viewport">
-          <svg id="knowledgeGraph" viewBox="0 0 1600 1500" role="img" aria-label="数学、计算机与人工智能多尺度知识图谱">
-            <defs>
-              <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
-                <path d="M0,0 L0,6 L8,3 z" class="arrow" />
-              </marker>
-              <filter id="nodeGlow" x="-60%" y="-60%" width="220%" height="220%">
-                <feGaussianBlur stdDeviation="6" result="blur" />
-                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-              </filter>
-            </defs>
-            <g id="graphTransform">
-              <g id="regionLayer"></g>
-              <g id="edgeLayer"></g>
-              <g id="nodeLayer"></g>
-            </g>
-          </svg>
+          <div id="graphTransform" class="graph-transform">
+            <svg id="edgeLayer" class="edge-layer" aria-hidden="true">
+              <defs>
+                <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+                  <path d="M0,0 L0,6 L8,3 z" class="arrow" />
+                </marker>
+              </defs>
+            </svg>
+            <div id="atlasCanvas" class="atlas-canvas"></div>
+          </div>
           <div class="map-hint">拖动空白处平移 · 滚轮缩放 · 点击节点查看详情</div>
         </div>
       </section>
@@ -127,7 +116,7 @@
           <div class="empty-detail">
             <span>◎</span>
             <h2>选择一个知识节点</h2>
-            <p>进入学科群后点击课程节点，查看层级、前置依赖、核心主题与后续方向。</p>
+            <p>点击图谱中的节点，查看所属学科群、核心内容、必要前置和后续方向。</p>
           </div>
         </div>
       </aside>
@@ -166,7 +155,7 @@
       </section>
 
       <button class="course-button">课程页面正在建设 <span>→</span></button>
-      <p class="course-note">当前版本先完成知识本体与依赖图。下一阶段会加入章节、教材、公开课、习题、项目和完成标准。</p>
+      <p class="course-note">后续将补充章节、教材、公开课、习题、项目和完成标准。</p>
     </article>
   </template>
 
@@ -176,9 +165,6 @@
   <script src="./data/catalog.part4.js"></script>
   <script src="./data/catalog.part5.js"></script>
   <script src="./data/catalog.js"></script>
-  <script src="./data/app.part1.js"></script>
-  <script src="./data/app.part2.js"></script>
-  <script src="./data/app.part3.js"></script>
   <script src="./app.js" defer></script>
 </body>
 </html>
