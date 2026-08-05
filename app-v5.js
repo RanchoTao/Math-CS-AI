@@ -1,7 +1,7 @@
 (async () => {
   "use strict";
 
-  const response = await fetch("./app-v4.js?v=20260806-0218", { cache: "no-store" });
+  const response = await fetch("./app-v4.js?v=20260806-0222", { cache: "no-store" });
   if (!response.ok) throw new Error(`基础运行时代码加载失败：${response.status}`);
   let source = await response.text();
 
@@ -32,7 +32,7 @@
     const visibleNodes = nodes.filter(isVisible);
 
     // 页面自上而下为：人工智能、计算机科学、纯数学。
-    // 因此用户从页面底部向上探索时，顺序正好是：纯数学 → 计算机科学 → 人工智能。
+    // 因而从页面底部向上探索时，顺序正好是：纯数学 → 计算机科学 → 人工智能。
     const verticalDomainOrder = ["ai", "cs", "math"];
     const activeDomains = verticalDomainOrder.filter((domain) => visibleNodes.some((node) => node.domain === domain));
     const domains = [];
@@ -45,8 +45,8 @@
       const domainNodes = visibleNodes.filter((node) => node.domain === domain);
       const stageSpecs = [];
 
-      // 每个领域内部仍然是自下而上的塔：L0 在底部，L8 在顶部。
-      // DOM 坐标从上向下增长，所以这里按 L8 → L0 排列。
+      // 每个领域内部是自下而上的塔：L0 在底部，L8 在顶部。
+      // 页面坐标从上向下增长，所以按 L8 → L0 构建。
       for (let stage = 8; stage >= 0; stage -= 1) {
         const stageNodes = domainNodes
           .filter((node) => Number(node.stage) === stage)
@@ -56,7 +56,7 @@
           });
         if (!stageNodes.length) continue;
 
-        // 一层严格只有一行，绝不换行。节点多时让这一层向水平方向延伸。
+        // 一层严格只有一行，绝不换行；节点多时只向水平方向延伸。
         const width = CONFIG.stagePadding * 2
           + stageNodes.length * CONFIG.nodeWidth
           + Math.max(0, stageNodes.length - 1) * CONFIG.nodeGapX;
@@ -92,7 +92,7 @@
       domainSpec.stageSpecs.forEach((spec) => {
         const x = baseX + (domainSpec.domainWidth - spec.width) / 2;
         const y = stageY;
-        const id = \\`\${spec.domain}-stage-\${spec.stage}\\`;
+        const id = spec.domain + "-stage-" + spec.stage;
         const chunk = { id, x, y, w: spec.width, h: spec.height, ...spec };
         stageChunks.push(chunk);
         stageById.set(id, chunk);
@@ -141,20 +141,20 @@
       stageByNodeId,
       nodeBoxes,
     };
-    elements.world.style.width = \\`\${worldWidth}px\\`;
-    elements.world.style.height = \\`\${worldHeight}px\\`;
-    elements.visibleCount.textContent = \\`\${visibleNodes.length} 个节点\\`;
+    elements.world.style.width = String(worldWidth) + "px";
+    elements.world.style.height = String(worldHeight) + "px";
+    elements.visibleCount.textContent = String(visibleNodes.length) + " 个节点";
 
     domains.forEach((domain) => {
       const shell = document.createElement("section");
-      shell.className = \\`tower-domain \${domain.domain}\\`;
-      shell.style.left = \\`\${domain.x}px\\`;
-      shell.style.top = \\`\${domain.y}px\\`;
-      shell.style.width = \\`\${domain.w}px\\`;
-      shell.style.height = \\`\${domain.h}px\\`;
+      shell.className = "tower-domain " + domain.domain;
+      shell.style.left = String(domain.x) + "px";
+      shell.style.top = String(domain.y) + "px";
+      shell.style.width = String(domain.w) + "px";
+      shell.style.height = String(domain.h) + "px";
       const title = document.createElement("div");
       title.className = "tower-domain-title";
-      title.textContent = \\`\${domainLabel(domain.domain)} · \${domain.count} 个节点\\`;
+      title.textContent = domainLabel(domain.domain) + " · " + String(domain.count) + " 个节点";
       shell.appendChild(title);
       elements.world.appendChild(shell);
     });
@@ -162,17 +162,19 @@
 
   const buildPattern = /  function buildLayout\(\) \{[\s\S]*?\n  \}\n\n  function renderControls\(\)/;
   const previousBuild = source;
-  source = source.replace(buildPattern, `${buildLayoutReplacement}\n\n  function renderControls()`);
+  source = source.replace(buildPattern, buildLayoutReplacement + "\n\n  function renderControls()");
   if (source === previousBuild) throw new Error("无法替换知识塔布局算法");
 
-  // 单领域筛选时按实际领域宽度缩放；全部领域时同样以真实世界宽度为准。
   source = source.replace(
     /    const domainTargetWidth = state\.domain === "all" \? layout\.worldWidth : Math\.min\(layout\.worldWidth, CONFIG\.domainWidth \+ CONFIG\.worldPadding \* 2\);/,
     "    const domainTargetWidth = layout.worldWidth;",
   );
+  source = source.replace(
+    /    state\.scale = Math\.max\(0\.42, Math\.min\(0\.82, availableWidth \/ domainTargetWidth\)\);/,
+    "    state.scale = Math.max(CONFIG.minScale, Math.min(0.82, availableWidth / domainTargetWidth));",
+  );
 
-  // 执行经过布局替换后的完整运行时。
-  new Function(`${source}\n//# sourceURL=app-v5-generated.js`)();
+  new Function(source + "\n//# sourceURL=app-v5-generated.js")();
 })().catch((error) => {
   console.error(error);
   document.body.innerHTML = `<main style="padding:32px;color:#e7f1f7;background:#071018;min-height:100vh;font-family:system-ui"><h1>知识塔加载失败</h1><p>${String(error.message || error)}</p></main>`;
