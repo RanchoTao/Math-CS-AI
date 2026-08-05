@@ -8,8 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="纯数学、计算机科学与人工智能多尺度知识图谱" />
   <title>数学·计算机·人工智能知识图谱</title>
-  <link rel="stylesheet" href="./styles.css?v=20260806-0145" />
-  <link rel="stylesheet" href="./virtual-graph.css?v=20260806-0145" />
+  <link rel="stylesheet" href="./styles.css?v=20260806-0205" />
+  <link rel="stylesheet" href="./tower-graph.css?v=20260806-0205" />
 </head>
 <body>
   <div class="app-shell">
@@ -55,7 +55,7 @@
         <section>
           <p class="eyebrow">学习阶段</p>
           <div id="stageFilters" class="stage-grid"></div>
-          <p class="section-note">第0层为初等基础，第8层为研究前沿；阶段不等于简单难度排名。</p>
+          <p class="section-note">第0层位于塔底，第8层位于塔顶；阶段不等于简单难度排名。</p>
         </section>
 
         <section>
@@ -76,7 +76,7 @@
         <section class="status-card">
           <span class="status-pulse"></span>
           <div>
-            <strong>知识图谱 v0.4</strong>
+            <strong>知识图谱 v0.5</strong>
             <p><span id="catalogStats"></span><br /><span id="chunkStats"></span></p>
           </div>
         </section>
@@ -84,14 +84,14 @@
 
       <section class="map-panel" aria-label="交互式知识地图">
         <div class="map-toolbar">
-          <div class="breadcrumb">完整知识图谱</div>
+          <div class="breadcrumb">自下而上的知识塔</div>
           <div class="toolbar-meta">
             <strong id="visibleCount">0 个节点</strong>
-            <span>默认隐藏连线 · 点击节点显示准确依赖 · 拖动画布 · 滚轮缩放</span>
+            <span>同层并列 · 由下向上 · 点击节点显示准确依赖</span>
           </div>
           <div class="zoom-controls" aria-label="缩放控制">
             <button id="zoomOut" title="缩小">−</button>
-            <button id="resetView" title="回到顶部视图">重置</button>
+            <button id="resetView" title="回到塔底">重置</button>
             <button id="zoomIn" title="放大">＋</button>
           </div>
         </div>
@@ -101,7 +101,7 @@
             <canvas id="edgeCanvas" class="edge-canvas" aria-hidden="true"></canvas>
             <div id="graphTransform" class="graph-transform"></div>
           </div>
-          <div class="map-hint">点击节点显示必要前置、推荐关联与后续方向；未选中时不绘制关系线</div>
+          <div class="map-hint">第0层在底部，第8层在顶部；拖动画布向上探索更高阶段</div>
         </div>
       </section>
 
@@ -154,13 +154,12 @@
     </article>
   </template>
 
-  <script src="./data/catalog.part1.js?v=20260806-0145"></script>
-  <script src="./data/catalog.part2.js?v=20260806-0145"></script>
-  <script src="./data/catalog.part3.js?v=20260806-0145"></script>
-  <script src="./data/catalog.part4.js?v=20260806-0145"></script>
-  <script src="./data/catalog.part5.js?v=20260806-0145"></script>
-  <script src="./data/catalog.js?v=20260806-0145"></script>
-  <script src="./edge-clarity.js?v=20260806-0145"></script>
-  <script src="./app-v3.js?v=20260806-0145" defer></script>
+  <script src="./data/catalog.part1.js?v=20260806-0205"></script>
+  <script src="./data/catalog.part2.js?v=20260806-0205"></script>
+  <script src="./data/catalog.part3.js?v=20260806-0205"></script>
+  <script src="./data/catalog.part4.js?v=20260806-0205"></script>
+  <script src="./data/catalog.part5.js?v=20260806-0205"></script>
+  <script src="./data/catalog.js?v=20260806-0205"></script>
+  <script src="./app-v4.js?v=20260806-0205" defer></script>
 </body>
 </html>
