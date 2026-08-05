@@ -27,22 +27,20 @@ jobs:
       - name: Prepare static site
         run: |
           mkdir -p _site
-          cp index.html styles.css graph-runtime.css virtual-graph.css edge-clarity.js app.js app-v2.js app-v3.js .nojekyll _site/
+          cp index.html styles.css tower-graph.css app-v4.js .nojekyll _site/
           cp -R data styles _site/
 
       - name: Validate static site
         run: |
           test -s _site/index.html
           test -s _site/styles.css
-          test -s _site/virtual-graph.css
-          test -s _site/edge-clarity.js
-          test -s _site/app-v3.js
+          test -s _site/tower-graph.css
+          test -s _site/app-v4.js
           test -s _site/data/catalog.js
           test -s _site/data/catalog.part5.js
           test -s _site/styles/base.css
           test -s _site/styles/graph.css
-          node --check _site/edge-clarity.js
-          node --check _site/app-v3.js
+          node --check _site/app-v4.js
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
