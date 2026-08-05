@@ -8,8 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="纯数学、计算机科学与人工智能多尺度知识图谱" />
   <title>数学·计算机·人工智能知识图谱</title>
-  <link rel="stylesheet" href="./styles.css?v=20260806-0222" />
-  <link rel="stylesheet" href="./tower-graph.css?v=20260806-0222" />
+  <link rel="stylesheet" href="./styles.css?v=20260806-0232" />
+  <link rel="stylesheet" href="./tower-graph.css?v=20260806-0232" />
 </head>
 <body>
   <div class="app-shell">
@@ -76,7 +76,7 @@
         <section class="status-card">
           <span class="status-pulse"></span>
           <div>
-            <strong>知识图谱 v0.6</strong>
+            <strong>知识图谱 v0.7</strong>
             <p><span id="catalogStats"></span><br /><span id="chunkStats"></span></p>
           </div>
         </section>
@@ -87,7 +87,7 @@
           <div class="breadcrumb">统一的纵向知识塔</div>
           <div class="toolbar-meta">
             <strong id="visibleCount">0 个节点</strong>
-            <span>自下向上：纯数学 → 计算机科学 → 人工智能；同层只有一行</span>
+            <span>跨层上下连接 · 同层从上下轨道绕行 · 点击节点显示依赖</span>
           </div>
           <div class="zoom-controls" aria-label="缩放控制">
             <button id="zoomOut" title="缩小">−</button>
@@ -101,7 +101,7 @@
             <canvas id="edgeCanvas" class="edge-canvas" aria-hidden="true"></canvas>
             <div id="graphTransform" class="graph-transform"></div>
           </div>
-          <div class="map-hint">页面底部是纯数学，向上依次进入计算机科学和人工智能；每个阶段横向展开且不换行</div>
+          <div class="map-hint">同层关系使用节点上方或下方的独立轨道，跨层关系从节点顶部与底部连接</div>
         </div>
       </section>
 
@@ -154,12 +154,12 @@
     </article>
   </template>
 
-  <script src="./data/catalog.part1.js?v=20260806-0222"></script>
-  <script src="./data/catalog.part2.js?v=20260806-0222"></script>
-  <script src="./data/catalog.part3.js?v=20260806-0222"></script>
-  <script src="./data/catalog.part4.js?v=20260806-0222"></script>
-  <script src="./data/catalog.part5.js?v=20260806-0222"></script>
-  <script src="./data/catalog.js?v=20260806-0222"></script>
-  <script src="./app-v5.js?v=20260806-0222" defer></script>
+  <script src="./data/catalog.part1.js?v=20260806-0232"></script>
+  <script src="./data/catalog.part2.js?v=20260806-0232"></script>
+  <script src="./data/catalog.part3.js?v=20260806-0232"></script>
+  <script src="./data/catalog.part4.js?v=20260806-0232"></script>
+  <script src="./data/catalog.part5.js?v=20260806-0232"></script>
+  <script src="./data/catalog.js?v=20260806-0232"></script>
+  <script src="./app-v5.js?v=20260806-0232" defer></script>
 </body>
 </html>
