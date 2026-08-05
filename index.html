@@ -8,8 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="纯数学、计算机科学与人工智能多尺度知识图谱" />
   <title>数学·计算机·人工智能知识图谱</title>
-  <link rel="stylesheet" href="./styles.css?v=20260805-1625" />
-  <link rel="stylesheet" href="./virtual-graph.css?v=20260805-1625" />
+  <link rel="stylesheet" href="./styles.css?v=20260806-0145" />
+  <link rel="stylesheet" href="./virtual-graph.css?v=20260806-0145" />
 </head>
 <body>
   <div class="app-shell">
@@ -87,7 +87,7 @@
           <div class="breadcrumb">完整知识图谱</div>
           <div class="toolbar-meta">
             <strong id="visibleCount">0 个节点</strong>
-            <span>仅加载视口附近区块 · 拖动画布 · 滚轮缩放</span>
+            <span>默认隐藏连线 · 点击节点显示准确依赖 · 拖动画布 · 滚轮缩放</span>
           </div>
           <div class="zoom-controls" aria-label="缩放控制">
             <button id="zoomOut" title="缩小">−</button>
@@ -101,7 +101,7 @@
             <canvas id="edgeCanvas" class="edge-canvas" aria-hidden="true"></canvas>
             <div id="graphTransform" class="graph-transform"></div>
           </div>
-          <div class="map-hint">拖动空白处平移 · 滚轮缩放 · 点击节点只高亮相关依赖</div>
+          <div class="map-hint">点击节点显示必要前置、推荐关联与后续方向；未选中时不绘制关系线</div>
         </div>
       </section>
 
@@ -154,12 +154,13 @@
     </article>
   </template>
 
-  <script src="./data/catalog.part1.js?v=20260805-1625"></script>
-  <script src="./data/catalog.part2.js?v=20260805-1625"></script>
-  <script src="./data/catalog.part3.js?v=20260805-1625"></script>
-  <script src="./data/catalog.part4.js?v=20260805-1625"></script>
-  <script src="./data/catalog.part5.js?v=20260805-1625"></script>
-  <script src="./data/catalog.js?v=20260805-1625"></script>
-  <script src="./app-v3.js?v=20260805-1625" defer></script>
+  <script src="./data/catalog.part1.js?v=20260806-0145"></script>
+  <script src="./data/catalog.part2.js?v=20260806-0145"></script>
+  <script src="./data/catalog.part3.js?v=20260806-0145"></script>
+  <script src="./data/catalog.part4.js?v=20260806-0145"></script>
+  <script src="./data/catalog.part5.js?v=20260806-0145"></script>
+  <script src="./data/catalog.js?v=20260806-0145"></script>
+  <script src="./edge-clarity.js?v=20260806-0145"></script>
+  <script src="./app-v3.js?v=20260806-0145" defer></script>
 </body>
 </html>
