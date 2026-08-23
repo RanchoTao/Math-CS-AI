@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ranchotao.com/Math-CS-AI/schemas/knowledge-page.schema.json",
+  "title": "知识节点页面内容",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "slug",
+    "title",
+    "tier",
+    "status",
+    "kind",
+    "summary",
+    "why",
+    "learningObjectives",
+    "coreTopics",
+    "resources",
+    "completion",
+    "sources"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "slug": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+    "title": { "type": "string", "minLength": 1 },
+    "aliases": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "tier": { "enum": ["基础页", "标准页", "精品页"] },
+    "status": { "enum": ["draft", "validated", "reviewed", "published"] },
+    "kind": { "enum": ["course", "practice", "tool", "frontier"] },
+    "summary": { "type": "string", "minLength": 1 },
+    "why": { "type": "string", "minLength": 1 },
+    "learningObjectives": { "type": "array", "items": { "type": "string" } },
+    "coreTopics": { "type": "array", "items": { "type": "string" } },
+    "syllabus": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["title", "topics"],
+        "properties": {
+          "title": { "type": "string" },
+          "topics": { "type": "array", "items": { "type": "string" } }
+        },
+        "additionalProperties": false
+      }
+    },
+    "resources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "title", "verification"],
+        "properties": {
+          "type": { "enum": ["主教材", "进阶教材", "公开课", "讲义", "工具", "参考资料"] },
+          "title": { "type": "string" },
+          "author": { "type": "string" },
+          "institution": { "type": "string" },
+          "url": { "type": "string" },
+          "verification": { "enum": ["待核验", "已核验"] }
+        },
+        "additionalProperties": false
+      }
+    },
+    "exercises": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "description"],
+        "properties": {
+          "type": { "enum": ["基础题", "证明题", "综合题", "编程题", "实验题", "研究型问题"] },
+          "description": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "projects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["title", "description"],
+        "properties": {
+          "title": { "type": "string" },
+          "description": { "type": "string" },
+          "deliverable": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "completion": {
+      "type": "object",
+      "required": ["basic", "proficient", "researchReady"],
+      "properties": {
+        "basic": { "type": "string" },
+        "proficient": { "type": "string" },
+        "researchReady": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["sourceType", "title", "verification"],
+        "properties": {
+          "sourceType": { "enum": ["大学课程", "教师讲义", "教材", "官方文档", "其他"] },
+          "title": { "type": "string" },
+          "institution": { "type": "string" },
+          "url": { "type": "string" },
+          "verification": { "enum": ["待核验", "已核验"] },
+          "checkedAt": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
