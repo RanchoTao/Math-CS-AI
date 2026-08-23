@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "slug": "operating-systems",
+  "title": "操作系统",
+  "aliases": [],
+  "tier": "标准页",
+  "status": "draft",
+  "kind": "course",
+  "summary": "研究计算机如何管理处理器、内存、存储与并发执行，并向上层程序提供稳定抽象。",
+  "why": "操作系统把程序设计与真实计算机系统连接起来。理解进程、虚拟内存、文件系统和并发之后，才能真正理解程序为什么会变慢、崩溃、阻塞或出现竞态。",
+  "learningObjectives": [
+    "解释进程、线程、系统调用和上下文切换之间的关系。",
+    "理解虚拟内存、页表、缓存与地址空间的基本机制。",
+    "能够分析锁、信号量、条件变量与常见并发错误。",
+    "理解文件系统、持久化与基本 I/O 路径。",
+    "能够完成小型系统实验并使用调试工具定位问题。"
+  ],
+  "coreTopics": [
+    "进程与线程",
+    "系统调用",
+    "调度",
+    "同步与并发",
+    "虚拟内存",
+    "文件系统",
+    "I/O",
+    "保护与隔离"
+  ],
+  "syllabus": [
+    {"title": "操作系统接口", "topics": ["系统调用", "用户态与内核态", "异常与中断"]},
+    {"title": "进程与调度", "topics": ["进程", "线程", "上下文切换", "调度策略"]},
+    {"title": "并发与同步", "topics": ["锁", "信号量", "条件变量", "死锁", "竞态条件"]},
+    {"title": "内存管理", "topics": ["地址空间", "分页", "页表", "虚拟内存", "页面置换"]},
+    {"title": "存储与文件系统", "topics": ["文件", "目录", "inode 思想", "崩溃一致性", "日志"]},
+    {"title": "系统实验", "topics": ["shell", "线程库", "内存管理实验", "文件系统实验"]}
+  ],
+  "resources": [
+    {"type": "主教材", "title": "Operating Systems: Three Easy Pieces", "author": "Remzi H. Arpaci-Dusseau, Andrea C. Arpaci-Dusseau", "verification": "待核验"},
+    {"type": "进阶教材", "title": "Operating System Concepts", "author": "Abraham Silberschatz et al.", "verification": "待核验"}
+  ],
+  "exercises": [
+    {"type": "综合题", "description": "分析调度、分页和文件系统中的典型执行过程。"},
+    {"type": "实验题", "description": "通过系统调用、并发和内存实验观察操作系统机制。"}
+  ],
+  "projects": [
+    {"title": "简化 Shell", "description": "实现命令解析、子进程创建、管道和基本作业控制。", "deliverable": "可运行程序、测试与设计说明"},
+    {"title": "线程与同步实验", "description": "实现并测试锁、条件变量或线程池。", "deliverable": "代码、并发测试与错误分析"}
+  ],
+  "completion": {
+    "basic": "能够解释进程、调度、虚拟内存、文件系统和同步的基本机制。",
+    "proficient": "能够独立完成典型系统实验，分析竞态、死锁、页面置换与 I/O 问题。",
+    "researchReady": "能够进入分布式系统、体系结构、系统安全或高性能系统课程，并阅读系统论文。"
+  },
+  "sources": [
+    {"sourceType": "教材", "title": "Operating Systems: Three Easy Pieces", "verification": "待核验"},
+    {"sourceType": "教材", "title": "Operating System Concepts", "verification": "待核验"}
+  ]
+}
