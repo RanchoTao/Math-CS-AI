@@ -1,0 +1,1 @@
+(()=>{"use strict";document.addEventListener("click",event=>{const button=event.target.closest(".course-button");if(!button)return;const title=document.querySelector(".detail-title")?.textContent?.trim();if(!title)return;event.preventDefault();location.href=`./knowledge.html?title=${encodeURIComponent(title)}`;});})();
