@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "pages": [
+    {
+      "slug": "real-analysis-i",
+      "title": "实分析 I",
+      "aliases": ["实分析", "实分析I"],
+      "path": "./content/pages/real-analysis-i.json"
+    },
+    {
+      "slug": "operating-systems",
+      "title": "操作系统",
+      "aliases": [],
+      "path": "./content/pages/operating-systems.json"
+    },
+    {
+      "slug": "machine-learning",
+      "title": "机器学习",
+      "aliases": [],
+      "path": "./content/pages/machine-learning.json"
+    },
+    {
+      "slug": "command-line-git",
+      "title": "命令行与 Git",
+      "aliases": ["命令行与Git", "Git"],
+      "path": "./content/pages/command-line-git.json"
+    }
+  ]
+}
