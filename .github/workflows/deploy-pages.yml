@@ -24,25 +24,36 @@ jobs:
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
+      - name: Validate knowledge content
+        run: |
+          node scripts/validate-content.mjs
+
       - name: Prepare static site
         run: |
           mkdir -p _site
-          cp index.html styles.css tower-graph.css app-v4.js app-v5.js .nojekyll _site/
-          cp -R data styles _site/
+          cp index.html knowledge.html styles.css tower-graph.css knowledge.css app-v4.js app-v5.js knowledge.js knowledge-link.js .nojekyll _site/
+          cp -R data styles content schemas _site/
 
       - name: Validate static site
         run: |
           test -s _site/index.html
+          test -s _site/knowledge.html
           test -s _site/styles.css
           test -s _site/tower-graph.css
+          test -s _site/knowledge.css
           test -s _site/app-v4.js
           test -s _site/app-v5.js
+          test -s _site/knowledge.js
+          test -s _site/knowledge-link.js
           test -s _site/data/catalog.js
           test -s _site/data/catalog.part5.js
-          test -s _site/styles/base.css
-          test -s _site/styles/graph.css
+          test -s _site/content/manifest.json
+          test -s _site/content/pages/real-analysis-i.json
+          test -s _site/schemas/knowledge-page.schema.json
           node --check _site/app-v4.js
           node --check _site/app-v5.js
+          node --check _site/knowledge.js
+          node --check _site/knowledge-link.js
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
