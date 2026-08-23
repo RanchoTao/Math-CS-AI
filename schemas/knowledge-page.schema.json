@@ -48,7 +48,7 @@
         "type": "object",
         "required": ["type", "title", "verification"],
         "properties": {
-          "type": { "enum": ["主教材", "进阶教材", "公开课", "讲义", "工具", "参考资料"] },
+          "type": { "enum": ["主教材", "进阶教材", "公开课", "讲义", "工具", "官方文档", "参考资料"] },
           "title": { "type": "string" },
           "author": { "type": "string" },
           "institution": { "type": "string" },
