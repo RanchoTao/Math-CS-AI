@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "slug": "command-line-git",
+  "title": "命令行与 Git",
+  "aliases": ["命令行与Git", "Git"],
+  "tier": "标准页",
+  "status": "draft",
+  "kind": "tool",
+  "summary": "掌握命令行环境、文件与进程操作、版本控制和协作工作流，是科研与工程开发的基础工具能力。",
+  "why": "大量开发、实验、部署和科研工作发生在终端环境中。Git 则承担代码历史、分支、协作和可追溯性管理。二者共同构成现代工程工作流的基本基础设施。",
+  "learningObjectives": [
+    "能够在命令行中完成文件、目录、进程和常见文本处理任务。",
+    "理解工作区、暂存区、提交和分支的基本模型。",
+    "能够独立完成提交、回退、分支、合并和冲突处理。",
+    "能够阅读 Git 历史并使用版本控制定位问题。",
+    "建立小步提交、可回滚和清晰提交信息的工程习惯。"
+  ],
+  "coreTopics": [
+    "Shell 与命令行",
+    "文件与目录操作",
+    "管道与重定向",
+    "Git 工作区与暂存区",
+    "提交历史",
+    "分支与合并",
+    "冲突处理",
+    "远程仓库",
+    "回退与恢复"
+  ],
+  "syllabus": [
+    {"title": "命令行环境", "topics": ["路径", "文件操作", "环境变量", "权限", "进程"]},
+    {"title": "组合命令", "topics": ["标准输入输出", "管道", "重定向", "文本处理"]},
+    {"title": "Git 基本模型", "topics": ["工作区", "暂存区", "提交", "对象与引用的直觉"]},
+    {"title": "分支工作流", "topics": ["分支", "合并", "变基", "冲突处理"]},
+    {"title": "历史与恢复", "topics": ["日志", "diff", "restore", "reset", "revert", "bisect 思想"]},
+    {"title": "协作规范", "topics": ["远程仓库", "拉取请求", "小步提交", "提交信息"]}
+  ],
+  "resources": [
+    {"type": "主教材", "title": "Pro Git", "author": "Scott Chacon, Ben Straub", "verification": "待核验"},
+    {"type": "官方文档", "title": "Git 官方文档", "verification": "待核验"}
+  ],
+  "exercises": [
+    {"type": "实验题", "description": "在本地仓库中练习提交、分支、合并、冲突解决和回退。"},
+    {"type": "综合题", "description": "根据一个错误提交历史选择合适的恢复方法并解释原因。"}
+  ],
+  "projects": [
+    {"title": "可追溯开发练习", "description": "完成一个小项目，要求每个功能点独立提交，并通过分支完成一次功能开发与合并。", "deliverable": "Git 仓库、提交历史和工作流说明"}
+  ],
+  "completion": {
+    "basic": "能够独立完成常见命令行操作和 Git 提交、拉取、分支、合并。",
+    "proficient": "能够处理冲突、回退错误提交、整理历史并为项目设计清晰的版本控制流程。",
+    "researchReady": "能够在多人科研或工程项目中稳定使用 Git 管理实验代码、版本、协作和可复现记录。"
+  },
+  "sources": [
+    {"sourceType": "官方文档", "title": "Git 官方文档", "verification": "待核验"},
+    {"sourceType": "教材", "title": "Pro Git", "verification": "待核验"}
+  ]
+}
