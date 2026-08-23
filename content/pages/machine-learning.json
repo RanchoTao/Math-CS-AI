@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "slug": "machine-learning",
+  "title": "机器学习",
+  "aliases": [],
+  "tier": "标准页",
+  "status": "draft",
+  "kind": "course",
+  "summary": "研究如何从数据中学习可泛化的预测、表示与决策规律，是现代人工智能的核心基础。",
+  "why": "机器学习连接概率统计、优化、算法与真实数据问题。它既是深度学习的直接基础，也提供理解模型泛化、评估与实验设计所需的共同语言。",
+  "learningObjectives": [
+    "能够区分监督学习、无监督学习与基本决策问题。",
+    "理解损失函数、经验风险、正则化和泛化之间的关系。",
+    "能够实现并分析线性模型、树模型、核方法和基础聚类方法。",
+    "能够设计训练集、验证集、测试集并避免常见数据泄漏。",
+    "能够用实验结果比较模型并解释主要误差来源。"
+  ],
+  "coreTopics": [
+    "线性回归与分类",
+    "偏差与方差",
+    "正则化",
+    "模型选择",
+    "核方法",
+    "决策树与集成学习",
+    "聚类与降维",
+    "概率建模",
+    "泛化与评估"
+  ],
+  "syllabus": [
+    {"title": "学习问题与实验协议", "topics": ["监督学习", "数据划分", "损失函数", "评价指标"]},
+    {"title": "线性模型", "topics": ["最小二乘", "逻辑回归", "正则化"]},
+    {"title": "非线性方法", "topics": ["核方法", "支持向量机思想", "决策树", "集成学习"]},
+    {"title": "无监督学习", "topics": ["聚类", "主成分分析", "表示与距离"]},
+    {"title": "概率视角", "topics": ["最大似然", "贝叶斯思想", "生成与判别模型"]},
+    {"title": "泛化与实践", "topics": ["过拟合", "交叉验证", "数据泄漏", "误差分析"]}
+  ],
+  "resources": [
+    {"type": "主教材", "title": "An Introduction to Statistical Learning", "author": "Gareth James et al.", "verification": "待核验"},
+    {"type": "进阶教材", "title": "Probabilistic Machine Learning: An Introduction", "author": "Kevin P. Murphy", "verification": "待核验"},
+    {"type": "参考资料", "title": "The Elements of Statistical Learning", "author": "Trevor Hastie, Robert Tibshirani, Jerome Friedman", "verification": "待核验"}
+  ],
+  "exercises": [
+    {"type": "综合题", "description": "推导常见模型目标函数，并比较不同正则化与评价指标。"},
+    {"type": "编程题", "description": "从零实现若干基础算法并与成熟库结果对照。"},
+    {"type": "实验题", "description": "完成数据划分、基线、模型选择、误差分析和可复现实验。"}
+  ],
+  "projects": [
+    {"title": "完整监督学习基线", "description": "针对一个公开数据集建立从数据清洗到评估的完整基线。", "deliverable": "代码、实验表格、误差分析与技术报告"},
+    {"title": "模型比较实验", "description": "比较线性模型、树模型与核方法在同一任务上的表现。", "deliverable": "可复现实验与结论说明"}
+  ],
+  "completion": {
+    "basic": "能够正确训练、验证和评估常见机器学习模型，并理解主要术语。",
+    "proficient": "能够从零实现核心算法，设计可靠实验并解释泛化、正则化和误差来源。",
+    "researchReady": "能够进入深度学习、统计学习理论、概率图模型或强化学习，并阅读基础机器学习论文。"
+  },
+  "sources": [
+    {"sourceType": "教材", "title": "An Introduction to Statistical Learning", "verification": "待核验"},
+    {"sourceType": "教材", "title": "Probabilistic Machine Learning: An Introduction", "verification": "待核验"}
+  ]
+}
