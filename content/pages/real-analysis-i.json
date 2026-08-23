@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "slug": "real-analysis-i",
+  "title": "实分析 I",
+  "aliases": ["实分析", "实分析I"],
+  "tier": "标准页",
+  "status": "draft",
+  "kind": "course",
+  "summary": "把微积分中的极限、连续、收敛与积分提升到严格证明层面，是现代分析训练的核心入口。",
+  "why": "实分析训练的是从直觉计算转向严格论证的能力。它为测度论、泛函分析、概率论严格基础、偏微分方程等方向提供共同语言。",
+  "learningObjectives": [
+    "能够使用严格的极限语言组织证明，而不是只依赖计算直觉。",
+    "能够判断并证明数列、函数列的收敛性质。",
+    "能够熟练使用紧致性、完备性、一致连续等基本概念。",
+    "能够独立阅读标准本科实分析教材中的定义、定理与证明。"
+  ],
+  "coreTopics": [
+    "实数完备性",
+    "数列与函数极限",
+    "连续与一致连续",
+    "微分理论",
+    "Riemann 积分",
+    "函数项级数",
+    "一致收敛",
+    "度量空间初步"
+  ],
+  "syllabus": [
+    {"title": "实数系统与完备性", "topics": ["上确界性质", "确界", "Archimedes 性质"]},
+    {"title": "数列与极限", "topics": ["收敛", "Cauchy 列", "子列", "Bolzano–Weierstrass 思想"]},
+    {"title": "连续性", "topics": ["连续", "一致连续", "紧致集上的连续函数"]},
+    {"title": "微分理论", "topics": ["导数", "中值定理", "Taylor 思想"]},
+    {"title": "积分与级数", "topics": ["Riemann 积分", "函数项级数", "一致收敛"]},
+    {"title": "度量空间初步", "topics": ["度量", "开集", "完备性", "紧致性"]}
+  ],
+  "resources": [
+    {"type": "主教材", "title": "Understanding Analysis", "author": "Stephen Abbott", "verification": "待核验"},
+    {"type": "进阶教材", "title": "Principles of Mathematical Analysis", "author": "Walter Rudin", "verification": "待核验"},
+    {"type": "参考资料", "title": "Analysis I", "author": "Terence Tao", "verification": "待核验"}
+  ],
+  "exercises": [
+    {"type": "证明题", "description": "使用严格定义证明极限、连续性与一致连续性。"},
+    {"type": "综合题", "description": "围绕紧致性、完备性和一致收敛组织多步论证。"}
+  ],
+  "projects": [
+    {"title": "反例手册", "description": "整理实分析中常见命题的成立条件与反例。", "deliverable": "一份按主题分类的反例与证明笔记"}
+  ],
+  "completion": {
+    "basic": "能够理解主要定义并完成标准证明题与计算题。",
+    "proficient": "能够独立处理多步证明，解释紧致性、完备性、一致收敛之间的作用关系。",
+    "researchReady": "能够顺利进入测度论、泛函分析或严格概率论课程，并阅读相应研究生教材。"
+  },
+  "sources": [
+    {"sourceType": "教材", "title": "Understanding Analysis", "verification": "待核验"},
+    {"sourceType": "教材", "title": "Principles of Mathematical Analysis", "verification": "待核验"}
+  ]
+}
