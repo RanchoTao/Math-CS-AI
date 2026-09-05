@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "mit-6-1810-operating-systems",
+  "knowledgeNode": "操作系统",
+  "institution": "MIT",
+  "courseCode": "6.1810 / 历史版本 6.S081",
+  "title": "Operating System Engineering",
+  "academicYear": "待核验",
+  "language": "英语",
+  "officialUrl": null,
+  "status": "unknown",
+  "coverage": [],
+  "features": ["labs", "systems-programming"],
+  "workload": { "estimatedHours": null },
+  "dimensions": { "theoryDepth": 3, "practiceIntensity": 5, "mathRequirement": 1, "programmingIntensity": 5, "resourceCompleteness": 3 },
+  "resources": [],
+  "sources": [],
+  "verification": "draft"
+}

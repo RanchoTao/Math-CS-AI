@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ranchotao.com/Math-CS-AI/schemas/learning-experience.schema.json",
+  "title": "学习经验",
+  "type": "object",
+  "required": ["schemaVersion", "knowledgeNode", "courseImplementation", "sourceType", "workloadHours", "difficulty", "hardestParts", "mostValuableParts", "recommendedPreparation", "advice", "source", "verification"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "knowledgeNode": { "type": "string", "minLength": 1 },
+    "courseImplementation": { "type": ["string", "null"] },
+    "sourceType": { "enum": ["community-project", "maintainer-review", "learner-report"] },
+    "workloadHours": { "type": ["number", "null"], "minimum": 0 },
+    "difficulty": { "type": ["integer", "null"], "minimum": 1, "maximum": 5 },
+    "hardestParts": { "$ref": "#/$defs/textList" },
+    "mostValuableParts": { "$ref": "#/$defs/textList" },
+    "recommendedPreparation": { "$ref": "#/$defs/textList" },
+    "advice": { "$ref": "#/$defs/textList" },
+    "source": {
+      "type": "object",
+      "required": ["title", "url"],
+      "properties": { "title": { "type": "string", "minLength": 1 }, "url": { "type": ["string", "null"], "format": "uri" } },
+      "additionalProperties": false
+    },
+    "verification": { "enum": ["unverified", "reviewed"] }
+  },
+  "$defs": { "textList": { "type": "array", "items": { "type": "string", "minLength": 1 } } },
+  "additionalProperties": false
+}

@@ -1,0 +1,6 @@
+{
+  "schemaVersion": 1,
+  "courses": [
+    { "id": "mit-6-1810-operating-systems", "knowledgeNode": "操作系统", "path": "./content/courses/mit-6-1810-operating-systems.json" }
+  ]
+}

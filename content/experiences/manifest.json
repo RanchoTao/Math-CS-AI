@@ -1,0 +1,6 @@
+{
+  "schemaVersion": 1,
+  "experiences": [
+    { "id": "mit-6-1810-research-placeholder", "knowledgeNode": "操作系统", "path": "./content/experiences/mit-6-1810-research-placeholder.json" }
+  ]
+}
