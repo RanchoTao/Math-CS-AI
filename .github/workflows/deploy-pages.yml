@@ -49,7 +49,13 @@ jobs:
           test -s _site/data/catalog.part5.js
           test -s _site/content/manifest.json
           test -s _site/content/pages/real-analysis-i.json
+          test -s _site/content/courses/manifest.json
+          test -s _site/content/courses/mit-6-1810-2025.json
+          test -s _site/content/experiences/manifest.json
+          test -s _site/content/experiences/csdiy-mit-6-s081-os.json
           test -s _site/schemas/knowledge-page.schema.json
+          test -s _site/schemas/course-implementation.schema.json
+          test -s _site/schemas/learning-experience.schema.json
           node --check _site/app-v4.js
           node --check _site/app-v5.js
           node --check _site/knowledge.js
