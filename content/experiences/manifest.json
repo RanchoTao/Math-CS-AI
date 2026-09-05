@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "experiences": [
+    {
+      "id": "csdiy-mit-6-s081-os",
+      "knowledgeNode": "操作系统",
+      "path": "./content/experiences/csdiy-mit-6-s081-os.json"
+    }
+  ]
+}
