@@ -3,40 +3,26 @@
   "$id": "https://ranchotao.com/Math-CS-AI/schemas/learning-experience.schema.json",
   "title": "学习经验",
   "type": "object",
-  "required": [
-    "schemaVersion",
-    "id",
-    "knowledgeNode",
-    "sourceType",
-    "hardestParts",
-    "mostValuableParts",
-    "recommendedPreparation",
-    "advice",
-    "source",
-    "verification"
-  ],
+  "required": ["schemaVersion", "knowledgeNode", "courseImplementation", "sourceType", "workloadHours", "difficulty", "hardestParts", "mostValuableParts", "recommendedPreparation", "advice", "source", "verification"],
   "properties": {
     "schemaVersion": { "const": 1 },
-    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
     "knowledgeNode": { "type": "string", "minLength": 1 },
-    "courseImplementation": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+    "courseImplementation": { "type": ["string", "null"] },
     "sourceType": { "enum": ["community-project", "maintainer-review", "learner-report"] },
-    "workloadHours": { "type": ["integer", "null"], "minimum": 0 },
+    "workloadHours": { "type": ["number", "null"], "minimum": 0 },
     "difficulty": { "type": ["integer", "null"], "minimum": 1, "maximum": 5 },
-    "hardestParts": { "type": "array", "items": { "type": "string" } },
-    "mostValuableParts": { "type": "array", "items": { "type": "string" } },
-    "recommendedPreparation": { "type": "array", "items": { "type": "string" } },
-    "advice": { "type": "array", "items": { "type": "string" } },
+    "hardestParts": { "$ref": "#/$defs/textList" },
+    "mostValuableParts": { "$ref": "#/$defs/textList" },
+    "recommendedPreparation": { "$ref": "#/$defs/textList" },
+    "advice": { "$ref": "#/$defs/textList" },
     "source": {
       "type": "object",
       "required": ["title", "url"],
-      "properties": {
-        "title": { "type": "string", "minLength": 1 },
-        "url": { "type": "string", "pattern": "^https?://" }
-      },
+      "properties": { "title": { "type": "string", "minLength": 1 }, "url": { "type": ["string", "null"], "format": "uri" } },
       "additionalProperties": false
     },
     "verification": { "enum": ["unverified", "reviewed"] }
   },
+  "$defs": { "textList": { "type": "array", "items": { "type": "string", "minLength": 1 } } },
   "additionalProperties": false
 }

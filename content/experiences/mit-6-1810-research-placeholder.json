@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "knowledgeNode": "操作系统",
+  "courseImplementation": "mit-6-1810-operating-systems",
+  "sourceType": "maintainer-review",
+  "workloadHours": null,
+  "difficulty": null,
+  "hardestParts": [],
+  "mostValuableParts": [],
+  "recommendedPreparation": [],
+  "advice": ["该条目仅用于验证学习经验渲染链路；正式经验需在核验来源后补充。"],
+  "source": { "title": "维护者研究占位记录", "url": null },
+  "verification": "unverified"
+}

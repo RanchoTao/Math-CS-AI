@@ -3,59 +3,36 @@
   "$id": "https://ranchotao.com/Math-CS-AI/schemas/course-implementation.schema.json",
   "title": "课程实现",
   "type": "object",
-  "required": [
-    "schemaVersion",
-    "id",
-    "knowledgeNode",
-    "institution",
-    "title",
-    "language",
-    "status",
-    "coverage",
-    "features",
-    "dimensions",
-    "resources",
-    "sources",
-    "verification"
-  ],
+  "required": ["schemaVersion", "id", "knowledgeNode", "institution", "courseCode", "title", "academicYear", "language", "officialUrl", "status", "coverage", "features", "workload", "dimensions", "resources", "sources", "verification"],
   "properties": {
     "schemaVersion": { "const": 1 },
     "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
     "knowledgeNode": { "type": "string", "minLength": 1 },
     "institution": { "type": "string", "minLength": 1 },
-    "courseCode": { "type": "string" },
+    "courseCode": { "type": "string", "minLength": 1 },
     "title": { "type": "string", "minLength": 1 },
-    "academicYear": { "type": "string" },
+    "academicYear": { "type": "string", "minLength": 1 },
     "language": { "type": "string", "minLength": 1 },
-    "officialUrl": { "type": "string", "pattern": "^https?://" },
+    "officialUrl": { "type": ["string", "null"], "format": "uri" },
     "status": { "enum": ["active", "historical", "unknown"] },
     "coverage": {
       "type": "array",
       "items": {
         "type": "object",
         "required": ["topic", "level"],
-        "properties": {
-          "topic": { "type": "string", "minLength": 1 },
-          "level": { "enum": ["intro", "core", "advanced"] }
-        },
+        "properties": { "topic": { "type": "string", "minLength": 1 }, "level": { "enum": ["intro", "core", "advanced"] } },
         "additionalProperties": false
       }
     },
-    "features": {
-      "type": "array",
-      "items": { "type": "string", "minLength": 1 },
-      "uniqueItems": true
-    },
+    "features": { "type": "array", "items": { "enum": ["labs", "projects", "paper-reading", "proof-heavy", "systems-programming"] }, "uniqueItems": true },
     "workload": {
-      "type": ["object", "null"],
+      "type": "object",
+      "required": ["estimatedHours"],
       "properties": {
         "estimatedHours": {
-          "type": "object",
+          "type": ["object", "null"],
           "required": ["min", "max"],
-          "properties": {
-            "min": { "type": "number", "minimum": 0 },
-            "max": { "type": "number", "minimum": 0 }
-          },
+          "properties": { "min": { "type": "number", "minimum": 0 }, "max": { "type": "number", "minimum": 0 } },
           "additionalProperties": false
         }
       },
@@ -63,13 +40,7 @@
     },
     "dimensions": {
       "type": "object",
-      "required": [
-        "theoryDepth",
-        "practiceIntensity",
-        "mathRequirement",
-        "programmingIntensity",
-        "resourceCompleteness"
-      ],
+      "required": ["theoryDepth", "practiceIntensity", "mathRequirement", "programmingIntensity", "resourceCompleteness"],
       "properties": {
         "theoryDepth": { "type": "integer", "minimum": 1, "maximum": 5 },
         "practiceIntensity": { "type": "integer", "minimum": 1, "maximum": 5 },
@@ -79,41 +50,17 @@
       },
       "additionalProperties": false
     },
-    "dimensionNote": { "type": "string" },
-    "resources": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": ["type", "title", "verification"],
-        "properties": {
-          "type": {
-            "enum": ["官方课程主页", "官方课程资料", "讲义", "实验", "教材", "视频", "官方仓库", "其他"]
-          },
-          "title": { "type": "string", "minLength": 1 },
-          "url": { "type": "string", "pattern": "^https?://" },
-          "verification": { "enum": ["待核验", "已核验"] }
-        },
-        "additionalProperties": false
-      }
-    },
-    "sources": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": ["sourceType", "title", "verification"],
-        "properties": {
-          "sourceType": {
-            "enum": ["大学官方课程主页", "官方课程资料", "教师主页", "官方课程仓库", "教材官网", "其他第一手资料"]
-          },
-          "title": { "type": "string", "minLength": 1 },
-          "url": { "type": "string", "pattern": "^https?://" },
-          "checkedAt": { "type": "string" },
-          "verification": { "enum": ["待核验", "已核验"] }
-        },
-        "additionalProperties": false
-      }
-    },
+    "resources": { "type": "array", "items": { "$ref": "#/$defs/link" } },
+    "sources": { "type": "array", "items": { "$ref": "#/$defs/link" } },
     "verification": { "enum": ["draft", "validated", "reviewed"] }
+  },
+  "$defs": {
+    "link": {
+      "type": "object",
+      "required": ["title", "url"],
+      "properties": { "title": { "type": "string", "minLength": 1 }, "url": { "type": "string", "format": "uri" } },
+      "additionalProperties": false
+    }
   },
   "additionalProperties": false
 }

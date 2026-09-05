@@ -2,7 +2,15 @@
 
 一个面向纯数学、计算机科学与人工智能的多尺度知识图谱与学习导航系统。
 
-网站不是把某所学校的课程表直接画成树，而是把相对稳定的知识本体、真实课程实现、培养方案和个人学习路线分开建模。
+网站不是把学校课程表直接画成树。内容系统首先严格区分三类对象：
+
+1. **KnowledgeNode / KnowledgePage**：稳定的知识本体与 canonical syllabus；
+2. **CourseImplementation**：某所大学、公开课程或教学体系的具体实现；
+3. **LearningExperience**：明确标为主观信息的社区、维护者或学习者经验。
+
+课程实现不等于知识节点，学习经验也不等于官方事实。三类对象分别位于 `content/pages/`、`content/courses/` 和 `content/experiences/`，并由独立 Schema 约束。图谱关系仍只由 `data/catalog.*` 维护。详细生产与核验规则见 `docs/CONTENT_RESEARCH_WORKFLOW.md`。
+
+知识图谱的产品视图还区分四层：
 
 ## 当前结构
 
