@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "courses": [
+    {
+      "id": "mit-6-1810-2025",
+      "knowledgeNode": "操作系统",
+      "path": "./content/courses/mit-6-1810-2025.json"
+    }
+  ]
+}
