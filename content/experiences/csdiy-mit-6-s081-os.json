@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "csdiy-mit-6-s081-os",
+  "knowledgeNode": "操作系统",
+  "sourceType": "community-project",
+  "workloadHours": 150,
+  "difficulty": 5,
+  "hardestParts": [],
+  "mostValuableParts": [
+    "通过在 xv6 上持续完成实验理解操作系统机制，而不是只停留在讲义层面。",
+    "课程后半程接触文件系统、安全、网络、虚拟化等系统主题，能帮助学习者建立更完整的系统视角。"
+  ],
+  "recommendedPreparation": [
+    "计算机体系结构",
+    "扎实的 C 语言编程能力",
+    "RISC-V 汇编基础"
+  ],
+  "advice": [
+    "150 小时与难度 5/5 来自社区作者的个人经验，不是 MIT 官方要求。",
+    "课程编号、作业和资源版本应优先回到 MIT 当前官方页面核验。"
+  ],
+  "source": {
+    "title": "CS自学指南：MIT 6.S081: Operating System Engineering",
+    "url": "https://csdiy.wiki/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/MIT6.S081/"
+  },
+  "verification": "unverified"
+}

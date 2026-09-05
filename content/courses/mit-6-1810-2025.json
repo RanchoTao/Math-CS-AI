@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "id": "mit-6-1810-2025",
+  "knowledgeNode": "操作系统",
+  "institution": "麻省理工学院",
+  "courseCode": "6.1810",
+  "title": "Operating System Engineering",
+  "academicYear": "2025 Fall",
+  "language": "英语",
+  "officialUrl": "https://pdos.csail.mit.edu/6.1810/2025/",
+  "status": "historical",
+  "coverage": [
+    {"topic": "虚拟内存", "level": "core"},
+    {"topic": "文件系统", "level": "core"},
+    {"topic": "线程与上下文切换", "level": "core"},
+    {"topic": "内核、中断与系统调用", "level": "core"},
+    {"topic": "进程间通信与协调", "level": "core"},
+    {"topic": "软件与硬件交互", "level": "core"}
+  ],
+  "features": ["labs", "systems-programming", "xv6", "RISC-V"],
+  "workload": null,
+  "dimensions": {
+    "theoryDepth": 4,
+    "practiceIntensity": 5,
+    "mathRequirement": 2,
+    "programmingIntensity": 5,
+    "resourceCompleteness": 5
+  },
+  "dimensionNote": "维度为本站根据课程公开材料做的编辑性估计，用于描述课程风格，不是 MIT 官方评分，也不用于课程总排名。",
+  "resources": [
+    {
+      "type": "官方课程主页",
+      "title": "MIT 6.1810 Fall 2025",
+      "url": "https://pdos.csail.mit.edu/6.1810/2025/",
+      "verification": "已核验"
+    },
+    {
+      "type": "官方课程资料",
+      "title": "6.1810 Course Overview",
+      "url": "https://pdos.csail.mit.edu/6.828/2025/overview.html",
+      "verification": "已核验"
+    },
+    {
+      "type": "官方课程资料",
+      "title": "xv6 teaching operating system resources",
+      "url": "https://pdos.csail.mit.edu/6.1810/2025/xv6.html",
+      "verification": "已核验"
+    }
+  ],
+  "sources": [
+    {
+      "sourceType": "大学官方课程主页",
+      "title": "MIT 6.1810 Fall 2025",
+      "url": "https://pdos.csail.mit.edu/6.1810/2025/",
+      "checkedAt": "2026-09-05",
+      "verification": "已核验"
+    },
+    {
+      "sourceType": "官方课程资料",
+      "title": "6.1810: Learning by doing",
+      "url": "https://pdos.csail.mit.edu/6.828/2025/overview.html",
+      "checkedAt": "2026-09-05",
+      "verification": "已核验"
+    }
+  ],
+  "verification": "validated"
+}

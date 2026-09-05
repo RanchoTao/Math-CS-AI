@@ -1,6 +1,6 @@
-import fs from 'node:fs';
-import path from 'node:path';
-import zlib from 'node:zlib';
+import fs from "node:fs";
+import path from "node:path";
+import zlib from "node:zlib";
 
 const root = process.cwd();
 let errors = 0;

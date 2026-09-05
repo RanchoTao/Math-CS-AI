@@ -126,3 +126,52 @@ CI 至少检查：
 - 命令行与 Git：工具与实践节点。
 
 如果同一套页面系统能自然容纳这四类对象，再开始大规模生成其余节点。
+
+## 11. 三层内容边界
+
+知识页面的内容正式分成三层：
+
+### KnowledgeNode
+
+知识节点负责稳定知识标准，包括：
+
+- 核心问题；
+- 学习目标；
+- canonical syllabus；
+- 完成标准；
+- 从主图谱动态读取的前置、推荐与后续关系。
+
+### CourseImplementation
+
+课程实现描述某个真实大学、公开课程或标准教学体系如何教授知识节点，遵循 `schemas/course-implementation.schema.json`。
+
+课程实现可以包含学校、课程号、课程版本、覆盖主题、实验与项目特点、课程风格维度和官方来源，但不能把社区难度、个人建议、最难章节等主观经验字段混入其中。
+
+课程风格维度只用于描述，不计算总分，也不建立全局排行榜。
+
+### LearningExperience
+
+学习经验遵循 `schemas/learning-experience.schema.json`，用于保留社区项目、维护者或学习者的主观反馈。
+
+它可以包含：
+
+- 实际投入时间；
+- 难度；
+- 常见难点；
+- 最有价值部分；
+- 建议前置；
+- 学习建议。
+
+这些字段必须明确标记为“社区经验 / 主观经验”，不能作为官方课程事实，也不能自动进入 canonical syllabus。
+
+## 12. 社区项目的角色
+
+REKCARC、CS DIY、HackWay 等项目主要作为：
+
+- discovery 来源；
+- 课程与资源候选池；
+- learning experience 来源。
+
+其中课程号、年份、当前状态、prerequisites、syllabus、lab、project、教材和官方链接应尽可能回到大学或教师的一手来源核验。
+
+具体生产流程见 `docs/CONTENT_RESEARCH_WORKFLOW.md`。
