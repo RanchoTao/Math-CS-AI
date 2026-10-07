@@ -1,0 +1,14 @@
+{
+  "version": "test-fixture",
+  "clusters": [
+    { "id": "c-a", "title": "Fixture A", "domain": "math", "stage": 1, "order": 1, "summary": "Test only" },
+    { "id": "c-b", "title": "Fixture B", "domain": "cs", "stage": 2, "order": 2, "summary": "Test only" }
+  ],
+  "nodes": [
+    { "id": "n-a", "title": "Fixture A", "domain": "math", "cluster": "c-a", "stage": 0, "type": "course", "summary": "Test only", "prerequisites": [], "recommended": ["n-b"], "topics": [], "tags": [] },
+    { "id": "n-b", "title": "Fixture B", "domain": "cs", "cluster": "c-b", "stage": 2, "type": "tool", "summary": "Test only", "prerequisites": ["n-a"], "recommended": [], "topics": [], "tags": [] }
+  ],
+  "clusterEdges": [["c-a", "c-b"]],
+  "paths": { "example": { "title": "Fixture path", "nodes": ["n-a", "n-b"] } },
+  "curricula": { "atlas": { "title": "All nodes", "nodes": [] } }
+}
