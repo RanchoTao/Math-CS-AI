@@ -44,9 +44,11 @@ const fallback={
 };
 const content={...fallback,...(page||{}),completion:{...fallback.completion,...(page?.completion||{})}};
 document.title=`${node.title} · 知识节点`;
-const resourceHtml=(content.resources||[]).length?(content.resources||[]).map(r=>`<div class="resource"><strong>${esc(r.title)}</strong><small>${esc([r.type,r.author,r.institution].filter(Boolean).join(" · "))}</small>${r.verification?`<div class="source-status">${esc(r.verification)}</div>`:""}</div>`).join(""):`<p>资源尚未整理。</p>`;
+const referenceLink=(value,label)=>{if(typeof value!=="string"||!value.trim())return "";const url=safeUrl(value);return url?`<a class="official-link" href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(label)}</a>`:"";};
+const resourceHtml=(content.resources||[]).length?(content.resources||[]).map(r=>`<div class="resource"><strong>${esc(r.title)}</strong><small>${esc([r.type,r.author,r.institution].filter(Boolean).join(" · "))}</small>${r.verification?`<div class="source-status">${esc(r.verification)}</div>`:""}${referenceLink(r.url,"打开资源")}</div>`).join(""):`<p>资源尚未整理。</p>`;
 const syllabusHtml=(content.syllabus||[]).length?(content.syllabus||[]).map((s,i)=>`<div class="syllabus-item"><strong>${String(i+1).padStart(2,"0")} ${esc(s.title)}</strong><div class="chips">${(s.topics||[]).map(t=>`<span class="chip">${esc(t)}</span>`).join("")}</div></div>`).join(""):`<p>章节结构尚未整理。</p>`;
-const sourceHtml=(content.sources||[]).length?(content.sources||[]).map(s=>`<div class="resource"><strong>${esc(s.title)}</strong><small>${esc([s.sourceType,s.institution].filter(Boolean).join(" · "))}</small><div class="source-status">${esc(s.verification||"待核验")}</div></div>`).join(""):`<p>来源尚未整理。</p>`;
+const sourceHtml=(content.sources||[]).length?(content.sources||[]).map(s=>`<div class="resource"><strong>${esc(s.title)}</strong><small>${esc([s.sourceType,s.institution].filter(Boolean).join(" · "))}</small><div class="source-status">${esc(s.verification||"待核验")}${s.checkedAt?` · ${esc(s.checkedAt)}`:""}</div>${referenceLink(s.url,"核对来源")}</div>`).join(""):`<p>来源尚未整理。</p>`;
+const exerciseHtml=(content.exercises||[]).map(x=>`<div class="syllabus-item"><strong>${esc(x.type)}</strong>${String(x.description||"").split("\n").map(line=>`<p>${esc(line)}</p>`).join("")}</div>`).join("");
 const dimensionLabels={theoryDepth:"理论深度",practiceIntensity:"实践强度",mathRequirement:"数学要求",programmingIntensity:"编程强度",resourceCompleteness:"资源完整度"};
 const courseHtml=courses.length?`<div class="course-cards">${courses.map(course=>{
  const hours=course.workload?.estimatedHours;
@@ -66,7 +68,7 @@ ${page?"":`<div class="notice"><strong>基础页：</strong>该节点已经拥�
 <section class="section"><h2>学习目标</h2>${content.learningObjectives.length?list(content.learningObjectives):"<p>学习目标尚未整理。</p>"}</section>
 <section class="section"><h2>核心内容</h2>${content.coreTopics.length?`<div class="chips">${content.coreTopics.map(t=>`<span class="chip">${esc(t)}</span>`).join("")}</div>`:"<p>核心内容尚未整理。</p>"}</section>
 <section class="section"><h2>Canonical syllabus</h2><p class="section-note">该知识领域稳定的教学核心，不复制任何一所学校的 syllabus。</p>${syllabusHtml}</section>
-${(content.exercises||[]).length?`<section class="section"><h2>练习类型</h2>${list(content.exercises.map(x=>`${x.type}：${x.description}`))}</section>`:""}
+${exerciseHtml?`<section class="section"><h2>练习</h2>${exerciseHtml}</section>`:""}
 ${(content.projects||[]).length?`<section class="section"><h2>项目</h2>${content.projects.map(p=>`<div class="syllabus-item"><strong>${esc(p.title)}</strong><p>${esc(p.description)}</p>${p.deliverable?`<small>交付物：${esc(p.deliverable)}</small>`:""}</div>`).join("")}</section>`:""}
 </div><aside class="column">
 <section class="section"><h2>必要前置</h2>${chips(relationNodes(node.prerequisites))}<h3>推荐关联</h3>${chips(relationNodes(node.recommended))}<h3>可继续进入</h3>${chips(nextNodes)}</section>

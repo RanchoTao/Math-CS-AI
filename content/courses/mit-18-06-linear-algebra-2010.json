@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "id": "mit-18-06-linear-algebra-2010",
+  "knowledgeNode": "线性代数",
+  "institution": "MIT",
+  "courseCode": "18.06",
+  "title": "Linear Algebra",
+  "academicYear": "Spring 2010",
+  "language": "英语",
+  "officialUrl": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/pages/syllabus/",
+  "status": "historical",
+  "coverage": [
+    {
+      "topic": "消元与线性系统",
+      "level": "core"
+    },
+    {
+      "topic": "基与维数",
+      "level": "core"
+    },
+    {
+      "topic": "正交投影与最小二乘",
+      "level": "core"
+    },
+    {
+      "topic": "行列式",
+      "level": "core"
+    },
+    {
+      "topic": "特征值、对角化与正定性",
+      "level": "core"
+    },
+    {
+      "topic": "线性变换与SVD",
+      "level": "core"
+    }
+  ],
+  "features": [],
+  "workload": {
+    "estimatedHours": null
+  },
+  "dimensions": {
+    "theoryDepth": 3,
+    "practiceIntensity": 3,
+    "mathRequirement": 2,
+    "programmingIntensity": 2,
+    "resourceCompleteness": 4
+  },
+  "resources": [
+    {
+      "title": "官方单元目录",
+      "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/pages/calendar/"
+    },
+    {
+      "title": "官方作业与解答",
+      "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/pages/assignments/"
+    }
+  ],
+  "sources": [
+    {
+      "title": "官方syllabus，核验日期2026-10-11",
+      "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/pages/syllabus/"
+    }
+  ],
+  "verification": "draft"
+}
