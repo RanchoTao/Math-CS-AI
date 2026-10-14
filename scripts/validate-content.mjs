@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import zlib from "node:zlib";
+import { loadAtlasCatalog, validateGraph } from './validate-graph.mjs';
 
 const root = process.cwd();
 let errors = 0;
@@ -20,13 +20,10 @@ const loadReferenced = (entry, kind) => {
 };
 
 for (const schema of ['schemas/knowledge-page.schema.json', 'schemas/course-implementation.schema.json', 'schemas/learning-experience.schema.json']) readJson(schema);
-const encoded = [1,2,3,4,5].map(index => {
-  const text = fs.readFileSync(path.join(root, `data/catalog.part${index}.js`), 'utf8');
-  const match = text.match(/push\("([A-Za-z0-9+/=]+)"\)/);
-  if (!match) throw new Error(`无法读取 catalog.part${index}.js`);
-  return match[1];
-}).join('');
-const catalog = JSON.parse(zlib.gunzipSync(Buffer.from(encoded, 'base64')).toString('utf8'));
+const catalog = loadAtlasCatalog(root);
+const graphErrors = validateGraph(catalog);
+for (const error of graphErrors) fail(`graph: ${error}`);
+if (graphErrors.length) process.exit(1);
 const nodes = Array.isArray(catalog.nodes) ? catalog.nodes : Object.entries(catalog.nodes || {}).map(([id,item]) => ({id,...item}));
 const nodeTitles = new Set(nodes.map(node => clean(node.title)));
 const knowledgeExists = value => nodeTitles.has(clean(value));

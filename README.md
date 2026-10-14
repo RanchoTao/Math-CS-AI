@@ -145,15 +145,22 @@ schemas/
 
 ```bash
 node scripts/validate-content.mjs
+node --test tests/validate-graph.test.mjs
 ```
 
 校验内容包括：
 
+- 图谱节点和学科群 ID 唯一、必需字段及类型合法；
+- 前置、推荐、学科群连线与路线引用存在（也可单独运行 `node scripts/validate-graph.mjs`）；
 - 知识页 slug 与知识节点映射；
 - KnowledgePage 不得复制维护图谱关系；
 - CourseImplementation ID、知识节点和 1–5 维度；
 - LearningExperience 对课程实现的引用；
 - 三类对象的状态和必填字段。
+
+图谱校验按 `DATA_MODEL.md` 的静态 catalog 语义执行，允许数组及运行时支持的 ID 字典。
+它不检查环路或阶段先后，不判断教学内容正确性；空培养方案选择仍然合法。
+回归测试包含实际压缩图谱、有效边界条件和负例夹具，无需安装依赖或访问网络。
 
 ---
 

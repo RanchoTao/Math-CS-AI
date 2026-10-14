@@ -27,6 +27,7 @@ jobs:
       - name: Validate knowledge content
         run: |
           node scripts/validate-content.mjs
+          node --test tests/validate-graph.test.mjs
 
       - name: Prepare static site
         run: |
