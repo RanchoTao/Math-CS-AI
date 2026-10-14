@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "id": "mit-18-05-probability-2022",
+  "knowledgeNode": "概率论",
+  "institution": "MIT",
+  "courseCode": "18.05",
+  "title": "Introduction to Probability and Statistics（本记录仅映射概率部分）",
+  "academicYear": "Spring 2022",
+  "language": "英语",
+  "officialUrl": "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/pages/syllabus/",
+  "status": "historical",
+  "coverage": [
+    {
+      "topic": "计数与条件概率",
+      "level": "core"
+    },
+    {
+      "topic": "随机变量、分布、均值与方差",
+      "level": "core"
+    },
+    {
+      "topic": "联合分布、独立与协方差",
+      "level": "core"
+    },
+    {
+      "topic": "大数律与中心极限定理",
+      "level": "core"
+    }
+  ],
+  "features": [],
+  "workload": {
+    "estimatedHours": null
+  },
+  "dimensions": {
+    "theoryDepth": 2,
+    "practiceIntensity": 3,
+    "mathRequirement": 2,
+    "programmingIntensity": 2,
+    "resourceCompleteness": 4
+  },
+  "resources": [
+    {
+      "title": "官方阅读、课堂题与解答：Unit 1概率",
+      "url": "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/pages/classes-reading-and-in-class-materials/"
+    }
+  ],
+  "sources": [
+    {
+      "title": "官方syllabus，核验日期2026-10-11",
+      "url": "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/pages/syllabus/"
+    }
+  ],
+  "verification": "draft"
+}

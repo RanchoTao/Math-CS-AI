@@ -1,0 +1,4525 @@
+{
+  "checkedAt": "2026-10-11",
+  "baseCommit": "d3334fb0537dae7be2e62f3939bba0dbe92739b2",
+  "counts": {
+    "nodes": 296,
+    "clusters": 26,
+    "domains": {
+      "math": 87,
+      "cs": 94,
+      "ai": 115
+    },
+    "authoredPagesBefore": 4,
+    "authoredPagesAfter": 6,
+    "metadataFallbackBefore": 292,
+    "metadataFallbackAfter": 290,
+    "reviewedOrPublishedPages": 0,
+    "newSourceBackedDrafts": 2
+  },
+  "existingPagesUnchanged": [
+    {
+      "path": "content/pages/real-analysis-i.json",
+      "status": "draft",
+      "sha256": "60ee5b84417c5cd13f626505e4568641fd9b0754e0b604963d79e6d4dc758e97"
+    },
+    {
+      "path": "content/pages/operating-systems.json",
+      "status": "draft",
+      "sha256": "0a15d49ca2d299cadc0d55bb8b9e4d927a95051b4be018618bfafd4b17d9ed61"
+    },
+    {
+      "path": "content/pages/machine-learning.json",
+      "status": "draft",
+      "sha256": "18370b5fee7f56b2751a2927e98e5c2cf14b8a423054f00151384635ff74f73c"
+    },
+    {
+      "path": "content/pages/command-line-git.json",
+      "status": "draft",
+      "sha256": "8608571358156f5c50e0495448620cfd4e0160c4034e2d512c4c20b0fff23bc6"
+    }
+  ],
+  "notes": [
+    "覆盖数按catalog标题与manifest标题／aliases归一化映射；标准页tier不等于reviewed状态。",
+    "新页references的核验不代表全部章节已通过人工事实审校。",
+    "prerequisiteIds是本次catalog审计快照，不是KnowledgePage中维护的第二份关系。"
+  ],
+  "nodes": [
+    {
+      "nodeId": "elementary-algebra",
+      "title": "初等代数",
+      "domain": "math",
+      "stage": 0,
+      "prerequisiteIds": [],
+      "directDependents": 5,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "elementary-geometry",
+      "title": "初等几何",
+      "domain": "math",
+      "stage": 0,
+      "prerequisiteIds": [],
+      "directDependents": 2,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "trigonometry",
+      "title": "三角学",
+      "domain": "math",
+      "stage": 0,
+      "prerequisiteIds": [
+        "elementary-geometry"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "sequences-recursion",
+      "title": "数列与递推",
+      "domain": "math",
+      "stage": 0,
+      "prerequisiteIds": [
+        "elementary-algebra"
+      ],
+      "directDependents": 2,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "set-maps",
+      "title": "集合与映射",
+      "domain": "math",
+      "stage": 1,
+      "prerequisiteIds": [],
+      "directDependents": 6,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "logic-basics",
+      "title": "数理逻辑基础",
+      "domain": "math",
+      "stage": 1,
+      "prerequisiteIds": [
+        "set-maps"
+      ],
+      "directDependents": 6,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "proof-methods",
+      "title": "数学证明",
+      "domain": "math",
+      "stage": 1,
+      "prerequisiteIds": [
+        "logic-basics"
+      ],
+      "directDependents": 11,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "mathematical-writing",
+      "title": "数学写作",
+      "domain": "math",
+      "stage": 1,
+      "prerequisiteIds": [
+        "proof-methods"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "discrete-structures",
+      "title": "基础离散结构",
+      "domain": "math",
+      "stage": 1,
+      "prerequisiteIds": [
+        "set-maps"
+      ],
+      "directDependents": 4,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "elementary-combinatorics",
+      "title": "初等组合计数",
+      "domain": "math",
+      "stage": 1,
+      "prerequisiteIds": [
+        "sequences-recursion"
+      ],
+      "directDependents": 2,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "calculus",
+      "title": "微积分",
+      "domain": "math",
+      "stage": 2,
+      "prerequisiteIds": [
+        "elementary-algebra",
+        "trigonometry"
+      ],
+      "directDependents": 8,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "multivariable-calculus",
+      "title": "多元微积分",
+      "domain": "math",
+      "stage": 2,
+      "prerequisiteIds": [
+        "calculus",
+        "linear-algebra"
+      ],
+      "directDependents": 7,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "optimization",
+      "title": "最优化",
+      "domain": "math",
+      "stage": 3,
+      "prerequisiteIds": [
+        "multivariable-calculus",
+        "linear-algebra"
+      ],
+      "directDependents": 13,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "real-analysis-1",
+      "title": "实分析 I",
+      "domain": "math",
+      "stage": 3,
+      "prerequisiteIds": [
+        "calculus",
+        "proof-methods",
+        "set-maps"
+      ],
+      "directDependents": 8,
+      "pagePath": "./content/pages/real-analysis-i.json",
+      "tier": "标准页",
+      "status": "draft",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "real-analysis-2",
+      "title": "实分析 II",
+      "domain": "math",
+      "stage": 3,
+      "prerequisiteIds": [
+        "real-analysis-1",
+        "multivariable-calculus"
+      ],
+      "directDependents": 5,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "measure-theory",
+      "title": "测度与积分",
+      "domain": "math",
+      "stage": 4,
+      "prerequisiteIds": [
+        "real-analysis-1",
+        "set-maps"
+      ],
+      "directDependents": 8,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "complex-analysis",
+      "title": "复分析",
+      "domain": "math",
+      "stage": 3,
+      "prerequisiteIds": [
+        "calculus",
+        "real-analysis-1"
+      ],
+      "directDependents": 4,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "functional-analysis",
+      "title": "泛函分析",
+      "domain": "math",
+      "stage": 5,
+      "prerequisiteIds": [
+        "measure-theory",
+        "linear-algebra",
+        "real-analysis-2"
+      ],
+      "directDependents": 9,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "harmonic-analysis",
+      "title": "调和分析",
+      "domain": "math",
+      "stage": 5,
+      "prerequisiteIds": [
+        "measure-theory",
+        "functional-analysis",
+        "complex-analysis"
+      ],
+      "directDependents": 3,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "pde",
+      "title": "偏微分方程",
+      "domain": "math",
+      "stage": 5,
+      "prerequisiteIds": [
+        "real-analysis-2",
+        "measure-theory",
+        "functional-analysis"
+      ],
+      "directDependents": 5,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "distribution-theory",
+      "title": "分布理论",
+      "domain": "math",
+      "stage": 5,
+      "prerequisiteIds": [
+        "functional-analysis",
+        "measure-theory"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "operator-theory",
+      "title": "算子理论",
+      "domain": "math",
+      "stage": 6,
+      "prerequisiteIds": [
+        "functional-analysis"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "calculus-of-variations",
+      "title": "变分法",
+      "domain": "math",
+      "stage": 5,
+      "prerequisiteIds": [
+        "real-analysis-2",
+        "functional-analysis"
+      ],
+      "directDependents": 2,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "nonlinear-analysis",
+      "title": "非线性泛函分析",
+      "domain": "math",
+      "stage": 6,
+      "prerequisiteIds": [
+        "functional-analysis",
+        "calculus-of-variations"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "microlocal-analysis",
+      "title": "微局部分析",
+      "domain": "math",
+      "stage": 7,
+      "prerequisiteIds": [
+        "distribution-theory",
+        "harmonic-analysis",
+        "pde"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "geometric-analysis",
+      "title": "几何分析",
+      "domain": "math",
+      "stage": 7,
+      "prerequisiteIds": [
+        "pde",
+        "differential-geometry",
+        "calculus-of-variations"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "linear-algebra",
+      "title": "线性代数",
+      "domain": "math",
+      "stage": 2,
+      "prerequisiteIds": [
+        "elementary-algebra"
+      ],
+      "directDependents": 29,
+      "pagePath": "./content/pages/linear-algebra.json",
+      "tier": "标准页",
+      "status": "draft",
+      "verifiedSourceRecords": 5
+    },
+    {
+      "nodeId": "abstract-algebra-1",
+      "title": "抽象代数 I：群论",
+      "domain": "math",
+      "stage": 3,
+      "prerequisiteIds": [
+        "linear-algebra",
+        "proof-methods"
+      ],
+      "directDependents": 7,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "abstract-algebra-2",
+      "title": "抽象代数 II：环与域",
+      "domain": "math",
+      "stage": 3,
+      "prerequisiteIds": [
+        "abstract-algebra-1"
+      ],
+      "directDependents": 5,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "field-theory",
+      "title": "域论",
+      "domain": "math",
+      "stage": 4,
+      "prerequisiteIds": [
+        "abstract-algebra-2"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "galois-theory",
+      "title": "Galois 理论",
+      "domain": "math",
+      "stage": 4,
+      "prerequisiteIds": [
+        "field-theory",
+        "abstract-algebra-1"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "module-theory",
+      "title": "模论",
+      "domain": "math",
+      "stage": 4,
+      "prerequisiteIds": [
+        "abstract-algebra-2",
+        "linear-algebra"
+      ],
+      "directDependents": 2,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "commutative-algebra",
+      "title": "交换代数",
+      "domain": "math",
+      "stage": 5,
+      "prerequisiteIds": [
+        "abstract-algebra-2",
+        "module-theory"
+      ],
+      "directDependents": 2,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "representation-theory",
+      "title": "表示论",
+      "domain": "math",
+      "stage": 5,
+      "prerequisiteIds": [
+        "abstract-algebra-1",
+        "linear-algebra"
+      ],
+      "directDependents": 2,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "homological-algebra",
+      "title": "同调代数",
+      "domain": "math",
+      "stage": 5,
+      "prerequisiteIds": [
+        "module-theory",
+        "category-theory"
+      ],
+      "directDependents": 3,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "category-theory",
+      "title": "范畴论",
+      "domain": "math",
+      "stage": 5,
+      "prerequisiteIds": [
+        "abstract-algebra-1",
+        "point-set-topology"
+      ],
+      "directDependents": 4,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "derived-categories",
+      "title": "导出范畴",
+      "domain": "math",
+      "stage": 7,
+      "prerequisiteIds": [
+        "homological-algebra",
+        "category-theory"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "algebraic-geometry",
+      "title": "代数几何",
+      "domain": "math",
+      "stage": 6,
+      "prerequisiteIds": [
+        "commutative-algebra",
+        "point-set-topology"
+      ],
+      "directDependents": 2,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "analytic-geometry",
+      "title": "解析几何",
+      "domain": "math",
+      "stage": 1,
+      "prerequisiteIds": [
+        "elementary-geometry",
+        "elementary-algebra"
+      ],
+      "directDependents": 3,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "point-set-topology",
+      "title": "点集拓扑",
+      "domain": "math",
+      "stage": 3,
+      "prerequisiteIds": [
+        "set-maps",
+        "real-analysis-1"
+      ],
+      "directDependents": 5,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "smooth-manifolds",
+      "title": "光滑流形",
+      "domain": "math",
+      "stage": 4,
+      "prerequisiteIds": [
+        "multivariable-calculus",
+        "linear-algebra",
+        "point-set-topology"
+      ],
+      "directDependents": 4,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "differential-geometry",
+      "title": "微分几何",
+      "domain": "math",
+      "stage": 5,
+      "prerequisiteIds": [
+        "smooth-manifolds",
+        "linear-algebra"
+      ],
+      "directDependents": 5,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "riemannian-geometry",
+      "title": "Riemann 几何",
+      "domain": "math",
+      "stage": 6,
+      "prerequisiteIds": [
+        "differential-geometry",
+        "real-analysis-2"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "algebraic-topology",
+      "title": "代数拓扑",
+      "domain": "math",
+      "stage": 4,
+      "prerequisiteIds": [
+        "point-set-topology",
+        "abstract-algebra-1"
+      ],
+      "directDependents": 5,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "advanced-algebraic-topology",
+      "title": "高级代数拓扑",
+      "domain": "math",
+      "stage": 6,
+      "prerequisiteIds": [
+        "algebraic-topology",
+        "homological-algebra"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "geometric-topology",
+      "title": "几何拓扑",
+      "domain": "math",
+      "stage": 6,
+      "prerequisiteIds": [
+        "algebraic-topology",
+        "smooth-manifolds"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "geometric-group-theory",
+      "title": "几何群论",
+      "domain": "math",
+      "stage": 6,
+      "prerequisiteIds": [
+        "abstract-algebra-1",
+        "point-set-topology"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "symplectic-geometry",
+      "title": "辛几何",
+      "domain": "math",
+      "stage": 6,
+      "prerequisiteIds": [
+        "smooth-manifolds",
+        "dynamical-systems",
+        "algebraic-topology"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "complex-geometry",
+      "title": "复几何",
+      "domain": "math",
+      "stage": 6,
+      "prerequisiteIds": [
+        "complex-analysis",
+        "smooth-manifolds"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "hodge-theory",
+      "title": "Hodge 理论",
+      "domain": "math",
+      "stage": 7,
+      "prerequisiteIds": [
+        "complex-geometry",
+        "algebraic-topology",
+        "functional-analysis"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "geometric-measure-theory",
+      "title": "几何测度论",
+      "domain": "math",
+      "stage": 6,
+      "prerequisiteIds": [
+        "measure-theory",
+        "differential-geometry",
+        "functional-analysis"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "probability",
+      "title": "概率论",
+      "domain": "math",
+      "stage": 2,
+      "prerequisiteIds": [
+        "calculus",
+        "elementary-combinatorics"
+      ],
+      "directDependents": 25,
+      "pagePath": "./content/pages/probability.json",
+      "tier": "标准页",
+      "status": "draft",
+      "verifiedSourceRecords": 5
+    },
+    {
+      "nodeId": "mathematical-statistics",
+      "title": "数理统计",
+      "domain": "math",
+      "stage": 2,
+      "prerequisiteIds": [
+        "probability",
+        "linear-algebra"
+      ],
+      "directDependents": 8,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "rigorous-probability",
+      "title": "测度概率论",
+      "domain": "math",
+      "stage": 4,
+      "prerequisiteIds": [
+        "measure-theory",
+        "probability"
+      ],
+      "directDependents": 3,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "stochastic-processes",
+      "title": "随机过程",
+      "domain": "math",
+      "stage": 4,
+      "prerequisiteIds": [
+        "probability",
+        "real-analysis-1"
+      ],
+      "directDependents": 2,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "martingales",
+      "title": "鞅论",
+      "domain": "math",
+      "stage": 5,
+      "prerequisiteIds": [
+        "rigorous-probability"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "brownian-motion",
+      "title": "Brownian 运动",
+      "domain": "math",
+      "stage": 5,
+      "prerequisiteIds": [
+        "rigorous-probability",
+        "stochastic-processes"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "stochastic-calculus",
+      "title": "随机积分与 Itô 公式",
+      "domain": "math",
+      "stage": 6,
+      "prerequisiteIds": [
+        "martingales",
+        "brownian-motion"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "sde",
+      "title": "随机微分方程",
+      "domain": "math",
+      "stage": 6,
+      "prerequisiteIds": [
+        "stochastic-calculus",
+        "ode"
+      ],
+      "directDependents": 2,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "stochastic-analysis",
+      "title": "随机分析",
+      "domain": "math",
+      "stage": 7,
+      "prerequisiteIds": [
+        "sde",
+        "functional-analysis"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "ode",
+      "title": "常微分方程",
+      "domain": "math",
+      "stage": 2,
+      "prerequisiteIds": [
+        "calculus",
+        "linear-algebra"
+      ],
+      "directDependents": 4,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "dynamical-systems",
+      "title": "动力系统",
+      "domain": "math",
+      "stage": 4,
+      "prerequisiteIds": [
+        "ode",
+        "real-analysis-2"
+      ],
+      "directDependents": 8,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "ergodic-theory",
+      "title": "遍历理论",
+      "domain": "math",
+      "stage": 5,
+      "prerequisiteIds": [
+        "measure-theory",
+        "dynamical-systems",
+        "probability"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "control-theory",
+      "title": "控制理论",
+      "domain": "math",
+      "stage": 4,
+      "prerequisiteIds": [
+        "ode",
+        "linear-algebra",
+        "optimization"
+      ],
+      "directDependents": 3,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "elementary-number-theory",
+      "title": "初等数论",
+      "domain": "math",
+      "stage": 2,
+      "prerequisiteIds": [
+        "proof-methods",
+        "elementary-algebra"
+      ],
+      "directDependents": 2,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "analytic-number-theory",
+      "title": "解析数论",
+      "domain": "math",
+      "stage": 5,
+      "prerequisiteIds": [
+        "elementary-number-theory",
+        "complex-analysis",
+        "real-analysis-1"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "algebraic-number-theory",
+      "title": "代数数论",
+      "domain": "math",
+      "stage": 5,
+      "prerequisiteIds": [
+        "galois-theory",
+        "commutative-algebra"
+      ],
+      "directDependents": 3,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "arithmetic-geometry",
+      "title": "算术几何",
+      "domain": "math",
+      "stage": 8,
+      "prerequisiteIds": [
+        "algebraic-number-theory",
+        "algebraic-geometry",
+        "homological-algebra"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "modular-forms",
+      "title": "模形式",
+      "domain": "math",
+      "stage": 7,
+      "prerequisiteIds": [
+        "complex-analysis",
+        "algebraic-number-theory"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "langlands",
+      "title": "Langlands 纲领",
+      "domain": "math",
+      "stage": 8,
+      "prerequisiteIds": [
+        "representation-theory",
+        "algebraic-number-theory",
+        "algebraic-geometry",
+        "harmonic-analysis"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "combinatorics",
+      "title": "组合数学",
+      "domain": "math",
+      "stage": 3,
+      "prerequisiteIds": [
+        "elementary-combinatorics",
+        "proof-methods"
+      ],
+      "directDependents": 3,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "graph-theory",
+      "title": "图论",
+      "domain": "math",
+      "stage": 3,
+      "prerequisiteIds": [
+        "discrete-structures",
+        "proof-methods"
+      ],
+      "directDependents": 5,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "extremal-combinatorics",
+      "title": "极值组合",
+      "domain": "math",
+      "stage": 5,
+      "prerequisiteIds": [
+        "combinatorics",
+        "graph-theory"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "probabilistic-method",
+      "title": "概率方法",
+      "domain": "math",
+      "stage": 5,
+      "prerequisiteIds": [
+        "probability",
+        "combinatorics"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "ramsey-theory",
+      "title": "Ramsey 理论",
+      "domain": "math",
+      "stage": 6,
+      "prerequisiteIds": [
+        "extremal-combinatorics"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "matroid-theory",
+      "title": "拟阵理论",
+      "domain": "math",
+      "stage": 5,
+      "prerequisiteIds": [
+        "linear-algebra",
+        "combinatorics"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "mathematical-logic",
+      "title": "数理逻辑",
+      "domain": "math",
+      "stage": 4,
+      "prerequisiteIds": [
+        "logic-basics",
+        "proof-methods"
+      ],
+      "directDependents": 10,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "axiomatic-set-theory",
+      "title": "公理集合论",
+      "domain": "math",
+      "stage": 6,
+      "prerequisiteIds": [
+        "mathematical-logic",
+        "set-maps"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "model-theory",
+      "title": "模型论",
+      "domain": "math",
+      "stage": 6,
+      "prerequisiteIds": [
+        "mathematical-logic",
+        "abstract-algebra-1"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "computability-theory",
+      "title": "递归论与可计算性",
+      "domain": "math",
+      "stage": 5,
+      "prerequisiteIds": [
+        "mathematical-logic",
+        "discrete-structures"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "proof-theory",
+      "title": "证明论",
+      "domain": "math",
+      "stage": 6,
+      "prerequisiteIds": [
+        "mathematical-logic"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "type-theory-math",
+      "title": "类型论",
+      "domain": "math",
+      "stage": 6,
+      "prerequisiteIds": [
+        "mathematical-logic",
+        "category-theory"
+      ],
+      "directDependents": 2,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "higher-category-theory",
+      "title": "高阶范畴",
+      "domain": "math",
+      "stage": 8,
+      "prerequisiteIds": [
+        "category-theory",
+        "advanced-algebraic-topology"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "homotopy-type-theory",
+      "title": "同伦类型论",
+      "domain": "math",
+      "stage": 8,
+      "prerequisiteIds": [
+        "type-theory-math",
+        "algebraic-topology"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "programming-fundamentals",
+      "title": "程序设计基础",
+      "domain": "cs",
+      "stage": 0,
+      "prerequisiteIds": [],
+      "directDependents": 17,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "procedural-programming",
+      "title": "过程式编程",
+      "domain": "cs",
+      "stage": 1,
+      "prerequisiteIds": [
+        "programming-fundamentals"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "object-oriented-programming",
+      "title": "面向对象程序设计",
+      "domain": "cs",
+      "stage": 1,
+      "prerequisiteIds": [
+        "programming-fundamentals"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "functional-programming",
+      "title": "函数式编程基础",
+      "domain": "cs",
+      "stage": 1,
+      "prerequisiteIds": [
+        "programming-fundamentals"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "data-abstraction",
+      "title": "数据抽象与接口",
+      "domain": "cs",
+      "stage": 1,
+      "prerequisiteIds": [
+        "programming-fundamentals"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "recursion",
+      "title": "递归与分治思维",
+      "domain": "cs",
+      "stage": 1,
+      "prerequisiteIds": [
+        "programming-fundamentals",
+        "proof-methods"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "data-structures",
+      "title": "数据结构",
+      "domain": "cs",
+      "stage": 2,
+      "prerequisiteIds": [
+        "programming-fundamentals",
+        "recursion"
+      ],
+      "directDependents": 5,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "algorithmic-thinking",
+      "title": "算法思维",
+      "domain": "cs",
+      "stage": 1,
+      "prerequisiteIds": [
+        "programming-fundamentals"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "complexity-analysis",
+      "title": "复杂度分析",
+      "domain": "cs",
+      "stage": 2,
+      "prerequisiteIds": [
+        "proof-methods",
+        "sequences-recursion"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "debugging-testing",
+      "title": "调试与测试基础",
+      "domain": "cs",
+      "stage": 1,
+      "prerequisiteIds": [
+        "programming-fundamentals"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "command-line-git",
+      "title": "命令行与 Git",
+      "domain": "cs",
+      "stage": 1,
+      "prerequisiteIds": [
+        "programming-fundamentals"
+      ],
+      "directDependents": 1,
+      "pagePath": "./content/pages/command-line-git.json",
+      "tier": "标准页",
+      "status": "draft",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "algorithm-design",
+      "title": "算法设计与分析",
+      "domain": "cs",
+      "stage": 3,
+      "prerequisiteIds": [
+        "data-structures",
+        "complexity-analysis",
+        "proof-methods"
+      ],
+      "directDependents": 12,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "advanced-algorithms",
+      "title": "高级算法",
+      "domain": "cs",
+      "stage": 4,
+      "prerequisiteIds": [
+        "algorithm-design",
+        "probability"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "automata-formal-languages",
+      "title": "自动机与形式语言",
+      "domain": "cs",
+      "stage": 3,
+      "prerequisiteIds": [
+        "discrete-structures",
+        "proof-methods"
+      ],
+      "directDependents": 2,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "computability-cs",
+      "title": "可计算性理论",
+      "domain": "cs",
+      "stage": 4,
+      "prerequisiteIds": [
+        "automata-formal-languages",
+        "mathematical-logic"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "complexity-theory",
+      "title": "计算复杂性",
+      "domain": "cs",
+      "stage": 4,
+      "prerequisiteIds": [
+        "algorithm-design",
+        "computability-cs"
+      ],
+      "directDependents": 6,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "randomized-algorithms",
+      "title": "随机算法",
+      "domain": "cs",
+      "stage": 4,
+      "prerequisiteIds": [
+        "algorithm-design",
+        "probability"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "approximation-algorithms",
+      "title": "近似算法",
+      "domain": "cs",
+      "stage": 5,
+      "prerequisiteIds": [
+        "advanced-algorithms",
+        "optimization"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "online-algorithms",
+      "title": "在线算法",
+      "domain": "cs",
+      "stage": 5,
+      "prerequisiteIds": [
+        "algorithm-design",
+        "probability"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "streaming-algorithms",
+      "title": "流式算法",
+      "domain": "cs",
+      "stage": 5,
+      "prerequisiteIds": [
+        "randomized-algorithms",
+        "complexity-theory"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "communication-complexity",
+      "title": "通信复杂性",
+      "domain": "cs",
+      "stage": 6,
+      "prerequisiteIds": [
+        "complexity-theory",
+        "information-theory"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "quantum-computing",
+      "title": "量子计算",
+      "domain": "cs",
+      "stage": 5,
+      "prerequisiteIds": [
+        "linear-algebra",
+        "probability",
+        "complexity-theory"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "coding-theory",
+      "title": "编码理论",
+      "domain": "cs",
+      "stage": 4,
+      "prerequisiteIds": [
+        "linear-algebra",
+        "probability",
+        "information-theory"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "computational-geometry",
+      "title": "计算几何",
+      "domain": "cs",
+      "stage": 4,
+      "prerequisiteIds": [
+        "algorithm-design",
+        "analytic-geometry"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "combinatorial-optimization",
+      "title": "组合优化",
+      "domain": "cs",
+      "stage": 5,
+      "prerequisiteIds": [
+        "algorithm-design",
+        "optimization",
+        "graph-theory"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "systems-programming",
+      "title": "系统程序设计",
+      "domain": "cs",
+      "stage": 2,
+      "prerequisiteIds": [
+        "programming-fundamentals",
+        "computer-organization"
+      ],
+      "directDependents": 5,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "operating-systems",
+      "title": "操作系统",
+      "domain": "cs",
+      "stage": 3,
+      "prerequisiteIds": [
+        "systems-programming",
+        "computer-organization"
+      ],
+      "directDependents": 10,
+      "pagePath": "./content/pages/operating-systems.json",
+      "tier": "标准页",
+      "status": "draft",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "computer-networks",
+      "title": "计算机网络",
+      "domain": "cs",
+      "stage": 3,
+      "prerequisiteIds": [
+        "operating-systems"
+      ],
+      "directDependents": 5,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "distributed-systems",
+      "title": "分布式系统",
+      "domain": "cs",
+      "stage": 4,
+      "prerequisiteIds": [
+        "operating-systems",
+        "computer-networks",
+        "database-systems"
+      ],
+      "directDependents": 8,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "storage-systems",
+      "title": "存储系统",
+      "domain": "cs",
+      "stage": 4,
+      "prerequisiteIds": [
+        "operating-systems",
+        "database-systems"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "database-systems",
+      "title": "数据库系统",
+      "domain": "cs",
+      "stage": 3,
+      "prerequisiteIds": [
+        "data-structures",
+        "programming-fundamentals"
+      ],
+      "directDependents": 11,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "cloud-computing",
+      "title": "云计算",
+      "domain": "cs",
+      "stage": 4,
+      "prerequisiteIds": [
+        "distributed-systems",
+        "virtualization-containers"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "virtualization-containers",
+      "title": "虚拟化与容器",
+      "domain": "cs",
+      "stage": 4,
+      "prerequisiteIds": [
+        "operating-systems",
+        "computer-architecture"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "parallel-computing",
+      "title": "并行计算",
+      "domain": "cs",
+      "stage": 4,
+      "prerequisiteIds": [
+        "computer-architecture",
+        "algorithm-design"
+      ],
+      "directDependents": 4,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "high-performance-computing",
+      "title": "高性能计算",
+      "domain": "cs",
+      "stage": 5,
+      "prerequisiteIds": [
+        "parallel-computing",
+        "numerical-linear-algebra"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "reliability-observability",
+      "title": "可靠性与可观测性",
+      "domain": "cs",
+      "stage": 4,
+      "prerequisiteIds": [
+        "software-engineering",
+        "distributed-systems"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "digital-logic",
+      "title": "数字逻辑",
+      "domain": "cs",
+      "stage": 1,
+      "prerequisiteIds": [
+        "logic-basics"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "computer-organization",
+      "title": "计算机组成原理",
+      "domain": "cs",
+      "stage": 2,
+      "prerequisiteIds": [
+        "digital-logic",
+        "programming-fundamentals"
+      ],
+      "directDependents": 6,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "instruction-set-architecture",
+      "title": "指令集体系结构",
+      "domain": "cs",
+      "stage": 3,
+      "prerequisiteIds": [
+        "computer-organization",
+        "systems-programming"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "pipeline-cache",
+      "title": "流水线与缓存",
+      "domain": "cs",
+      "stage": 3,
+      "prerequisiteIds": [
+        "computer-organization"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "computer-architecture",
+      "title": "计算机体系结构",
+      "domain": "cs",
+      "stage": 4,
+      "prerequisiteIds": [
+        "instruction-set-architecture",
+        "pipeline-cache",
+        "operating-systems"
+      ],
+      "directDependents": 7,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "multicore-architecture",
+      "title": "多核与一致性",
+      "domain": "cs",
+      "stage": 5,
+      "prerequisiteIds": [
+        "computer-architecture",
+        "parallel-computing"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "gpu-architecture",
+      "title": "GPU 体系结构",
+      "domain": "cs",
+      "stage": 4,
+      "prerequisiteIds": [
+        "computer-architecture",
+        "parallel-computing"
+      ],
+      "directDependents": 4,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "heterogeneous-computing",
+      "title": "异构计算",
+      "domain": "cs",
+      "stage": 5,
+      "prerequisiteIds": [
+        "gpu-architecture",
+        "computer-architecture"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "ai-accelerators",
+      "title": "AI 加速器",
+      "domain": "cs",
+      "stage": 6,
+      "prerequisiteIds": [
+        "gpu-architecture",
+        "deep-learning",
+        "compilers"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "hardware-software-codesign",
+      "title": "软硬件协同设计",
+      "domain": "cs",
+      "stage": 6,
+      "prerequisiteIds": [
+        "computer-architecture",
+        "compilers"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "programming-languages",
+      "title": "编程语言原理",
+      "domain": "cs",
+      "stage": 3,
+      "prerequisiteIds": [
+        "functional-programming",
+        "object-oriented-programming",
+        "discrete-structures"
+      ],
+      "directDependents": 3,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "compilers",
+      "title": "编译原理",
+      "domain": "cs",
+      "stage": 3,
+      "prerequisiteIds": [
+        "data-structures",
+        "automata-formal-languages",
+        "computer-organization"
+      ],
+      "directDependents": 4,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "type-systems",
+      "title": "类型系统",
+      "domain": "cs",
+      "stage": 4,
+      "prerequisiteIds": [
+        "programming-languages",
+        "mathematical-logic"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "program-semantics",
+      "title": "程序语义",
+      "domain": "cs",
+      "stage": 5,
+      "prerequisiteIds": [
+        "programming-languages",
+        "mathematical-logic"
+      ],
+      "directDependents": 2,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "static-analysis",
+      "title": "静态程序分析",
+      "domain": "cs",
+      "stage": 5,
+      "prerequisiteIds": [
+        "compilers",
+        "program-semantics"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "dynamic-analysis",
+      "title": "动态程序分析",
+      "domain": "cs",
+      "stage": 4,
+      "prerequisiteIds": [
+        "systems-programming",
+        "software-testing"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "formal-verification",
+      "title": "形式化验证",
+      "domain": "cs",
+      "stage": 6,
+      "prerequisiteIds": [
+        "program-semantics",
+        "type-systems",
+        "mathematical-logic"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "theorem-proving",
+      "title": "定理证明与证明助手",
+      "domain": "cs",
+      "stage": 6,
+      "prerequisiteIds": [
+        "formal-verification",
+        "type-theory-math"
+      ],
+      "directDependents": 2,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "software-engineering",
+      "title": "软件工程",
+      "domain": "cs",
+      "stage": 2,
+      "prerequisiteIds": [
+        "programming-fundamentals",
+        "command-line-git"
+      ],
+      "directDependents": 7,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "software-architecture",
+      "title": "软件架构",
+      "domain": "cs",
+      "stage": 4,
+      "prerequisiteIds": [
+        "software-engineering",
+        "database-systems",
+        "computer-networks"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "software-testing",
+      "title": "软件测试",
+      "domain": "cs",
+      "stage": 3,
+      "prerequisiteIds": [
+        "software-engineering",
+        "debugging-testing"
+      ],
+      "directDependents": 2,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "api-design",
+      "title": "API 与接口设计",
+      "domain": "cs",
+      "stage": 3,
+      "prerequisiteIds": [
+        "data-abstraction",
+        "software-engineering"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "relational-databases",
+      "title": "关系数据库",
+      "domain": "cs",
+      "stage": 2,
+      "prerequisiteIds": [
+        "database-systems"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "query-processing",
+      "title": "查询处理与优化",
+      "domain": "cs",
+      "stage": 4,
+      "prerequisiteIds": [
+        "database-systems",
+        "algorithm-design"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "transaction-systems",
+      "title": "事务处理",
+      "domain": "cs",
+      "stage": 4,
+      "prerequisiteIds": [
+        "database-systems",
+        "operating-systems"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "distributed-databases",
+      "title": "分布式数据库",
+      "domain": "cs",
+      "stage": 5,
+      "prerequisiteIds": [
+        "distributed-systems",
+        "transaction-systems"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "data-warehouses",
+      "title": "数据仓库与 OLAP",
+      "domain": "cs",
+      "stage": 4,
+      "prerequisiteIds": [
+        "database-systems"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "stream-processing",
+      "title": "流处理系统",
+      "domain": "cs",
+      "stage": 4,
+      "prerequisiteIds": [
+        "distributed-systems",
+        "database-systems"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "information-retrieval",
+      "title": "信息检索",
+      "domain": "cs",
+      "stage": 4,
+      "prerequisiteIds": [
+        "data-structures",
+        "probability",
+        "nlp"
+      ],
+      "directDependents": 2,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "data-mining",
+      "title": "数据挖掘",
+      "domain": "cs",
+      "stage": 3,
+      "prerequisiteIds": [
+        "machine-learning",
+        "database-systems"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "data-visualization",
+      "title": "数据可视化",
+      "domain": "cs",
+      "stage": 3,
+      "prerequisiteIds": [
+        "mathematical-statistics",
+        "hci"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "computer-graphics",
+      "title": "计算机图形学",
+      "domain": "cs",
+      "stage": 3,
+      "prerequisiteIds": [
+        "linear-algebra",
+        "analytic-geometry",
+        "programming-fundamentals"
+      ],
+      "directDependents": 5,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "rendering",
+      "title": "基于物理的渲染",
+      "domain": "cs",
+      "stage": 5,
+      "prerequisiteIds": [
+        "computer-graphics",
+        "probability",
+        "numerical-analysis"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "geometric-processing",
+      "title": "几何处理",
+      "domain": "cs",
+      "stage": 5,
+      "prerequisiteIds": [
+        "computer-graphics",
+        "differential-geometry",
+        "numerical-linear-algebra"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "computer-animation",
+      "title": "计算机动画",
+      "domain": "cs",
+      "stage": 4,
+      "prerequisiteIds": [
+        "computer-graphics",
+        "dynamical-systems"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "physical-simulation",
+      "title": "物理仿真",
+      "domain": "cs",
+      "stage": 5,
+      "prerequisiteIds": [
+        "numerical-analysis",
+        "pde",
+        "computer-graphics"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "hci",
+      "title": "人机交互",
+      "domain": "cs",
+      "stage": 3,
+      "prerequisiteIds": [
+        "software-engineering",
+        "mathematical-statistics"
+      ],
+      "directDependents": 4,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "interaction-design",
+      "title": "交互设计",
+      "domain": "cs",
+      "stage": 3,
+      "prerequisiteIds": [
+        "hci"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "visual-analytics",
+      "title": "可视分析",
+      "domain": "cs",
+      "stage": 4,
+      "prerequisiteIds": [
+        "data-visualization",
+        "hci"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "vr-ar",
+      "title": "虚拟现实与增强现实",
+      "domain": "cs",
+      "stage": 5,
+      "prerequisiteIds": [
+        "computer-graphics",
+        "hci",
+        "computer-vision"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "cybersecurity-foundations",
+      "title": "网络空间安全基础",
+      "domain": "cs",
+      "stage": 3,
+      "prerequisiteIds": [
+        "operating-systems",
+        "computer-networks"
+      ],
+      "directDependents": 3,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "cryptography",
+      "title": "现代密码学",
+      "domain": "cs",
+      "stage": 4,
+      "prerequisiteIds": [
+        "probability",
+        "elementary-number-theory",
+        "complexity-theory"
+      ],
+      "directDependents": 4,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "network-security",
+      "title": "网络安全",
+      "domain": "cs",
+      "stage": 4,
+      "prerequisiteIds": [
+        "cybersecurity-foundations",
+        "computer-networks"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "system-security",
+      "title": "系统安全",
+      "domain": "cs",
+      "stage": 4,
+      "prerequisiteIds": [
+        "cybersecurity-foundations",
+        "operating-systems",
+        "systems-programming"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "software-security",
+      "title": "软件安全",
+      "domain": "cs",
+      "stage": 4,
+      "prerequisiteIds": [
+        "systems-programming",
+        "software-testing"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "privacy-computing",
+      "title": "隐私计算",
+      "domain": "cs",
+      "stage": 5,
+      "prerequisiteIds": [
+        "cryptography",
+        "distributed-systems"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "zero-knowledge",
+      "title": "零知识证明",
+      "domain": "cs",
+      "stage": 6,
+      "prerequisiteIds": [
+        "cryptography",
+        "complexity-theory"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "homomorphic-encryption",
+      "title": "同态加密",
+      "domain": "cs",
+      "stage": 6,
+      "prerequisiteIds": [
+        "cryptography",
+        "abstract-algebra-2"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "trusted-computing",
+      "title": "可信执行与硬件安全",
+      "domain": "cs",
+      "stage": 5,
+      "prerequisiteIds": [
+        "computer-architecture",
+        "system-security"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "post-quantum-cryptography",
+      "title": "后量子密码",
+      "domain": "cs",
+      "stage": 6,
+      "prerequisiteIds": [
+        "cryptography",
+        "quantum-computing",
+        "lattice-theory"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "lattice-theory",
+      "title": "格理论与格算法",
+      "domain": "math",
+      "stage": 5,
+      "prerequisiteIds": [
+        "linear-algebra",
+        "abstract-algebra-2"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "numerical-analysis",
+      "title": "数值分析",
+      "domain": "math",
+      "stage": 3,
+      "prerequisiteIds": [
+        "calculus",
+        "linear-algebra",
+        "real-analysis-1"
+      ],
+      "directDependents": 7,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "numerical-linear-algebra",
+      "title": "数值线性代数",
+      "domain": "cs",
+      "stage": 4,
+      "prerequisiteIds": [
+        "linear-algebra",
+        "numerical-analysis"
+      ],
+      "directDependents": 2,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "scientific-computing",
+      "title": "科学计算",
+      "domain": "cs",
+      "stage": 4,
+      "prerequisiteIds": [
+        "numerical-analysis",
+        "programming-fundamentals"
+      ],
+      "directDependents": 2,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "computational-science",
+      "title": "计算科学",
+      "domain": "cs",
+      "stage": 5,
+      "prerequisiteIds": [
+        "scientific-computing",
+        "high-performance-computing"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "bioinformatics",
+      "title": "生物信息学",
+      "domain": "cs",
+      "stage": 5,
+      "prerequisiteIds": [
+        "algorithm-design",
+        "probability",
+        "machine-learning"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "computational-physics",
+      "title": "计算物理",
+      "domain": "cs",
+      "stage": 5,
+      "prerequisiteIds": [
+        "scientific-computing",
+        "pde"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "computational-economics",
+      "title": "计算经济学",
+      "domain": "cs",
+      "stage": 5,
+      "prerequisiteIds": [
+        "optimization",
+        "probability",
+        "algorithm-design"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "computational-social-science",
+      "title": "计算社会科学",
+      "domain": "cs",
+      "stage": 4,
+      "prerequisiteIds": [
+        "mathematical-statistics",
+        "data-mining",
+        "graph-theory"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "data-engineering-ai",
+      "title": "AI 数据工程",
+      "domain": "ai",
+      "stage": 1,
+      "prerequisiteIds": [
+        "database-systems",
+        "programming-fundamentals"
+      ],
+      "directDependents": 2,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "data-governance-ai",
+      "title": "数据治理与合规",
+      "domain": "ai",
+      "stage": 2,
+      "prerequisiteIds": [
+        "data-engineering-ai"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "ml-experiment-design",
+      "title": "机器学习实验设计",
+      "domain": "ai",
+      "stage": 2,
+      "prerequisiteIds": [
+        "mathematical-statistics",
+        "machine-learning"
+      ],
+      "directDependents": 3,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "ai-evaluation",
+      "title": "AI 评测",
+      "domain": "ai",
+      "stage": 3,
+      "prerequisiteIds": [
+        "ml-experiment-design",
+        "mathematical-statistics"
+      ],
+      "directDependents": 3,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "optimization-for-ml",
+      "title": "机器学习优化",
+      "domain": "ai",
+      "stage": 3,
+      "prerequisiteIds": [
+        "optimization",
+        "machine-learning"
+      ],
+      "directDependents": 2,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "automatic-differentiation",
+      "title": "自动微分",
+      "domain": "ai",
+      "stage": 3,
+      "prerequisiteIds": [
+        "multivariable-calculus",
+        "programming-languages"
+      ],
+      "directDependents": 2,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "probabilistic-modeling",
+      "title": "概率建模",
+      "domain": "ai",
+      "stage": 3,
+      "prerequisiteIds": [
+        "probability",
+        "mathematical-statistics"
+      ],
+      "directDependents": 5,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "information-theory",
+      "title": "信息论",
+      "domain": "math",
+      "stage": 3,
+      "prerequisiteIds": [
+        "probability",
+        "calculus"
+      ],
+      "directDependents": 4,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "classical-ai",
+      "title": "经典人工智能",
+      "domain": "ai",
+      "stage": 2,
+      "prerequisiteIds": [
+        "algorithm-design",
+        "logic-basics"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "search-ai",
+      "title": "搜索与启发式",
+      "domain": "ai",
+      "stage": 2,
+      "prerequisiteIds": [
+        "data-structures",
+        "algorithm-design"
+      ],
+      "directDependents": 3,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "constraint-satisfaction",
+      "title": "约束满足",
+      "domain": "ai",
+      "stage": 3,
+      "prerequisiteIds": [
+        "search-ai",
+        "logic-basics"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "knowledge-representation",
+      "title": "知识表示与推理",
+      "domain": "ai",
+      "stage": 3,
+      "prerequisiteIds": [
+        "mathematical-logic",
+        "classical-ai"
+      ],
+      "directDependents": 2,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "planning-ai",
+      "title": "自动规划",
+      "domain": "ai",
+      "stage": 3,
+      "prerequisiteIds": [
+        "search-ai",
+        "knowledge-representation"
+      ],
+      "directDependents": 3,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "game-playing",
+      "title": "博弈智能",
+      "domain": "ai",
+      "stage": 3,
+      "prerequisiteIds": [
+        "search-ai",
+        "probability"
+      ],
+      "directDependents": 3,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "machine-learning",
+      "title": "机器学习",
+      "domain": "ai",
+      "stage": 2,
+      "prerequisiteIds": [
+        "linear-algebra",
+        "probability",
+        "calculus",
+        "programming-fundamentals"
+      ],
+      "directDependents": 19,
+      "pagePath": "./content/pages/machine-learning.json",
+      "tier": "标准页",
+      "status": "draft",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "linear-models",
+      "title": "线性模型",
+      "domain": "ai",
+      "stage": 2,
+      "prerequisiteIds": [
+        "machine-learning",
+        "linear-algebra"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "tree-ensembles",
+      "title": "树模型与集成学习",
+      "domain": "ai",
+      "stage": 3,
+      "prerequisiteIds": [
+        "machine-learning"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "kernel-methods",
+      "title": "核方法",
+      "domain": "ai",
+      "stage": 3,
+      "prerequisiteIds": [
+        "machine-learning",
+        "linear-algebra",
+        "optimization"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "clustering",
+      "title": "聚类",
+      "domain": "ai",
+      "stage": 2,
+      "prerequisiteIds": [
+        "machine-learning",
+        "linear-algebra"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "dimensionality-reduction",
+      "title": "降维与流形学习",
+      "domain": "ai",
+      "stage": 3,
+      "prerequisiteIds": [
+        "linear-algebra",
+        "machine-learning"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "graphical-models",
+      "title": "概率图模型",
+      "domain": "ai",
+      "stage": 4,
+      "prerequisiteIds": [
+        "probabilistic-modeling",
+        "graph-theory"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "statistical-learning-theory",
+      "title": "统计学习理论",
+      "domain": "ai",
+      "stage": 4,
+      "prerequisiteIds": [
+        "machine-learning",
+        "probability",
+        "real-analysis-1"
+      ],
+      "directDependents": 5,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "pac-learning",
+      "title": "PAC 学习",
+      "domain": "ai",
+      "stage": 5,
+      "prerequisiteIds": [
+        "statistical-learning-theory",
+        "complexity-theory"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "online-learning",
+      "title": "在线学习",
+      "domain": "ai",
+      "stage": 5,
+      "prerequisiteIds": [
+        "statistical-learning-theory",
+        "online-algorithms"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "generalization-theory",
+      "title": "深度学习泛化理论",
+      "domain": "ai",
+      "stage": 6,
+      "prerequisiteIds": [
+        "statistical-learning-theory",
+        "deep-learning"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "bayesian-inference",
+      "title": "Bayesian 推断",
+      "domain": "ai",
+      "stage": 4,
+      "prerequisiteIds": [
+        "probabilistic-modeling",
+        "measure-theory"
+      ],
+      "directDependents": 3,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "variational-inference",
+      "title": "变分推断",
+      "domain": "ai",
+      "stage": 5,
+      "prerequisiteIds": [
+        "bayesian-inference",
+        "optimization"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "monte-carlo-methods",
+      "title": "Monte Carlo 与 MCMC",
+      "domain": "ai",
+      "stage": 5,
+      "prerequisiteIds": [
+        "rigorous-probability",
+        "bayesian-inference",
+        "numerical-analysis"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "causal-inference",
+      "title": "因果推断",
+      "domain": "ai",
+      "stage": 5,
+      "prerequisiteIds": [
+        "probability",
+        "mathematical-statistics",
+        "graphical-models"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "uncertainty-quantification",
+      "title": "不确定性量化",
+      "domain": "ai",
+      "stage": 5,
+      "prerequisiteIds": [
+        "bayesian-inference",
+        "mathematical-statistics"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "information-theoretic-learning",
+      "title": "信息论学习视角",
+      "domain": "ai",
+      "stage": 5,
+      "prerequisiteIds": [
+        "information-theory",
+        "statistical-learning-theory"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "neural-networks",
+      "title": "神经网络",
+      "domain": "ai",
+      "stage": 2,
+      "prerequisiteIds": [
+        "machine-learning",
+        "multivariable-calculus",
+        "linear-algebra"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "deep-learning",
+      "title": "深度学习",
+      "domain": "ai",
+      "stage": 3,
+      "prerequisiteIds": [
+        "neural-networks",
+        "optimization-for-ml",
+        "automatic-differentiation"
+      ],
+      "directDependents": 17,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "convolutional-networks",
+      "title": "卷积神经网络",
+      "domain": "ai",
+      "stage": 3,
+      "prerequisiteIds": [
+        "deep-learning"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "sequence-models",
+      "title": "序列模型",
+      "domain": "ai",
+      "stage": 3,
+      "prerequisiteIds": [
+        "deep-learning",
+        "probability"
+      ],
+      "directDependents": 3,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "attention-mechanisms",
+      "title": "注意力机制",
+      "domain": "ai",
+      "stage": 4,
+      "prerequisiteIds": [
+        "sequence-models",
+        "linear-algebra"
+      ],
+      "directDependents": 2,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "transformer",
+      "title": "Transformer",
+      "domain": "ai",
+      "stage": 4,
+      "prerequisiteIds": [
+        "attention-mechanisms",
+        "deep-learning"
+      ],
+      "directDependents": 3,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "representation-learning",
+      "title": "表示学习",
+      "domain": "ai",
+      "stage": 4,
+      "prerequisiteIds": [
+        "deep-learning",
+        "information-theory"
+      ],
+      "directDependents": 5,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "self-supervised-learning",
+      "title": "自监督学习",
+      "domain": "ai",
+      "stage": 4,
+      "prerequisiteIds": [
+        "representation-learning",
+        "deep-learning"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "metric-learning",
+      "title": "度量学习",
+      "domain": "ai",
+      "stage": 4,
+      "prerequisiteIds": [
+        "representation-learning",
+        "optimization"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "graph-neural-networks",
+      "title": "图神经网络",
+      "domain": "ai",
+      "stage": 4,
+      "prerequisiteIds": [
+        "graph-theory",
+        "deep-learning",
+        "linear-algebra"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "geometric-deep-learning",
+      "title": "几何深度学习",
+      "domain": "ai",
+      "stage": 5,
+      "prerequisiteIds": [
+        "graph-neural-networks",
+        "representation-theory",
+        "differential-geometry"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "neural-ode",
+      "title": "神经微分方程",
+      "domain": "ai",
+      "stage": 5,
+      "prerequisiteIds": [
+        "deep-learning",
+        "ode",
+        "automatic-differentiation"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "image-processing",
+      "title": "图像处理",
+      "domain": "ai",
+      "stage": 3,
+      "prerequisiteIds": [
+        "linear-algebra",
+        "multivariable-calculus"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "computer-vision",
+      "title": "计算机视觉",
+      "domain": "ai",
+      "stage": 4,
+      "prerequisiteIds": [
+        "convolutional-networks",
+        "image-processing"
+      ],
+      "directDependents": 5,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "three-d-vision",
+      "title": "三维视觉",
+      "domain": "ai",
+      "stage": 5,
+      "prerequisiteIds": [
+        "computer-vision",
+        "analytic-geometry",
+        "linear-algebra"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "video-understanding",
+      "title": "视频理解",
+      "domain": "ai",
+      "stage": 5,
+      "prerequisiteIds": [
+        "computer-vision",
+        "sequence-models"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "linguistics-for-nlp",
+      "title": "NLP 语言学基础",
+      "domain": "ai",
+      "stage": 2,
+      "prerequisiteIds": [
+        "logic-basics"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "nlp",
+      "title": "自然语言处理",
+      "domain": "ai",
+      "stage": 4,
+      "prerequisiteIds": [
+        "sequence-models",
+        "probabilistic-modeling",
+        "linguistics-for-nlp"
+      ],
+      "directDependents": 5,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "information-extraction",
+      "title": "信息抽取",
+      "domain": "ai",
+      "stage": 4,
+      "prerequisiteIds": [
+        "nlp"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "machine-translation",
+      "title": "机器翻译",
+      "domain": "ai",
+      "stage": 4,
+      "prerequisiteIds": [
+        "nlp",
+        "attention-mechanisms"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "speech-audio",
+      "title": "语音与音频智能",
+      "domain": "ai",
+      "stage": 4,
+      "prerequisiteIds": [
+        "deep-learning",
+        "harmonic-analysis"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "multimodal-learning",
+      "title": "多模态学习",
+      "domain": "ai",
+      "stage": 5,
+      "prerequisiteIds": [
+        "computer-vision",
+        "nlp",
+        "representation-learning",
+        "transformer"
+      ],
+      "directDependents": 2,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "mdp",
+      "title": "Markov 决策过程",
+      "domain": "ai",
+      "stage": 3,
+      "prerequisiteIds": [
+        "probability",
+        "dynamical-systems"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "reinforcement-learning",
+      "title": "强化学习",
+      "domain": "ai",
+      "stage": 4,
+      "prerequisiteIds": [
+        "mdp",
+        "machine-learning",
+        "optimization"
+      ],
+      "directDependents": 8,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "model-free-rl",
+      "title": "无模型强化学习",
+      "domain": "ai",
+      "stage": 4,
+      "prerequisiteIds": [
+        "reinforcement-learning"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "model-based-rl",
+      "title": "基于模型的强化学习",
+      "domain": "ai",
+      "stage": 5,
+      "prerequisiteIds": [
+        "reinforcement-learning",
+        "dynamical-systems"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "offline-rl",
+      "title": "离线强化学习",
+      "domain": "ai",
+      "stage": 5,
+      "prerequisiteIds": [
+        "reinforcement-learning",
+        "causal-inference"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "imitation-learning",
+      "title": "模仿学习",
+      "domain": "ai",
+      "stage": 4,
+      "prerequisiteIds": [
+        "reinforcement-learning",
+        "machine-learning"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "multi-agent-rl",
+      "title": "多智能体强化学习",
+      "domain": "ai",
+      "stage": 6,
+      "prerequisiteIds": [
+        "reinforcement-learning",
+        "game-playing"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "optimal-control",
+      "title": "最优控制",
+      "domain": "ai",
+      "stage": 4,
+      "prerequisiteIds": [
+        "control-theory",
+        "optimization"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "model-predictive-control",
+      "title": "模型预测控制",
+      "domain": "ai",
+      "stage": 5,
+      "prerequisiteIds": [
+        "optimal-control",
+        "numerical-analysis"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "state-estimation",
+      "title": "状态估计与滤波",
+      "domain": "ai",
+      "stage": 4,
+      "prerequisiteIds": [
+        "probability",
+        "linear-algebra",
+        "dynamical-systems"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "robotics",
+      "title": "机器人学",
+      "domain": "ai",
+      "stage": 5,
+      "prerequisiteIds": [
+        "control-theory",
+        "computer-vision",
+        "state-estimation"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "embodied-ai",
+      "title": "具身智能",
+      "domain": "ai",
+      "stage": 6,
+      "prerequisiteIds": [
+        "robotics",
+        "reinforcement-learning",
+        "multimodal-learning"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "generative-models",
+      "title": "生成模型",
+      "domain": "ai",
+      "stage": 4,
+      "prerequisiteIds": [
+        "deep-learning",
+        "probabilistic-modeling"
+      ],
+      "directDependents": 4,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "variational-autoencoders",
+      "title": "变分自编码器",
+      "domain": "ai",
+      "stage": 4,
+      "prerequisiteIds": [
+        "variational-inference",
+        "generative-models"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "gans",
+      "title": "生成对抗网络",
+      "domain": "ai",
+      "stage": 4,
+      "prerequisiteIds": [
+        "generative-models",
+        "game-playing"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "normalizing-flows",
+      "title": "Normalizing Flow",
+      "domain": "ai",
+      "stage": 5,
+      "prerequisiteIds": [
+        "generative-models",
+        "multivariable-calculus"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "energy-based-models",
+      "title": "能量模型",
+      "domain": "ai",
+      "stage": 5,
+      "prerequisiteIds": [
+        "probabilistic-modeling",
+        "optimization"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "diffusion-models",
+      "title": "扩散模型",
+      "domain": "ai",
+      "stage": 5,
+      "prerequisiteIds": [
+        "generative-models",
+        "stochastic-processes",
+        "deep-learning"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "score-based-models",
+      "title": "Score-based 生成",
+      "domain": "ai",
+      "stage": 6,
+      "prerequisiteIds": [
+        "diffusion-models",
+        "sde"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "foundation-models",
+      "title": "基础模型",
+      "domain": "ai",
+      "stage": 5,
+      "prerequisiteIds": [
+        "self-supervised-learning",
+        "transformer",
+        "ml-systems"
+      ],
+      "directDependents": 4,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "large-language-models",
+      "title": "大语言模型",
+      "domain": "ai",
+      "stage": 6,
+      "prerequisiteIds": [
+        "transformer",
+        "nlp",
+        "foundation-models"
+      ],
+      "directDependents": 5,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "instruction-tuning",
+      "title": "指令微调",
+      "domain": "ai",
+      "stage": 6,
+      "prerequisiteIds": [
+        "large-language-models",
+        "ml-experiment-design"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "preference-optimization",
+      "title": "偏好优化",
+      "domain": "ai",
+      "stage": 6,
+      "prerequisiteIds": [
+        "instruction-tuning",
+        "reinforcement-learning"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "reasoning-models",
+      "title": "推理模型",
+      "domain": "ai",
+      "stage": 7,
+      "prerequisiteIds": [
+        "large-language-models",
+        "planning-ai",
+        "ai-evaluation"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "retrieval-augmented-generation",
+      "title": "检索增强生成",
+      "domain": "ai",
+      "stage": 5,
+      "prerequisiteIds": [
+        "large-language-models",
+        "information-retrieval"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "multimodal-foundation-models",
+      "title": "多模态基础模型",
+      "domain": "ai",
+      "stage": 6,
+      "prerequisiteIds": [
+        "foundation-models",
+        "multimodal-learning"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "world-models",
+      "title": "世界模型",
+      "domain": "ai",
+      "stage": 6,
+      "prerequisiteIds": [
+        "model-based-rl",
+        "representation-learning",
+        "dynamical-systems"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "agent-systems",
+      "title": "智能体系统",
+      "domain": "ai",
+      "stage": 6,
+      "prerequisiteIds": [
+        "large-language-models",
+        "planning-ai",
+        "software-engineering"
+      ],
+      "directDependents": 5,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "memory-systems-ai",
+      "title": "智能体记忆系统",
+      "domain": "ai",
+      "stage": 6,
+      "prerequisiteIds": [
+        "agent-systems",
+        "information-retrieval",
+        "continual-learning"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "tool-use-ai",
+      "title": "工具使用与程序执行",
+      "domain": "ai",
+      "stage": 6,
+      "prerequisiteIds": [
+        "agent-systems",
+        "api-design"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "planning-agents",
+      "title": "长程规划智能体",
+      "domain": "ai",
+      "stage": 7,
+      "prerequisiteIds": [
+        "agent-systems",
+        "planning-ai",
+        "reasoning-models"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "multi-agent-systems",
+      "title": "多智能体系统",
+      "domain": "ai",
+      "stage": 6,
+      "prerequisiteIds": [
+        "agent-systems",
+        "game-playing",
+        "distributed-systems"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "continual-learning",
+      "title": "持续学习",
+      "domain": "ai",
+      "stage": 6,
+      "prerequisiteIds": [
+        "machine-learning",
+        "representation-learning"
+      ],
+      "directDependents": 2,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "meta-learning",
+      "title": "元学习",
+      "domain": "ai",
+      "stage": 6,
+      "prerequisiteIds": [
+        "machine-learning",
+        "optimization-for-ml"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "neuro-symbolic-ai",
+      "title": "神经符号 AI",
+      "domain": "ai",
+      "stage": 6,
+      "prerequisiteIds": [
+        "knowledge-representation",
+        "deep-learning",
+        "theorem-proving"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "artificial-life",
+      "title": "人工生命",
+      "domain": "ai",
+      "stage": 6,
+      "prerequisiteIds": [
+        "dynamical-systems",
+        "multi-agent-systems",
+        "evolutionary-computation"
+      ],
+      "directDependents": 2,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "evolutionary-computation",
+      "title": "进化计算",
+      "domain": "ai",
+      "stage": 4,
+      "prerequisiteIds": [
+        "optimization",
+        "probability"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "open-ended-learning",
+      "title": "开放式学习",
+      "domain": "ai",
+      "stage": 7,
+      "prerequisiteIds": [
+        "artificial-life",
+        "continual-learning",
+        "reinforcement-learning"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "digital-life",
+      "title": "数字生命",
+      "domain": "ai",
+      "stage": 8,
+      "prerequisiteIds": [
+        "artificial-life",
+        "world-models",
+        "memory-systems-ai",
+        "control-theory"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "ml-systems",
+      "title": "机器学习系统",
+      "domain": "ai",
+      "stage": 4,
+      "prerequisiteIds": [
+        "operating-systems",
+        "database-systems",
+        "machine-learning"
+      ],
+      "directDependents": 4,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "data-pipelines-ai",
+      "title": "大规模数据流水线",
+      "domain": "ai",
+      "stage": 4,
+      "prerequisiteIds": [
+        "data-engineering-ai",
+        "distributed-systems"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "gpu-computing-ai",
+      "title": "GPU 计算",
+      "domain": "ai",
+      "stage": 4,
+      "prerequisiteIds": [
+        "gpu-architecture",
+        "parallel-computing"
+      ],
+      "directDependents": 2,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "distributed-training",
+      "title": "分布式训练",
+      "domain": "ai",
+      "stage": 5,
+      "prerequisiteIds": [
+        "ml-systems",
+        "distributed-systems",
+        "gpu-computing-ai"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "model-parallelism",
+      "title": "大模型并行",
+      "domain": "ai",
+      "stage": 6,
+      "prerequisiteIds": [
+        "distributed-training",
+        "foundation-models"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "ai-compilers",
+      "title": "AI 编译器",
+      "domain": "ai",
+      "stage": 6,
+      "prerequisiteIds": [
+        "compilers",
+        "gpu-architecture",
+        "deep-learning"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "inference-systems",
+      "title": "推理系统",
+      "domain": "ai",
+      "stage": 5,
+      "prerequisiteIds": [
+        "ml-systems",
+        "computer-networks",
+        "gpu-computing-ai"
+      ],
+      "directDependents": 2,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "model-serving",
+      "title": "模型服务与部署",
+      "domain": "ai",
+      "stage": 4,
+      "prerequisiteIds": [
+        "inference-systems",
+        "cloud-computing"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "model-compression",
+      "title": "模型压缩",
+      "domain": "ai",
+      "stage": 5,
+      "prerequisiteIds": [
+        "deep-learning",
+        "inference-systems"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "mlops",
+      "title": "MLOps",
+      "domain": "ai",
+      "stage": 4,
+      "prerequisiteIds": [
+        "software-engineering",
+        "ml-systems"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "model-monitoring",
+      "title": "模型监控",
+      "domain": "ai",
+      "stage": 4,
+      "prerequisiteIds": [
+        "mlops",
+        "ai-evaluation"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "edge-ai",
+      "title": "边缘智能",
+      "domain": "ai",
+      "stage": 5,
+      "prerequisiteIds": [
+        "model-compression",
+        "embedded-systems"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "embedded-systems",
+      "title": "嵌入式系统",
+      "domain": "cs",
+      "stage": 4,
+      "prerequisiteIds": [
+        "computer-organization",
+        "operating-systems"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "ai-safety",
+      "title": "AI 安全",
+      "domain": "ai",
+      "stage": 5,
+      "prerequisiteIds": [
+        "machine-learning",
+        "ai-evaluation"
+      ],
+      "directDependents": 3,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "alignment",
+      "title": "AI 对齐",
+      "domain": "ai",
+      "stage": 6,
+      "prerequisiteIds": [
+        "preference-optimization",
+        "ai-safety"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "interpretability",
+      "title": "可解释性",
+      "domain": "ai",
+      "stage": 5,
+      "prerequisiteIds": [
+        "deep-learning",
+        "statistical-learning-theory"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "robustness",
+      "title": "鲁棒机器学习",
+      "domain": "ai",
+      "stage": 5,
+      "prerequisiteIds": [
+        "machine-learning",
+        "optimization"
+      ],
+      "directDependents": 2,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "adversarial-ml",
+      "title": "对抗机器学习",
+      "domain": "ai",
+      "stage": 5,
+      "prerequisiteIds": [
+        "robustness",
+        "cybersecurity-foundations"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "privacy-ml",
+      "title": "隐私机器学习",
+      "domain": "ai",
+      "stage": 5,
+      "prerequisiteIds": [
+        "privacy-computing",
+        "machine-learning"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "trustworthy-ai",
+      "title": "可信人工智能",
+      "domain": "ai",
+      "stage": 6,
+      "prerequisiteIds": [
+        "ai-safety",
+        "interpretability",
+        "robustness",
+        "privacy-ml"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "ai-governance",
+      "title": "AI 治理",
+      "domain": "ai",
+      "stage": 5,
+      "prerequisiteIds": [
+        "ai-safety",
+        "data-governance-ai"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "scientific-ml",
+      "title": "科学机器学习",
+      "domain": "ai",
+      "stage": 5,
+      "prerequisiteIds": [
+        "deep-learning",
+        "numerical-analysis",
+        "pde"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "ai-for-science",
+      "title": "AI for Science",
+      "domain": "ai",
+      "stage": 6,
+      "prerequisiteIds": [
+        "scientific-ml",
+        "foundation-models"
+      ],
+      "directDependents": 1,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "ai-for-mathematics",
+      "title": "AI for Mathematics",
+      "domain": "ai",
+      "stage": 6,
+      "prerequisiteIds": [
+        "theorem-proving",
+        "large-language-models",
+        "neuro-symbolic-ai"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    },
+    {
+      "nodeId": "autonomous-science",
+      "title": "自主科研系统",
+      "domain": "ai",
+      "stage": 7,
+      "prerequisiteIds": [
+        "agent-systems",
+        "ai-for-science",
+        "ml-experiment-design"
+      ],
+      "directDependents": 0,
+      "pagePath": null,
+      "tier": "基础页（元数据生成）",
+      "status": "draft（元数据生成）",
+      "verifiedSourceRecords": 0
+    }
+  ]
+}

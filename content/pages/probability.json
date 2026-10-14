@@ -1,0 +1,255 @@
+{
+  "schemaVersion": 1,
+  "slug": "probability",
+  "title": "概率论",
+  "aliases": [],
+  "tier": "标准页",
+  "status": "draft",
+  "kind": "course",
+  "summary": "在初等概率与微积分层面，学习事件、随机变量、条件概率、分布、期望、相关性与极限定理，为数理统计和AI概率建模准备语言与工具。",
+  "why": "概率论从已给定的随机模型推出事件和变量的规律；数理统计从数据推断未知模型，两者在catalog中是独立节点。本页只取 MIT 18.05 的概率部分，不把检验、估计或回归并入概率知识本体。必要前置由页面从catalog读取；入门自检是会组合数、有限求和、单变量积分。二维密度题会在题内解释积分区域，不把某校多元微积分要求升级成图谱硬依赖。学习时每章读一个主来源，先作答P-E题再看解析；题目与掌握阈值为本项目编写的draft，不是官方作业或考试。",
+  "learningObjectives": [
+    "明确样本空间、等可能假设与抽样方式，使用加法／乘法法则和组合计数。",
+    "通过条件概率、全概率和Bayes公式完成更新，区分独立、互斥与条件独立。",
+    "用CDF统一离散／连续变量，正确使用PMF／PDF，识别常见分布的支持集与参数约定。",
+    "通过求和、积分、指标变量和条件化求期望与方差，解释协方差及零相关的局限。",
+    "从联合分布求边缘与条件分布，计算变量变换及独立变量之和。",
+    "准确陈述有限方差iid条件下的弱大数律与中心极限定理，识别归一化和有限样本近似。"
+  ],
+  "coreTopics": [
+    "样本空间、事件与计数",
+    "条件概率、独立与Bayes公式",
+    "随机变量与分布函数",
+    "常见离散／连续分布",
+    "期望、方差与指标变量",
+    "联合、边缘与条件分布",
+    "协方差与相关",
+    "条件期望与全方差",
+    "随机变量变换与和",
+    "弱大数律与中心极限定理"
+  ],
+  "syllabus": [
+    {
+      "title": "样本空间、事件与组合计数 [P1–P3]",
+      "topics": [
+        "概率非负、全空间概率1、互斥事件可加；有限等可能模型下 P(A)=|A|/|Ω|。",
+        "乘法法则数有序过程；组合数数无序子集。放回与不放回、有序与无序会改变样本空间。",
+        "阅读 MIT Unit 1 Classes 1–2 或 Grinstead–Snell第1／3章；完成 P-E01。"
+      ]
+    },
+    {
+      "title": "条件概率、独立与Bayes更新 [P1–P3]",
+      "topics": [
+        "P(A|B)=P(A∩B)/P(B)，要求P(B)>0；独立要求P(A∩B)=P(A)P(B)，不等于互斥。",
+        "全概率对分割求和；Bayes反转条件方向。先验、似然与归一化缺一不可。",
+        "阅读MIT Class 3或Grinstead–Snell第4章；完成P-E02、E03。"
+      ]
+    },
+    {
+      "title": "随机变量与离散分布 [P1–P3]",
+      "topics": [
+        "随机变量把样本映射成数；CDF F(x)=P(X≤x)。离散PMF各点概率之和为1。",
+        "Bernoulli、Binomial、Poisson及Geometric：几何变量先约定记录首次成功的试验次数（1,2,…）还是失败次数（0,1,…）。",
+        "阅读MIT Class 4、Harvard随机变量练习或Grinstead–Snell第5章§1；完成P-E04。"
+      ]
+    },
+    {
+      "title": "连续分布与变量变换 [P1–P3]",
+      "topics": [
+        "密度f非负且积分1；区间概率为密度积分，单点概率0不表示该值不可能出现。密度可以大于1。",
+        "Uniform、Exponential（率λ，均值1/λ）、Normal（均值μ、方差σ²）。由CDF或单调变换的导数求新密度。",
+        "阅读MIT Class 5、Grinstead–Snell第2章／第5章§2；完成P-E05、E06。"
+      ]
+    },
+    {
+      "title": "期望、方差与指标变量 [P1–P3]",
+      "topics": [
+        "E[g(X)]可按原分布求和／积分；线性性不要求独立。Var X=E[X²]−(EX)²，须相应矩存在。",
+        "独立变量之和的方差相加；一般情况要包含协方差。指标变量I_A满足E I_A=P(A)。",
+        "阅读MIT Classes 4–6或Grinstead–Snell第6章；完成P-E07。"
+      ]
+    },
+    {
+      "title": "联合分布、边缘、条件与相关 [P1–P3]",
+      "topics": [
+        "联合PMF／PDF对另一变量求和／积分得到边缘；有正边缘概率／密度时用联合除以边缘得条件分布。",
+        "独立时联合分布分解为边缘乘积；零协方差一般不能推出独立。联合正态中零协方差推出独立属于特定模型结论。",
+        "阅读MIT Class 7、Harvard联合分布主题、Grinstead–Snell第4／6章；完成P-E08、E09。"
+      ]
+    },
+    {
+      "title": "条件期望与全方差：桥接主题 [P1, P3]",
+      "topics": [
+        "离散情形 E[X|Y=y]按条件分布求均值，是y的函数；全期望 E(E[X|Y])=EX。",
+        "Var X=E[Var(X|Y)]+Var(E[X|Y]) 把组内与组间波动分开。本项目由全期望推导：E[Var(X|Y)]=E[X²]−E[(E[X|Y])²]，加上 Var(E[X|Y]) 后得到 Var X；要求二阶矩有限。",
+        "Harvard主题页列出条件期望，Grinstead–Snell§6.1列出分割下的全期望；全方差在此为本项目推导的桥接练习，不声称是MIT独立单元。先学有限混合模型，抽象条件期望留给测度概率论；完成P-E10。"
+      ]
+    },
+    {
+      "title": "随机变量之和与极限定理 [P1–P3]",
+      "topics": [
+        "独立变量之和可用卷积求分布。有限方差iid时 Var(X̄ₙ)=σ²/n，Chebyshev给出弱大数律。",
+        "iid且0<σ²<∞时 √n(X̄ₙ−μ)/σ 依分布趋于N(0,1)。大数律讲平均值接近μ，CLT讲缩放后误差的分布。",
+        "阅读MIT Class 6及Grinstead–Snell第7–9章；完成P-E11、E12。"
+      ]
+    },
+    {
+      "title": "选学与节点边界",
+      "topics": [
+        "Harvard和Grinstead–Snell还含矩母函数、Markov链等；未纳入三体系共同基础门槛。Markov链深入交给随机过程节点。",
+        "测度、几乎处处收敛、抽象条件期望由测度概率论承担；参数估计、置信区间、检验和回归由数理统计承担。"
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "type": "公开课",
+      "title": "[P1] Harvard Stat 110：概念、条件化与解题路线",
+      "author": "Joe Blitzstein",
+      "institution": "Harvard University",
+      "url": "https://stat110.hsites.harvard.edu/about",
+      "verification": "已核验"
+    },
+    {
+      "type": "讲义",
+      "title": "[P2] MIT 18.05，Spring 2022：只学习Unit 1概率部分",
+      "author": "Jeremy Orloff、Jennifer French Kamrin",
+      "institution": "MIT",
+      "url": "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/pages/syllabus/",
+      "verification": "已核验"
+    },
+    {
+      "type": "主教材",
+      "title": "[P3] Grinstead and Snell’s Introduction to Probability，2006-07-04开放版本",
+      "author": "Charles M. Grinstead、J. Laurie Snell；CHANCE版本",
+      "institution": "Dartmouth College",
+      "url": "https://math.dartmouth.edu/~prob/prob/prob.pdf",
+      "verification": "已核验"
+    },
+    {
+      "type": "参考资料",
+      "title": "[P1-X] Harvard官方概念练习、作业与答案",
+      "author": "",
+      "institution": "Harvard University",
+      "url": "https://stat110.hsites.harvard.edu/strategic-practice-problems",
+      "verification": "已核验"
+    },
+    {
+      "type": "讲义",
+      "title": "[P2-R] MIT 18.05 阅读、课堂题与答案入口：Unit 1",
+      "author": "",
+      "institution": "MIT",
+      "url": "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/pages/classes-reading-and-in-class-materials/",
+      "verification": "已核验"
+    }
+  ],
+  "exercises": [
+    {
+      "type": "基础题",
+      "description": "P-E01｜题目：一盒5红3蓝，均匀不放回抽3个，求恰好2红1蓝的概率，并说明有序抽样能否给不同答案。\n解析：无序样本共C(8,3)=56，符合者C(5,2)C(3,1)=30，故15/28。有序样本数8·7·6，每个无序三元组对应3!个有序序列，分子分母同乘3!，概率相同。\n掌握检查：必须说清均匀不放回，不能把三次颜色结果当成独立。"
+    },
+    {
+      "type": "综合题",
+      "description": "P-E02｜题目：疾病先验概率0.01，检测敏感度0.9，假阳性率0.05。一次阳性后患病概率多少？\n解析：设D患病、+阳性。P(+)=0.9·0.01+0.05·0.99=0.0585；P(D|+)=0.009/0.0585=2/13≈0.153846。分子只数真阳性，分母必须包含所有阳性；敏感度不是阳性预测值。\n掌握检查：能用1万人频数表复核90真阳性、495假阳性，不交换条件方向。"
+    },
+    {
+      "type": "证明题",
+      "description": "P-E03｜题目：掷两枚独立公平硬币；A为第一枚正面，B为第二枚正面，C为两枚相同。三事件是否相互独立？\n解析：四个样本HH、HT、TH、TT等可能。P(A)=P(B)=P(C)=1/2，任意两事件交集概率1/4，故两两独立；但P(A∩B∩C)=1/4≠1/8，非相互独立。\n掌握检查：能给出相互独立须满足所有子族乘法条件，而非仅检验两两。"
+    },
+    {
+      "type": "基础题",
+      "description": "P-E04｜题目：每次独立成功概率p∈(0,1)，T记首次成功的试验次数。写PMF、尾概率和期望。\n解析：P(T=k)=(1−p)^(k−1)p，k≥1；P(T>k)=(1−p)^k，k≥0。非负整数变量尾和公式给 E T=Σ_{k≥0}P(T>k)=1/p。若改记失败次数F=T−1，则E F=(1−p)/p。\n掌握检查：尾概率的k与PMF的k−1不能混用；给出支持集。"
+    },
+    {
+      "type": "基础题",
+      "description": "P-E05｜题目：X的密度为f(x)=2x（0<x<1），其余为0。求CDF、均值与方差，并解释f(0.9)>1。\n解析：CDF为0（x≤0）、x²（0<x<1）、1（x≥1）。E X=∫₀¹2x²dx=2/3，E X²=∫₀¹2x³dx=1/2，Var X=1/18。f(0.9)=1.8是密度不是单点概率；P(X=0.9)=0，区间概率仍在[0,1]。\n掌握检查：不能用密度值直接回答连续变量等于某点的概率。"
+    },
+    {
+      "type": "综合题",
+      "description": "P-E06｜题目：U均匀分布于(0,1)，令X=−log U/λ，λ>0。求CDF和密度。\n解析：x<0时CDF为0；x≥0时 P(X≤x)=P(U≥exp(−λx))=1−exp(−λx)，故f(x)=λexp(−λx)，x>0。它是率参数λ的指数分布；E X=1/λ。变换递减，因此不等号必须反向。\n掌握检查：明确λ为率而非尺度；模拟时处理log(0)。"
+    },
+    {
+      "type": "证明题",
+      "description": "P-E07｜题目：n封信随机均匀放入n个一一对应信封，X为放对数。求EX，不得假设每封是否放对独立。\n解析：令Iᵢ指示第i封放对。任一信落入对应信封的概率1/n，所以 E X=Σᵢ E Iᵢ=n·(1/n)=1。期望线性性无需独立；对n=2，两封要么都对要么都错，可直观看到指标并不独立。\n掌握检查：能解释为何E(X+Y)=EX+EY不要求独立，而方差相加通常需要零协方差。"
+    },
+    {
+      "type": "综合题",
+      "description": "P-E08｜题目：联合密度f(x,y)=2（0<x<y<1），其余0。求fY(y)、fX(x)与E[X|Y=y]。\n解析：归一化∫₀¹∫₀ʸ2dxdy=1。fY(y)=2y（0<y<1），fX(x)=2(1−x)（0<x<1）。给定Y=y，条件密度为2/(2y)=1/y（0<x<y），因此E[X|Y=y]=y/2。先固定y，横截面x从0到y；固定x则y从x到1。\n掌握检查：写清两种积分区域，不能在单位正方形上积分或忽略条件支持集。"
+    },
+    {
+      "type": "综合题",
+      "description": "P-E09｜题目：X均匀取值−1、0、1，Y=X²。计算协方差并判断独立性。\n解析：E X=0，E Y=2/3，E[XY]=E[X³]=0，因此Cov(X,Y)=0。Y由X决定，P(Y=0|X=0)=1而P(Y=0)=1/3，故不独立。两者方差均非零，所以相关系数也是0。\n掌握检查：说明零相关不等于独立，不能仅说“有函数关系”而没有分布证据。"
+    },
+    {
+      "type": "综合题",
+      "description": "P-E10｜题目：先取Θ∈{0.2,0.8}，两值等概率，再给定Θ独立抽X₁,X₂~Bernoulli(Θ)。求EX₁、Var X₁和Cov(X₁,X₂)。\n解析：E[X₁|Θ]=Θ，Var(X₁|Θ)=Θ(1−Θ)=0.16。EΘ=0.5，VarΘ=0.09。全方差得Var X₁=0.16+0.09=0.25。给定Θ独立使E[X₁X₂|Θ]=Θ²，所以E[X₁X₂]=0.34，协方差0.34−0.25=0.09。条件独立不推出无条件独立。\n掌握检查：分别写出组内0.16与组间0.09，不能把共同随机参数当成固定常数。"
+    },
+    {
+      "type": "证明题",
+      "description": "P-E11｜题目：Xᵢ为iid、均值μ、方差σ²<∞。用Chebyshev证明X̄ₙ依概率趋于μ，并给出Bernoulli(0.3)、n=100、ε=0.1时的界。\n解析：独立给Var(X̄ₙ)=σ²/n；因此P(|X̄ₙ−μ|≥ε)≤σ²/(nε²)→0。Bernoulli方差0.21，给出的上界为0.21。该界是保证而非精确概率，可很松；有限方差是本证明的充分条件，并非所有大数律的必要条件。\n掌握检查：明确概率收敛，不把该证明误称几乎处处收敛或CLT。"
+    },
+    {
+      "type": "实验题",
+      "description": "P-E12｜题目：独立生成Bernoulli(0.3)样本，n取20、100、500，各重复5000次；检验平均值方差及Z=√n(X̄−0.3)/√0.21的分布，再比较“先取一次Θ再条件抽样”的混合模型。\n解析：iid路线的理论基准：EX̄=0.3，Var X̄=0.21/n，Z均值0、方差1，CLT预言随n增大形状趋于标准正态。混合模型每次重复只取一个Θ∈{0.2,0.8}，整组共享；EX̄=0.5，Var X̄=0.09+0.16/n，方差不会趋0，不能用无条件iid公式。报告样本均值、样本方差与经验分位数；与标准正态的2.5%、50%、97.5%分位数−1.96、0、1.96比较，允许有限样本波动。\n掌握检查：固定随机种子并保存代码／参数；不强制某次随机实验过固定阈值。能解释共享Θ为何破坏无条件独立；无需编程时推导两个理论方差替代模拟。"
+    }
+  ],
+  "projects": [
+    {
+      "title": "概率模型与反例档案",
+      "description": "逐题完成P-E01–E12；用“样本空间／支持集、参数、依赖假设、方法、核对”五栏记录。额外写清两两独立、零相关、条件独立各自不足以推出什么。",
+      "deliverable": "12题解答、3条反例、错误修订表；实验可用理论推导替代。"
+    },
+    {
+      "title": "共享潜变量与极限定理（选做）",
+      "description": "扩展P-E12，比较每个观测独立抽Θ与整组共享Θ。证明前者观测为iid Bernoulli(0.5)，后者平均值波动不消失；模拟只能作核对。",
+      "deliverable": "依赖结构说明、两种均值方差推导、可重复模拟或精确计算；不据此声称验证一般CLT。"
+    }
+  ],
+  "completion": {
+    "basic": "项目建议门槛：独立完成E01–E11至少8题，且E02的Bayes分母、E05的密度／概率区分和E09零相关反例必须正确；所有概率在[0,1]，PMF／PDF归一化，支持集与条件事件明确。这不是学校评分规则。",
+    "proficient": "独立完成E01–E11全部题并解释解析；能证明有限方差iid弱大数律、推导全期望／全方差，写出CLT的标准化。另选2道未见过的官方练习：一道条件化、一道联合分布或极限定理；先解后对答案，保留误差修订。",
+    "researchReady": "仅表示下一阶段准备：完成E12模拟或两个理论方差推导，区分模型假设、数学结论和有限样本证据；可继续catalog中的数理统计、概率建模或随机过程。进入测度概率论还须其图谱前置测度论，本页不能代替它或认证科研能力。"
+  },
+  "sources": [
+    {
+      "sourceType": "大学课程",
+      "title": "[P1] Harvard Stat 110：课程主题与前置",
+      "institution": "Harvard University",
+      "url": "https://stat110.hsites.harvard.edu/about",
+      "verification": "已核验",
+      "checkedAt": "2026-10-11"
+    },
+    {
+      "sourceType": "大学课程",
+      "title": "[P1-X] Harvard Stat 110：官方练习与解答入口",
+      "institution": "Harvard University",
+      "url": "https://stat110.hsites.harvard.edu/strategic-practice-problems",
+      "verification": "已核验",
+      "checkedAt": "2026-10-11"
+    },
+    {
+      "sourceType": "大学课程",
+      "title": "[P2] MIT 18.05，Spring 2022：syllabus（仅取概率部分）",
+      "institution": "MIT",
+      "url": "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/pages/syllabus/",
+      "verification": "已核验",
+      "checkedAt": "2026-10-11"
+    },
+    {
+      "sourceType": "大学课程",
+      "title": "[P2-R] MIT 18.05：Unit 1阅读与课堂练习目录",
+      "institution": "MIT",
+      "url": "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/pages/classes-reading-and-in-class-materials/",
+      "verification": "已核验",
+      "checkedAt": "2026-10-11"
+    },
+    {
+      "sourceType": "教材",
+      "title": "[P3] Grinstead–Snell，CHANCE开放版本（2006-07-04），第1–9章",
+      "institution": "Dartmouth College",
+      "url": "https://math.dartmouth.edu/~prob/prob/prob.pdf",
+      "verification": "已核验",
+      "checkedAt": "2026-10-11"
+    }
+  ]
+}
