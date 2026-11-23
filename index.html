@@ -2,165 +2,174 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8" />
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="纯数学、计算机科学与人工智能多尺度知识图谱" />
-  <title>数学·计算机·人工智能知识图谱</title>
-  <link rel="stylesheet" href="./styles.css?v=20260824-0112" />
-  <link rel="stylesheet" href="./tower-graph.css?v=20260824-0112" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>没有年级，只有地图 · 数学 · 计算机 · 人工智能知识地图</title>
+  <meta name="description" content="一张覆盖纯数学、计算机科学与人工智能的公共知识地图：296 个知识节点，从初等基础到研究前沿，按依赖而不是按年级组织学习。" />
+  <meta name="theme-color" content="#F2EFE7" />
+  <meta property="og:title" content="没有年级，只有地图" />
+  <meta property="og:description" content="纯数学 · 计算机科学 · 人工智能 —— 296 个知识节点，从第一行证明到研究前沿。" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preload" href="./assets/fonts/display-sc.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="./assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="./assets/base.css?v=4" />
+  <link rel="stylesheet" href="./assets/atlas.css?v=4" />
+  <script src="./assets/theme.js?v=1"></script>
 </head>
-<body>
-  <div class="app-shell">
-    <header class="topbar">
-      <button class="brand" id="homeButton" aria-label="返回完整知识图谱">
-        <span class="brand-mark">知</span>
-        <span>
-          <strong>数学·计算机·人工智能知识图谱</strong>
-          <small>从基础知识到研究前沿</small>
-        </span>
-      </button>
+<body class="atlas-page is-loading">
+  <a class="skip-link" href="#searchTrigger">跳到搜索</a>
 
-      <div class="topbar-actions">
-        <div class="search-wrap">
-          <label class="search-box">
-            <span aria-hidden="true">⌕</span>
-            <input id="searchInput" type="search" placeholder="搜索知识节点……" autocomplete="off" />
-          </label>
-          <div id="searchResults" class="search-results" hidden></div>
-        </div>
-        <a class="github-link" href="https://github.com/RanchoTao/Math-CS-AI" target="_blank" rel="noreferrer">GitHub</a>
+  <!-- Intro -->
+  <section id="intro" class="intro" aria-labelledby="introTitle" hidden>
+    <div class="intro-inner">
+      <p class="intro-kicker"><span class="mono">MATH · CS · AI</span><span>公共知识地图</span></p>
+      <h1 id="introTitle" class="intro-title">
+        <span class="intro-line"><span>没有年级，</span></span>
+        <span class="intro-line"><span>只有地图。</span></span>
+      </h1>
+      <p class="intro-lede">纯数学、计算机科学、人工智能，<span id="introCount">296</span> 个知识节点。<br />不按年龄排队，只按依赖向上走：从第一行证明，到研究前沿。</p>
+      <div class="intro-actions">
+        <button id="introEnter" class="btn btn-ink" type="button">进入地图 <span class="btn-arrow" aria-hidden="true">↑</span></button>
+        <span class="intro-hint"><kbd>Enter</kbd> 进入 · 滚动向上攀登 · <kbd>/</kbd> 搜索</span>
       </div>
-    </header>
+      <figure class="intro-fig" id="introFig" aria-hidden="false"></figure>
+      <dl class="intro-legend" aria-label="三个领域">
+        <div><dt><i class="dot math"></i>纯数学</dt><dd id="introMath">87</dd></div>
+        <div><dt><i class="dot cs"></i>计算机科学</dt><dd id="introCs">94</dd></div>
+        <div><dt><i class="dot ai"></i>人工智能</dt><dd id="introAi">115</dd></div>
+      </dl>
+    </div>
+  </section>
 
-    <main id="workspace" class="workspace">
-      <aside class="sidebar" aria-label="知识图谱控制器">
-        <section>
-          <p class="eyebrow">领域</p>
-          <div id="domainFilters" class="filter-stack">
-            <button class="filter-button active" data-domain="all"><span class="dot all"></span>全部领域</button>
-            <button class="filter-button" data-domain="math"><span class="dot math"></span>纯数学</button>
-            <button class="filter-button" data-domain="cs"><span class="dot cs"></span>计算机科学</button>
-            <button class="filter-button" data-domain="ai"><span class="dot ai"></span>人工智能</button>
-          </div>
-        </section>
+  <!-- Top bar -->
+  <header class="topbar">
+    <a class="wordmark" href="./index.html" aria-label="知识地图首页">
+      <span class="wordmark-glyph" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="wordmark-text"><b>知识地图</b><small class="mono">MATH · CS · AI</small></span>
+    </a>
 
-        <section>
-          <p class="eyebrow">培养方案图层</p>
-          <select id="curriculumSelect" class="atlas-select" aria-label="选择培养方案图层"></select>
-          <p id="curriculumDescription" class="section-note"></p>
-        </section>
+    <nav class="modes" aria-label="模式">
+      <button class="mode is-active" data-mode="explore" type="button" aria-pressed="true"><span class="mode-key mono">1</span>探索</button>
+      <button class="mode" data-mode="route" type="button" aria-pressed="false"><span class="mode-key mono">2</span>路线</button>
+      <button class="mode" data-mode="mine" type="button" aria-pressed="false"><span class="mode-key mono">3</span>我的地图</button>
+      <span class="mode-thumb" aria-hidden="true"></span>
+    </nav>
 
-        <section>
-          <p class="eyebrow">学习阶段</p>
-          <div id="stageFilters" class="stage-grid"></div>
-          <p class="section-note">每个领域内部第0层位于底部，第8层位于顶部；同一层只占一行。</p>
-        </section>
+    <div class="topbar-actions">
+      <button id="searchTrigger" class="search-trigger" type="button" aria-haspopup="dialog">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M13 13l4 4"/></svg>
+        <span>搜索知识节点</span><kbd>/</kbd>
+      </button>
+      <label class="layer-select">
+        <span class="sr-only">培养方案图层</span>
+        <select id="layerSelect" aria-label="培养方案图层"></select>
+      </label>
+      <button id="themeButton" class="icon-btn" type="button" aria-label="切换外观主题" title="外观">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="M10 3a7 7 0 0 0 0 14z" fill="currentColor" stroke="none"/></svg>
+      </button>
+      <button id="aboutButton" class="icon-btn" type="button" aria-label="关于这张地图" title="关于">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.5"/><path d="M10 9v5M10 6.2v.1"/></svg>
+      </button>
+      <a class="icon-btn" href="https://github.com/RanchoTao/Math-CS-AI" target="_blank" rel="noopener" aria-label="GitHub 仓库" title="GitHub">
+        <svg viewBox="0 0 16 16" aria-hidden="true" class="fill"><path d="M8 0a8 8 0 0 0-2.53 15.59c.4.07.55-.17.55-.38v-1.34c-2.23.48-2.7-1.07-2.7-1.07-.36-.92-.89-1.17-.89-1.17-.73-.5.06-.49.06-.49.8.06 1.23.83 1.23.83.72 1.22 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.78-.2-3.65-.89-3.65-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.66 3.95.29.25.54.73.54 1.48v2.2c0 .21.15.46.55.38A8 8 0 0 0 8 0z"/></svg>
+      </a>
+    </div>
+  </header>
 
-        <section>
-          <p class="eyebrow">示例路线</p>
-          <div id="pathButtons" class="path-stack"></div>
-        </section>
+  <!-- Lane headers (screen-space, follow camera X) -->
+  <div class="lanes-head" id="lanesHead" aria-hidden="false"></div>
 
-        <section class="legend-card">
-          <p class="eyebrow">节点类型</p>
-          <div class="legend">
-            <div><span class="legend-shape course"></span>课程级知识</div>
-            <div><span class="legend-shape practice"></span>实践与规范</div>
-            <div><span class="legend-shape frontier"></span>研究前沿</div>
-            <div><span class="legend-shape external"></span>跨学科前置</div>
-          </div>
-        </section>
+  <!-- Mobile lane switch -->
+  <div class="lane-switch" id="laneSwitch" role="tablist" aria-label="切换领域"></div>
 
-        <section class="status-card">
-          <span class="status-pulse"></span>
-          <div>
-            <strong>知识图谱 v0.8</strong>
-            <p><span id="catalogStats"></span><br /><span id="chunkStats"></span></p>
-          </div>
-        </section>
-      </aside>
+  <!-- Map viewport -->
+  <main id="viewport" class="viewport" aria-label="知识地图。滚动向上浏览更高阶段，按住拖动平移，捏合或 Ctrl 加滚轮缩放。">
+    <div id="axis" class="axis" aria-hidden="true"></div>
+    <div id="world" class="world">
+      <div id="bands" class="bands" aria-hidden="true"></div>
+      <svg id="edges" class="edges" aria-hidden="true"></svg>
+      <div id="nodes" class="nodes" role="group" aria-label="知识节点"></div>
+    </div>
+    <div class="map-hint" id="mapHint" aria-hidden="true"><span>↑</span> 向上攀登 · 点选节点看依赖</div>
+  </main>
 
-      <section class="map-panel" aria-label="交互式知识地图">
-        <div class="map-toolbar">
-          <div class="breadcrumb">统一的纵向知识塔</div>
-          <div class="toolbar-meta">
-            <strong id="visibleCount">0 个节点</strong>
-            <span>点击节点查看依赖，再进入对应知识页面</span>
-          </div>
-          <div class="zoom-controls" aria-label="缩放控制">
-            <button id="zoomOut" title="缩小">−</button>
-            <button id="resetView" title="回到纯数学塔底">重置</button>
-            <button id="zoomIn" title="放大">＋</button>
-          </div>
-        </div>
+  <!-- Altimeter -->
+  <nav class="altimeter" id="altimeter" aria-label="阶段导航">
+    <div class="alt-track"><div class="alt-window" id="altWindow"></div></div>
+    <ol class="alt-ticks" id="altTicks"></ol>
+  </nav>
 
-        <div id="mapViewport" class="map-viewport">
-          <div id="atlasCanvas" class="atlas-canvas">
-            <canvas id="edgeCanvas" class="edge-canvas" aria-hidden="true"></canvas>
-            <div id="graphTransform" class="graph-transform"></div>
-          </div>
-          <div class="map-hint">同层关系使用上下轨道，跨层关系使用上下端口；详情面板可进入知识页面</div>
-        </div>
-      </section>
-
-      <aside id="detailPanel" class="detail-panel" aria-label="节点详情">
-        <button id="closeDetail" class="close-detail" aria-label="关闭详情">×</button>
-        <div id="detailContent" class="detail-content">
-          <div class="empty-detail">
-            <span>◎</span>
-            <h2>选择一个知识节点</h2>
-            <p>点击任意知识节点，查看阶段、类型、前置依赖、核心内容和后续方向。</p>
-          </div>
-        </div>
-      </aside>
-    </main>
+  <!-- Zoom -->
+  <div class="zoom" aria-label="缩放">
+    <button id="zoomIn" class="icon-btn" type="button" aria-label="放大">＋</button>
+    <button id="zoomFit" class="icon-btn mono" type="button" aria-label="总览全图" title="总览 (0)">◱</button>
+    <button id="zoomOut" class="icon-btn" type="button" aria-label="缩小">−</button>
   </div>
 
-  <template id="nodeDetailTemplate">
-    <article>
-      <div class="detail-heading">
-        <span class="detail-domain"></span>
-        <span class="detail-stage"></span>
-        <span class="detail-type"></span>
+  <!-- Hover tooltip (far zoom) -->
+  <div id="tooltip" class="tooltip" role="tooltip" hidden></div>
+
+  <!-- Mode panels -->
+  <aside id="routePanel" class="panel route-panel" aria-label="学习路线" hidden>
+    <header class="panel-head">
+      <p class="eyebrow mono">ROUTE</p>
+      <h2 class="panel-title display">规划一条路线</h2>
+      <p class="panel-note">选一个目标，地图会算出从你已掌握的地方出发、还需要补齐的全部前置。</p>
+    </header>
+    <div class="route-presets" id="routePresets"></div>
+    <div class="route-target" id="routeTarget" hidden>
+      <div class="route-summary" id="routeSummary"></div>
+      <div class="route-controls">
+        <button id="routePlay" class="btn btn-ink btn-sm" type="button">▶ 播放路线</button>
+        <button id="routeClear" class="btn btn-ghost btn-sm" type="button">清除</button>
       </div>
-      <h1 class="detail-title"></h1>
-      <p class="detail-cluster"></p>
-      <p class="detail-summary"></p>
+      <ol class="route-steps" id="routeSteps"></ol>
+    </div>
+  </aside>
 
-      <section>
-        <h2>核心内容</h2>
-        <ul class="detail-topics"></ul>
-      </section>
+  <aside id="minePanel" class="panel mine-panel" aria-label="我的地图" hidden>
+    <header class="panel-head">
+      <p class="eyebrow mono">MY MAP</p>
+      <h2 class="panel-title display">我的地图</h2>
+      <p class="panel-note">点选节点标记为“已掌握”。地图会亮出你下一步可以学的地方。<b>进度只保存在这台设备上</b>，随时导出带走。</p>
+    </header>
+    <div class="mine-progress" id="mineProgress"></div>
+    <div class="mine-next">
+      <h3 class="mini-title">下一步可学 <span class="mono" id="nextCount">0</span></h3>
+      <div class="chip-row" id="mineNext"></div>
+    </div>
+    <div class="mine-actions">
+      <button id="mineExport" class="btn btn-ghost btn-sm" type="button">导出 JSON</button>
+      <label class="btn btn-ghost btn-sm file-btn">导入<input id="mineImport" type="file" accept="application/json" /></label>
+      <button id="mineReset" class="btn btn-ghost btn-sm danger" type="button">清空</button>
+    </div>
+  </aside>
 
-      <section>
-        <h2>必要前置</h2>
-        <div class="detail-prerequisites chip-list"></div>
-      </section>
+  <!-- Detail drawer -->
+  <aside id="drawer" class="drawer" aria-labelledby="drawerTitle" aria-hidden="true">
+    <button id="drawerClose" class="icon-btn drawer-close" type="button" aria-label="关闭详情">✕</button>
+    <div class="drawer-grip" aria-hidden="true"></div>
+    <div id="drawerBody" class="drawer-body"></div>
+  </aside>
 
-      <section>
-        <h2>推荐关联</h2>
-        <div class="detail-recommended chip-list"></div>
-      </section>
+  <!-- Search palette -->
+  <div id="palette" class="palette" role="dialog" aria-modal="true" aria-label="搜索知识节点" hidden>
+    <div class="palette-scrim" data-close></div>
+    <div class="palette-card">
+      <label class="palette-input">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M13 13l4 4"/></svg>
+        <input id="paletteInput" type="search" placeholder="搜索节点、主题或学科群……" autocomplete="off" spellcheck="false" aria-controls="paletteList" />
+        <kbd>Esc</kbd>
+      </label>
+      <ul id="paletteList" class="palette-list" role="listbox"></ul>
+      <footer class="palette-foot mono"><span>↑↓ 选择</span><span>↵ 前往</span><span>⇧↵ 设为路线目标</span></footer>
+    </div>
+  </div>
 
-      <section>
-        <h2>可继续进入</h2>
-        <div class="detail-next chip-list"></div>
-      </section>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-      <button class="course-button">进入知识页面 <span>→</span></button>
-      <p class="course-note">所有节点已具备基础页；核心节点将逐步升级为标准页与精品页。</p>
-    </article>
-  </template>
+  <noscript><div class="noscript">这张地图需要启用 JavaScript。你也可以在 <a href="https://github.com/RanchoTao/Math-CS-AI/blob/main/data/catalog.json">GitHub</a> 直接查看全部节点数据。</div></noscript>
 
-  <script src="./data/catalog.part1.js?v=20260824-0112"></script>
-  <script src="./data/catalog.part2.js?v=20260824-0112"></script>
-  <script src="./data/catalog.part3.js?v=20260824-0112"></script>
-  <script src="./data/catalog.part4.js?v=20260824-0112"></script>
-  <script src="./data/catalog.part5.js?v=20260824-0112"></script>
-  <script src="./data/catalog.js?v=20260824-0112"></script>
-  <script src="./app-v5.js?v=20260824-0112" defer></script>
-  <script src="./knowledge-link.js?v=20260824-0112" defer></script>
+  <script type="module" src="./assets/atlas.js?v=4"></script>
 </body>
 </html>

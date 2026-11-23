@@ -1,6 +1,6 @@
 # Atlas Data Model
 
-当前静态数据由 `data/catalog.js` 提供，运行时解压为以下结构：
+图谱数据以明文 `data/catalog.json` 保存，结构如下（`data/catalog.js` 只负责在浏览器中读取它）：
 
 ```ts
 interface Cluster {

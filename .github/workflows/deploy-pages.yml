@@ -24,40 +24,28 @@ jobs:
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
-      - name: Validate knowledge content
+      - name: Validate graph and knowledge content
         run: |
           node scripts/validate-content.mjs
+          node --test tests/knowledge-content.test.mjs
 
       - name: Prepare static site
         run: |
           mkdir -p _site
-          cp index.html knowledge.html styles.css tower-graph.css knowledge.css app-v4.js app-v5.js knowledge.js knowledge-link.js .nojekyll _site/
-          cp -R data styles content schemas _site/
+          cp index.html knowledge.html .nojekyll _site/
+          cp -R assets data content schemas _site/
 
       - name: Validate static site
         run: |
-          test -s _site/index.html
-          test -s _site/knowledge.html
-          test -s _site/styles.css
-          test -s _site/tower-graph.css
-          test -s _site/knowledge.css
-          test -s _site/app-v4.js
-          test -s _site/app-v5.js
-          test -s _site/knowledge.js
-          test -s _site/knowledge-link.js
-          test -s _site/data/catalog.js
-          test -s _site/data/catalog.part5.js
-          test -s _site/content/manifest.json
-          test -s _site/content/pages/real-analysis-i.json
-          test -s _site/content/courses/manifest.json
-          test -s _site/content/experiences/manifest.json
-          test -s _site/schemas/knowledge-page.schema.json
-          test -s _site/schemas/course-implementation.schema.json
-          test -s _site/schemas/learning-experience.schema.json
-          node --check _site/app-v4.js
-          node --check _site/app-v5.js
-          node --check _site/knowledge.js
-          node --check _site/knowledge-link.js
+          for f in index.html knowledge.html assets/base.css assets/atlas.css assets/atlas.js assets/knowledge.css assets/knowledge.js \
+                   assets/fonts/display-sc.woff2 assets/fonts/instrument-serif.woff2 data/catalog.json data/catalog.js \
+                   content/manifest.json content/courses/manifest.json content/experiences/manifest.json; do
+            test -s "_site/$f" || { echo "missing $f"; exit 1; }
+          done
+          node --check _site/assets/atlas.js
+          node --check _site/assets/knowledge.js
+          node --check _site/data/catalog.js
+          node --check _site/assets/theme.js
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4

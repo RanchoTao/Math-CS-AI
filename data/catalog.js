@@ -1,6 +1,6 @@
+// Loads the knowledge graph. The single source of truth is data/catalog.json.
 window.loadAtlasCatalog = async function () {
-  const encoded = (window.__ATLAS_PARTS || []).join("");
-  const binary = Uint8Array.from(atob(encoded), (char) => char.charCodeAt(0));
-  const stream = new Blob([binary]).stream().pipeThrough(new DecompressionStream("gzip"));
-  return JSON.parse(await new Response(stream).text());
+  const response = await fetch("./data/catalog.json");
+  if (!response.ok) throw new Error(`知识图谱数据加载失败：${response.status}`);
+  return response.json();
 };
