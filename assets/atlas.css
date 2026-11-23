@@ -476,9 +476,10 @@ html, body.atlas-page { height: 100%; overflow: hidden; overscroll-behavior: non
 .intro-kicker span + span::before { content: ""; display: inline-block; width: 28px; height: 1px; background: var(--rule); vertical-align: middle; margin-right: 16px; }
 .intro-title {
   margin: 0; font-family: var(--font-display); font-weight: 600; font-synthesis: none;
-  font-size: clamp(56px, 10.5vw, 168px); line-height: 1.02; letter-spacing: -.03em;
+  /* each line must fit its column: 5 glyphs ≈ 5.2em */
+  font-size: clamp(48px, calc((min(100vw, 1288px) - 104px) * .105), 124px); line-height: 1.04; letter-spacing: -.03em;
 }
-.intro-line { display: block; overflow: hidden; padding-bottom: .06em; }
+.intro-line { display: block; overflow: hidden; padding-bottom: .06em; white-space: nowrap; }
 .intro-line > span { display: inline-block; animation: line-up 1.1s var(--ease-out) both; }
 .intro-line:nth-child(2) > span { animation-delay: .12s; }
 @keyframes line-up { from { transform: translateY(105%); } to { transform: none; } }
@@ -560,6 +561,7 @@ html, body.atlas-page { height: 100%; overflow: hidden; overscroll-behavior: non
   .panel-title { font-size: 24px; }
   .intro-inner { padding: 72px 0 40px; width: calc(100vw - 36px); grid-template-columns: 1fr; grid-template-areas: "kicker" "title" "lede" "fig" "actions" "legend"; }
   .intro-fig { justify-self: stretch; max-width: none; margin: 32px 0 0; }
+  .intro-title { font-size: clamp(40px, calc((100vw - 36px) / 5.4), 120px); }
   .intro-legend { gap: 12px; margin-top: 48px; }
   .intro-legend dt { font-size: 12px; gap: 6px; }
   .intro-hint { display: none; }
