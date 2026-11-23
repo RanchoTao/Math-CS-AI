@@ -2,21 +2,19 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
-import zlib from 'node:zlib';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
-const encoded = [1, 2, 3, 4, 5].map(i => read(`data/catalog.part${i}.js`).match(/push\("([A-Za-z0-9+/=]+)"\)/)[1]).join('');
-const catalog = JSON.parse(zlib.gunzipSync(Buffer.from(encoded, 'base64')));
-const renderer = read('knowledge.js');
+const catalog = JSON.parse(read('data/catalog.json'));
+const renderer = read('assets/knowledge.js');
 
 // Execute the actual renderer with the committed catalog/manifests/content.
 // All fetches are local fixtures, so this suite needs neither browser nor network.
 async function render(id, overrides = {}) {
   const target = { innerHTML: '' };
-  const document = { title: '', getElementById: () => target };
+  const document = { title: '', getElementById: id => (id === 'knowledgePage' ? target : null) };
   const errors = [];
   const context = vm.createContext({
     document,
@@ -39,7 +37,8 @@ for (const id of ['linear-algebra', 'probability']) {
     const { html, title } = await render(id);
     const node = catalog.nodes.find(n => n.id === id);
     assert.equal(title, `${node.title} · 知识节点`);
-    assert.match(html, /<strong>draft<\/strong>/);
+    assert.match(html, /<strong>草稿<\/strong><span class="meta-sub mono">draft<\/span>/);
+    assert.match(html, /<details><summary><span>先独立作答，再查看解析<\/span>/);
     assert.match(html, /<p>解析：/);
     assert.match(html, /<p>掌握检查：/);
     assert.match(html, /2026-10-11/);
@@ -51,6 +50,7 @@ for (const id of ['linear-algebra', 'probability']) {
     }
     assert.match(html, /课程实现 · draft/);
     assert.match(html, /historical/);
+    assert.match(html, /历史版本/);
   });
 }
 
@@ -63,13 +63,16 @@ test('existing authored pages still render without requiring new fields', async 
     assert.ok(node, entry.slug);
     const { html } = await render(node.id);
     assert.ok(html.includes(`<h1>${node.title}</h1>`));
+    assert.doesNotMatch(html, /这一页还没有正文/);
     assert.doesNotMatch(html, /知识页面加载失败/);
   }
 });
 
 test('uncovered statistics keeps the metadata fallback and its own prerequisites', async () => {
   const { html } = await render('mathematical-statistics');
+  assert.match(html, /这一页还没有正文/);
   assert.match(html, /该节点已经拥有可访问页面/);
+  assert.match(html, /<span class="tier ">基础页<\/span>/);
   assert.match(html, /knowledge.html\?id=probability&title=/);
   assert.match(html, /knowledge.html\?id=linear-algebra&title=/);
   assert.doesNotMatch(html, /LA-E01|P-E01/);

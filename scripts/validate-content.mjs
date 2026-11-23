@@ -1,6 +1,5 @@
 import fs from "node:fs";
 import path from "node:path";
-import zlib from "node:zlib";
 
 const root = process.cwd();
 let errors = 0;
@@ -20,15 +19,40 @@ const loadReferenced = (entry, kind) => {
 };
 
 for (const schema of ['schemas/knowledge-page.schema.json', 'schemas/course-implementation.schema.json', 'schemas/learning-experience.schema.json']) readJson(schema);
-const encoded = [1,2,3,4,5].map(index => {
-  const text = fs.readFileSync(path.join(root, `data/catalog.part${index}.js`), 'utf8');
-  const match = text.match(/push\("([A-Za-z0-9+/=]+)"\)/);
-  if (!match) throw new Error(`无法读取 catalog.part${index}.js`);
-  return match[1];
-}).join('');
-const catalog = JSON.parse(zlib.gunzipSync(Buffer.from(encoded, 'base64')).toString('utf8'));
+const catalog = readJson('data/catalog.json');
 const nodes = Array.isArray(catalog.nodes) ? catalog.nodes : Object.entries(catalog.nodes || {}).map(([id,item]) => ({id,...item}));
 const nodeTitles = new Set(nodes.map(node => clean(node.title)));
+
+// 图谱结构校验：引用存在、ID 唯一、无环、必要前置层级不高于本节点。
+{
+  const byId = new Map();
+  for (const node of nodes) {
+    if (byId.has(node.id)) fail(`重复节点 ID: ${node.id}`);
+    byId.set(node.id, node);
+    if (!Number.isInteger(node.stage) || node.stage < 0 || node.stage > 8) fail(`${node.id} stage 必须是 0–8 的整数`);
+    if (!['math','cs','ai'].includes(node.domain)) fail(`${node.id} domain 非法: ${node.domain}`);
+  }
+  const clusterIds = new Set((catalog.clusters || []).map(c => c.id));
+  for (const node of nodes) {
+    if (!clusterIds.has(node.cluster)) fail(`${node.id} 引用了不存在的学科群 ${node.cluster}`);
+    for (const key of ['prerequisites','recommended']) for (const ref of node[key] || []) {
+      const target = byId.get(ref);
+      if (!target) { fail(`${node.id}.${key} 引用了不存在的节点 ${ref}`); continue; }
+      if (key === 'prerequisites' && target.stage > node.stage) fail(`${node.id}（L${node.stage}）的必要前置 ${ref} 位于更高的 L${target.stage}`);
+    }
+  }
+  const state = new Map();
+  const visit = (id, trail) => {
+    if (state.get(id) === 2) return;
+    if (state.get(id) === 1) { fail(`必要前置存在环: ${[...trail, id].join(' → ')}`); return; }
+    state.set(id, 1);
+    for (const ref of byId.get(id)?.prerequisites || []) if (byId.has(ref)) visit(ref, [...trail, id]);
+    state.set(id, 2);
+  };
+  for (const node of nodes) visit(node.id, []);
+  for (const [key, path] of Object.entries(catalog.paths || {})) for (const ref of path.nodes || []) if (!byId.has(ref)) fail(`示例路线 ${key} 引用了不存在的节点 ${ref}`);
+  for (const [key, layer] of Object.entries(catalog.curricula || {})) for (const ref of layer.nodes || []) if (!byId.has(ref)) fail(`培养方案 ${key} 引用了不存在的节点 ${ref}`);
+}
 const knowledgeExists = value => nodeTitles.has(clean(value));
 
 const requiredPage = ['schemaVersion','slug','title','tier','status','kind','summary','why','learningObjectives','coreTopics','resources','completion','sources'];

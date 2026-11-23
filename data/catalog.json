@@ -1,0 +1,6487 @@
+{
+ "version": "0.3.0",
+ "clusters": [
+  {
+   "id": "m-foundations",
+   "title": "数学语言与基础",
+   "domain": "math",
+   "stage": 1,
+   "order": 1,
+   "summary": "从初等对象、集合映射、逻辑与证明进入现代数学。"
+  },
+  {
+   "id": "m-analysis",
+   "title": "分析与方程",
+   "domain": "math",
+   "stage": 3,
+   "order": 2,
+   "summary": "研究极限、函数空间、积分、微分方程与连续结构。"
+  },
+  {
+   "id": "m-algebra",
+   "title": "代数与结构",
+   "domain": "math",
+   "stage": 3,
+   "order": 3,
+   "summary": "研究群、环、域、模、表示与代数几何结构。"
+  },
+  {
+   "id": "m-geometry",
+   "title": "几何与拓扑",
+   "domain": "math",
+   "stage": 3,
+   "order": 4,
+   "summary": "研究空间、连续性、流形、曲率与拓扑不变量。"
+  },
+  {
+   "id": "m-probability",
+   "title": "概率、随机与动力系统",
+   "domain": "math",
+   "stage": 2,
+   "order": 5,
+   "summary": "研究随机性、时间演化、状态估计与控制。"
+  },
+  {
+   "id": "m-number-comb",
+   "title": "数论与组合",
+   "domain": "math",
+   "stage": 2,
+   "order": 6,
+   "summary": "研究整数、离散结构、图、计数与算术几何。"
+  },
+  {
+   "id": "m-logic",
+   "title": "逻辑与数学基础",
+   "domain": "math",
+   "stage": 4,
+   "order": 7,
+   "summary": "研究形式系统、集合论、模型、可计算性与类型。"
+  },
+  {
+   "id": "c-foundations",
+   "title": "程序设计与计算思维",
+   "domain": "cs",
+   "stage": 1,
+   "order": 1,
+   "summary": "建立程序抽象、递归、数据结构与工程工具基础。"
+  },
+  {
+   "id": "c-theory",
+   "title": "理论计算机科学",
+   "domain": "cs",
+   "stage": 3,
+   "order": 2,
+   "summary": "研究算法、可计算性、复杂性与计算模型。"
+  },
+  {
+   "id": "c-systems",
+   "title": "计算机系统",
+   "domain": "cs",
+   "stage": 2,
+   "order": 3,
+   "summary": "研究操作系统、网络、分布式、存储与云基础设施。"
+  },
+  {
+   "id": "c-architecture",
+   "title": "体系结构与硬件软件协同",
+   "domain": "cs",
+   "stage": 2,
+   "order": 4,
+   "summary": "研究指令、处理器、存储层次、并行与加速器。"
+  },
+  {
+   "id": "c-pl",
+   "title": "程序语言与软件",
+   "domain": "cs",
+   "stage": 3,
+   "order": 5,
+   "summary": "研究语言、编译、语义、验证与大型软件构建。"
+  },
+  {
+   "id": "c-data",
+   "title": "数据与信息系统",
+   "domain": "cs",
+   "stage": 2,
+   "order": 6,
+   "summary": "研究数据库、检索、流处理、数据挖掘与可视化。"
+  },
+  {
+   "id": "c-graphics",
+   "title": "图形学与人机交互",
+   "domain": "cs",
+   "stage": 3,
+   "order": 7,
+   "summary": "研究图形生成、几何处理、交互设计与沉浸式系统。"
+  },
+  {
+   "id": "c-security",
+   "title": "安全与密码学",
+   "domain": "cs",
+   "stage": 3,
+   "order": 8,
+   "summary": "研究系统安全、密码协议、隐私与可信计算。"
+  },
+  {
+   "id": "c-scientific",
+   "title": "科学计算与交叉计算",
+   "domain": "cs",
+   "stage": 3,
+   "order": 9,
+   "summary": "以数值方法、高性能计算服务科学与交叉领域。"
+  },
+  {
+   "id": "a-foundations",
+   "title": "AI 数据、数学与实验基础",
+   "domain": "ai",
+   "stage": 1,
+   "order": 1,
+   "summary": "连接数据治理、优化、自动微分与实验方法。"
+  },
+  {
+   "id": "a-classic",
+   "title": "经典 AI 与机器学习",
+   "domain": "ai",
+   "stage": 2,
+   "order": 2,
+   "summary": "覆盖搜索、规划、知识表示与经典统计学习方法。"
+  },
+  {
+   "id": "a-theory",
+   "title": "学习理论与概率推断",
+   "domain": "ai",
+   "stage": 3,
+   "order": 3,
+   "summary": "研究泛化、Bayesian 推断、因果与不确定性。"
+  },
+  {
+   "id": "a-deep",
+   "title": "深度学习与表示",
+   "domain": "ai",
+   "stage": 3,
+   "order": 4,
+   "summary": "研究神经网络、注意力、自监督与几何表示。"
+  },
+  {
+   "id": "a-perception",
+   "title": "感知、语言与多模态",
+   "domain": "ai",
+   "stage": 4,
+   "order": 5,
+   "summary": "研究视觉、语言、语音、三维与多模态理解。"
+  },
+  {
+   "id": "a-decision",
+   "title": "决策、控制与具身智能",
+   "domain": "ai",
+   "stage": 4,
+   "order": 6,
+   "summary": "研究强化学习、控制、状态估计、机器人与具身智能。"
+  },
+  {
+   "id": "a-generative",
+   "title": "生成模型与基础模型",
+   "domain": "ai",
+   "stage": 5,
+   "order": 7,
+   "summary": "研究扩散、基础模型、大语言模型与推理模型。"
+  },
+  {
+   "id": "a-agents",
+   "title": "世界模型、智能体与数字生命",
+   "domain": "ai",
+   "stage": 6,
+   "order": 8,
+   "summary": "研究记忆、规划、环境模型、开放学习与数字生命。"
+  },
+  {
+   "id": "a-systems",
+   "title": "AI 系统与大规模工程",
+   "domain": "ai",
+   "stage": 4,
+   "order": 9,
+   "summary": "研究分布式训练、编译、推理、部署与 MLOps。"
+  },
+  {
+   "id": "a-safety",
+   "title": "安全、可信与 AI for Science",
+   "domain": "ai",
+   "stage": 5,
+   "order": 10,
+   "summary": "研究可解释性、鲁棒性、对齐、治理与科学智能。"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "elementary-algebra",
+   "title": "初等代数",
+   "domain": "math",
+   "cluster": "m-foundations",
+   "stage": 0,
+   "type": "course",
+   "summary": "初等代数的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [],
+   "recommended": [],
+   "topics": [
+    "方程与不等式",
+    "多项式",
+    "初等函数"
+   ],
+   "tags": []
+  },
+  {
+   "id": "elementary-geometry",
+   "title": "初等几何",
+   "domain": "math",
+   "cluster": "m-foundations",
+   "stage": 0,
+   "type": "course",
+   "summary": "初等几何的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [],
+   "recommended": [],
+   "topics": [
+    "欧氏几何",
+    "解析几何",
+    "空间直觉"
+   ],
+   "tags": []
+  },
+  {
+   "id": "trigonometry",
+   "title": "三角学",
+   "domain": "math",
+   "cluster": "m-foundations",
+   "stage": 0,
+   "type": "course",
+   "summary": "三角学的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "elementary-geometry"
+   ],
+   "recommended": [],
+   "topics": [
+    "三角函数",
+    "恒等式",
+    "周期结构"
+   ],
+   "tags": []
+  },
+  {
+   "id": "sequences-recursion",
+   "title": "数列与递推",
+   "domain": "math",
+   "cluster": "m-foundations",
+   "stage": 0,
+   "type": "course",
+   "summary": "数列与递推的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "elementary-algebra"
+   ],
+   "recommended": [],
+   "topics": [
+    "数列",
+    "递推关系",
+    "增长率"
+   ],
+   "tags": []
+  },
+  {
+   "id": "set-maps",
+   "title": "集合与映射",
+   "domain": "math",
+   "cluster": "m-foundations",
+   "stage": 1,
+   "type": "course",
+   "summary": "集合与映射的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [],
+   "recommended": [],
+   "topics": [
+    "集合运算",
+    "关系与商集",
+    "单射满射双射"
+   ],
+   "tags": []
+  },
+  {
+   "id": "logic-basics",
+   "title": "数理逻辑基础",
+   "domain": "math",
+   "cluster": "m-foundations",
+   "stage": 1,
+   "type": "course",
+   "summary": "数理逻辑基础的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "set-maps"
+   ],
+   "recommended": [],
+   "topics": [
+    "命题逻辑",
+    "谓词逻辑",
+    "量词"
+   ],
+   "tags": []
+  },
+  {
+   "id": "proof-methods",
+   "title": "数学证明",
+   "domain": "math",
+   "cluster": "m-foundations",
+   "stage": 1,
+   "type": "course",
+   "summary": "从计算型学习转向现代数学的关键节点，训练严谨证明与反例意识。",
+   "prerequisites": [
+    "logic-basics"
+   ],
+   "recommended": [],
+   "topics": [
+    "直接证明",
+    "反证与逆否",
+    "归纳与构造"
+   ],
+   "tags": []
+  },
+  {
+   "id": "mathematical-writing",
+   "title": "数学写作",
+   "domain": "math",
+   "cluster": "m-foundations",
+   "stage": 1,
+   "type": "practice",
+   "summary": "数学写作的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "proof-methods"
+   ],
+   "recommended": [],
+   "topics": [
+    "定义与命题表达",
+    "证明组织",
+    "符号规范"
+   ],
+   "tags": []
+  },
+  {
+   "id": "discrete-structures",
+   "title": "基础离散结构",
+   "domain": "math",
+   "cluster": "m-foundations",
+   "stage": 1,
+   "type": "course",
+   "summary": "基础离散结构的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "set-maps"
+   ],
+   "recommended": [],
+   "topics": [
+    "图与树",
+    "偏序集",
+    "等价类"
+   ],
+   "tags": []
+  },
+  {
+   "id": "elementary-combinatorics",
+   "title": "初等组合计数",
+   "domain": "math",
+   "cluster": "m-foundations",
+   "stage": 1,
+   "type": "course",
+   "summary": "初等组合计数的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "sequences-recursion"
+   ],
+   "recommended": [],
+   "topics": [
+    "排列组合",
+    "容斥原理",
+    "鸽巢原理"
+   ],
+   "tags": []
+  },
+  {
+   "id": "calculus",
+   "title": "微积分",
+   "domain": "math",
+   "cluster": "m-analysis",
+   "stage": 2,
+   "type": "course",
+   "summary": "微积分的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "elementary-algebra",
+    "trigonometry"
+   ],
+   "recommended": [],
+   "topics": [
+    "极限与连续",
+    "导数与积分",
+    "无穷级数"
+   ],
+   "tags": []
+  },
+  {
+   "id": "multivariable-calculus",
+   "title": "多元微积分",
+   "domain": "math",
+   "cluster": "m-analysis",
+   "stage": 2,
+   "type": "course",
+   "summary": "多元微积分的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "calculus",
+    "linear-algebra"
+   ],
+   "recommended": [],
+   "topics": [
+    "偏导与梯度",
+    "多重积分",
+    "向量分析"
+   ],
+   "tags": []
+  },
+  {
+   "id": "optimization",
+   "title": "最优化",
+   "domain": "math",
+   "cluster": "m-analysis",
+   "stage": 3,
+   "type": "course",
+   "summary": "最优化的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "multivariable-calculus",
+    "linear-algebra"
+   ],
+   "recommended": [],
+   "topics": [
+    "凸优化",
+    "约束优化",
+    "对偶与数值方法"
+   ],
+   "tags": []
+  },
+  {
+   "id": "real-analysis-1",
+   "title": "实分析 I",
+   "domain": "math",
+   "cluster": "m-analysis",
+   "stage": 3,
+   "type": "course",
+   "summary": "实分析 I的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "calculus",
+    "proof-methods",
+    "set-maps"
+   ],
+   "recommended": [],
+   "topics": [
+    "实数完备性",
+    "一致收敛",
+    "Riemann 积分"
+   ],
+   "tags": []
+  },
+  {
+   "id": "real-analysis-2",
+   "title": "实分析 II",
+   "domain": "math",
+   "cluster": "m-analysis",
+   "stage": 3,
+   "type": "course",
+   "summary": "实分析 II的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "real-analysis-1",
+    "multivariable-calculus"
+   ],
+   "recommended": [],
+   "topics": [
+    "度量空间",
+    "紧致与连通",
+    "隐函数定理"
+   ],
+   "tags": []
+  },
+  {
+   "id": "measure-theory",
+   "title": "测度与积分",
+   "domain": "math",
+   "cluster": "m-analysis",
+   "stage": 4,
+   "type": "course",
+   "summary": "测度与积分的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "real-analysis-1",
+    "set-maps"
+   ],
+   "recommended": [],
+   "topics": [
+    "σ-代数与测度",
+    "Lebesgue 积分",
+    "收敛定理"
+   ],
+   "tags": []
+  },
+  {
+   "id": "complex-analysis",
+   "title": "复分析",
+   "domain": "math",
+   "cluster": "m-analysis",
+   "stage": 3,
+   "type": "course",
+   "summary": "复分析的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "calculus",
+    "real-analysis-1"
+   ],
+   "recommended": [],
+   "topics": [
+    "全纯函数",
+    "Cauchy 理论",
+    "留数与共形映射"
+   ],
+   "tags": []
+  },
+  {
+   "id": "functional-analysis",
+   "title": "泛函分析",
+   "domain": "math",
+   "cluster": "m-analysis",
+   "stage": 5,
+   "type": "course",
+   "summary": "泛函分析的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "measure-theory",
+    "linear-algebra",
+    "real-analysis-2"
+   ],
+   "recommended": [],
+   "topics": [
+    "Banach 与 Hilbert 空间",
+    "有界算子",
+    "弱收敛"
+   ],
+   "tags": []
+  },
+  {
+   "id": "harmonic-analysis",
+   "title": "调和分析",
+   "domain": "math",
+   "cluster": "m-analysis",
+   "stage": 5,
+   "type": "course",
+   "summary": "调和分析的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "measure-theory",
+    "functional-analysis",
+    "complex-analysis"
+   ],
+   "recommended": [],
+   "topics": [
+    "Fourier 分析",
+    "卷积",
+    "奇异积分"
+   ],
+   "tags": []
+  },
+  {
+   "id": "pde",
+   "title": "偏微分方程",
+   "domain": "math",
+   "cluster": "m-analysis",
+   "stage": 5,
+   "type": "course",
+   "summary": "偏微分方程的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "real-analysis-2",
+    "measure-theory",
+    "functional-analysis"
+   ],
+   "recommended": [],
+   "topics": [
+    "椭圆型方程",
+    "抛物型方程",
+    "双曲型方程"
+   ],
+   "tags": []
+  },
+  {
+   "id": "distribution-theory",
+   "title": "分布理论",
+   "domain": "math",
+   "cluster": "m-analysis",
+   "stage": 5,
+   "type": "course",
+   "summary": "分布理论的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "functional-analysis",
+    "measure-theory"
+   ],
+   "recommended": [],
+   "topics": [
+    "测试函数",
+    "弱导数",
+    "广义函数"
+   ],
+   "tags": []
+  },
+  {
+   "id": "operator-theory",
+   "title": "算子理论",
+   "domain": "math",
+   "cluster": "m-analysis",
+   "stage": 6,
+   "type": "course",
+   "summary": "算子理论的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "functional-analysis"
+   ],
+   "recommended": [],
+   "topics": [
+    "谱理论",
+    "紧算子",
+    "无界算子"
+   ],
+   "tags": []
+  },
+  {
+   "id": "calculus-of-variations",
+   "title": "变分法",
+   "domain": "math",
+   "cluster": "m-analysis",
+   "stage": 5,
+   "type": "course",
+   "summary": "变分法的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "real-analysis-2",
+    "functional-analysis"
+   ],
+   "recommended": [],
+   "topics": [
+    "Euler–Lagrange 方程",
+    "直接法",
+    "极值问题"
+   ],
+   "tags": []
+  },
+  {
+   "id": "nonlinear-analysis",
+   "title": "非线性泛函分析",
+   "domain": "math",
+   "cluster": "m-analysis",
+   "stage": 6,
+   "type": "course",
+   "summary": "非线性泛函分析的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "functional-analysis",
+    "calculus-of-variations"
+   ],
+   "recommended": [],
+   "topics": [
+    "不动点方法",
+    "单调算子",
+    "临界点理论"
+   ],
+   "tags": []
+  },
+  {
+   "id": "microlocal-analysis",
+   "title": "微局部分析",
+   "domain": "math",
+   "cluster": "m-analysis",
+   "stage": 7,
+   "type": "frontier",
+   "summary": "微局部分析的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "distribution-theory",
+    "harmonic-analysis",
+    "pde"
+   ],
+   "recommended": [],
+   "topics": [
+    "波前集",
+    "伪微分算子",
+    "传播奇性"
+   ],
+   "tags": []
+  },
+  {
+   "id": "geometric-analysis",
+   "title": "几何分析",
+   "domain": "math",
+   "cluster": "m-analysis",
+   "stage": 7,
+   "type": "frontier",
+   "summary": "几何分析的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "pde",
+    "differential-geometry",
+    "calculus-of-variations"
+   ],
+   "recommended": [],
+   "topics": [
+    "几何 PDE",
+    "极小曲面",
+    "曲率流"
+   ],
+   "tags": []
+  },
+  {
+   "id": "linear-algebra",
+   "title": "线性代数",
+   "domain": "math",
+   "cluster": "m-algebra",
+   "stage": 2,
+   "type": "course",
+   "summary": "线性代数的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "elementary-algebra"
+   ],
+   "recommended": [],
+   "topics": [
+    "向量空间",
+    "线性映射",
+    "谱分解与 SVD"
+   ],
+   "tags": []
+  },
+  {
+   "id": "abstract-algebra-1",
+   "title": "抽象代数 I：群论",
+   "domain": "math",
+   "cluster": "m-algebra",
+   "stage": 3,
+   "type": "course",
+   "summary": "抽象代数 I：群论的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "linear-algebra",
+    "proof-methods"
+   ],
+   "recommended": [],
+   "topics": [
+    "群与子群",
+    "商群与同态",
+    "群作用与 Sylow 定理"
+   ],
+   "tags": []
+  },
+  {
+   "id": "abstract-algebra-2",
+   "title": "抽象代数 II：环与域",
+   "domain": "math",
+   "cluster": "m-algebra",
+   "stage": 3,
+   "type": "course",
+   "summary": "抽象代数 II：环与域的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "abstract-algebra-1"
+   ],
+   "recommended": [],
+   "topics": [
+    "环与理想",
+    "整环与分解",
+    "域与多项式环"
+   ],
+   "tags": []
+  },
+  {
+   "id": "field-theory",
+   "title": "域论",
+   "domain": "math",
+   "cluster": "m-algebra",
+   "stage": 4,
+   "type": "course",
+   "summary": "域论的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "abstract-algebra-2"
+   ],
+   "recommended": [],
+   "topics": [
+    "域扩张",
+    "分裂域",
+    "有限域"
+   ],
+   "tags": []
+  },
+  {
+   "id": "galois-theory",
+   "title": "Galois 理论",
+   "domain": "math",
+   "cluster": "m-algebra",
+   "stage": 4,
+   "type": "course",
+   "summary": "Galois 理论的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "field-theory",
+    "abstract-algebra-1"
+   ],
+   "recommended": [],
+   "topics": [
+    "自同构群",
+    "Galois 对应",
+    "可解性"
+   ],
+   "tags": []
+  },
+  {
+   "id": "module-theory",
+   "title": "模论",
+   "domain": "math",
+   "cluster": "m-algebra",
+   "stage": 4,
+   "type": "course",
+   "summary": "模论的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "abstract-algebra-2",
+    "linear-algebra"
+   ],
+   "recommended": [],
+   "topics": [
+    "模与子模",
+    "张量积",
+    "结构定理"
+   ],
+   "tags": []
+  },
+  {
+   "id": "commutative-algebra",
+   "title": "交换代数",
+   "domain": "math",
+   "cluster": "m-algebra",
+   "stage": 5,
+   "type": "course",
+   "summary": "交换代数的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "abstract-algebra-2",
+    "module-theory"
+   ],
+   "recommended": [],
+   "topics": [
+    "局部化",
+    "Noether 环",
+    "维数理论"
+   ],
+   "tags": []
+  },
+  {
+   "id": "representation-theory",
+   "title": "表示论",
+   "domain": "math",
+   "cluster": "m-algebra",
+   "stage": 5,
+   "type": "course",
+   "summary": "表示论的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "abstract-algebra-1",
+    "linear-algebra"
+   ],
+   "recommended": [],
+   "topics": [
+    "群表示",
+    "不可约表示",
+    "特征标"
+   ],
+   "tags": []
+  },
+  {
+   "id": "homological-algebra",
+   "title": "同调代数",
+   "domain": "math",
+   "cluster": "m-algebra",
+   "stage": 5,
+   "type": "course",
+   "summary": "同调代数的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "module-theory",
+    "category-theory"
+   ],
+   "recommended": [],
+   "topics": [
+    "链复形",
+    "正合列",
+    "Ext 与 Tor"
+   ],
+   "tags": []
+  },
+  {
+   "id": "category-theory",
+   "title": "范畴论",
+   "domain": "math",
+   "cluster": "m-algebra",
+   "stage": 5,
+   "type": "course",
+   "summary": "范畴论的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "abstract-algebra-1",
+    "point-set-topology"
+   ],
+   "recommended": [],
+   "topics": [
+    "范畴与函子",
+    "自然变换",
+    "伴随与 Yoneda"
+   ],
+   "tags": []
+  },
+  {
+   "id": "derived-categories",
+   "title": "导出范畴",
+   "domain": "math",
+   "cluster": "m-algebra",
+   "stage": 7,
+   "type": "frontier",
+   "summary": "导出范畴的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "homological-algebra",
+    "category-theory"
+   ],
+   "recommended": [],
+   "topics": [
+    "三角范畴",
+    "导出函子",
+    "t-结构"
+   ],
+   "tags": []
+  },
+  {
+   "id": "algebraic-geometry",
+   "title": "代数几何",
+   "domain": "math",
+   "cluster": "m-algebra",
+   "stage": 6,
+   "type": "course",
+   "summary": "代数几何的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "commutative-algebra",
+    "point-set-topology"
+   ],
+   "recommended": [],
+   "topics": [
+    "仿射与射影簇",
+    "概形",
+    "层与上同调"
+   ],
+   "tags": []
+  },
+  {
+   "id": "analytic-geometry",
+   "title": "解析几何",
+   "domain": "math",
+   "cluster": "m-geometry",
+   "stage": 1,
+   "type": "course",
+   "summary": "解析几何的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "elementary-geometry",
+    "elementary-algebra"
+   ],
+   "recommended": [],
+   "topics": [
+    "坐标方法",
+    "二次曲线",
+    "空间向量"
+   ],
+   "tags": []
+  },
+  {
+   "id": "point-set-topology",
+   "title": "点集拓扑",
+   "domain": "math",
+   "cluster": "m-geometry",
+   "stage": 3,
+   "type": "course",
+   "summary": "点集拓扑的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "set-maps",
+    "real-analysis-1"
+   ],
+   "recommended": [],
+   "topics": [
+    "拓扑空间",
+    "紧致与连通",
+    "积与商空间"
+   ],
+   "tags": []
+  },
+  {
+   "id": "smooth-manifolds",
+   "title": "光滑流形",
+   "domain": "math",
+   "cluster": "m-geometry",
+   "stage": 4,
+   "type": "course",
+   "summary": "光滑流形的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "multivariable-calculus",
+    "linear-algebra",
+    "point-set-topology"
+   ],
+   "recommended": [],
+   "topics": [
+    "坐标图",
+    "切空间",
+    "微分形式与 Stokes"
+   ],
+   "tags": []
+  },
+  {
+   "id": "differential-geometry",
+   "title": "微分几何",
+   "domain": "math",
+   "cluster": "m-geometry",
+   "stage": 5,
+   "type": "course",
+   "summary": "微分几何的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "smooth-manifolds",
+    "linear-algebra"
+   ],
+   "recommended": [],
+   "topics": [
+    "Riemann 度量",
+    "联络与曲率",
+    "测地线"
+   ],
+   "tags": []
+  },
+  {
+   "id": "riemannian-geometry",
+   "title": "Riemann 几何",
+   "domain": "math",
+   "cluster": "m-geometry",
+   "stage": 6,
+   "type": "course",
+   "summary": "Riemann 几何的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "differential-geometry",
+    "real-analysis-2"
+   ],
+   "recommended": [],
+   "topics": [
+    "完备性",
+    "比较几何",
+    "曲率结构"
+   ],
+   "tags": []
+  },
+  {
+   "id": "algebraic-topology",
+   "title": "代数拓扑",
+   "domain": "math",
+   "cluster": "m-geometry",
+   "stage": 4,
+   "type": "course",
+   "summary": "代数拓扑的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "point-set-topology",
+    "abstract-algebra-1"
+   ],
+   "recommended": [],
+   "topics": [
+    "基本群",
+    "覆盖空间",
+    "同调与上同调"
+   ],
+   "tags": []
+  },
+  {
+   "id": "advanced-algebraic-topology",
+   "title": "高级代数拓扑",
+   "domain": "math",
+   "cluster": "m-geometry",
+   "stage": 6,
+   "type": "course",
+   "summary": "高级代数拓扑的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "algebraic-topology",
+    "homological-algebra"
+   ],
+   "recommended": [],
+   "topics": [
+    "同伦群",
+    "谱序列",
+    "广义上同调"
+   ],
+   "tags": []
+  },
+  {
+   "id": "geometric-topology",
+   "title": "几何拓扑",
+   "domain": "math",
+   "cluster": "m-geometry",
+   "stage": 6,
+   "type": "course",
+   "summary": "几何拓扑的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "algebraic-topology",
+    "smooth-manifolds"
+   ],
+   "recommended": [],
+   "topics": [
+    "低维流形",
+    "结理论",
+    "Morse 与手术理论"
+   ],
+   "tags": []
+  },
+  {
+   "id": "geometric-group-theory",
+   "title": "几何群论",
+   "domain": "math",
+   "cluster": "m-geometry",
+   "stage": 6,
+   "type": "course",
+   "summary": "几何群论的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "abstract-algebra-1",
+    "point-set-topology"
+   ],
+   "recommended": [],
+   "topics": [
+    "Cayley 图",
+    "双曲群",
+    "群作用"
+   ],
+   "tags": []
+  },
+  {
+   "id": "symplectic-geometry",
+   "title": "辛几何",
+   "domain": "math",
+   "cluster": "m-geometry",
+   "stage": 6,
+   "type": "course",
+   "summary": "辛几何的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "smooth-manifolds",
+    "dynamical-systems",
+    "algebraic-topology"
+   ],
+   "recommended": [],
+   "topics": [
+    "辛流形",
+    "Hamilton 系统",
+    "Floer 理论"
+   ],
+   "tags": []
+  },
+  {
+   "id": "complex-geometry",
+   "title": "复几何",
+   "domain": "math",
+   "cluster": "m-geometry",
+   "stage": 6,
+   "type": "course",
+   "summary": "复几何的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "complex-analysis",
+    "smooth-manifolds"
+   ],
+   "recommended": [],
+   "topics": [
+    "复流形",
+    "Hermitian 结构",
+    "Kähler 几何"
+   ],
+   "tags": []
+  },
+  {
+   "id": "hodge-theory",
+   "title": "Hodge 理论",
+   "domain": "math",
+   "cluster": "m-geometry",
+   "stage": 7,
+   "type": "frontier",
+   "summary": "Hodge 理论的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "complex-geometry",
+    "algebraic-topology",
+    "functional-analysis"
+   ],
+   "recommended": [],
+   "topics": [
+    "de Rham 上同调",
+    "调和形式",
+    "Hodge 分解"
+   ],
+   "tags": []
+  },
+  {
+   "id": "geometric-measure-theory",
+   "title": "几何测度论",
+   "domain": "math",
+   "cluster": "m-geometry",
+   "stage": 6,
+   "type": "course",
+   "summary": "几何测度论的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "measure-theory",
+    "differential-geometry",
+    "functional-analysis"
+   ],
+   "recommended": [],
+   "topics": [
+    "Hausdorff 测度",
+    "currents",
+    "极小曲面"
+   ],
+   "tags": []
+  },
+  {
+   "id": "probability",
+   "title": "概率论",
+   "domain": "math",
+   "cluster": "m-probability",
+   "stage": 2,
+   "type": "course",
+   "summary": "概率论的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "calculus",
+    "elementary-combinatorics"
+   ],
+   "recommended": [],
+   "topics": [
+    "随机变量",
+    "条件概率",
+    "极限定理"
+   ],
+   "tags": []
+  },
+  {
+   "id": "mathematical-statistics",
+   "title": "数理统计",
+   "domain": "math",
+   "cluster": "m-probability",
+   "stage": 2,
+   "type": "course",
+   "summary": "数理统计的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "probability",
+    "linear-algebra"
+   ],
+   "recommended": [],
+   "topics": [
+    "估计",
+    "假设检验",
+    "回归与实验设计"
+   ],
+   "tags": []
+  },
+  {
+   "id": "rigorous-probability",
+   "title": "测度概率论",
+   "domain": "math",
+   "cluster": "m-probability",
+   "stage": 4,
+   "type": "course",
+   "summary": "测度概率论的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "measure-theory",
+    "probability"
+   ],
+   "recommended": [],
+   "topics": [
+    "概率空间",
+    "条件期望",
+    "收敛理论"
+   ],
+   "tags": []
+  },
+  {
+   "id": "stochastic-processes",
+   "title": "随机过程",
+   "domain": "math",
+   "cluster": "m-probability",
+   "stage": 4,
+   "type": "course",
+   "summary": "随机过程的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "probability",
+    "real-analysis-1"
+   ],
+   "recommended": [],
+   "topics": [
+    "Markov 链",
+    "Poisson 过程",
+    "平稳过程"
+   ],
+   "tags": []
+  },
+  {
+   "id": "martingales",
+   "title": "鞅论",
+   "domain": "math",
+   "cluster": "m-probability",
+   "stage": 5,
+   "type": "course",
+   "summary": "鞅论的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "rigorous-probability"
+   ],
+   "recommended": [],
+   "topics": [
+    "鞅收敛",
+    "停时",
+    "可选采样"
+   ],
+   "tags": []
+  },
+  {
+   "id": "brownian-motion",
+   "title": "Brownian 运动",
+   "domain": "math",
+   "cluster": "m-probability",
+   "stage": 5,
+   "type": "course",
+   "summary": "Brownian 运动的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "rigorous-probability",
+    "stochastic-processes"
+   ],
+   "recommended": [],
+   "topics": [
+    "路径性质",
+    "Markov 性",
+    "生成元"
+   ],
+   "tags": []
+  },
+  {
+   "id": "stochastic-calculus",
+   "title": "随机积分与 Itô 公式",
+   "domain": "math",
+   "cluster": "m-probability",
+   "stage": 6,
+   "type": "course",
+   "summary": "随机积分与 Itô 公式的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "martingales",
+    "brownian-motion"
+   ],
+   "recommended": [],
+   "topics": [
+    "Itô 积分",
+    "Itô 公式",
+    "Girsanov 定理"
+   ],
+   "tags": []
+  },
+  {
+   "id": "sde",
+   "title": "随机微分方程",
+   "domain": "math",
+   "cluster": "m-probability",
+   "stage": 6,
+   "type": "course",
+   "summary": "随机微分方程的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "stochastic-calculus",
+    "ode"
+   ],
+   "recommended": [],
+   "topics": [
+    "强弱解",
+    "扩散过程",
+    "Fokker–Planck 方程"
+   ],
+   "tags": []
+  },
+  {
+   "id": "stochastic-analysis",
+   "title": "随机分析",
+   "domain": "math",
+   "cluster": "m-probability",
+   "stage": 7,
+   "type": "frontier",
+   "summary": "随机分析的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "sde",
+    "functional-analysis"
+   ],
+   "recommended": [],
+   "topics": [
+    "Malliavin 分析",
+    "随机 PDE",
+    "随机流"
+   ],
+   "tags": []
+  },
+  {
+   "id": "ode",
+   "title": "常微分方程",
+   "domain": "math",
+   "cluster": "m-probability",
+   "stage": 2,
+   "type": "course",
+   "summary": "常微分方程的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "calculus",
+    "linear-algebra"
+   ],
+   "recommended": [],
+   "topics": [
+    "存在唯一性",
+    "线性系统",
+    "相平面"
+   ],
+   "tags": []
+  },
+  {
+   "id": "dynamical-systems",
+   "title": "动力系统",
+   "domain": "math",
+   "cluster": "m-probability",
+   "stage": 4,
+   "type": "course",
+   "summary": "动力系统的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "ode",
+    "real-analysis-2"
+   ],
+   "recommended": [],
+   "topics": [
+    "稳定性",
+    "分岔",
+    "混沌"
+   ],
+   "tags": []
+  },
+  {
+   "id": "ergodic-theory",
+   "title": "遍历理论",
+   "domain": "math",
+   "cluster": "m-probability",
+   "stage": 5,
+   "type": "course",
+   "summary": "遍历理论的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "measure-theory",
+    "dynamical-systems",
+    "probability"
+   ],
+   "recommended": [],
+   "topics": [
+    "保测变换",
+    "遍历定理",
+    "熵"
+   ],
+   "tags": []
+  },
+  {
+   "id": "control-theory",
+   "title": "控制理论",
+   "domain": "math",
+   "cluster": "m-probability",
+   "stage": 4,
+   "type": "course",
+   "summary": "控制理论的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "ode",
+    "linear-algebra",
+    "optimization"
+   ],
+   "recommended": [],
+   "topics": [
+    "可控可观",
+    "反馈控制",
+    "最优控制"
+   ],
+   "tags": []
+  },
+  {
+   "id": "elementary-number-theory",
+   "title": "初等数论",
+   "domain": "math",
+   "cluster": "m-number-comb",
+   "stage": 2,
+   "type": "course",
+   "summary": "初等数论的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "proof-methods",
+    "elementary-algebra"
+   ],
+   "recommended": [],
+   "topics": [
+    "整除与同余",
+    "素数",
+    "二次剩余"
+   ],
+   "tags": []
+  },
+  {
+   "id": "analytic-number-theory",
+   "title": "解析数论",
+   "domain": "math",
+   "cluster": "m-number-comb",
+   "stage": 5,
+   "type": "course",
+   "summary": "解析数论的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "elementary-number-theory",
+    "complex-analysis",
+    "real-analysis-1"
+   ],
+   "recommended": [],
+   "topics": [
+    "算术函数",
+    "ζ 与 L 函数",
+    "筛法"
+   ],
+   "tags": []
+  },
+  {
+   "id": "algebraic-number-theory",
+   "title": "代数数论",
+   "domain": "math",
+   "cluster": "m-number-comb",
+   "stage": 5,
+   "type": "course",
+   "summary": "代数数论的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "galois-theory",
+    "commutative-algebra"
+   ],
+   "recommended": [],
+   "topics": [
+    "数域与整数环",
+    "理想分解",
+    "类群"
+   ],
+   "tags": []
+  },
+  {
+   "id": "arithmetic-geometry",
+   "title": "算术几何",
+   "domain": "math",
+   "cluster": "m-number-comb",
+   "stage": 8,
+   "type": "frontier",
+   "summary": "算术几何的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "algebraic-number-theory",
+    "algebraic-geometry",
+    "homological-algebra"
+   ],
+   "recommended": [],
+   "topics": [
+    "椭圆曲线",
+    "Galois 表示",
+    "算术概形"
+   ],
+   "tags": []
+  },
+  {
+   "id": "modular-forms",
+   "title": "模形式",
+   "domain": "math",
+   "cluster": "m-number-comb",
+   "stage": 7,
+   "type": "frontier",
+   "summary": "模形式的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "complex-analysis",
+    "algebraic-number-theory"
+   ],
+   "recommended": [],
+   "topics": [
+    "模群",
+    "Hecke 算子",
+    "L 函数"
+   ],
+   "tags": []
+  },
+  {
+   "id": "langlands",
+   "title": "Langlands 纲领",
+   "domain": "math",
+   "cluster": "m-number-comb",
+   "stage": 8,
+   "type": "frontier",
+   "summary": "Langlands 纲领的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "representation-theory",
+    "algebraic-number-theory",
+    "algebraic-geometry",
+    "harmonic-analysis"
+   ],
+   "recommended": [],
+   "topics": [
+    "自守形式",
+    "Galois 表示",
+    "局部整体对应"
+   ],
+   "tags": []
+  },
+  {
+   "id": "combinatorics",
+   "title": "组合数学",
+   "domain": "math",
+   "cluster": "m-number-comb",
+   "stage": 3,
+   "type": "course",
+   "summary": "组合数学的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "elementary-combinatorics",
+    "proof-methods"
+   ],
+   "recommended": [],
+   "topics": [
+    "生成函数",
+    "组合恒等式",
+    "组合设计"
+   ],
+   "tags": []
+  },
+  {
+   "id": "graph-theory",
+   "title": "图论",
+   "domain": "math",
+   "cluster": "m-number-comb",
+   "stage": 3,
+   "type": "course",
+   "summary": "图论的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "discrete-structures",
+    "proof-methods"
+   ],
+   "recommended": [],
+   "topics": [
+    "连通与匹配",
+    "染色",
+    "图结构"
+   ],
+   "tags": []
+  },
+  {
+   "id": "extremal-combinatorics",
+   "title": "极值组合",
+   "domain": "math",
+   "cluster": "m-number-comb",
+   "stage": 5,
+   "type": "course",
+   "summary": "极值组合的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "combinatorics",
+    "graph-theory"
+   ],
+   "recommended": [],
+   "topics": [
+    "极值问题",
+    "Turán 型理论",
+    "稳定性方法"
+   ],
+   "tags": []
+  },
+  {
+   "id": "probabilistic-method",
+   "title": "概率方法",
+   "domain": "math",
+   "cluster": "m-number-comb",
+   "stage": 5,
+   "type": "course",
+   "summary": "概率方法的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "probability",
+    "combinatorics"
+   ],
+   "recommended": [],
+   "topics": [
+    "一阶矩法",
+    "局部引理",
+    "随机构造"
+   ],
+   "tags": []
+  },
+  {
+   "id": "ramsey-theory",
+   "title": "Ramsey 理论",
+   "domain": "math",
+   "cluster": "m-number-comb",
+   "stage": 6,
+   "type": "course",
+   "summary": "Ramsey 理论的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "extremal-combinatorics"
+   ],
+   "recommended": [],
+   "topics": [
+    "有限 Ramsey 定理",
+    "结构与无序",
+    "高维推广"
+   ],
+   "tags": []
+  },
+  {
+   "id": "matroid-theory",
+   "title": "拟阵理论",
+   "domain": "math",
+   "cluster": "m-number-comb",
+   "stage": 5,
+   "type": "course",
+   "summary": "拟阵理论的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "linear-algebra",
+    "combinatorics"
+   ],
+   "recommended": [],
+   "topics": [
+    "独立系统",
+    "基与秩",
+    "拟阵优化"
+   ],
+   "tags": []
+  },
+  {
+   "id": "mathematical-logic",
+   "title": "数理逻辑",
+   "domain": "math",
+   "cluster": "m-logic",
+   "stage": 4,
+   "type": "course",
+   "summary": "数理逻辑的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "logic-basics",
+    "proof-methods"
+   ],
+   "recommended": [],
+   "topics": [
+    "形式语言",
+    "可靠与完备",
+    "不完全性"
+   ],
+   "tags": []
+  },
+  {
+   "id": "axiomatic-set-theory",
+   "title": "公理集合论",
+   "domain": "math",
+   "cluster": "m-logic",
+   "stage": 6,
+   "type": "course",
+   "summary": "公理集合论的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "mathematical-logic",
+    "set-maps"
+   ],
+   "recommended": [],
+   "topics": [
+    "ZFC",
+    "序数基数",
+    "选择公理"
+   ],
+   "tags": []
+  },
+  {
+   "id": "model-theory",
+   "title": "模型论",
+   "domain": "math",
+   "cluster": "m-logic",
+   "stage": 6,
+   "type": "course",
+   "summary": "模型论的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "mathematical-logic",
+    "abstract-algebra-1"
+   ],
+   "recommended": [],
+   "topics": [
+    "一阶结构",
+    "紧致性",
+    "稳定性"
+   ],
+   "tags": []
+  },
+  {
+   "id": "computability-theory",
+   "title": "递归论与可计算性",
+   "domain": "math",
+   "cluster": "m-logic",
+   "stage": 5,
+   "type": "course",
+   "summary": "递归论与可计算性的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "mathematical-logic",
+    "discrete-structures"
+   ],
+   "recommended": [],
+   "topics": [
+    "可计算函数",
+    "图灵度",
+    "算术层级"
+   ],
+   "tags": []
+  },
+  {
+   "id": "proof-theory",
+   "title": "证明论",
+   "domain": "math",
+   "cluster": "m-logic",
+   "stage": 6,
+   "type": "course",
+   "summary": "证明论的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "mathematical-logic"
+   ],
+   "recommended": [],
+   "topics": [
+    "形式证明",
+    "序数分析",
+    "归约"
+   ],
+   "tags": []
+  },
+  {
+   "id": "type-theory-math",
+   "title": "类型论",
+   "domain": "math",
+   "cluster": "m-logic",
+   "stage": 6,
+   "type": "course",
+   "summary": "类型论的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "mathematical-logic",
+    "category-theory"
+   ],
+   "recommended": [],
+   "topics": [
+    "简单类型",
+    "依赖类型",
+    "Curry–Howard"
+   ],
+   "tags": []
+  },
+  {
+   "id": "higher-category-theory",
+   "title": "高阶范畴",
+   "domain": "math",
+   "cluster": "m-logic",
+   "stage": 8,
+   "type": "frontier",
+   "summary": "高阶范畴的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "category-theory",
+    "advanced-algebraic-topology"
+   ],
+   "recommended": [],
+   "topics": [
+    "2-范畴",
+    "∞-范畴",
+    "同伦极限"
+   ],
+   "tags": []
+  },
+  {
+   "id": "homotopy-type-theory",
+   "title": "同伦类型论",
+   "domain": "math",
+   "cluster": "m-logic",
+   "stage": 8,
+   "type": "frontier",
+   "summary": "同伦类型论的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "type-theory-math",
+    "algebraic-topology"
+   ],
+   "recommended": [],
+   "topics": [
+    "类型即空间",
+    "恒等类型",
+    "单值性"
+   ],
+   "tags": []
+  },
+  {
+   "id": "programming-fundamentals",
+   "title": "程序设计基础",
+   "domain": "cs",
+   "cluster": "c-foundations",
+   "stage": 0,
+   "type": "course",
+   "summary": "程序设计基础的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [],
+   "recommended": [],
+   "topics": [
+    "变量与控制流",
+    "函数与模块",
+    "输入输出"
+   ],
+   "tags": []
+  },
+  {
+   "id": "procedural-programming",
+   "title": "过程式编程",
+   "domain": "cs",
+   "cluster": "c-foundations",
+   "stage": 1,
+   "type": "course",
+   "summary": "过程式编程的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "programming-fundamentals"
+   ],
+   "recommended": [],
+   "topics": [
+    "过程抽象",
+    "状态",
+    "模块化"
+   ],
+   "tags": []
+  },
+  {
+   "id": "object-oriented-programming",
+   "title": "面向对象程序设计",
+   "domain": "cs",
+   "cluster": "c-foundations",
+   "stage": 1,
+   "type": "course",
+   "summary": "面向对象程序设计的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "programming-fundamentals"
+   ],
+   "recommended": [],
+   "topics": [
+    "对象与类",
+    "封装",
+    "多态"
+   ],
+   "tags": []
+  },
+  {
+   "id": "functional-programming",
+   "title": "函数式编程基础",
+   "domain": "cs",
+   "cluster": "c-foundations",
+   "stage": 1,
+   "type": "course",
+   "summary": "函数式编程基础的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "programming-fundamentals"
+   ],
+   "recommended": [],
+   "topics": [
+    "高阶函数",
+    "不可变数据",
+    "递归"
+   ],
+   "tags": []
+  },
+  {
+   "id": "data-abstraction",
+   "title": "数据抽象与接口",
+   "domain": "cs",
+   "cluster": "c-foundations",
+   "stage": 1,
+   "type": "course",
+   "summary": "数据抽象与接口的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "programming-fundamentals"
+   ],
+   "recommended": [],
+   "topics": [
+    "抽象数据类型",
+    "接口与实现",
+    "模块契约"
+   ],
+   "tags": []
+  },
+  {
+   "id": "recursion",
+   "title": "递归与分治思维",
+   "domain": "cs",
+   "cluster": "c-foundations",
+   "stage": 1,
+   "type": "course",
+   "summary": "递归与分治思维的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "programming-fundamentals",
+    "proof-methods"
+   ],
+   "recommended": [],
+   "topics": [
+    "递归函数",
+    "递归数据",
+    "分治"
+   ],
+   "tags": []
+  },
+  {
+   "id": "data-structures",
+   "title": "数据结构",
+   "domain": "cs",
+   "cluster": "c-foundations",
+   "stage": 2,
+   "type": "course",
+   "summary": "数据结构的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "programming-fundamentals",
+    "recursion"
+   ],
+   "recommended": [],
+   "topics": [
+    "线性结构",
+    "树与堆",
+    "哈希与图"
+   ],
+   "tags": []
+  },
+  {
+   "id": "algorithmic-thinking",
+   "title": "算法思维",
+   "domain": "cs",
+   "cluster": "c-foundations",
+   "stage": 1,
+   "type": "course",
+   "summary": "算法思维的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "programming-fundamentals"
+   ],
+   "recommended": [],
+   "topics": [
+    "枚举与搜索",
+    "贪心与动态规划",
+    "正确性"
+   ],
+   "tags": []
+  },
+  {
+   "id": "complexity-analysis",
+   "title": "复杂度分析",
+   "domain": "cs",
+   "cluster": "c-foundations",
+   "stage": 2,
+   "type": "course",
+   "summary": "复杂度分析的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "proof-methods",
+    "sequences-recursion"
+   ],
+   "recommended": [],
+   "topics": [
+    "渐近记号",
+    "时间与空间",
+    "摊还分析"
+   ],
+   "tags": []
+  },
+  {
+   "id": "debugging-testing",
+   "title": "调试与测试基础",
+   "domain": "cs",
+   "cluster": "c-foundations",
+   "stage": 1,
+   "type": "practice",
+   "summary": "调试与测试基础的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "programming-fundamentals"
+   ],
+   "recommended": [],
+   "topics": [
+    "调试器",
+    "单元测试",
+    "日志"
+   ],
+   "tags": []
+  },
+  {
+   "id": "command-line-git",
+   "title": "命令行与 Git",
+   "domain": "cs",
+   "cluster": "c-foundations",
+   "stage": 1,
+   "type": "tool",
+   "summary": "命令行与 Git的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "programming-fundamentals"
+   ],
+   "recommended": [],
+   "topics": [
+    "Shell",
+    "版本控制",
+    "分支与协作"
+   ],
+   "tags": []
+  },
+  {
+   "id": "algorithm-design",
+   "title": "算法设计与分析",
+   "domain": "cs",
+   "cluster": "c-theory",
+   "stage": 3,
+   "type": "course",
+   "summary": "算法设计与分析的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "data-structures",
+    "complexity-analysis",
+    "proof-methods"
+   ],
+   "recommended": [],
+   "topics": [
+    "分治与动态规划",
+    "贪心",
+    "图算法"
+   ],
+   "tags": []
+  },
+  {
+   "id": "advanced-algorithms",
+   "title": "高级算法",
+   "domain": "cs",
+   "cluster": "c-theory",
+   "stage": 4,
+   "type": "course",
+   "summary": "高级算法的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "algorithm-design",
+    "probability"
+   ],
+   "recommended": [],
+   "topics": [
+    "网络流",
+    "随机算法",
+    "近似与在线算法"
+   ],
+   "tags": []
+  },
+  {
+   "id": "automata-formal-languages",
+   "title": "自动机与形式语言",
+   "domain": "cs",
+   "cluster": "c-theory",
+   "stage": 3,
+   "type": "course",
+   "summary": "自动机与形式语言的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "discrete-structures",
+    "proof-methods"
+   ],
+   "recommended": [],
+   "topics": [
+    "有限自动机",
+    "上下文无关文法",
+    "图灵机"
+   ],
+   "tags": []
+  },
+  {
+   "id": "computability-cs",
+   "title": "可计算性理论",
+   "domain": "cs",
+   "cluster": "c-theory",
+   "stage": 4,
+   "type": "course",
+   "summary": "可计算性理论的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "automata-formal-languages",
+    "mathematical-logic"
+   ],
+   "recommended": [],
+   "topics": [
+    "可判定性",
+    "停机问题",
+    "归约"
+   ],
+   "tags": []
+  },
+  {
+   "id": "complexity-theory",
+   "title": "计算复杂性",
+   "domain": "cs",
+   "cluster": "c-theory",
+   "stage": 4,
+   "type": "course",
+   "summary": "计算复杂性的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "algorithm-design",
+    "computability-cs"
+   ],
+   "recommended": [],
+   "topics": [
+    "P 与 NP",
+    "空间复杂性",
+    "复杂度类"
+   ],
+   "tags": []
+  },
+  {
+   "id": "randomized-algorithms",
+   "title": "随机算法",
+   "domain": "cs",
+   "cluster": "c-theory",
+   "stage": 4,
+   "type": "course",
+   "summary": "随机算法的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "algorithm-design",
+    "probability"
+   ],
+   "recommended": [],
+   "topics": [
+    "随机采样",
+    "概率分析",
+    "随机数据结构"
+   ],
+   "tags": []
+  },
+  {
+   "id": "approximation-algorithms",
+   "title": "近似算法",
+   "domain": "cs",
+   "cluster": "c-theory",
+   "stage": 5,
+   "type": "course",
+   "summary": "近似算法的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "advanced-algorithms",
+    "optimization"
+   ],
+   "recommended": [],
+   "topics": [
+    "近似比",
+    "LP 松弛",
+    "舍入"
+   ],
+   "tags": []
+  },
+  {
+   "id": "online-algorithms",
+   "title": "在线算法",
+   "domain": "cs",
+   "cluster": "c-theory",
+   "stage": 5,
+   "type": "course",
+   "summary": "在线算法的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "algorithm-design",
+    "probability"
+   ],
+   "recommended": [],
+   "topics": [
+    "竞争分析",
+    "在线决策",
+    "遗憾"
+   ],
+   "tags": []
+  },
+  {
+   "id": "streaming-algorithms",
+   "title": "流式算法",
+   "domain": "cs",
+   "cluster": "c-theory",
+   "stage": 5,
+   "type": "course",
+   "summary": "流式算法的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "randomized-algorithms",
+    "complexity-theory"
+   ],
+   "recommended": [],
+   "topics": [
+    "草图",
+    "频率矩",
+    "次线性空间"
+   ],
+   "tags": []
+  },
+  {
+   "id": "communication-complexity",
+   "title": "通信复杂性",
+   "domain": "cs",
+   "cluster": "c-theory",
+   "stage": 6,
+   "type": "course",
+   "summary": "通信复杂性的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "complexity-theory",
+    "information-theory"
+   ],
+   "recommended": [],
+   "topics": [
+    "通信模型",
+    "矩阵方法",
+    "下界"
+   ],
+   "tags": []
+  },
+  {
+   "id": "quantum-computing",
+   "title": "量子计算",
+   "domain": "cs",
+   "cluster": "c-theory",
+   "stage": 5,
+   "type": "course",
+   "summary": "量子计算的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "linear-algebra",
+    "probability",
+    "complexity-theory"
+   ],
+   "recommended": [],
+   "topics": [
+    "量子比特",
+    "量子算法",
+    "量子复杂性"
+   ],
+   "tags": []
+  },
+  {
+   "id": "coding-theory",
+   "title": "编码理论",
+   "domain": "cs",
+   "cluster": "c-theory",
+   "stage": 4,
+   "type": "course",
+   "summary": "编码理论的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "linear-algebra",
+    "probability",
+    "information-theory"
+   ],
+   "recommended": [],
+   "topics": [
+    "纠错码",
+    "线性码",
+    "译码"
+   ],
+   "tags": []
+  },
+  {
+   "id": "computational-geometry",
+   "title": "计算几何",
+   "domain": "cs",
+   "cluster": "c-theory",
+   "stage": 4,
+   "type": "course",
+   "summary": "计算几何的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "algorithm-design",
+    "analytic-geometry"
+   ],
+   "recommended": [],
+   "topics": [
+    "凸包",
+    "Voronoi 图",
+    "几何搜索"
+   ],
+   "tags": []
+  },
+  {
+   "id": "combinatorial-optimization",
+   "title": "组合优化",
+   "domain": "cs",
+   "cluster": "c-theory",
+   "stage": 5,
+   "type": "course",
+   "summary": "组合优化的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "algorithm-design",
+    "optimization",
+    "graph-theory"
+   ],
+   "recommended": [],
+   "topics": [
+    "网络优化",
+    "整数规划",
+    "次模优化"
+   ],
+   "tags": []
+  },
+  {
+   "id": "systems-programming",
+   "title": "系统程序设计",
+   "domain": "cs",
+   "cluster": "c-systems",
+   "stage": 2,
+   "type": "course",
+   "summary": "系统程序设计的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "programming-fundamentals",
+    "computer-organization"
+   ],
+   "recommended": [],
+   "topics": [
+    "内存布局",
+    "系统调用",
+    "链接与并发"
+   ],
+   "tags": []
+  },
+  {
+   "id": "operating-systems",
+   "title": "操作系统",
+   "domain": "cs",
+   "cluster": "c-systems",
+   "stage": 3,
+   "type": "course",
+   "summary": "操作系统的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "systems-programming",
+    "computer-organization"
+   ],
+   "recommended": [],
+   "topics": [
+    "进程线程",
+    "虚拟内存",
+    "文件系统"
+   ],
+   "tags": []
+  },
+  {
+   "id": "computer-networks",
+   "title": "计算机网络",
+   "domain": "cs",
+   "cluster": "c-systems",
+   "stage": 3,
+   "type": "course",
+   "summary": "计算机网络的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "operating-systems"
+   ],
+   "recommended": [],
+   "topics": [
+    "分层协议",
+    "TCP/IP",
+    "路由与拥塞"
+   ],
+   "tags": []
+  },
+  {
+   "id": "distributed-systems",
+   "title": "分布式系统",
+   "domain": "cs",
+   "cluster": "c-systems",
+   "stage": 4,
+   "type": "course",
+   "summary": "分布式系统的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "operating-systems",
+    "computer-networks",
+    "database-systems"
+   ],
+   "recommended": [],
+   "topics": [
+    "复制与一致性",
+    "共识",
+    "容错"
+   ],
+   "tags": []
+  },
+  {
+   "id": "storage-systems",
+   "title": "存储系统",
+   "domain": "cs",
+   "cluster": "c-systems",
+   "stage": 4,
+   "type": "course",
+   "summary": "存储系统的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "operating-systems",
+    "database-systems"
+   ],
+   "recommended": [],
+   "topics": [
+    "文件系统",
+    "日志结构",
+    "分布式存储"
+   ],
+   "tags": []
+  },
+  {
+   "id": "database-systems",
+   "title": "数据库系统",
+   "domain": "cs",
+   "cluster": "c-systems",
+   "stage": 3,
+   "type": "course",
+   "summary": "数据库系统的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "data-structures",
+    "programming-fundamentals"
+   ],
+   "recommended": [],
+   "topics": [
+    "关系模型",
+    "查询与索引",
+    "事务与恢复"
+   ],
+   "tags": []
+  },
+  {
+   "id": "cloud-computing",
+   "title": "云计算",
+   "domain": "cs",
+   "cluster": "c-systems",
+   "stage": 4,
+   "type": "course",
+   "summary": "云计算的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "distributed-systems",
+    "virtualization-containers"
+   ],
+   "recommended": [],
+   "topics": [
+    "弹性计算",
+    "多租户",
+    "Serverless"
+   ],
+   "tags": []
+  },
+  {
+   "id": "virtualization-containers",
+   "title": "虚拟化与容器",
+   "domain": "cs",
+   "cluster": "c-systems",
+   "stage": 4,
+   "type": "course",
+   "summary": "虚拟化与容器的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "operating-systems",
+    "computer-architecture"
+   ],
+   "recommended": [],
+   "topics": [
+    "虚拟机",
+    "容器隔离",
+    "编排"
+   ],
+   "tags": []
+  },
+  {
+   "id": "parallel-computing",
+   "title": "并行计算",
+   "domain": "cs",
+   "cluster": "c-systems",
+   "stage": 4,
+   "type": "course",
+   "summary": "并行计算的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "computer-architecture",
+    "algorithm-design"
+   ],
+   "recommended": [],
+   "topics": [
+    "共享内存",
+    "消息传递",
+    "并行算法"
+   ],
+   "tags": []
+  },
+  {
+   "id": "high-performance-computing",
+   "title": "高性能计算",
+   "domain": "cs",
+   "cluster": "c-systems",
+   "stage": 5,
+   "type": "course",
+   "summary": "高性能计算的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "parallel-computing",
+    "numerical-linear-algebra"
+   ],
+   "recommended": [],
+   "topics": [
+    "性能建模",
+    "GPU 计算",
+    "负载均衡"
+   ],
+   "tags": []
+  },
+  {
+   "id": "reliability-observability",
+   "title": "可靠性与可观测性",
+   "domain": "cs",
+   "cluster": "c-systems",
+   "stage": 4,
+   "type": "practice",
+   "summary": "可靠性与可观测性的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "software-engineering",
+    "distributed-systems"
+   ],
+   "recommended": [],
+   "topics": [
+    "指标日志追踪",
+    "故障演练",
+    "SLO"
+   ],
+   "tags": []
+  },
+  {
+   "id": "digital-logic",
+   "title": "数字逻辑",
+   "domain": "cs",
+   "cluster": "c-architecture",
+   "stage": 1,
+   "type": "course",
+   "summary": "数字逻辑的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "logic-basics"
+   ],
+   "recommended": [],
+   "topics": [
+    "布尔代数",
+    "组合电路",
+    "时序电路"
+   ],
+   "tags": []
+  },
+  {
+   "id": "computer-organization",
+   "title": "计算机组成原理",
+   "domain": "cs",
+   "cluster": "c-architecture",
+   "stage": 2,
+   "type": "course",
+   "summary": "计算机组成原理的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "digital-logic",
+    "programming-fundamentals"
+   ],
+   "recommended": [],
+   "topics": [
+    "指令与数据通路",
+    "存储层次",
+    "输入输出"
+   ],
+   "tags": []
+  },
+  {
+   "id": "instruction-set-architecture",
+   "title": "指令集体系结构",
+   "domain": "cs",
+   "cluster": "c-architecture",
+   "stage": 3,
+   "type": "course",
+   "summary": "指令集体系结构的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "computer-organization",
+    "systems-programming"
+   ],
+   "recommended": [],
+   "topics": [
+    "指令格式",
+    "寻址",
+    "异常与特权"
+   ],
+   "tags": []
+  },
+  {
+   "id": "pipeline-cache",
+   "title": "流水线与缓存",
+   "domain": "cs",
+   "cluster": "c-architecture",
+   "stage": 3,
+   "type": "course",
+   "summary": "流水线与缓存的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "computer-organization"
+   ],
+   "recommended": [],
+   "topics": [
+    "流水线冒险",
+    "分支预测",
+    "Cache"
+   ],
+   "tags": []
+  },
+  {
+   "id": "computer-architecture",
+   "title": "计算机体系结构",
+   "domain": "cs",
+   "cluster": "c-architecture",
+   "stage": 4,
+   "type": "course",
+   "summary": "计算机体系结构的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "instruction-set-architecture",
+    "pipeline-cache",
+    "operating-systems"
+   ],
+   "recommended": [],
+   "topics": [
+    "乱序执行",
+    "内存层次",
+    "性能分析"
+   ],
+   "tags": []
+  },
+  {
+   "id": "multicore-architecture",
+   "title": "多核与一致性",
+   "domain": "cs",
+   "cluster": "c-architecture",
+   "stage": 5,
+   "type": "course",
+   "summary": "多核与一致性的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "computer-architecture",
+    "parallel-computing"
+   ],
+   "recommended": [],
+   "topics": [
+    "缓存一致性",
+    "内存模型",
+    "多核互连"
+   ],
+   "tags": []
+  },
+  {
+   "id": "gpu-architecture",
+   "title": "GPU 体系结构",
+   "domain": "cs",
+   "cluster": "c-architecture",
+   "stage": 4,
+   "type": "course",
+   "summary": "GPU 体系结构的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "computer-architecture",
+    "parallel-computing"
+   ],
+   "recommended": [],
+   "topics": [
+    "SIMT",
+    "内存访问",
+    "Kernel"
+   ],
+   "tags": []
+  },
+  {
+   "id": "heterogeneous-computing",
+   "title": "异构计算",
+   "domain": "cs",
+   "cluster": "c-architecture",
+   "stage": 5,
+   "type": "course",
+   "summary": "异构计算的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "gpu-architecture",
+    "computer-architecture"
+   ],
+   "recommended": [],
+   "topics": [
+    "CPU/GPU 协同",
+    "任务调度",
+    "性能可移植性"
+   ],
+   "tags": []
+  },
+  {
+   "id": "ai-accelerators",
+   "title": "AI 加速器",
+   "domain": "cs",
+   "cluster": "c-architecture",
+   "stage": 6,
+   "type": "frontier",
+   "summary": "AI 加速器的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "gpu-architecture",
+    "deep-learning",
+    "compilers"
+   ],
+   "recommended": [],
+   "topics": [
+    "张量阵列",
+    "数据流",
+    "专用硬件"
+   ],
+   "tags": []
+  },
+  {
+   "id": "hardware-software-codesign",
+   "title": "软硬件协同设计",
+   "domain": "cs",
+   "cluster": "c-architecture",
+   "stage": 6,
+   "type": "frontier",
+   "summary": "软硬件协同设计的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "computer-architecture",
+    "compilers"
+   ],
+   "recommended": [],
+   "topics": [
+    "领域专用架构",
+    "协同优化",
+    "性能能耗权衡"
+   ],
+   "tags": []
+  },
+  {
+   "id": "programming-languages",
+   "title": "编程语言原理",
+   "domain": "cs",
+   "cluster": "c-pl",
+   "stage": 3,
+   "type": "course",
+   "summary": "编程语言原理的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "functional-programming",
+    "object-oriented-programming",
+    "discrete-structures"
+   ],
+   "recommended": [],
+   "topics": [
+    "作用域与闭包",
+    "求值策略",
+    "内存管理"
+   ],
+   "tags": []
+  },
+  {
+   "id": "compilers",
+   "title": "编译原理",
+   "domain": "cs",
+   "cluster": "c-pl",
+   "stage": 3,
+   "type": "course",
+   "summary": "编译原理的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "data-structures",
+    "automata-formal-languages",
+    "computer-organization"
+   ],
+   "recommended": [],
+   "topics": [
+    "词法语法",
+    "中间表示",
+    "代码生成"
+   ],
+   "tags": []
+  },
+  {
+   "id": "type-systems",
+   "title": "类型系统",
+   "domain": "cs",
+   "cluster": "c-pl",
+   "stage": 4,
+   "type": "course",
+   "summary": "类型系统的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "programming-languages",
+    "mathematical-logic"
+   ],
+   "recommended": [],
+   "topics": [
+    "多态",
+    "子类型",
+    "依赖与线性类型"
+   ],
+   "tags": []
+  },
+  {
+   "id": "program-semantics",
+   "title": "程序语义",
+   "domain": "cs",
+   "cluster": "c-pl",
+   "stage": 5,
+   "type": "course",
+   "summary": "程序语义的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "programming-languages",
+    "mathematical-logic"
+   ],
+   "recommended": [],
+   "topics": [
+    "操作语义",
+    "指称语义",
+    "公理语义"
+   ],
+   "tags": []
+  },
+  {
+   "id": "static-analysis",
+   "title": "静态程序分析",
+   "domain": "cs",
+   "cluster": "c-pl",
+   "stage": 5,
+   "type": "course",
+   "summary": "静态程序分析的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "compilers",
+    "program-semantics"
+   ],
+   "recommended": [],
+   "topics": [
+    "数据流分析",
+    "抽象解释",
+    "污点分析"
+   ],
+   "tags": []
+  },
+  {
+   "id": "dynamic-analysis",
+   "title": "动态程序分析",
+   "domain": "cs",
+   "cluster": "c-pl",
+   "stage": 4,
+   "type": "course",
+   "summary": "动态程序分析的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "systems-programming",
+    "software-testing"
+   ],
+   "recommended": [],
+   "topics": [
+    "插桩",
+    "性能分析",
+    "运行时监测"
+   ],
+   "tags": []
+  },
+  {
+   "id": "formal-verification",
+   "title": "形式化验证",
+   "domain": "cs",
+   "cluster": "c-pl",
+   "stage": 6,
+   "type": "course",
+   "summary": "形式化验证的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "program-semantics",
+    "type-systems",
+    "mathematical-logic"
+   ],
+   "recommended": [],
+   "topics": [
+    "模型检测",
+    "Hoare 逻辑",
+    "并发验证"
+   ],
+   "tags": []
+  },
+  {
+   "id": "theorem-proving",
+   "title": "定理证明与证明助手",
+   "domain": "cs",
+   "cluster": "c-pl",
+   "stage": 6,
+   "type": "course",
+   "summary": "定理证明与证明助手的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "formal-verification",
+    "type-theory-math"
+   ],
+   "recommended": [],
+   "topics": [
+    "自动证明",
+    "交互式证明",
+    "形式化数学"
+   ],
+   "tags": []
+  },
+  {
+   "id": "software-engineering",
+   "title": "软件工程",
+   "domain": "cs",
+   "cluster": "c-pl",
+   "stage": 2,
+   "type": "course",
+   "summary": "软件工程的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "programming-fundamentals",
+    "command-line-git"
+   ],
+   "recommended": [],
+   "topics": [
+    "需求与设计",
+    "测试与 CI",
+    "团队协作"
+   ],
+   "tags": []
+  },
+  {
+   "id": "software-architecture",
+   "title": "软件架构",
+   "domain": "cs",
+   "cluster": "c-pl",
+   "stage": 4,
+   "type": "course",
+   "summary": "软件架构的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "software-engineering",
+    "database-systems",
+    "computer-networks"
+   ],
+   "recommended": [],
+   "topics": [
+    "分层与事件驱动",
+    "微服务",
+    "演化式架构"
+   ],
+   "tags": []
+  },
+  {
+   "id": "software-testing",
+   "title": "软件测试",
+   "domain": "cs",
+   "cluster": "c-pl",
+   "stage": 3,
+   "type": "course",
+   "summary": "软件测试的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "software-engineering",
+    "debugging-testing"
+   ],
+   "recommended": [],
+   "topics": [
+    "属性测试",
+    "模糊测试",
+    "测试生成"
+   ],
+   "tags": []
+  },
+  {
+   "id": "api-design",
+   "title": "API 与接口设计",
+   "domain": "cs",
+   "cluster": "c-pl",
+   "stage": 3,
+   "type": "course",
+   "summary": "API 与接口设计的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "data-abstraction",
+    "software-engineering"
+   ],
+   "recommended": [],
+   "topics": [
+    "契约",
+    "版本化",
+    "可用性"
+   ],
+   "tags": []
+  },
+  {
+   "id": "relational-databases",
+   "title": "关系数据库",
+   "domain": "cs",
+   "cluster": "c-data",
+   "stage": 2,
+   "type": "course",
+   "summary": "关系数据库的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [],
+   "recommended": [
+    "database-systems"
+   ],
+   "topics": [
+    "关系代数",
+    "SQL",
+    "范式"
+   ],
+   "tags": []
+  },
+  {
+   "id": "query-processing",
+   "title": "查询处理与优化",
+   "domain": "cs",
+   "cluster": "c-data",
+   "stage": 4,
+   "type": "course",
+   "summary": "查询处理与优化的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "database-systems",
+    "algorithm-design"
+   ],
+   "recommended": [],
+   "topics": [
+    "执行计划",
+    "代价模型",
+    "连接算法"
+   ],
+   "tags": []
+  },
+  {
+   "id": "transaction-systems",
+   "title": "事务处理",
+   "domain": "cs",
+   "cluster": "c-data",
+   "stage": 4,
+   "type": "course",
+   "summary": "事务处理的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "database-systems",
+    "operating-systems"
+   ],
+   "recommended": [],
+   "topics": [
+    "ACID",
+    "并发控制",
+    "恢复"
+   ],
+   "tags": []
+  },
+  {
+   "id": "distributed-databases",
+   "title": "分布式数据库",
+   "domain": "cs",
+   "cluster": "c-data",
+   "stage": 5,
+   "type": "course",
+   "summary": "分布式数据库的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "distributed-systems",
+    "transaction-systems"
+   ],
+   "recommended": [],
+   "topics": [
+    "分片与复制",
+    "分布式事务",
+    "一致性"
+   ],
+   "tags": []
+  },
+  {
+   "id": "data-warehouses",
+   "title": "数据仓库与 OLAP",
+   "domain": "cs",
+   "cluster": "c-data",
+   "stage": 4,
+   "type": "course",
+   "summary": "数据仓库与 OLAP的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "database-systems"
+   ],
+   "recommended": [],
+   "topics": [
+    "列存",
+    "维度建模",
+    "分析查询"
+   ],
+   "tags": []
+  },
+  {
+   "id": "stream-processing",
+   "title": "流处理系统",
+   "domain": "cs",
+   "cluster": "c-data",
+   "stage": 4,
+   "type": "course",
+   "summary": "流处理系统的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "distributed-systems",
+    "database-systems"
+   ],
+   "recommended": [],
+   "topics": [
+    "事件时间",
+    "窗口",
+    "Exactly-once"
+   ],
+   "tags": []
+  },
+  {
+   "id": "information-retrieval",
+   "title": "信息检索",
+   "domain": "cs",
+   "cluster": "c-data",
+   "stage": 4,
+   "type": "course",
+   "summary": "信息检索的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "data-structures",
+    "probability",
+    "nlp"
+   ],
+   "recommended": [],
+   "topics": [
+    "倒排索引",
+    "排序",
+    "向量检索"
+   ],
+   "tags": []
+  },
+  {
+   "id": "data-mining",
+   "title": "数据挖掘",
+   "domain": "cs",
+   "cluster": "c-data",
+   "stage": 3,
+   "type": "course",
+   "summary": "数据挖掘的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "machine-learning",
+    "database-systems"
+   ],
+   "recommended": [],
+   "topics": [
+    "聚类",
+    "关联规则",
+    "异常检测"
+   ],
+   "tags": []
+  },
+  {
+   "id": "data-visualization",
+   "title": "数据可视化",
+   "domain": "cs",
+   "cluster": "c-data",
+   "stage": 3,
+   "type": "course",
+   "summary": "数据可视化的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "mathematical-statistics",
+    "hci"
+   ],
+   "recommended": [],
+   "topics": [
+    "视觉编码",
+    "交互图表",
+    "可视分析"
+   ],
+   "tags": []
+  },
+  {
+   "id": "computer-graphics",
+   "title": "计算机图形学",
+   "domain": "cs",
+   "cluster": "c-graphics",
+   "stage": 3,
+   "type": "course",
+   "summary": "计算机图形学的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "linear-algebra",
+    "analytic-geometry",
+    "programming-fundamentals"
+   ],
+   "recommended": [],
+   "topics": [
+    "几何变换",
+    "光栅化",
+    "渲染"
+   ],
+   "tags": []
+  },
+  {
+   "id": "rendering",
+   "title": "基于物理的渲染",
+   "domain": "cs",
+   "cluster": "c-graphics",
+   "stage": 5,
+   "type": "course",
+   "summary": "基于物理的渲染的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "computer-graphics",
+    "probability",
+    "numerical-analysis"
+   ],
+   "recommended": [],
+   "topics": [
+    "光线追踪",
+    "材质",
+    "蒙特卡洛积分"
+   ],
+   "tags": []
+  },
+  {
+   "id": "geometric-processing",
+   "title": "几何处理",
+   "domain": "cs",
+   "cluster": "c-graphics",
+   "stage": 5,
+   "type": "course",
+   "summary": "几何处理的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "computer-graphics",
+    "differential-geometry",
+    "numerical-linear-algebra"
+   ],
+   "recommended": [],
+   "topics": [
+    "网格",
+    "曲面处理",
+    "几何优化"
+   ],
+   "tags": []
+  },
+  {
+   "id": "computer-animation",
+   "title": "计算机动画",
+   "domain": "cs",
+   "cluster": "c-graphics",
+   "stage": 4,
+   "type": "course",
+   "summary": "计算机动画的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "computer-graphics",
+    "dynamical-systems"
+   ],
+   "recommended": [],
+   "topics": [
+    "骨骼动画",
+    "运动学",
+    "物理动画"
+   ],
+   "tags": []
+  },
+  {
+   "id": "physical-simulation",
+   "title": "物理仿真",
+   "domain": "cs",
+   "cluster": "c-graphics",
+   "stage": 5,
+   "type": "course",
+   "summary": "物理仿真的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "numerical-analysis",
+    "pde",
+    "computer-graphics"
+   ],
+   "recommended": [],
+   "topics": [
+    "刚体",
+    "流体",
+    "布料"
+   ],
+   "tags": []
+  },
+  {
+   "id": "hci",
+   "title": "人机交互",
+   "domain": "cs",
+   "cluster": "c-graphics",
+   "stage": 3,
+   "type": "course",
+   "summary": "人机交互的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "software-engineering",
+    "mathematical-statistics"
+   ],
+   "recommended": [],
+   "topics": [
+    "用户研究",
+    "可用性",
+    "认知模型"
+   ],
+   "tags": []
+  },
+  {
+   "id": "interaction-design",
+   "title": "交互设计",
+   "domain": "cs",
+   "cluster": "c-graphics",
+   "stage": 3,
+   "type": "course",
+   "summary": "交互设计的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "hci"
+   ],
+   "recommended": [],
+   "topics": [
+    "信息架构",
+    "原型",
+    "无障碍"
+   ],
+   "tags": []
+  },
+  {
+   "id": "visual-analytics",
+   "title": "可视分析",
+   "domain": "cs",
+   "cluster": "c-graphics",
+   "stage": 4,
+   "type": "course",
+   "summary": "可视分析的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "data-visualization",
+    "hci"
+   ],
+   "recommended": [],
+   "topics": [
+    "分析任务",
+    "交互探索",
+    "决策支持"
+   ],
+   "tags": []
+  },
+  {
+   "id": "vr-ar",
+   "title": "虚拟现实与增强现实",
+   "domain": "cs",
+   "cluster": "c-graphics",
+   "stage": 5,
+   "type": "course",
+   "summary": "虚拟现实与增强现实的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "computer-graphics",
+    "hci",
+    "computer-vision"
+   ],
+   "recommended": [],
+   "topics": [
+    "空间追踪",
+    "三维交互",
+    "沉浸显示"
+   ],
+   "tags": []
+  },
+  {
+   "id": "cybersecurity-foundations",
+   "title": "网络空间安全基础",
+   "domain": "cs",
+   "cluster": "c-security",
+   "stage": 3,
+   "type": "course",
+   "summary": "网络空间安全基础的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "operating-systems",
+    "computer-networks"
+   ],
+   "recommended": [],
+   "topics": [
+    "威胁模型",
+    "认证授权",
+    "安全原则"
+   ],
+   "tags": []
+  },
+  {
+   "id": "cryptography",
+   "title": "现代密码学",
+   "domain": "cs",
+   "cluster": "c-security",
+   "stage": 4,
+   "type": "course",
+   "summary": "现代密码学的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "probability",
+    "elementary-number-theory",
+    "complexity-theory"
+   ],
+   "recommended": [],
+   "topics": [
+    "对称与公钥",
+    "安全定义",
+    "密码协议"
+   ],
+   "tags": []
+  },
+  {
+   "id": "network-security",
+   "title": "网络安全",
+   "domain": "cs",
+   "cluster": "c-security",
+   "stage": 4,
+   "type": "course",
+   "summary": "网络安全的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "cybersecurity-foundations",
+    "computer-networks"
+   ],
+   "recommended": [],
+   "topics": [
+    "协议攻击",
+    "防火墙",
+    "检测与响应"
+   ],
+   "tags": []
+  },
+  {
+   "id": "system-security",
+   "title": "系统安全",
+   "domain": "cs",
+   "cluster": "c-security",
+   "stage": 4,
+   "type": "course",
+   "summary": "系统安全的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "cybersecurity-foundations",
+    "operating-systems",
+    "systems-programming"
+   ],
+   "recommended": [],
+   "topics": [
+    "隔离",
+    "权限",
+    "漏洞利用防护"
+   ],
+   "tags": []
+  },
+  {
+   "id": "software-security",
+   "title": "软件安全",
+   "domain": "cs",
+   "cluster": "c-security",
+   "stage": 4,
+   "type": "course",
+   "summary": "软件安全的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "systems-programming",
+    "software-testing"
+   ],
+   "recommended": [],
+   "topics": [
+    "内存安全",
+    "供应链",
+    "模糊测试"
+   ],
+   "tags": []
+  },
+  {
+   "id": "privacy-computing",
+   "title": "隐私计算",
+   "domain": "cs",
+   "cluster": "c-security",
+   "stage": 5,
+   "type": "course",
+   "summary": "隐私计算的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "cryptography",
+    "distributed-systems"
+   ],
+   "recommended": [],
+   "topics": [
+    "安全多方计算",
+    "差分隐私",
+    "联邦学习"
+   ],
+   "tags": []
+  },
+  {
+   "id": "zero-knowledge",
+   "title": "零知识证明",
+   "domain": "cs",
+   "cluster": "c-security",
+   "stage": 6,
+   "type": "course",
+   "summary": "零知识证明的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "cryptography",
+    "complexity-theory"
+   ],
+   "recommended": [],
+   "topics": [
+    "交互式证明",
+    "SNARK",
+    "可验证计算"
+   ],
+   "tags": []
+  },
+  {
+   "id": "homomorphic-encryption",
+   "title": "同态加密",
+   "domain": "cs",
+   "cluster": "c-security",
+   "stage": 6,
+   "type": "course",
+   "summary": "同态加密的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "cryptography",
+    "abstract-algebra-2"
+   ],
+   "recommended": [],
+   "topics": [
+    "部分同态",
+    "全同态",
+    "隐私计算"
+   ],
+   "tags": []
+  },
+  {
+   "id": "trusted-computing",
+   "title": "可信执行与硬件安全",
+   "domain": "cs",
+   "cluster": "c-security",
+   "stage": 5,
+   "type": "course",
+   "summary": "可信执行与硬件安全的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "computer-architecture",
+    "system-security"
+   ],
+   "recommended": [],
+   "topics": [
+    "TEE",
+    "远程证明",
+    "侧信道"
+   ],
+   "tags": []
+  },
+  {
+   "id": "post-quantum-cryptography",
+   "title": "后量子密码",
+   "domain": "cs",
+   "cluster": "c-security",
+   "stage": 6,
+   "type": "frontier",
+   "summary": "后量子密码的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "cryptography",
+    "quantum-computing",
+    "lattice-theory"
+   ],
+   "recommended": [],
+   "topics": [
+    "格密码",
+    "哈希签名",
+    "迁移评估"
+   ],
+   "tags": []
+  },
+  {
+   "id": "lattice-theory",
+   "title": "格理论与格算法",
+   "domain": "math",
+   "cluster": "m-algebra",
+   "stage": 5,
+   "type": "course",
+   "summary": "格理论与格算法的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "linear-algebra",
+    "abstract-algebra-2"
+   ],
+   "recommended": [],
+   "topics": [
+    "格基约化",
+    "最短向量",
+    "密码应用"
+   ],
+   "tags": []
+  },
+  {
+   "id": "numerical-analysis",
+   "title": "数值分析",
+   "domain": "math",
+   "cluster": "m-analysis",
+   "stage": 3,
+   "type": "course",
+   "summary": "数值分析的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "calculus",
+    "linear-algebra",
+    "real-analysis-1"
+   ],
+   "recommended": [],
+   "topics": [
+    "误差与稳定性",
+    "插值求积",
+    "非线性方程"
+   ],
+   "tags": []
+  },
+  {
+   "id": "numerical-linear-algebra",
+   "title": "数值线性代数",
+   "domain": "cs",
+   "cluster": "c-scientific",
+   "stage": 4,
+   "type": "course",
+   "summary": "数值线性代数的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "linear-algebra",
+    "numerical-analysis"
+   ],
+   "recommended": [],
+   "topics": [
+    "线性系统",
+    "特征值算法",
+    "稀疏矩阵"
+   ],
+   "tags": []
+  },
+  {
+   "id": "scientific-computing",
+   "title": "科学计算",
+   "domain": "cs",
+   "cluster": "c-scientific",
+   "stage": 4,
+   "type": "course",
+   "summary": "科学计算的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "numerical-analysis",
+    "programming-fundamentals"
+   ],
+   "recommended": [],
+   "topics": [
+    "数值建模",
+    "仿真",
+    "误差验证"
+   ],
+   "tags": []
+  },
+  {
+   "id": "computational-science",
+   "title": "计算科学",
+   "domain": "cs",
+   "cluster": "c-scientific",
+   "stage": 5,
+   "type": "course",
+   "summary": "计算科学的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "scientific-computing",
+    "high-performance-computing"
+   ],
+   "recommended": [],
+   "topics": [
+    "多物理场",
+    "计算实验",
+    "工作流"
+   ],
+   "tags": []
+  },
+  {
+   "id": "bioinformatics",
+   "title": "生物信息学",
+   "domain": "cs",
+   "cluster": "c-scientific",
+   "stage": 5,
+   "type": "course",
+   "summary": "生物信息学的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "algorithm-design",
+    "probability",
+    "machine-learning"
+   ],
+   "recommended": [],
+   "topics": [
+    "序列分析",
+    "组学",
+    "结构生物信息"
+   ],
+   "tags": []
+  },
+  {
+   "id": "computational-physics",
+   "title": "计算物理",
+   "domain": "cs",
+   "cluster": "c-scientific",
+   "stage": 5,
+   "type": "course",
+   "summary": "计算物理的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "scientific-computing",
+    "pde"
+   ],
+   "recommended": [],
+   "topics": [
+    "数值模拟",
+    "粒子方法",
+    "多尺度计算"
+   ],
+   "tags": []
+  },
+  {
+   "id": "computational-economics",
+   "title": "计算经济学",
+   "domain": "cs",
+   "cluster": "c-scientific",
+   "stage": 5,
+   "type": "course",
+   "summary": "计算经济学的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "optimization",
+    "probability",
+    "algorithm-design"
+   ],
+   "recommended": [],
+   "topics": [
+    "机制模拟",
+    "博弈计算",
+    "市场模型"
+   ],
+   "tags": []
+  },
+  {
+   "id": "computational-social-science",
+   "title": "计算社会科学",
+   "domain": "cs",
+   "cluster": "c-scientific",
+   "stage": 4,
+   "type": "course",
+   "summary": "计算社会科学的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "mathematical-statistics",
+    "data-mining",
+    "graph-theory"
+   ],
+   "recommended": [],
+   "topics": [
+    "网络分析",
+    "因果推断",
+    "社会模拟"
+   ],
+   "tags": []
+  },
+  {
+   "id": "data-engineering-ai",
+   "title": "AI 数据工程",
+   "domain": "ai",
+   "cluster": "a-foundations",
+   "stage": 1,
+   "type": "course",
+   "summary": "AI 数据工程的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "programming-fundamentals"
+   ],
+   "recommended": [
+    "database-systems"
+   ],
+   "topics": [
+    "采集清洗",
+    "数据版本",
+    "数据质量"
+   ],
+   "tags": []
+  },
+  {
+   "id": "data-governance-ai",
+   "title": "数据治理与合规",
+   "domain": "ai",
+   "cluster": "a-foundations",
+   "stage": 2,
+   "type": "practice",
+   "summary": "数据治理与合规的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "data-engineering-ai"
+   ],
+   "recommended": [],
+   "topics": [
+    "隐私",
+    "授权",
+    "数据谱系"
+   ],
+   "tags": []
+  },
+  {
+   "id": "ml-experiment-design",
+   "title": "机器学习实验设计",
+   "domain": "ai",
+   "cluster": "a-foundations",
+   "stage": 2,
+   "type": "practice",
+   "summary": "机器学习实验设计的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "mathematical-statistics",
+    "machine-learning"
+   ],
+   "recommended": [],
+   "topics": [
+    "Baseline",
+    "消融实验",
+    "可复现性"
+   ],
+   "tags": []
+  },
+  {
+   "id": "ai-evaluation",
+   "title": "AI 评测",
+   "domain": "ai",
+   "cluster": "a-foundations",
+   "stage": 3,
+   "type": "practice",
+   "summary": "AI 评测的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "ml-experiment-design",
+    "mathematical-statistics"
+   ],
+   "recommended": [],
+   "topics": [
+    "指标设计",
+    "误差分析",
+    "分布外测试"
+   ],
+   "tags": []
+  },
+  {
+   "id": "optimization-for-ml",
+   "title": "机器学习优化",
+   "domain": "ai",
+   "cluster": "a-foundations",
+   "stage": 3,
+   "type": "course",
+   "summary": "机器学习优化的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "optimization",
+    "machine-learning"
+   ],
+   "recommended": [],
+   "topics": [
+    "SGD",
+    "自适应优化器",
+    "非凸优化"
+   ],
+   "tags": []
+  },
+  {
+   "id": "automatic-differentiation",
+   "title": "自动微分",
+   "domain": "ai",
+   "cluster": "a-foundations",
+   "stage": 3,
+   "type": "course",
+   "summary": "自动微分的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "multivariable-calculus",
+    "programming-languages"
+   ],
+   "recommended": [],
+   "topics": [
+    "前向模式",
+    "反向模式",
+    "计算图"
+   ],
+   "tags": []
+  },
+  {
+   "id": "probabilistic-modeling",
+   "title": "概率建模",
+   "domain": "ai",
+   "cluster": "a-foundations",
+   "stage": 3,
+   "type": "course",
+   "summary": "概率建模的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "probability",
+    "mathematical-statistics"
+   ],
+   "recommended": [],
+   "topics": [
+    "似然",
+    "潜变量",
+    "不确定性"
+   ],
+   "tags": []
+  },
+  {
+   "id": "information-theory",
+   "title": "信息论",
+   "domain": "math",
+   "cluster": "m-probability",
+   "stage": 3,
+   "type": "course",
+   "summary": "信息论的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "probability",
+    "calculus"
+   ],
+   "recommended": [],
+   "topics": [
+    "熵与互信息",
+    "信道容量",
+    "率失真"
+   ],
+   "tags": []
+  },
+  {
+   "id": "classical-ai",
+   "title": "经典人工智能",
+   "domain": "ai",
+   "cluster": "a-classic",
+   "stage": 2,
+   "type": "course",
+   "summary": "经典人工智能的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "logic-basics"
+   ],
+   "recommended": [
+    "algorithm-design"
+   ],
+   "topics": [
+    "搜索",
+    "推理",
+    "规划"
+   ],
+   "tags": []
+  },
+  {
+   "id": "search-ai",
+   "title": "搜索与启发式",
+   "domain": "ai",
+   "cluster": "a-classic",
+   "stage": 2,
+   "type": "course",
+   "summary": "搜索与启发式的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "data-structures"
+   ],
+   "recommended": [
+    "algorithm-design"
+   ],
+   "topics": [
+    "BFS/DFS",
+    "A*",
+    "局部搜索"
+   ],
+   "tags": []
+  },
+  {
+   "id": "constraint-satisfaction",
+   "title": "约束满足",
+   "domain": "ai",
+   "cluster": "a-classic",
+   "stage": 3,
+   "type": "course",
+   "summary": "约束满足的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "search-ai",
+    "logic-basics"
+   ],
+   "recommended": [],
+   "topics": [
+    "回溯",
+    "约束传播",
+    "SAT"
+   ],
+   "tags": []
+  },
+  {
+   "id": "knowledge-representation",
+   "title": "知识表示与推理",
+   "domain": "ai",
+   "cluster": "a-classic",
+   "stage": 3,
+   "type": "course",
+   "summary": "知识表示与推理的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "classical-ai"
+   ],
+   "recommended": [
+    "mathematical-logic"
+   ],
+   "topics": [
+    "规则系统",
+    "本体",
+    "知识图谱"
+   ],
+   "tags": []
+  },
+  {
+   "id": "planning-ai",
+   "title": "自动规划",
+   "domain": "ai",
+   "cluster": "a-classic",
+   "stage": 3,
+   "type": "course",
+   "summary": "自动规划的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "search-ai",
+    "knowledge-representation"
+   ],
+   "recommended": [],
+   "topics": [
+    "经典规划",
+    "分层规划",
+    "随机规划"
+   ],
+   "tags": []
+  },
+  {
+   "id": "game-playing",
+   "title": "博弈智能",
+   "domain": "ai",
+   "cluster": "a-classic",
+   "stage": 3,
+   "type": "course",
+   "summary": "博弈智能的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "search-ai",
+    "probability"
+   ],
+   "recommended": [],
+   "topics": [
+    "Minimax",
+    "Alpha-Beta",
+    "MCTS"
+   ],
+   "tags": []
+  },
+  {
+   "id": "machine-learning",
+   "title": "机器学习",
+   "domain": "ai",
+   "cluster": "a-classic",
+   "stage": 2,
+   "type": "course",
+   "summary": "从数据中学习预测、表示与决策规律，是现代 AI 的核心共同基础。",
+   "prerequisites": [
+    "linear-algebra",
+    "probability",
+    "calculus",
+    "programming-fundamentals"
+   ],
+   "recommended": [],
+   "topics": [
+    "监督学习",
+    "无监督学习",
+    "模型评估"
+   ],
+   "tags": []
+  },
+  {
+   "id": "linear-models",
+   "title": "线性模型",
+   "domain": "ai",
+   "cluster": "a-classic",
+   "stage": 2,
+   "type": "course",
+   "summary": "线性模型的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "machine-learning",
+    "linear-algebra"
+   ],
+   "recommended": [],
+   "topics": [
+    "线性回归",
+    "Logistic 回归",
+    "广义线性模型"
+   ],
+   "tags": []
+  },
+  {
+   "id": "tree-ensembles",
+   "title": "树模型与集成学习",
+   "domain": "ai",
+   "cluster": "a-classic",
+   "stage": 3,
+   "type": "course",
+   "summary": "树模型与集成学习的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "machine-learning"
+   ],
+   "recommended": [],
+   "topics": [
+    "决策树",
+    "随机森林",
+    "Gradient Boosting"
+   ],
+   "tags": []
+  },
+  {
+   "id": "kernel-methods",
+   "title": "核方法",
+   "domain": "ai",
+   "cluster": "a-classic",
+   "stage": 3,
+   "type": "course",
+   "summary": "核方法的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "machine-learning",
+    "linear-algebra",
+    "optimization"
+   ],
+   "recommended": [],
+   "topics": [
+    "核技巧",
+    "SVM",
+    "核 PCA"
+   ],
+   "tags": []
+  },
+  {
+   "id": "clustering",
+   "title": "聚类",
+   "domain": "ai",
+   "cluster": "a-classic",
+   "stage": 2,
+   "type": "course",
+   "summary": "聚类的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "machine-learning",
+    "linear-algebra"
+   ],
+   "recommended": [],
+   "topics": [
+    "K-means",
+    "层次聚类",
+    "密度聚类"
+   ],
+   "tags": []
+  },
+  {
+   "id": "dimensionality-reduction",
+   "title": "降维与流形学习",
+   "domain": "ai",
+   "cluster": "a-classic",
+   "stage": 3,
+   "type": "course",
+   "summary": "降维与流形学习的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "linear-algebra",
+    "machine-learning"
+   ],
+   "recommended": [],
+   "topics": [
+    "PCA",
+    "因子分析",
+    "非线性降维"
+   ],
+   "tags": []
+  },
+  {
+   "id": "graphical-models",
+   "title": "概率图模型",
+   "domain": "ai",
+   "cluster": "a-classic",
+   "stage": 4,
+   "type": "course",
+   "summary": "概率图模型的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "probabilistic-modeling",
+    "graph-theory"
+   ],
+   "recommended": [],
+   "topics": [
+    "Bayesian 网络",
+    "Markov 随机场",
+    "推断"
+   ],
+   "tags": []
+  },
+  {
+   "id": "statistical-learning-theory",
+   "title": "统计学习理论",
+   "domain": "ai",
+   "cluster": "a-theory",
+   "stage": 4,
+   "type": "course",
+   "summary": "统计学习理论的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "machine-learning",
+    "probability",
+    "real-analysis-1"
+   ],
+   "recommended": [],
+   "topics": [
+    "经验风险",
+    "泛化界",
+    "复杂度"
+   ],
+   "tags": []
+  },
+  {
+   "id": "pac-learning",
+   "title": "PAC 学习",
+   "domain": "ai",
+   "cluster": "a-theory",
+   "stage": 5,
+   "type": "course",
+   "summary": "PAC 学习的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "statistical-learning-theory",
+    "complexity-theory"
+   ],
+   "recommended": [],
+   "topics": [
+    "样本复杂度",
+    "VC 维",
+    "可学习性"
+   ],
+   "tags": []
+  },
+  {
+   "id": "online-learning",
+   "title": "在线学习",
+   "domain": "ai",
+   "cluster": "a-theory",
+   "stage": 5,
+   "type": "course",
+   "summary": "在线学习的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "statistical-learning-theory",
+    "online-algorithms"
+   ],
+   "recommended": [],
+   "topics": [
+    "遗憾界",
+    "专家问题",
+    "Bandit"
+   ],
+   "tags": []
+  },
+  {
+   "id": "generalization-theory",
+   "title": "深度学习泛化理论",
+   "domain": "ai",
+   "cluster": "a-theory",
+   "stage": 6,
+   "type": "frontier",
+   "summary": "深度学习泛化理论的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "statistical-learning-theory",
+    "deep-learning"
+   ],
+   "recommended": [],
+   "topics": [
+    "隐式正则",
+    "稳定性",
+    "尺度与泛化"
+   ],
+   "tags": []
+  },
+  {
+   "id": "bayesian-inference",
+   "title": "Bayesian 推断",
+   "domain": "ai",
+   "cluster": "a-theory",
+   "stage": 4,
+   "type": "course",
+   "summary": "Bayesian 推断的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "probabilistic-modeling",
+    "measure-theory"
+   ],
+   "recommended": [],
+   "topics": [
+    "先验后验",
+    "共轭",
+    "决策"
+   ],
+   "tags": []
+  },
+  {
+   "id": "variational-inference",
+   "title": "变分推断",
+   "domain": "ai",
+   "cluster": "a-theory",
+   "stage": 5,
+   "type": "course",
+   "summary": "变分推断的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "bayesian-inference",
+    "optimization"
+   ],
+   "recommended": [],
+   "topics": [
+    "ELBO",
+    "均值场",
+    "摊销推断"
+   ],
+   "tags": []
+  },
+  {
+   "id": "monte-carlo-methods",
+   "title": "Monte Carlo 与 MCMC",
+   "domain": "ai",
+   "cluster": "a-theory",
+   "stage": 5,
+   "type": "course",
+   "summary": "Monte Carlo 与 MCMC的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "rigorous-probability",
+    "bayesian-inference",
+    "numerical-analysis"
+   ],
+   "recommended": [],
+   "topics": [
+    "采样",
+    "Markov 链",
+    "序贯 Monte Carlo"
+   ],
+   "tags": []
+  },
+  {
+   "id": "causal-inference",
+   "title": "因果推断",
+   "domain": "ai",
+   "cluster": "a-theory",
+   "stage": 5,
+   "type": "course",
+   "summary": "因果推断的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "probability",
+    "mathematical-statistics",
+    "graphical-models"
+   ],
+   "recommended": [],
+   "topics": [
+    "结构因果模型",
+    "干预",
+    "反事实"
+   ],
+   "tags": []
+  },
+  {
+   "id": "uncertainty-quantification",
+   "title": "不确定性量化",
+   "domain": "ai",
+   "cluster": "a-theory",
+   "stage": 5,
+   "type": "course",
+   "summary": "不确定性量化的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "bayesian-inference",
+    "mathematical-statistics"
+   ],
+   "recommended": [],
+   "topics": [
+    "校准",
+    "预测区间",
+    "分布外不确定性"
+   ],
+   "tags": []
+  },
+  {
+   "id": "information-theoretic-learning",
+   "title": "信息论学习视角",
+   "domain": "ai",
+   "cluster": "a-theory",
+   "stage": 5,
+   "type": "course",
+   "summary": "信息论学习视角的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "information-theory",
+    "statistical-learning-theory"
+   ],
+   "recommended": [],
+   "topics": [
+    "信息瓶颈",
+    "最小描述长度",
+    "表示压缩"
+   ],
+   "tags": []
+  },
+  {
+   "id": "neural-networks",
+   "title": "神经网络",
+   "domain": "ai",
+   "cluster": "a-deep",
+   "stage": 2,
+   "type": "course",
+   "summary": "神经网络的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "machine-learning",
+    "multivariable-calculus",
+    "linear-algebra"
+   ],
+   "recommended": [],
+   "topics": [
+    "感知机",
+    "多层网络",
+    "反向传播"
+   ],
+   "tags": []
+  },
+  {
+   "id": "deep-learning",
+   "title": "深度学习",
+   "domain": "ai",
+   "cluster": "a-deep",
+   "stage": 3,
+   "type": "course",
+   "summary": "深度学习的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "neural-networks",
+    "optimization-for-ml",
+    "automatic-differentiation"
+   ],
+   "recommended": [],
+   "topics": [
+    "初始化与归一化",
+    "优化",
+    "深层表示"
+   ],
+   "tags": []
+  },
+  {
+   "id": "convolutional-networks",
+   "title": "卷积神经网络",
+   "domain": "ai",
+   "cluster": "a-deep",
+   "stage": 3,
+   "type": "course",
+   "summary": "卷积神经网络的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "deep-learning"
+   ],
+   "recommended": [],
+   "topics": [
+    "卷积",
+    "感受野",
+    "残差网络"
+   ],
+   "tags": []
+  },
+  {
+   "id": "sequence-models",
+   "title": "序列模型",
+   "domain": "ai",
+   "cluster": "a-deep",
+   "stage": 3,
+   "type": "course",
+   "summary": "序列模型的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "deep-learning",
+    "probability"
+   ],
+   "recommended": [],
+   "topics": [
+    "RNN",
+    "LSTM/GRU",
+    "编码器解码器"
+   ],
+   "tags": []
+  },
+  {
+   "id": "attention-mechanisms",
+   "title": "注意力机制",
+   "domain": "ai",
+   "cluster": "a-deep",
+   "stage": 4,
+   "type": "course",
+   "summary": "注意力机制的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "sequence-models",
+    "linear-algebra"
+   ],
+   "recommended": [],
+   "topics": [
+    "键值查询",
+    "多头注意力",
+    "跨注意力"
+   ],
+   "tags": []
+  },
+  {
+   "id": "transformer",
+   "title": "Transformer",
+   "domain": "ai",
+   "cluster": "a-deep",
+   "stage": 4,
+   "type": "course",
+   "summary": "Transformer的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "attention-mechanisms",
+    "deep-learning"
+   ],
+   "recommended": [],
+   "topics": [
+    "自注意力",
+    "位置编码",
+    "编码器与解码器"
+   ],
+   "tags": []
+  },
+  {
+   "id": "representation-learning",
+   "title": "表示学习",
+   "domain": "ai",
+   "cluster": "a-deep",
+   "stage": 4,
+   "type": "course",
+   "summary": "表示学习的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "deep-learning",
+    "information-theory"
+   ],
+   "recommended": [],
+   "topics": [
+    "嵌入",
+    "不变性",
+    "解耦表示"
+   ],
+   "tags": []
+  },
+  {
+   "id": "self-supervised-learning",
+   "title": "自监督学习",
+   "domain": "ai",
+   "cluster": "a-deep",
+   "stage": 4,
+   "type": "course",
+   "summary": "自监督学习的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "representation-learning",
+    "deep-learning"
+   ],
+   "recommended": [],
+   "topics": [
+    "掩码预测",
+    "对比学习",
+    "自回归"
+   ],
+   "tags": []
+  },
+  {
+   "id": "metric-learning",
+   "title": "度量学习",
+   "domain": "ai",
+   "cluster": "a-deep",
+   "stage": 4,
+   "type": "course",
+   "summary": "度量学习的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "representation-learning",
+    "optimization"
+   ],
+   "recommended": [],
+   "topics": [
+    "对比损失",
+    "三元组损失",
+    "检索"
+   ],
+   "tags": []
+  },
+  {
+   "id": "graph-neural-networks",
+   "title": "图神经网络",
+   "domain": "ai",
+   "cluster": "a-deep",
+   "stage": 4,
+   "type": "course",
+   "summary": "图神经网络的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "graph-theory",
+    "deep-learning",
+    "linear-algebra"
+   ],
+   "recommended": [],
+   "topics": [
+    "消息传递",
+    "图卷积",
+    "图注意力"
+   ],
+   "tags": []
+  },
+  {
+   "id": "geometric-deep-learning",
+   "title": "几何深度学习",
+   "domain": "ai",
+   "cluster": "a-deep",
+   "stage": 5,
+   "type": "course",
+   "summary": "几何深度学习的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "graph-neural-networks",
+    "representation-theory",
+    "differential-geometry"
+   ],
+   "recommended": [],
+   "topics": [
+    "对称性",
+    "等变网络",
+    "流形数据"
+   ],
+   "tags": []
+  },
+  {
+   "id": "neural-ode",
+   "title": "神经微分方程",
+   "domain": "ai",
+   "cluster": "a-deep",
+   "stage": 5,
+   "type": "course",
+   "summary": "神经微分方程的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "deep-learning",
+    "ode",
+    "automatic-differentiation"
+   ],
+   "recommended": [],
+   "topics": [
+    "连续深度",
+    "伴随法",
+    "动力系统"
+   ],
+   "tags": []
+  },
+  {
+   "id": "image-processing",
+   "title": "图像处理",
+   "domain": "ai",
+   "cluster": "a-perception",
+   "stage": 3,
+   "type": "course",
+   "summary": "图像处理的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "linear-algebra",
+    "multivariable-calculus"
+   ],
+   "recommended": [],
+   "topics": [
+    "滤波",
+    "边缘",
+    "频域方法"
+   ],
+   "tags": []
+  },
+  {
+   "id": "computer-vision",
+   "title": "计算机视觉",
+   "domain": "ai",
+   "cluster": "a-perception",
+   "stage": 4,
+   "type": "course",
+   "summary": "计算机视觉的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "convolutional-networks",
+    "image-processing"
+   ],
+   "recommended": [],
+   "topics": [
+    "分类检测分割",
+    "视觉表示",
+    "视频理解"
+   ],
+   "tags": []
+  },
+  {
+   "id": "three-d-vision",
+   "title": "三维视觉",
+   "domain": "ai",
+   "cluster": "a-perception",
+   "stage": 5,
+   "type": "course",
+   "summary": "三维视觉的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "computer-vision",
+    "analytic-geometry",
+    "linear-algebra"
+   ],
+   "recommended": [],
+   "topics": [
+    "相机模型",
+    "多视图几何",
+    "三维重建"
+   ],
+   "tags": []
+  },
+  {
+   "id": "video-understanding",
+   "title": "视频理解",
+   "domain": "ai",
+   "cluster": "a-perception",
+   "stage": 5,
+   "type": "course",
+   "summary": "视频理解的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "computer-vision",
+    "sequence-models"
+   ],
+   "recommended": [],
+   "topics": [
+    "时空建模",
+    "动作识别",
+    "视频生成"
+   ],
+   "tags": []
+  },
+  {
+   "id": "linguistics-for-nlp",
+   "title": "NLP 语言学基础",
+   "domain": "ai",
+   "cluster": "a-perception",
+   "stage": 2,
+   "type": "course",
+   "summary": "NLP 语言学基础的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "logic-basics"
+   ],
+   "recommended": [],
+   "topics": [
+    "词法",
+    "句法",
+    "语义与语用"
+   ],
+   "tags": []
+  },
+  {
+   "id": "nlp",
+   "title": "自然语言处理",
+   "domain": "ai",
+   "cluster": "a-perception",
+   "stage": 4,
+   "type": "course",
+   "summary": "自然语言处理的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "sequence-models",
+    "probabilistic-modeling",
+    "linguistics-for-nlp"
+   ],
+   "recommended": [],
+   "topics": [
+    "语言建模",
+    "信息抽取",
+    "文本生成"
+   ],
+   "tags": []
+  },
+  {
+   "id": "information-extraction",
+   "title": "信息抽取",
+   "domain": "ai",
+   "cluster": "a-perception",
+   "stage": 4,
+   "type": "course",
+   "summary": "信息抽取的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "nlp"
+   ],
+   "recommended": [],
+   "topics": [
+    "实体关系",
+    "事件抽取",
+    "结构化知识"
+   ],
+   "tags": []
+  },
+  {
+   "id": "machine-translation",
+   "title": "机器翻译",
+   "domain": "ai",
+   "cluster": "a-perception",
+   "stage": 4,
+   "type": "course",
+   "summary": "机器翻译的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "nlp",
+    "attention-mechanisms"
+   ],
+   "recommended": [],
+   "topics": [
+    "序列到序列",
+    "对齐",
+    "评测"
+   ],
+   "tags": []
+  },
+  {
+   "id": "speech-audio",
+   "title": "语音与音频智能",
+   "domain": "ai",
+   "cluster": "a-perception",
+   "stage": 4,
+   "type": "course",
+   "summary": "语音与音频智能的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "deep-learning"
+   ],
+   "recommended": [
+    "harmonic-analysis"
+   ],
+   "topics": [
+    "语音识别",
+    "语音合成",
+    "音频理解"
+   ],
+   "tags": []
+  },
+  {
+   "id": "multimodal-learning",
+   "title": "多模态学习",
+   "domain": "ai",
+   "cluster": "a-perception",
+   "stage": 5,
+   "type": "course",
+   "summary": "多模态学习的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "computer-vision",
+    "nlp",
+    "representation-learning",
+    "transformer"
+   ],
+   "recommended": [],
+   "topics": [
+    "跨模态对齐",
+    "统一表示",
+    "多模态推理"
+   ],
+   "tags": []
+  },
+  {
+   "id": "mdp",
+   "title": "Markov 决策过程",
+   "domain": "ai",
+   "cluster": "a-decision",
+   "stage": 3,
+   "type": "course",
+   "summary": "Markov 决策过程的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "probability"
+   ],
+   "recommended": [
+    "dynamical-systems"
+   ],
+   "topics": [
+    "状态动作回报",
+    "Bellman 方程",
+    "策略"
+   ],
+   "tags": []
+  },
+  {
+   "id": "reinforcement-learning",
+   "title": "强化学习",
+   "domain": "ai",
+   "cluster": "a-decision",
+   "stage": 4,
+   "type": "course",
+   "summary": "强化学习的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "mdp",
+    "machine-learning",
+    "optimization"
+   ],
+   "recommended": [],
+   "topics": [
+    "价值方法",
+    "策略梯度",
+    "探索利用"
+   ],
+   "tags": []
+  },
+  {
+   "id": "model-free-rl",
+   "title": "无模型强化学习",
+   "domain": "ai",
+   "cluster": "a-decision",
+   "stage": 4,
+   "type": "course",
+   "summary": "无模型强化学习的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "reinforcement-learning"
+   ],
+   "recommended": [],
+   "topics": [
+    "Q-learning",
+    "Actor–Critic",
+    "经验回放"
+   ],
+   "tags": []
+  },
+  {
+   "id": "model-based-rl",
+   "title": "基于模型的强化学习",
+   "domain": "ai",
+   "cluster": "a-decision",
+   "stage": 5,
+   "type": "course",
+   "summary": "基于模型的强化学习的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "reinforcement-learning",
+    "dynamical-systems"
+   ],
+   "recommended": [],
+   "topics": [
+    "动力学模型",
+    "规划",
+    "不确定性"
+   ],
+   "tags": []
+  },
+  {
+   "id": "offline-rl",
+   "title": "离线强化学习",
+   "domain": "ai",
+   "cluster": "a-decision",
+   "stage": 5,
+   "type": "course",
+   "summary": "离线强化学习的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "reinforcement-learning",
+    "causal-inference"
+   ],
+   "recommended": [],
+   "topics": [
+    "分布偏移",
+    "保守估计",
+    "离线评测"
+   ],
+   "tags": []
+  },
+  {
+   "id": "imitation-learning",
+   "title": "模仿学习",
+   "domain": "ai",
+   "cluster": "a-decision",
+   "stage": 4,
+   "type": "course",
+   "summary": "模仿学习的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "reinforcement-learning",
+    "machine-learning"
+   ],
+   "recommended": [],
+   "topics": [
+    "行为克隆",
+    "逆强化学习",
+    "专家数据"
+   ],
+   "tags": []
+  },
+  {
+   "id": "multi-agent-rl",
+   "title": "多智能体强化学习",
+   "domain": "ai",
+   "cluster": "a-decision",
+   "stage": 6,
+   "type": "course",
+   "summary": "多智能体强化学习的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "reinforcement-learning",
+    "game-playing"
+   ],
+   "recommended": [],
+   "topics": [
+    "协作竞争",
+    "信用分配",
+    "博弈均衡"
+   ],
+   "tags": []
+  },
+  {
+   "id": "optimal-control",
+   "title": "最优控制",
+   "domain": "ai",
+   "cluster": "a-decision",
+   "stage": 4,
+   "type": "course",
+   "summary": "最优控制的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "control-theory",
+    "optimization"
+   ],
+   "recommended": [],
+   "topics": [
+    "动态规划",
+    "HJB 方程",
+    "Pontryagin 原理"
+   ],
+   "tags": []
+  },
+  {
+   "id": "model-predictive-control",
+   "title": "模型预测控制",
+   "domain": "ai",
+   "cluster": "a-decision",
+   "stage": 5,
+   "type": "course",
+   "summary": "模型预测控制的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "optimal-control",
+    "numerical-analysis"
+   ],
+   "recommended": [],
+   "topics": [
+    "滚动优化",
+    "约束控制",
+    "实时求解"
+   ],
+   "tags": []
+  },
+  {
+   "id": "state-estimation",
+   "title": "状态估计与滤波",
+   "domain": "ai",
+   "cluster": "a-decision",
+   "stage": 4,
+   "type": "course",
+   "summary": "状态估计与滤波的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "probability",
+    "linear-algebra",
+    "dynamical-systems"
+   ],
+   "recommended": [],
+   "topics": [
+    "Kalman 滤波",
+    "粒子滤波",
+    "非线性滤波"
+   ],
+   "tags": []
+  },
+  {
+   "id": "robotics",
+   "title": "机器人学",
+   "domain": "ai",
+   "cluster": "a-decision",
+   "stage": 5,
+   "type": "course",
+   "summary": "机器人学的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "control-theory",
+    "computer-vision",
+    "state-estimation"
+   ],
+   "recommended": [],
+   "topics": [
+    "运动学动力学",
+    "定位建图",
+    "规划控制"
+   ],
+   "tags": []
+  },
+  {
+   "id": "embodied-ai",
+   "title": "具身智能",
+   "domain": "ai",
+   "cluster": "a-decision",
+   "stage": 6,
+   "type": "frontier",
+   "summary": "具身智能的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "robotics",
+    "reinforcement-learning",
+    "multimodal-learning"
+   ],
+   "recommended": [],
+   "topics": [
+    "视觉语言动作",
+    "仿真到现实",
+    "在线适应"
+   ],
+   "tags": []
+  },
+  {
+   "id": "generative-models",
+   "title": "生成模型",
+   "domain": "ai",
+   "cluster": "a-generative",
+   "stage": 4,
+   "type": "course",
+   "summary": "生成模型的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "deep-learning",
+    "probabilistic-modeling"
+   ],
+   "recommended": [],
+   "topics": [
+    "显式与隐式密度",
+    "潜变量",
+    "条件生成"
+   ],
+   "tags": []
+  },
+  {
+   "id": "variational-autoencoders",
+   "title": "变分自编码器",
+   "domain": "ai",
+   "cluster": "a-generative",
+   "stage": 5,
+   "type": "course",
+   "summary": "变分自编码器的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "variational-inference",
+    "generative-models"
+   ],
+   "recommended": [],
+   "topics": [
+    "ELBO",
+    "重参数化",
+    "潜空间"
+   ],
+   "tags": []
+  },
+  {
+   "id": "gans",
+   "title": "生成对抗网络",
+   "domain": "ai",
+   "cluster": "a-generative",
+   "stage": 4,
+   "type": "course",
+   "summary": "生成对抗网络的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "generative-models",
+    "game-playing"
+   ],
+   "recommended": [],
+   "topics": [
+    "对抗训练",
+    "判别器",
+    "模式坍塌"
+   ],
+   "tags": []
+  },
+  {
+   "id": "normalizing-flows",
+   "title": "Normalizing Flow",
+   "domain": "ai",
+   "cluster": "a-generative",
+   "stage": 5,
+   "type": "course",
+   "summary": "Normalizing Flow的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "generative-models",
+    "multivariable-calculus"
+   ],
+   "recommended": [],
+   "topics": [
+    "可逆变换",
+    "Jacobian",
+    "精确似然"
+   ],
+   "tags": []
+  },
+  {
+   "id": "energy-based-models",
+   "title": "能量模型",
+   "domain": "ai",
+   "cluster": "a-generative",
+   "stage": 5,
+   "type": "course",
+   "summary": "能量模型的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "probabilistic-modeling",
+    "optimization"
+   ],
+   "recommended": [],
+   "topics": [
+    "能量函数",
+    "对比散度",
+    "采样"
+   ],
+   "tags": []
+  },
+  {
+   "id": "diffusion-models",
+   "title": "扩散模型",
+   "domain": "ai",
+   "cluster": "a-generative",
+   "stage": 5,
+   "type": "course",
+   "summary": "扩散模型的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "generative-models",
+    "stochastic-processes",
+    "deep-learning"
+   ],
+   "recommended": [],
+   "topics": [
+    "前向加噪",
+    "反向去噪",
+    "条件生成"
+   ],
+   "tags": []
+  },
+  {
+   "id": "score-based-models",
+   "title": "Score-based 生成",
+   "domain": "ai",
+   "cluster": "a-generative",
+   "stage": 6,
+   "type": "course",
+   "summary": "Score-based 生成的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "diffusion-models",
+    "sde"
+   ],
+   "recommended": [],
+   "topics": [
+    "Score Matching",
+    "反向 SDE",
+    "概率流 ODE"
+   ],
+   "tags": []
+  },
+  {
+   "id": "foundation-models",
+   "title": "基础模型",
+   "domain": "ai",
+   "cluster": "a-generative",
+   "stage": 5,
+   "type": "course",
+   "summary": "基础模型的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "self-supervised-learning",
+    "transformer",
+    "ml-systems"
+   ],
+   "recommended": [],
+   "topics": [
+    "大规模预训练",
+    "迁移适配",
+    "Scaling"
+   ],
+   "tags": []
+  },
+  {
+   "id": "large-language-models",
+   "title": "大语言模型",
+   "domain": "ai",
+   "cluster": "a-generative",
+   "stage": 6,
+   "type": "course",
+   "summary": "大语言模型的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "transformer",
+    "nlp",
+    "foundation-models"
+   ],
+   "recommended": [],
+   "topics": [
+    "自回归预训练",
+    "上下文学习",
+    "评测与对齐"
+   ],
+   "tags": []
+  },
+  {
+   "id": "instruction-tuning",
+   "title": "指令微调",
+   "domain": "ai",
+   "cluster": "a-generative",
+   "stage": 6,
+   "type": "course",
+   "summary": "指令微调的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "large-language-models",
+    "ml-experiment-design"
+   ],
+   "recommended": [],
+   "topics": [
+    "监督微调",
+    "数据配比",
+    "指令跟随"
+   ],
+   "tags": []
+  },
+  {
+   "id": "preference-optimization",
+   "title": "偏好优化",
+   "domain": "ai",
+   "cluster": "a-generative",
+   "stage": 6,
+   "type": "course",
+   "summary": "偏好优化的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "instruction-tuning",
+    "reinforcement-learning"
+   ],
+   "recommended": [],
+   "topics": [
+    "RLHF",
+    "DPO",
+    "奖励模型"
+   ],
+   "tags": []
+  },
+  {
+   "id": "reasoning-models",
+   "title": "推理模型",
+   "domain": "ai",
+   "cluster": "a-generative",
+   "stage": 7,
+   "type": "frontier",
+   "summary": "推理模型的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "large-language-models",
+    "planning-ai",
+    "ai-evaluation"
+   ],
+   "recommended": [],
+   "topics": [
+    "推理时计算",
+    "可验证推理",
+    "自我纠错"
+   ],
+   "tags": []
+  },
+  {
+   "id": "retrieval-augmented-generation",
+   "title": "检索增强生成",
+   "domain": "ai",
+   "cluster": "a-generative",
+   "stage": 6,
+   "type": "course",
+   "summary": "检索增强生成的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "large-language-models",
+    "information-retrieval"
+   ],
+   "recommended": [],
+   "topics": [
+    "检索",
+    "上下文构造",
+    "引用与评测"
+   ],
+   "tags": []
+  },
+  {
+   "id": "multimodal-foundation-models",
+   "title": "多模态基础模型",
+   "domain": "ai",
+   "cluster": "a-generative",
+   "stage": 6,
+   "type": "course",
+   "summary": "多模态基础模型的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "foundation-models",
+    "multimodal-learning"
+   ],
+   "recommended": [],
+   "topics": [
+    "统一 Token",
+    "跨模态预训练",
+    "视觉语言动作"
+   ],
+   "tags": []
+  },
+  {
+   "id": "world-models",
+   "title": "世界模型",
+   "domain": "ai",
+   "cluster": "a-agents",
+   "stage": 6,
+   "type": "course",
+   "summary": "世界模型的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "model-based-rl",
+    "representation-learning",
+    "dynamical-systems"
+   ],
+   "recommended": [],
+   "topics": [
+    "潜在动力学",
+    "预测规划",
+    "反事实模拟"
+   ],
+   "tags": []
+  },
+  {
+   "id": "agent-systems",
+   "title": "智能体系统",
+   "domain": "ai",
+   "cluster": "a-agents",
+   "stage": 6,
+   "type": "course",
+   "summary": "智能体系统的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "large-language-models",
+    "planning-ai",
+    "software-engineering"
+   ],
+   "recommended": [],
+   "topics": [
+    "状态与行动",
+    "工具调用",
+    "反馈执行"
+   ],
+   "tags": []
+  },
+  {
+   "id": "memory-systems-ai",
+   "title": "智能体记忆系统",
+   "domain": "ai",
+   "cluster": "a-agents",
+   "stage": 6,
+   "type": "course",
+   "summary": "智能体记忆系统的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "agent-systems",
+    "information-retrieval",
+    "continual-learning"
+   ],
+   "recommended": [],
+   "topics": [
+    "写入与检索",
+    "遗忘",
+    "身份连续性"
+   ],
+   "tags": []
+  },
+  {
+   "id": "tool-use-ai",
+   "title": "工具使用与程序执行",
+   "domain": "ai",
+   "cluster": "a-agents",
+   "stage": 6,
+   "type": "course",
+   "summary": "工具使用与程序执行的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "agent-systems",
+    "api-design"
+   ],
+   "recommended": [],
+   "topics": [
+    "函数调用",
+    "环境接口",
+    "错误恢复"
+   ],
+   "tags": []
+  },
+  {
+   "id": "planning-agents",
+   "title": "长程规划智能体",
+   "domain": "ai",
+   "cluster": "a-agents",
+   "stage": 7,
+   "type": "frontier",
+   "summary": "长程规划智能体的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "agent-systems",
+    "planning-ai",
+    "reasoning-models"
+   ],
+   "recommended": [],
+   "topics": [
+    "任务分解",
+    "状态追踪",
+    "动态重规划"
+   ],
+   "tags": []
+  },
+  {
+   "id": "multi-agent-systems",
+   "title": "多智能体系统",
+   "domain": "ai",
+   "cluster": "a-agents",
+   "stage": 6,
+   "type": "course",
+   "summary": "多智能体系统的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "agent-systems",
+    "game-playing",
+    "distributed-systems"
+   ],
+   "recommended": [],
+   "topics": [
+    "协作与竞争",
+    "通信",
+    "组织结构"
+   ],
+   "tags": []
+  },
+  {
+   "id": "continual-learning",
+   "title": "持续学习",
+   "domain": "ai",
+   "cluster": "a-agents",
+   "stage": 6,
+   "type": "course",
+   "summary": "持续学习的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "machine-learning",
+    "representation-learning"
+   ],
+   "recommended": [],
+   "topics": [
+    "灾难性遗忘",
+    "增量学习",
+    "测试时适应"
+   ],
+   "tags": []
+  },
+  {
+   "id": "meta-learning",
+   "title": "元学习",
+   "domain": "ai",
+   "cluster": "a-agents",
+   "stage": 6,
+   "type": "course",
+   "summary": "元学习的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "machine-learning",
+    "optimization-for-ml"
+   ],
+   "recommended": [],
+   "topics": [
+    "快速适应",
+    "双层优化",
+    "任务分布"
+   ],
+   "tags": []
+  },
+  {
+   "id": "neuro-symbolic-ai",
+   "title": "神经符号 AI",
+   "domain": "ai",
+   "cluster": "a-agents",
+   "stage": 6,
+   "type": "course",
+   "summary": "神经符号 AI的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "knowledge-representation",
+    "deep-learning",
+    "theorem-proving"
+   ],
+   "recommended": [],
+   "topics": [
+    "可微逻辑",
+    "程序归纳",
+    "组合泛化"
+   ],
+   "tags": []
+  },
+  {
+   "id": "artificial-life",
+   "title": "人工生命",
+   "domain": "ai",
+   "cluster": "a-agents",
+   "stage": 6,
+   "type": "course",
+   "summary": "人工生命的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "dynamical-systems",
+    "multi-agent-systems",
+    "evolutionary-computation"
+   ],
+   "recommended": [],
+   "topics": [
+    "自组织",
+    "演化",
+    "生态系统"
+   ],
+   "tags": []
+  },
+  {
+   "id": "evolutionary-computation",
+   "title": "进化计算",
+   "domain": "ai",
+   "cluster": "a-agents",
+   "stage": 4,
+   "type": "course",
+   "summary": "进化计算的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "optimization",
+    "probability"
+   ],
+   "recommended": [],
+   "topics": [
+    "遗传算法",
+    "进化策略",
+    "群体搜索"
+   ],
+   "tags": []
+  },
+  {
+   "id": "open-ended-learning",
+   "title": "开放式学习",
+   "domain": "ai",
+   "cluster": "a-agents",
+   "stage": 7,
+   "type": "frontier",
+   "summary": "开放式学习的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "artificial-life",
+    "continual-learning",
+    "reinforcement-learning"
+   ],
+   "recommended": [],
+   "topics": [
+    "新颖性搜索",
+    "课程生成",
+    "开放演化"
+   ],
+   "tags": []
+  },
+  {
+   "id": "digital-life",
+   "title": "数字生命",
+   "domain": "ai",
+   "cluster": "a-agents",
+   "stage": 8,
+   "type": "frontier",
+   "summary": "研究能够维持自身边界、形成内生价值、保持身份连续并与环境耦合演化的数字系统。",
+   "prerequisites": [
+    "artificial-life",
+    "world-models",
+    "memory-systems-ai",
+    "control-theory"
+   ],
+   "recommended": [],
+   "topics": [
+    "边界维持",
+    "内生价值",
+    "跨时间身份"
+   ],
+   "tags": []
+  },
+  {
+   "id": "ml-systems",
+   "title": "机器学习系统",
+   "domain": "ai",
+   "cluster": "a-systems",
+   "stage": 4,
+   "type": "course",
+   "summary": "机器学习系统的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "operating-systems",
+    "database-systems",
+    "machine-learning"
+   ],
+   "recommended": [],
+   "topics": [
+    "训练框架",
+    "数据管线",
+    "实验平台"
+   ],
+   "tags": []
+  },
+  {
+   "id": "data-pipelines-ai",
+   "title": "大规模数据流水线",
+   "domain": "ai",
+   "cluster": "a-systems",
+   "stage": 4,
+   "type": "course",
+   "summary": "大规模数据流水线的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "data-engineering-ai",
+    "distributed-systems"
+   ],
+   "recommended": [],
+   "topics": [
+    "采集处理",
+    "分片缓存",
+    "质量监控"
+   ],
+   "tags": []
+  },
+  {
+   "id": "gpu-computing-ai",
+   "title": "GPU 计算",
+   "domain": "ai",
+   "cluster": "a-systems",
+   "stage": 4,
+   "type": "course",
+   "summary": "GPU 计算的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "gpu-architecture",
+    "parallel-computing"
+   ],
+   "recommended": [],
+   "topics": [
+    "Kernel",
+    "内存优化",
+    "性能分析"
+   ],
+   "tags": []
+  },
+  {
+   "id": "distributed-training",
+   "title": "分布式训练",
+   "domain": "ai",
+   "cluster": "a-systems",
+   "stage": 5,
+   "type": "course",
+   "summary": "分布式训练的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "ml-systems",
+    "distributed-systems",
+    "gpu-computing-ai"
+   ],
+   "recommended": [],
+   "topics": [
+    "数据并行",
+    "模型并行",
+    "通信优化"
+   ],
+   "tags": []
+  },
+  {
+   "id": "model-parallelism",
+   "title": "大模型并行",
+   "domain": "ai",
+   "cluster": "a-systems",
+   "stage": 6,
+   "type": "course",
+   "summary": "大模型并行的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "distributed-training",
+    "foundation-models"
+   ],
+   "recommended": [],
+   "topics": [
+    "张量并行",
+    "流水线并行",
+    "专家并行"
+   ],
+   "tags": []
+  },
+  {
+   "id": "ai-compilers",
+   "title": "AI 编译器",
+   "domain": "ai",
+   "cluster": "a-systems",
+   "stage": 6,
+   "type": "course",
+   "summary": "AI 编译器的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "compilers",
+    "gpu-architecture",
+    "deep-learning"
+   ],
+   "recommended": [],
+   "topics": [
+    "张量 IR",
+    "算子融合",
+    "自动调优"
+   ],
+   "tags": []
+  },
+  {
+   "id": "inference-systems",
+   "title": "推理系统",
+   "domain": "ai",
+   "cluster": "a-systems",
+   "stage": 5,
+   "type": "course",
+   "summary": "推理系统的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "ml-systems",
+    "computer-networks",
+    "gpu-computing-ai"
+   ],
+   "recommended": [],
+   "topics": [
+    "批处理调度",
+    "KV Cache",
+    "低延迟"
+   ],
+   "tags": []
+  },
+  {
+   "id": "model-serving",
+   "title": "模型服务与部署",
+   "domain": "ai",
+   "cluster": "a-systems",
+   "stage": 5,
+   "type": "course",
+   "summary": "模型服务与部署的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "inference-systems",
+    "cloud-computing"
+   ],
+   "recommended": [],
+   "topics": [
+    "服务化",
+    "弹性伸缩",
+    "灰度发布"
+   ],
+   "tags": []
+  },
+  {
+   "id": "model-compression",
+   "title": "模型压缩",
+   "domain": "ai",
+   "cluster": "a-systems",
+   "stage": 5,
+   "type": "course",
+   "summary": "模型压缩的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "deep-learning",
+    "inference-systems"
+   ],
+   "recommended": [],
+   "topics": [
+    "量化",
+    "剪枝",
+    "蒸馏"
+   ],
+   "tags": []
+  },
+  {
+   "id": "mlops",
+   "title": "MLOps",
+   "domain": "ai",
+   "cluster": "a-systems",
+   "stage": 4,
+   "type": "course",
+   "summary": "MLOps的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "software-engineering",
+    "ml-systems"
+   ],
+   "recommended": [],
+   "topics": [
+    "版本管理",
+    "持续训练",
+    "监控回滚"
+   ],
+   "tags": []
+  },
+  {
+   "id": "model-monitoring",
+   "title": "模型监控",
+   "domain": "ai",
+   "cluster": "a-systems",
+   "stage": 4,
+   "type": "course",
+   "summary": "模型监控的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "mlops",
+    "ai-evaluation"
+   ],
+   "recommended": [],
+   "topics": [
+    "数据漂移",
+    "性能衰减",
+    "风险告警"
+   ],
+   "tags": []
+  },
+  {
+   "id": "edge-ai",
+   "title": "边缘智能",
+   "domain": "ai",
+   "cluster": "a-systems",
+   "stage": 5,
+   "type": "course",
+   "summary": "边缘智能的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "model-compression",
+    "embedded-systems"
+   ],
+   "recommended": [],
+   "topics": [
+    "端侧推理",
+    "能耗约束",
+    "协同计算"
+   ],
+   "tags": []
+  },
+  {
+   "id": "embedded-systems",
+   "title": "嵌入式系统",
+   "domain": "cs",
+   "cluster": "c-architecture",
+   "stage": 4,
+   "type": "course",
+   "summary": "嵌入式系统的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "computer-organization",
+    "operating-systems"
+   ],
+   "recommended": [],
+   "topics": [
+    "实时系统",
+    "传感器接口",
+    "资源约束"
+   ],
+   "tags": []
+  },
+  {
+   "id": "ai-safety",
+   "title": "AI 安全",
+   "domain": "ai",
+   "cluster": "a-safety",
+   "stage": 5,
+   "type": "course",
+   "summary": "AI 安全的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "machine-learning",
+    "ai-evaluation"
+   ],
+   "recommended": [],
+   "topics": [
+    "失效模式",
+    "风险评测",
+    "控制措施"
+   ],
+   "tags": []
+  },
+  {
+   "id": "alignment",
+   "title": "AI 对齐",
+   "domain": "ai",
+   "cluster": "a-safety",
+   "stage": 6,
+   "type": "course",
+   "summary": "AI 对齐的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "preference-optimization",
+    "ai-safety"
+   ],
+   "recommended": [],
+   "topics": [
+    "目标一致性",
+    "可控性",
+    "监督机制"
+   ],
+   "tags": []
+  },
+  {
+   "id": "interpretability",
+   "title": "可解释性",
+   "domain": "ai",
+   "cluster": "a-safety",
+   "stage": 5,
+   "type": "course",
+   "summary": "可解释性的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "deep-learning",
+    "statistical-learning-theory"
+   ],
+   "recommended": [],
+   "topics": [
+    "特征归因",
+    "机制解释",
+    "可视化"
+   ],
+   "tags": []
+  },
+  {
+   "id": "robustness",
+   "title": "鲁棒机器学习",
+   "domain": "ai",
+   "cluster": "a-safety",
+   "stage": 5,
+   "type": "course",
+   "summary": "鲁棒机器学习的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "machine-learning",
+    "optimization"
+   ],
+   "recommended": [],
+   "topics": [
+    "分布偏移",
+    "稳定性",
+    "鲁棒优化"
+   ],
+   "tags": []
+  },
+  {
+   "id": "adversarial-ml",
+   "title": "对抗机器学习",
+   "domain": "ai",
+   "cluster": "a-safety",
+   "stage": 5,
+   "type": "course",
+   "summary": "对抗机器学习的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "robustness",
+    "cybersecurity-foundations"
+   ],
+   "recommended": [],
+   "topics": [
+    "对抗样本",
+    "数据投毒",
+    "防御评估"
+   ],
+   "tags": []
+  },
+  {
+   "id": "privacy-ml",
+   "title": "隐私机器学习",
+   "domain": "ai",
+   "cluster": "a-safety",
+   "stage": 5,
+   "type": "course",
+   "summary": "隐私机器学习的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "privacy-computing",
+    "machine-learning"
+   ],
+   "recommended": [],
+   "topics": [
+    "差分隐私",
+    "联邦学习",
+    "隐私攻击"
+   ],
+   "tags": []
+  },
+  {
+   "id": "trustworthy-ai",
+   "title": "可信人工智能",
+   "domain": "ai",
+   "cluster": "a-safety",
+   "stage": 6,
+   "type": "course",
+   "summary": "可信人工智能的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "ai-safety",
+    "interpretability",
+    "robustness",
+    "privacy-ml"
+   ],
+   "recommended": [],
+   "topics": [
+    "可靠公平透明",
+    "审计",
+    "保障"
+   ],
+   "tags": []
+  },
+  {
+   "id": "ai-governance",
+   "title": "AI 治理",
+   "domain": "ai",
+   "cluster": "a-safety",
+   "stage": 5,
+   "type": "practice",
+   "summary": "AI 治理的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "ai-safety",
+    "data-governance-ai"
+   ],
+   "recommended": [],
+   "topics": [
+    "风险分类",
+    "制度设计",
+    "社会影响"
+   ],
+   "tags": []
+  },
+  {
+   "id": "scientific-ml",
+   "title": "科学机器学习",
+   "domain": "ai",
+   "cluster": "a-safety",
+   "stage": 5,
+   "type": "course",
+   "summary": "科学机器学习的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "deep-learning",
+    "numerical-analysis",
+    "pde"
+   ],
+   "recommended": [],
+   "topics": [
+    "PINN",
+    "神经算子",
+    "可微仿真"
+   ],
+   "tags": []
+  },
+  {
+   "id": "ai-for-science",
+   "title": "AI for Science",
+   "domain": "ai",
+   "cluster": "a-safety",
+   "stage": 6,
+   "type": "course",
+   "summary": "AI for Science的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "scientific-ml",
+    "foundation-models"
+   ],
+   "recommended": [],
+   "topics": [
+    "科学表征",
+    "代理模型",
+    "自动发现"
+   ],
+   "tags": []
+  },
+  {
+   "id": "ai-for-mathematics",
+   "title": "AI for Mathematics",
+   "domain": "ai",
+   "cluster": "a-safety",
+   "stage": 6,
+   "type": "course",
+   "summary": "AI for Mathematics的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "theorem-proving",
+    "large-language-models",
+    "neuro-symbolic-ai"
+   ],
+   "recommended": [],
+   "topics": [
+    "形式化证明",
+    "猜想生成",
+    "数学检索"
+   ],
+   "tags": []
+  },
+  {
+   "id": "autonomous-science",
+   "title": "自主科研系统",
+   "domain": "ai",
+   "cluster": "a-safety",
+   "stage": 7,
+   "type": "frontier",
+   "summary": "自主科研系统的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "prerequisites": [
+    "agent-systems",
+    "ai-for-science",
+    "ml-experiment-design"
+   ],
+   "recommended": [],
+   "topics": [
+    "假设生成",
+    "实验规划",
+    "闭环科研"
+   ],
+   "tags": []
+  }
+ ],
+ "clusterEdges": [
+  [
+   "m-foundations",
+   "m-analysis"
+  ],
+  [
+   "m-foundations",
+   "m-algebra"
+  ],
+  [
+   "m-foundations",
+   "m-number-comb"
+  ],
+  [
+   "m-foundations",
+   "m-logic"
+  ],
+  [
+   "m-analysis",
+   "m-probability"
+  ],
+  [
+   "m-analysis",
+   "m-geometry"
+  ],
+  [
+   "m-algebra",
+   "m-geometry"
+  ],
+  [
+   "m-algebra",
+   "m-number-comb"
+  ],
+  [
+   "m-logic",
+   "c-theory"
+  ],
+  [
+   "m-foundations",
+   "c-foundations"
+  ],
+  [
+   "m-number-comb",
+   "c-theory"
+  ],
+  [
+   "m-probability",
+   "a-theory"
+  ],
+  [
+   "m-analysis",
+   "a-foundations"
+  ],
+  [
+   "m-algebra",
+   "a-deep"
+  ],
+  [
+   "c-foundations",
+   "c-theory"
+  ],
+  [
+   "c-foundations",
+   "c-systems"
+  ],
+  [
+   "c-architecture",
+   "c-systems"
+  ],
+  [
+   "c-systems",
+   "c-data"
+  ],
+  [
+   "c-systems",
+   "c-security"
+  ],
+  [
+   "c-theory",
+   "c-pl"
+  ],
+  [
+   "c-architecture",
+   "c-pl"
+  ],
+  [
+   "c-pl",
+   "c-systems"
+  ],
+  [
+   "c-graphics",
+   "a-perception"
+  ],
+  [
+   "c-scientific",
+   "a-safety"
+  ],
+  [
+   "c-foundations",
+   "a-classic"
+  ],
+  [
+   "c-data",
+   "a-classic"
+  ],
+  [
+   "c-systems",
+   "a-systems"
+  ],
+  [
+   "c-architecture",
+   "a-systems"
+  ],
+  [
+   "c-pl",
+   "a-systems"
+  ],
+  [
+   "a-foundations",
+   "a-classic"
+  ],
+  [
+   "a-classic",
+   "a-theory"
+  ],
+  [
+   "a-classic",
+   "a-deep"
+  ],
+  [
+   "a-deep",
+   "a-perception"
+  ],
+  [
+   "a-deep",
+   "a-generative"
+  ],
+  [
+   "a-theory",
+   "a-generative"
+  ],
+  [
+   "a-decision",
+   "a-agents"
+  ],
+  [
+   "a-generative",
+   "a-agents"
+  ],
+  [
+   "a-systems",
+   "a-generative"
+  ],
+  [
+   "a-systems",
+   "a-agents"
+  ],
+  [
+   "a-generative",
+   "a-safety"
+  ],
+  [
+   "a-agents",
+   "a-safety"
+  ],
+  [
+   "a-theory",
+   "a-decision"
+  ]
+ ],
+ "paths": {
+  "llm": {
+   "title": "大语言模型主干",
+   "nodes": [
+    "linear-algebra",
+    "calculus",
+    "probability",
+    "programming-fundamentals",
+    "data-structures",
+    "machine-learning",
+    "neural-networks",
+    "deep-learning",
+    "sequence-models",
+    "attention-mechanisms",
+    "transformer",
+    "self-supervised-learning",
+    "foundation-models",
+    "large-language-models"
+   ]
+  },
+  "systems": {
+   "title": "系统研究主干",
+   "nodes": [
+    "programming-fundamentals",
+    "computer-organization",
+    "systems-programming",
+    "operating-systems",
+    "computer-networks",
+    "database-systems",
+    "distributed-systems",
+    "cloud-computing",
+    "reliability-observability"
+   ]
+  },
+  "pure-math": {
+   "title": "现代纯数学共同主干",
+   "nodes": [
+    "elementary-algebra",
+    "set-maps",
+    "logic-basics",
+    "proof-methods",
+    "calculus",
+    "linear-algebra",
+    "real-analysis-1",
+    "abstract-algebra-1",
+    "point-set-topology",
+    "complex-analysis",
+    "measure-theory"
+   ]
+  },
+  "digital-life": {
+   "title": "数字生命研究主干",
+   "nodes": [
+    "probability",
+    "dynamical-systems",
+    "control-theory",
+    "stochastic-processes",
+    "machine-learning",
+    "reinforcement-learning",
+    "model-based-rl",
+    "world-models",
+    "multi-agent-systems",
+    "artificial-life",
+    "memory-systems-ai",
+    "open-ended-learning",
+    "digital-life"
+   ]
+  }
+ },
+ "curricula": {
+  "atlas": {
+   "title": "公共知识图谱",
+   "description": "显示全部知识节点。",
+   "nodes": []
+  },
+  "common-core": {
+   "title": "Math–CS–AI 共同核心",
+   "description": "覆盖数学证明、计算机本科核心与 AI 共同主干。",
+   "nodes": [
+    "proof-methods",
+    "calculus",
+    "linear-algebra",
+    "probability",
+    "mathematical-statistics",
+    "optimization",
+    "programming-fundamentals",
+    "data-structures",
+    "algorithm-design",
+    "computer-organization",
+    "operating-systems",
+    "computer-networks",
+    "database-systems",
+    "software-engineering",
+    "machine-learning",
+    "deep-learning",
+    "probabilistic-modeling",
+    "reinforcement-learning",
+    "ml-systems"
+   ]
+  },
+  "personal": {
+   "title": "陶圣叶研究主线（Beta）",
+   "description": "围绕数学建模、AI研究、系统实现、SDE/滤波与数字生命。",
+   "nodes": [
+    "proof-methods",
+    "real-analysis-1",
+    "measure-theory",
+    "linear-algebra",
+    "probability",
+    "rigorous-probability",
+    "stochastic-processes",
+    "stochastic-calculus",
+    "sde",
+    "dynamical-systems",
+    "control-theory",
+    "optimization",
+    "numerical-analysis",
+    "programming-fundamentals",
+    "data-structures",
+    "algorithm-design",
+    "operating-systems",
+    "computer-networks",
+    "database-systems",
+    "distributed-systems",
+    "software-engineering",
+    "machine-learning",
+    "deep-learning",
+    "probabilistic-modeling",
+    "reinforcement-learning",
+    "model-based-rl",
+    "world-models",
+    "ml-systems",
+    "agent-systems",
+    "memory-systems-ai",
+    "artificial-life",
+    "digital-life"
+   ]
+  }
+ }
+}

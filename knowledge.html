@@ -2,34 +2,34 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="数学、计算机科学与人工智能知识节点页面" />
-  <title>知识节点 · 数学·计算机·人工智能知识图谱</title>
-  <link rel="stylesheet" href="./knowledge.css?v=20260905-1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>知识节点 · 数学 · 计算机 · 人工智能知识地图</title>
+  <meta name="description" content="纯数学、计算机科学与人工智能知识地图中的知识节点：学习目标、章节、练习、课程实现与一手来源。" />
+  <meta name="theme-color" content="#F2EFE7" />
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preload" href="./assets/fonts/display-sc.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="./assets/base.css?v=3" />
+  <link rel="stylesheet" href="./assets/knowledge.css?v=3" />
 </head>
-<body>
-  <header class="page-topbar">
-    <a class="brand" href="./index.html">知</a>
-    <div>
-      <strong>数学·计算机·人工智能知识图谱</strong>
-      <span>知识节点页面</span>
-    </div>
-    <a class="back-link" href="./index.html">返回知识塔</a>
+<body class="kn-page">
+  <div class="progress" aria-hidden="true"><i id="readProgress"></i></div>
+  <header class="kn-top">
+    <a class="wordmark" href="./index.html" aria-label="返回知识地图">
+      <span class="wordmark-glyph" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="wordmark-text"><b>知识地图</b><small class="mono">MATH · CS · AI</small></span>
+    </a>
+    <a id="backToMap" class="btn btn-ghost btn-sm back" href="./index.html"><span aria-hidden="true">←</span> 回到地图</a>
   </header>
 
-  <main id="knowledgePage" class="page-shell" aria-live="polite">
-    <section class="loading-card">
-      <h1>正在加载知识节点……</h1>
-      <p>正在读取图谱关系与页面内容。</p>
-    </section>
+  <main id="knowledgePage" class="kn-shell" aria-live="polite">
+    <section class="kn-loading"><span class="spinner" aria-hidden="true"></span>正在读取知识节点……</section>
   </main>
 
-  <script src="./data/catalog.part1.js?v=20260824-0112"></script>
-  <script src="./data/catalog.part2.js?v=20260824-0112"></script>
-  <script src="./data/catalog.part3.js?v=20260824-0112"></script>
-  <script src="./data/catalog.part4.js?v=20260824-0112"></script>
-  <script src="./data/catalog.part5.js?v=20260824-0112"></script>
-  <script src="./data/catalog.js?v=20260824-0112"></script>
-  <script src="./knowledge.js?v=20260905-1" defer></script>
+  <footer class="kn-foot">
+    <p>知识关系以 <a href="https://github.com/RanchoTao/Math-CS-AI/blob/main/data/catalog.json">data/catalog.json</a> 为唯一事实源；页面内容遵循 <a href="https://github.com/RanchoTao/Math-CS-AI/blob/main/docs/CONTENT_STANDARD.md">内容标准</a>。发现错误？<a href="https://github.com/RanchoTao/Math-CS-AI/issues">提交一个 issue</a>。</p>
+  </footer>
+
+  <script src="./data/catalog.js?v=3"></script>
+  <script src="./assets/knowledge.js?v=3" defer></script>
 </body>
 </html>

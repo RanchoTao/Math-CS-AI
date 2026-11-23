@@ -8,7 +8,7 @@
 2. **CourseImplementation**：某所大学、公开课程或教学体系的具体实现；
 3. **LearningExperience**：明确标为主观信息的社区、维护者或学习者经验。
 
-课程实现不等于知识节点，学习经验也不等于官方事实。三类对象分别位于 `content/pages/`、`content/courses/` 和 `content/experiences/`，并由独立 Schema 约束。图谱关系仍只由 `data/catalog.*` 维护。详细生产与核验规则见 `docs/CONTENT_RESEARCH_WORKFLOW.md`。
+课程实现不等于知识节点，学习经验也不等于官方事实。三类对象分别位于 `content/pages/`、`content/courses/` 和 `content/experiences/`，并由独立 Schema 约束。图谱关系仍只由 `data/catalog.json` 维护。详细生产与核验规则见 `docs/CONTENT_RESEARCH_WORKFLOW.md`。
 
 知识图谱的产品视图还区分四层：
 
@@ -23,7 +23,7 @@
 - 机器学习
 - 大语言模型
 
-知识节点代表相对稳定的知识模块。领域、层级、学科群、必要前置、推荐关联和直接后续以 `data/catalog.*` 为唯一事实源。
+知识节点代表相对稳定的知识模块。领域、层级、学科群、必要前置、推荐关联和直接后续以 `data/catalog.json` 为唯一事实源。
 
 ### 2. CourseImplementation：课程实现
 
@@ -145,9 +145,12 @@ schemas/
 
 ```bash
 node scripts/validate-content.mjs
+node --test tests/knowledge-content.test.mjs
 ```
 
 校验内容包括：
+
+- 图谱结构：节点 ID 唯一、引用存在、必要前置无环、必要前置的层级不高于本节点；
 
 - 知识页 slug 与知识节点映射；
 - KnowledgePage 不得复制维护图谱关系；
@@ -163,9 +166,27 @@ node scripts/validate-content.mjs
 python -m http.server 8000
 ```
 
-打开：
+打开 `http://localhost:8000`。网站是纯静态页面，没有构建步骤。
 
-`http://localhost:8000`
+## 代码结构
+
+```text
+index.html            知识地图（探索 / 路线 / 我的地图）
+knowledge.html        知识页
+assets/atlas.js       地图：分层布局、相机、依赖连线、路线与个人进度
+assets/knowledge.js   知识页渲染（测试直接在 VM 中执行它）
+assets/*.css          设计令牌（base.css）与两个页面的样式
+assets/fonts/         自托管字体：Instrument Serif、Noto Serif SC 子集、JetBrains Mono（均为 OFL）
+data/catalog.json     图谱唯一事实源：节点、学科群、示例路线、培养方案图层
+```
+
+`src/` 下是早期的 Next.js 原型，当前不参与部署。
+
+## 地图的三种模式
+
+- **探索**：L0 在底部、L8 在顶部，三个领域并排共享同一纵轴。点选节点会高亮它的全部前置与后续，连线做了传递约简，只保留不可省略的依赖。缩小到总览时，标签让位给节点条和整张依赖网。
+- **路线**：选一个目标，地图按拓扑序算出还需要补齐的前置；如果你已经在“我的地图”中标记过掌握的节点，这些节点及其前置会被跳过。路线可以播放。
+- **我的地图**：标记已掌握的节点，地图会亮出下一步可学的节点。进度只保存在浏览器本地，可以导出、导入 JSON，不需要账号。
 
 ## 下一阶段
 
