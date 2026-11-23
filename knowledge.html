@@ -8,8 +8,9 @@
   <meta name="theme-color" content="#F2EFE7" />
   <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
   <link rel="preload" href="./assets/fonts/display-sc.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="./assets/base.css?v=3" />
-  <link rel="stylesheet" href="./assets/knowledge.css?v=3" />
+  <link rel="stylesheet" href="./assets/base.css?v=4" />
+  <link rel="stylesheet" href="./assets/knowledge.css?v=4" />
+  <script src="./assets/theme.js?v=1"></script>
 </head>
 <body class="kn-page">
   <div class="progress" aria-hidden="true"><i id="readProgress"></i></div>
@@ -18,7 +19,10 @@
       <span class="wordmark-glyph" aria-hidden="true"><i></i><i></i><i></i></span>
       <span class="wordmark-text"><b>知识地图</b><small class="mono">MATH · CS · AI</small></span>
     </a>
-    <a id="backToMap" class="btn btn-ghost btn-sm back" href="./index.html"><span aria-hidden="true">←</span> 回到地图</a>
+    <span class="kn-top-actions"><button id="themeButton" class="icon-btn" type="button" aria-label="切换外观主题" title="外观">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="M10 3a7 7 0 0 0 0 14z" fill="currentColor" stroke="none"/></svg>
+    </button>
+    <a id="backToMap" class="btn btn-ghost btn-sm back" href="./index.html"><span aria-hidden="true">←</span> 回到地图</a></span>
   </header>
 
   <main id="knowledgePage" class="kn-shell" aria-live="polite">

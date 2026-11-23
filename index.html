@@ -12,8 +12,9 @@
   <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
   <link rel="preload" href="./assets/fonts/display-sc.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="./assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="./assets/base.css?v=3" />
-  <link rel="stylesheet" href="./assets/atlas.css?v=3" />
+  <link rel="stylesheet" href="./assets/base.css?v=4" />
+  <link rel="stylesheet" href="./assets/atlas.css?v=4" />
+  <script src="./assets/theme.js?v=1"></script>
 </head>
 <body class="atlas-page is-loading">
   <a class="skip-link" href="#searchTrigger">跳到搜索</a>
@@ -63,6 +64,9 @@
         <span class="sr-only">培养方案图层</span>
         <select id="layerSelect" aria-label="培养方案图层"></select>
       </label>
+      <button id="themeButton" class="icon-btn" type="button" aria-label="切换外观主题" title="外观">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="M10 3a7 7 0 0 0 0 14z" fill="currentColor" stroke="none"/></svg>
+      </button>
       <button id="aboutButton" class="icon-btn" type="button" aria-label="关于这张地图" title="关于">
         <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.5"/><path d="M10 9v5M10 6.2v.1"/></svg>
       </button>
@@ -166,6 +170,6 @@
 
   <noscript><div class="noscript">这张地图需要启用 JavaScript。你也可以在 <a href="https://github.com/RanchoTao/Math-CS-AI/blob/main/data/catalog.json">GitHub</a> 直接查看全部节点数据。</div></noscript>
 
-  <script type="module" src="./assets/atlas.js?v=3"></script>
+  <script type="module" src="./assets/atlas.js?v=4"></script>
 </body>
 </html>

@@ -45,6 +45,7 @@ jobs:
           node --check _site/assets/atlas.js
           node --check _site/assets/knowledge.js
           node --check _site/data/catalog.js
+          node --check _site/assets/theme.js
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4

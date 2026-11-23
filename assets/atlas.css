@@ -62,11 +62,14 @@ html, body.atlas-page { height: 100%; overflow: hidden; overscroll-behavior: non
 .layer-select select {
   appearance: none; -webkit-appearance: none;
   height: 38px; padding: 0 32px 0 14px; max-width: 210px;
-  border-radius: 999px; border: 1px solid var(--rule); background: var(--card) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%2315171c' stroke-width='1.4' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 13px center;
+  border-radius: 999px; border: 1px solid var(--rule); background: var(--card);
   font-size: 13px; color: var(--ink-2); text-overflow: ellipsis;
   transition: border-color .2s;
 }
 .layer-select select:hover { border-color: var(--ink-3); }
+.layer-select { position: relative; display: inline-flex; }
+.layer-select::after { content: ""; position: absolute; right: 15px; top: 50%; width: 6px; height: 6px; margin-top: -5px; border-right: 1.4px solid var(--ink-2); border-bottom: 1.4px solid var(--ink-2); transform: rotate(45deg); pointer-events: none; }
+.layer-select select option { background: var(--card); color: var(--ink); }
 .layer-select select.is-on { border-color: var(--ink); color: var(--ink); font-weight: 600; }
 
 /* --- Lane headers ------------------------------------------------------- */
@@ -103,8 +106,8 @@ html, body.atlas-page { height: 100%; overflow: hidden; overscroll-behavior: non
 .world { position: absolute; left: 0; top: 0; transform-origin: 0 0; will-change: transform; }
 .bands { position: absolute; inset: 0; }
 .band { position: absolute; left: -4000px; right: -4000px; border-top: 1px solid var(--rule-2); }
-.band.alt { background: rgba(21, 23, 28, 0.022); }
-.band.is-target { background: rgba(21, 23, 28, 0.045); transition: background .6s; }
+.band.alt { background: var(--band-alt); }
+.band.is-target { background: var(--band-target); transition: background .6s; }
 
 .edges { position: absolute; left: 0; top: 0; overflow: visible; pointer-events: none; }
 .edges path { fill: none; stroke-linecap: round; }
@@ -163,14 +166,14 @@ html, body.atlas-page { height: 100%; overflow: hidden; overscroll-behavior: non
 .node.is-sel .pg { background: var(--paper); }
 
 /* My map states */
-.node.is-mastered { background: var(--c); color: #fff; border-color: var(--c); }
+.node.is-mastered { background: var(--c); color: var(--on-c); border-color: var(--c); }
 .node.is-mastered::after {
   content: "✓"; position: absolute; right: -5px; top: -6px; width: 16px; height: 16px; border-radius: 50%;
   display: grid; place-items: center; background: var(--paper); color: var(--c); border: 1.5px solid var(--c);
   font-size: 9px; font-weight: 800; line-height: 1;
 }
-.node.is-mastered .pg { background: #fff; }
-.node.is-mastered.t-frontier::before { color: #fff; }
+.node.is-mastered .pg { background: var(--on-c); }
+.node.is-mastered.t-frontier::before { color: var(--on-c); }
 .node.is-available { background: var(--card); border: 1px solid var(--c); }
 .node.is-available::after {
   content: ""; position: absolute; inset: -5px; border-radius: 20px; border: 1.5px solid var(--c);
@@ -194,7 +197,7 @@ html, body.atlas-page { height: 100%; overflow: hidden; overscroll-behavior: non
 .node.t-frontier[data-step]::before { margin: 0; }
 .node.is-route { background: var(--tint2); box-shadow: inset 0 0 0 1.5px var(--c); opacity: 1; }
 .node.is-route-lit { background: var(--ink); color: var(--paper); }
-.node.is-route-lit[data-step]::before { background: var(--c); color: #fff; border-color: var(--c); }
+.node.is-route-lit[data-step]::before { background: var(--c); color: var(--on-c); border-color: var(--c); }
 .node.is-route-target { box-shadow: 0 0 0 4px color-mix(in srgb, var(--c) 30%, transparent); }
 
 /* Layer filter */
@@ -394,7 +397,7 @@ html, body.atlas-page { height: 100%; overflow: hidden; overscroll-behavior: non
 }
 .d-tier b { color: var(--ink); font-weight: 600; }
 .d-tier .tier-mark { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; flex: none; border: 1.5px dashed var(--ink-4); color: var(--ink-3); font-size: 12px; }
-.d-tier.is-written .tier-mark { border: 0; background: var(--c); color: #fff; }
+.d-tier.is-written .tier-mark { border: 0; background: var(--c); color: var(--on-c); }
 .d-section { margin-top: 22px; }
 .d-section h3 { margin: 0 0 10px; font-size: 11px; font-weight: 600; letter-spacing: .14em; color: var(--ink-3); display: flex; justify-content: space-between; }
 .d-section h3 .mono { letter-spacing: 0; }
@@ -406,12 +409,12 @@ html, body.atlas-page { height: 100%; overflow: hidden; overscroll-behavior: non
 .d-actions { position: sticky; bottom: -22px; margin: 26px -26px -22px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 14px 26px 18px; background: linear-gradient(transparent, var(--card) 30%); }
 .d-actions .btn-primary { grid-column: 1 / -1; }
 .d-actions .btn { width: 100%; }
-.btn.is-on { background: var(--c, var(--ink)); color: #fff; border-color: transparent; }
+.btn.is-on { background: var(--c, var(--ink)); color: var(--on-c); border-color: transparent; }
 
 /* --- Search palette ----------------------------------------------------- */
 .palette { position: fixed; inset: 0; z-index: 60; }
 .palette[hidden] { display: none; }
-.palette-scrim { position: absolute; inset: 0; background: rgba(21, 23, 28, .28); animation: fade .25s; }
+.palette-scrim { position: absolute; inset: 0; background: var(--scrim); animation: fade .25s; }
 .palette-card {
   position: relative; margin: 12vh auto 0; width: min(640px, calc(100vw - 24px));
   border-radius: 20px; background: var(--card); box-shadow: var(--shadow-3); overflow: hidden;

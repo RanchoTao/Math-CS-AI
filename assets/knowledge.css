@@ -24,6 +24,7 @@
 .wordmark-text { display: grid; line-height: 1.15; }
 .wordmark-text b { font-size: 15px; font-weight: 650; letter-spacing: .02em; }
 .wordmark-text small { font-size: 10px; color: var(--ink-3); letter-spacing: .16em; }
+.kn-top-actions { display: inline-flex; align-items: center; gap: 8px; }
 .back span { transition: transform .3s var(--ease-out); }
 .back:hover span { transform: translateX(-3px); }
 
@@ -63,7 +64,7 @@
 .kn-meta dd strong.display { font-family: var(--font-display); font-weight: 400; font-size: 44px; line-height: .9; }
 .meta-sub { font-size: 11px; color: var(--ink-3); }
 .tier { display: inline-flex; align-items: center; gap: 8px; height: 28px; padding: 0 12px; border-radius: 999px; border: 1.5px dashed var(--ink-4); font-size: 13px; font-weight: 600; color: var(--ink-2); }
-.tier.is-written { border: 0; background: var(--c); color: #fff; }
+.tier.is-written { border: 0; background: var(--c); color: var(--on-c); }
 .tier.is-written::before { content: "✓"; font-size: 11px; }
 @keyframes up { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
 
