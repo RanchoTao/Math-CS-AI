@@ -3,6 +3,7 @@ import path from "node:path";
 
 const root = process.cwd();
 let errors = 0;
+let warnings = 0;
 const fail = message => { console.error(`FAIL: ${message}`); errors += 1; };
 const readJson = file => JSON.parse(fs.readFileSync(path.join(root, file), 'utf8'));
 const clean = value => String(value || '').replace(/\s+/g, '').toLowerCase();
@@ -76,6 +77,21 @@ for (const entry of loadManifestItems('content/manifest.json', 'pages')) {
   if (!page.completion?.basic || !page.completion?.proficient || !page.completion?.researchReady) fail(`${file} completion 不完整`);
   for (const key of forbiddenRelations) if (key in page) fail(`${file} 不得复制维护图谱关系字段 ${key}`);
   for (const resource of page.resources || []) if (!resource.title || !resource.type || !resource.verification) fail(`${file} 存在不完整资源记录`);
+  for (const r of [...(page.resources || []), ...(page.sources || [])]) {
+    if (r.verification === '已核验' && !/^https:\/\//.test(r.url || '')) fail(`${file} 标为已核验的条目必须有 https 链接：${r.title}`);
+  }
+  for (const s of page.sources || []) if (s.verification === '已核验' && !/^\d{4}-\d{2}-\d{2}$/.test(s.checkedAt || '')) fail(`${file} 已核验来源缺少 checkedAt（YYYY-MM-DD）：${s.title}`);
+  // 标准页质量提示：不阻断部署，供审核时参考。
+  if (page.tier !== '基础页') {
+    const ex = page.exercises || [];
+    const warn = message => { console.warn(`WARN: ${file} ${message}`); warnings += 1; };
+    if (ex.length < 8) warn(`练习少于 8 题（${ex.length}）`);
+    const unsolved = ex.filter(x => !/\n解析[:：]/.test(x.description || '')).length;
+    if (unsolved) warn(`${unsolved} 道练习没有“解析：”`);
+    if ((page.syllabus || []).length < 5) warn(`章节少于 5 章`);
+    if (!(page.sources || []).some(s => s.verification === '已核验')) warn('没有任何已核验来源');
+    if (/了解|熟悉/.test(Object.values(page.completion || {}).join(''))) warn('完成标准含“了解/熟悉”等不可验证措辞');
+  }
 }
 
 const dimensions = ['theoryDepth','practiceIntensity','mathRequirement','programmingIntensity','resourceCompleteness'];
