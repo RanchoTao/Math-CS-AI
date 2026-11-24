@@ -78,6 +78,12 @@
       "title": "序列模型",
       "aliases": [],
       "path": "./content/pages/sequence-models.json"
+    },
+    {
+      "slug": "attention-mechanisms",
+      "title": "注意力机制",
+      "aliases": [],
+      "path": "./content/pages/attention-mechanisms.json"
     }
   ]
 }
