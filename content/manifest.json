@@ -42,6 +42,12 @@
       "title": "概率论",
       "aliases": [],
       "path": "./content/pages/probability.json"
+    },
+    {
+      "slug": "data-structures",
+      "title": "数据结构",
+      "aliases": [],
+      "path": "./content/pages/data-structures.json"
     }
   ]
 }
