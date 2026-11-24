@@ -96,6 +96,12 @@
       "title": "自监督学习",
       "aliases": [],
       "path": "./content/pages/self-supervised-learning.json"
+    },
+    {
+      "slug": "foundation-models",
+      "title": "基础模型",
+      "aliases": [],
+      "path": "./content/pages/foundation-models.json"
     }
   ]
 }
