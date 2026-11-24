@@ -90,6 +90,12 @@
       "title": "Transformer",
       "aliases": [],
       "path": "./content/pages/transformer.json"
+    },
+    {
+      "slug": "self-supervised-learning",
+      "title": "自监督学习",
+      "aliases": [],
+      "path": "./content/pages/self-supervised-learning.json"
     }
   ]
 }
