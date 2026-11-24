@@ -48,6 +48,12 @@
       "title": "微积分",
       "aliases": [],
       "path": "./content/pages/calculus.json"
+    },
+    {
+      "slug": "programming-fundamentals",
+      "title": "程序设计基础",
+      "aliases": [],
+      "path": "./content/pages/programming-fundamentals.json"
     }
   ]
 }
