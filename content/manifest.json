@@ -66,6 +66,12 @@
       "title": "注意力机制",
       "aliases": [],
       "path": "./content/pages/attention-mechanisms.json"
+    },
+    {
+      "slug": "transformer",
+      "title": "Transformer",
+      "aliases": [],
+      "path": "./content/pages/transformer.json"
     }
   ]
 }
