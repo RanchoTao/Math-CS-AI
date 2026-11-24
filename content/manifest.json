@@ -60,6 +60,12 @@
       "title": "数据结构",
       "aliases": [],
       "path": "./content/pages/data-structures.json"
+    },
+    {
+      "slug": "neural-networks",
+      "title": "神经网络",
+      "aliases": [],
+      "path": "./content/pages/neural-networks.json"
     }
   ]
 }
