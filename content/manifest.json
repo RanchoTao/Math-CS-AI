@@ -54,6 +54,12 @@
       "title": "程序设计基础",
       "aliases": [],
       "path": "./content/pages/programming-fundamentals.json"
+    },
+    {
+      "slug": "neural-networks",
+      "title": "神经网络",
+      "aliases": [],
+      "path": "./content/pages/neural-networks.json"
     }
   ]
 }
