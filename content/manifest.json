@@ -54,6 +54,12 @@
       "title": "深度学习",
       "aliases": [],
       "path": "./content/pages/deep-learning.json"
+    },
+    {
+      "slug": "sequence-models",
+      "title": "序列模型",
+      "aliases": [],
+      "path": "./content/pages/sequence-models.json"
     }
   ]
 }
