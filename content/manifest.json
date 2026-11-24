@@ -66,6 +66,12 @@
       "title": "神经网络",
       "aliases": [],
       "path": "./content/pages/neural-networks.json"
+    },
+    {
+      "slug": "deep-learning",
+      "title": "深度学习",
+      "aliases": [],
+      "path": "./content/pages/deep-learning.json"
     }
   ]
 }
