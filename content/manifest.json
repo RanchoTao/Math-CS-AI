@@ -54,6 +54,12 @@
       "title": "程序设计基础",
       "aliases": [],
       "path": "./content/pages/programming-fundamentals.json"
+    },
+    {
+      "slug": "data-structures",
+      "title": "数据结构",
+      "aliases": [],
+      "path": "./content/pages/data-structures.json"
     }
   ]
 }
