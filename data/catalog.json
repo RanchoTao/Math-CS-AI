@@ -4508,7 +4508,7 @@
    "cluster": "a-deep",
    "stage": 4,
    "type": "course",
-   "summary": "注意力机制的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "summary": "把注意力（attention）写成查询（query）对键（key）打分、归一化后汇聚值（value）的运算。从 Bahdanau 加性注意力（additive attention）出发，算出缩放点积注意力（scaled dot-product attention）和多头注意力（multi-head attention）的输出，再用掩码和扰动实验检查实现。",
    "prerequisites": [
     "sequence-models",
     "linear-algebra"

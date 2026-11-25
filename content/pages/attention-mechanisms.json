@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "slug": "attention-mechanisms",
   "title": "注意力机制",
   "aliases": [],
@@ -8,6 +8,114 @@
   "kind": "course",
   "summary": "把注意力（attention）写成查询（query）对键（key）打分、归一化后汇聚值（value）的运算。从 Bahdanau 加性注意力（additive attention）出发，算出缩放点积注意力（scaled dot-product attention）和多头注意力（multi-head attention）的输出，再用掩码和扰动实验检查实现。",
   "why": "机器翻译可让当前目标状态按需读取多个源端状态，Transformer 会把同类运算用在源内、目标内及两者之间。本页覆盖打分、汇聚、掩码（mask）、自注意力（self-attention）、跨注意力（cross-attention）和多头投影；完整的编码器、解码器和位置处理留给 Transformer 节点。开始前，试着算出两个二维向量的点积和一个加权向量和，并说明序列模型的编码器可为每个输入位置输出什么。先读论文的对齐与打分公式，再用开放教材的形状和实现复算 AM-E01–AM-E10，最后独立做 AM-E11–AM-E12 后核对解析。习题和完成门槛是本项目编写的草稿（draft），并非任何学校的作业或评分标准。",
+  "lesson": {
+    "intuition": "注意力是一种“按相关程度去读”的软查表。普通字典查表是硬的：键完全匹配才返回对应的值。注意力把它变软：拿一个查询去和每个键比相似度，把相似度变成一组加起来等于 1 的权重，再用这组权重把所有值加权平均。查询像是“我现在需要什么”，键像是每个位置贴的标签，值是这个位置真正提供的内容。翻译到某个词时，模型不必把整句压成一个固定向量，而是每一步重新决定该看源句的哪几个位置。缩放点积注意力用点积打分，再除以 √dₖ 防止分数随维度变大而把 softmax 推到饱和区；掩码则在归一化之前把不允许看的位置排除掉，比如生成时不能偷看未来的词。多头注意力是并行地做几组这样的软查表，每组有自己的投影，可以关注不同种类的关系。",
+    "definitions": [
+      {
+        "term": "注意力函数",
+        "english": "attention function",
+        "statement": "注意力把一个查询和一组键值对映射成一个输出，查询、键、值和输出都是向量；输出是值的加权和，每个值的权重由查询与对应键的兼容性函数算出。",
+        "cite": {
+          "source": "AM4",
+          "at": "§3.2"
+        }
+      },
+      {
+        "term": "缩放点积注意力",
+        "english": "scaled dot-product attention",
+        "statement": "查询与键的宽度为 dₖ、值的宽度为 dᵥ。把查询、键、值分别按行堆成矩阵 Q、K、V，则 Attention(Q,K,V)=softmax(QKᵀ/√dₖ)V，其中 softmax 沿键的方向对每一行归一化。",
+        "cite": {
+          "source": "AM4",
+          "at": "§3.2.1 式 (1)"
+        }
+      },
+      {
+        "term": "多头注意力",
+        "english": "multi-head attention",
+        "statement": "MultiHead(Q,K,V)=Concat(head₁,…,head_h)Wᴼ，其中 headᵢ=Attention(QWᵢᑫ, KWᵢᴷ, VWᵢⱽ)；原论文取 h=8，dₖ=dᵥ=d_model/h=64。",
+        "cite": {
+          "source": "AM4",
+          "at": "§3.2.2"
+        }
+      },
+      {
+        "term": "掩码",
+        "english": "masking",
+        "statement": "在 softmax 之前把不允许连接的位置的输入设为 −∞，使它们的权重为 0；解码器自注意力用它阻止每个位置看到其后的位置，保持自回归性质。",
+        "cite": {
+          "source": "AM4",
+          "at": "§3.2.3"
+        }
+      }
+    ],
+    "derivation": {
+      "title": "为什么要除以 √dₖ",
+      "claim": "若查询 q 与键 k 的各分量相互独立、均值为 0、方差为 1，则 q·k 的均值为 0、方差为 dₖ；除以 √dₖ 后方差变为 1，与维度无关。",
+      "assumptions": [
+        "q₁,…,q_dₖ,k₁,…,k_dₖ 相互独立",
+        "每个分量均值 0、方差 1"
+      ],
+      "steps": [
+        "写成求和：q·k=Σᵢ qᵢkᵢ，共 dₖ 项。",
+        "单项的均值：qᵢ 与 kᵢ 独立，E[qᵢkᵢ]=E[qᵢ]E[kᵢ]=0，所以 E[q·k]=0。",
+        "单项的方差：Var(qᵢkᵢ)=E[qᵢ²kᵢ²]−(E[qᵢkᵢ])²=E[qᵢ²]E[kᵢ²]−0=1×1=1，这里再次用到 qᵢ 与 kᵢ 独立，以及 E[qᵢ²]=Var(qᵢ)+(E qᵢ)²=1。",
+        "求和的方差：不同下标的乘积 qᵢkᵢ 与 qⱼkⱼ 由互不重叠的独立变量构成，因此互相独立，方差可以相加：Var(q·k)=Σᵢ1=dₖ。",
+        "缩放：对任意常数 c，Var(cX)=c²Var(X)。取 c=1/√dₖ，得 Var(q·k/√dₖ)=dₖ/dₖ=1。",
+        "后果：不缩放时分数的标准差是 √dₖ，dₖ=64 时约为 8。分数差距这么大，softmax 几乎把全部权重给最大的一项，其余项的梯度极小；缩放把分数拉回到与维度无关的尺度。"
+      ],
+      "conclusion": "q·k 的方差是 dₖ，q·k/√dₖ 的方差是 1。这就是缩放点积注意力除以 √dₖ 的理由；它是在独立、单位方差假设下的启发式论证，训练中的真实分布不一定满足这些假设。",
+      "cite": {
+        "source": "AM4",
+        "at": "§3.2.1 正文及其关于点积方差的脚注"
+      }
+    },
+    "example": {
+      "title": "手算一行缩放点积注意力，再加上因果掩码",
+      "problem": "dₖ=4。查询 q=(ln 9, ln 4, 0, 0)；三个键依次是 k₁=(1,0,0,0)、k₂=(0,1,0,0)、k₃=(0,0,1,0)；对应的值 v₁=(6,0)、v₂=(0,6)、v₃=(6,6)。先求无掩码时的输出，再求只允许看前两个位置时的输出。",
+      "steps": [
+        "点积：q·k₁=ln 9，q·k₂=ln 4，q·k₃=0。除以 √4=2，得分数 (ln 3, ln 2, 0)。",
+        "softmax：取指数得 (3, 2, 1)，总和 6，权重 (1/2, 1/3, 1/6)。",
+        "加权求和：(1/2)(6,0)+(1/3)(0,6)+(1/6)(6,6)=(3,0)+(0,2)+(1,1)=(4,3)。",
+        "加掩码：第三个位置的分数改为 −∞，指数为 0。剩下 (3, 2)，权重 (3/5, 2/5)，输出 (3/5)(6,0)+(2/5)(0,6)=(18/5, 12/5)。"
+      ],
+      "answer": "无掩码输出 (4, 3)；掩码后输出 (3.6, 2.4)，被屏蔽位置的权重严格为 0。",
+      "check": "权重每行之和都为 1；输出每个分量都落在对应值分量的最小值与最大值之间。用 NumPy 写 softmax(QKᵀ/2)V 复算，结果相同。",
+      "cite": {
+        "source": "AM4",
+        "at": "§3.2.1 式 (1)、§3.2.3 掩码"
+      }
+    },
+    "misconceptions": [
+      {
+        "wrong": "注意力权重越大的位置，就是模型做出这个预测的原因。",
+        "right": "权重说明这一层这一头读了哪些值，不说明输出因果上依赖什么：值本身经过了投影，后面还有残差、前馈层和其他头。要谈原因，需要做干预实验，例如屏蔽或替换输入后观察输出变化。"
+      },
+      {
+        "wrong": "除以 √dₖ 是为了让注意力权重加起来等于 1。",
+        "right": "让权重和为 1 的是 softmax 归一化。除以 √dₖ 只是控制分数的尺度，避免 dₖ 大时 softmax 饱和、梯度过小。",
+        "cite": {
+          "source": "AM4",
+          "at": "§3.2.1"
+        }
+      },
+      {
+        "wrong": "掩码可以在 softmax 之后把权重置零。",
+        "right": "softmax 之后置零会让这一行的权重之和小于 1，被屏蔽位置仍然占用了分母。正确做法是在 softmax 之前把分数设为 −∞（实现中用很大的负数），再归一化。",
+        "cite": {
+          "source": "AM4",
+          "at": "§3.2.3"
+        }
+      },
+      {
+        "wrong": "多头注意力就是把同一个注意力重复算几遍再平均。",
+        "right": "每个头有自己的投影矩阵 Wᵢᑫ、Wᵢᴷ、Wᵢⱽ，在不同的子空间里打分；各头的输出拼接后再经过 Wᴼ 投影，而不是取平均。",
+        "cite": {
+          "source": "AM4",
+          "at": "§3.2.2"
+        }
+      }
+    ]
+  },
   "learningObjectives": [
     "对给定查询与键值对写出打分矩阵、按键归一化的权重和输出，并证明同时重排键和值不改变读出。",
     "将 Bahdanau 的上一解码状态与源端标注代入对齐函数，算出上下文向量（context vector），判断查询改变时哪些量需要重算。",
@@ -186,6 +294,7 @@
   },
   "sources": [
     {
+      "id": "AM1",
       "sourceType": "其他",
       "title": "[AM1] arXiv:1409.0473，§3.1、§A.1.2 及对齐公式",
       "url": "https://arxiv.org/html/1409.0473",
@@ -193,6 +302,7 @@
       "checkedAt": "2026-11-24"
     },
     {
+      "id": "AM2",
       "sourceType": "教材",
       "title": "[AM2] Dive into Deep Learning 1.0.3：§11.3 的归一化、缩放点积与加性打分",
       "url": "https://en.d2l.ai/chapter_attention-mechanisms-and-transformers/attention-scoring-functions.html",
@@ -200,6 +310,7 @@
       "checkedAt": "2026-11-24"
     },
     {
+      "id": "AM3",
       "sourceType": "教材",
       "title": "[AM3] Dive into Deep Learning 1.0.3：§11.5.1–11.5.2 多头投影和实现",
       "url": "https://en.d2l.ai/chapter_attention-mechanisms-and-transformers/multihead-attention.html",
@@ -207,13 +318,15 @@
       "checkedAt": "2026-11-24"
     },
     {
+      "id": "AM4",
       "sourceType": "其他",
       "title": "[AM4] arXiv:1706.03762v7，§3.2.1–3.2.3 的注意力公式与用途",
       "url": "https://arxiv.org/html/1706.03762v7",
       "verification": "已核验",
-      "checkedAt": "2026-11-24"
+      "checkedAt": "2026-11-25"
     },
     {
+      "id": "AM5",
       "sourceType": "教材",
       "title": "[AM5] Dive into Deep Learning 1.0.3：§11.4.1 的 Bahdanau 模型",
       "url": "https://en.d2l.ai/chapter_attention-mechanisms-and-transformers/bahdanau-attention.html",
