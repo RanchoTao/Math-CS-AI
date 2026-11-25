@@ -4,7 +4,9 @@
 
 每轮任务只需在末尾附上一句：`本轮写：<node-id>, <node-id>, …`（建议每轮 3–5 个），或者 `本轮写：队列前 5 个`。
 
-现有的 `machine-learning`、`operating-systems`、`real-analysis-1`、`command-line-git` 四页是早期占位稿，校验器会对它们报 WARN。重写时用 `本轮重写：machine-learning` 这样的说法即可，规则与新写相同。
+**内容标准 v2（2026-11-25 起）**：所有新页面一律 `schemaVersion: 2`，必须包含 `lesson`（直觉、正式定义、完整推导、例子、常见误区），并通过 `npm run checklist -- <slug>` 的 C01–C11 全部检查。检查清单见 `docs/CONTENT_CHECKLIST.md`。没过清单的页面不要提交。
+
+`operating-systems`、`real-analysis-1`、`command-line-git` 等早期页面仍是 schemaVersion 1，校验器会报 WARN。重写时用 `本轮重写：operating-systems` 这样的说法，按 v2 重写。
 
 ---
 
@@ -17,7 +19,8 @@
 1. `docs/CONTENT_STANDARD.md`：内容标准（三层对象、来源政策、发布状态）。
 2. `docs/CONTENT_RESEARCH_WORKFLOW.md`：研究流程（Discovery → 一手核验 → Canonicalization → Draft → Audit）。
 3. `schemas/knowledge-page.schema.json`：页面 JSON 的唯一合法结构，`additionalProperties: false`，多一个字段都不行。
-4. **质量样板**：`content/pages/linear-algebra.json` 和 `content/pages/probability.json`。你的产出在结构、密度、题目写法和来源标注上必须达到这两页的水平。`machine-learning.json` 等四页是早期占位稿，**不是**样板。
+4. `docs/CONTENT_CHECKLIST.md`：标准 v2 的自动检查 C01–C11 和手动检查 M1–M6，以及审核记录模板。
+5. **质量样板**：`content/pages/linear-algebra.json`（v2 样板），以及路径 `ml-foundations` 上的其余十页，例如 `probability.json`、`transformer.json`。每页的审核记录在 `docs/content-research/pages/<slug>.md`，照着写。
 
 然后对每个节点运行：
 
@@ -44,6 +47,13 @@ node scripts/node-brief.mjs --next 5       # 若本轮写“队列前 N 个”
 
 逐字段要求：
 
+- **lesson**（v2 核心，字段见 schema 的 `$defs.lesson`）：
+  - `intuition`：不靠公式讲清为什么，至少 100 字；
+  - `definitions`：至少 2 条，`statement` 条件写全；
+  - `derivation`：一个完整推导，`claim`、`assumptions`、至少 4 步 `steps`、`conclusion`，每步只做一件事；
+  - `example`：算到底的例子，`problem`、至少 3 步 `steps`、`answer`、`check`（如何独立验证）；
+  - `misconceptions`：至少 3 条学习者真会说的错话及纠正，最好带反例；
+  - 每个定义、推导、例子都带 `cite: {source, at}`，`source` 是本页某个已核验来源的 `id`，`at` 精确到章节、定理、式号或讲次。**`at` 必须是你本轮在原文里亲眼看到的位置。**
 - **summary**：一到两句，说清这个节点研究什么、学完能做什么。不要写“本节点是……的课程级知识模块”这类模板句。
 - **why**：一段话，必须包含：
   - 为什么要学它（它在后续节点里被用在哪里）；
@@ -71,7 +81,10 @@ node scripts/node-brief.mjs --next 5       # 若本轮写“队列前 N 个”
   - `basic`：例如“独立完成 E01–E10 中至少 8 题，且 E03、E06 必须正确……”；
   - `proficient`：全部完成，外加 2 道来源中的未见题，或一个小实现；
   - `researchReady`：说明可以进入哪些后续节点，以及本页不能证明什么。
-- **sources**：列出支撑大纲与事实的一手来源；`sourceType` 只能取 schema 中的枚举值；已核验的条目必须有 `https` 链接和 `checkedAt`。
+- **sources**：列出支撑大纲与事实的一手来源；每条都要有 `id`（与标题开头的标签一致，例如 `TF1`），`sourceType` 只能取 schema 中的枚举值（论文用 `其他`）；已核验的条目必须有 `https` 链接和 `checkedAt`，且至少 3 条已核验。
+- **exercises**（v2 下限 8 题）与 **completion** 的题号引用规则不变。
+
+另外写审核记录 `docs/content-research/pages/<slug>.md`（模板见 `docs/CONTENT_CHECKLIST.md`）：逐个列出已核验来源的 URL，逐条写 lesson 部分的出处核对结果，`## 复核` 一节写每道题和例子的复算方式与结果。并把 `data/catalog.json` 里该节点的 `summary` 换成页面的 summary（C10 会检查）。
 
 ### 3. 对应的清单更新
 
@@ -85,17 +98,18 @@ node scripts/node-brief.mjs --next 5       # 若本轮写“队列前 N 个”
 
 ### 5. 交付前自检（任何一项不过都不要提交）
 
-1. `node scripts/validate-content.mjs` 无 FAIL；本轮新页面不得出现 WARN。
-2. `node --test tests/knowledge-content.test.mjs` 全部通过。
+1. `npm run checklist -- <slug>` 对本轮每个页面都是 11/11。
+2. `npm run check` 通过（schema、图谱、清单、单元测试，与 CI 相同）。
 3. 逐条核对：每个“已核验”链接你本轮都打开过；没有编造的课程号、教师、版本或章节号；所有数值答案都复核过；页面里没有复制或改写图谱关系；没有超出本节点阶段的内容，例如 L2 页面里出现测度论；没有“了解、熟悉、掌握”之类的空话。
 4. 本地运行 `python -m http.server 8000`，打开 `knowledge.html?id=<node-id>`，确认页面渲染正常、练习解析可以展开。
 
 ### 6. 提交方式与本轮报告
 
-- 每轮在一个新分支上提交（例如 `content/batch-03`），每个节点一个 commit，然后开一个 PR。不要直接推送到 `main`。
+- 每轮在一个新分支上提交（例如 `content/batch-05`），每个节点一个 commit，然后开一个 PR。不要直接推送到 `main`，也不要把 `status` 改成 `reviewed`，那是维护者抽查后的事。CI 会在 PR 上跑 `npm run check`，不过就不会合并。
 - PR 描述就是本轮报告，按节点列出：
   1. 参考的三套以上实现，以及它们的共同核心和主要差异；
   2. 本轮打开过的 URL 与检查日期；
   3. 标为“待核验”的条目和原因；
   4. 数值答案的复核方式和结果；
-  5. 你认为图谱关系可能有误的地方（只报告，不修改）。
+  5. 你认为图谱关系可能有误的地方（只报告，不修改）；
+  6. `npm run checklist` 的输出。

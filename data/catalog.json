@@ -442,7 +442,7 @@
    "cluster": "m-analysis",
    "stage": 3,
    "type": "course",
-   "summary": "最优化的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "summary": "用凸性判断局部最优何时就是全局最优，用梯度下降、线搜索和牛顿法求解，并用条件数解释收敛快慢。学完能推导二次函数上梯度下降的稳定步长与收敛因子，并解等式约束的拉格朗日问题。",
    "prerequisites": [
     "multivariable-calculus",
     "linear-algebra"
@@ -1228,7 +1228,7 @@
    "cluster": "m-probability",
    "stage": 2,
    "type": "course",
-   "summary": "概率论的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "summary": "在初等概率与微积分层面，学习事件、随机变量、条件概率、分布、期望、相关性与极限定理，为数理统计和AI概率建模准备语言与工具。",
    "prerequisites": [
     "calculus",
     "elementary-combinatorics"
@@ -1248,7 +1248,7 @@
    "cluster": "m-probability",
    "stage": 2,
    "type": "course",
-   "summary": "数理统计的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "summary": "从样本反推产生它的分布：用最大似然得到点估计，用无偏性与均方误差评价估计量，用置信区间和假设检验表达不确定性。学完能推导样本方差为什么除以 n−1，并正确解释置信区间。",
    "prerequisites": [
     "probability",
     "linear-algebra"
@@ -3899,7 +3899,7 @@
    "cluster": "a-foundations",
    "stage": 3,
    "type": "course",
-   "summary": "自动微分的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "summary": "把程序拆成基本运算的求值轨迹，沿轨迹正向传播切向量（前向模式）或反向传播伴随量（反向模式），得到精确到舍入误差的导数。学完能手算两种模式、比较它们的代价，并写出一个最小的反向模式实现。",
    "prerequisites": [
     "multivariable-calculus",
     "programming-languages"
@@ -4082,7 +4082,7 @@
    "cluster": "a-classic",
    "stage": 2,
    "type": "course",
-   "summary": "从数据中学习预测、表示与决策规律，是现代 AI 的核心共同基础。",
+   "summary": "把“从数据中学到能用在新数据上的规律”写成经验风险最小化：选假设类和损失，在训练集上优化，用验证集选模型、用测试集估计泛化。学完能推导逻辑回归的梯度，并识别过拟合和数据泄漏。",
    "prerequisites": [
     "linear-algebra",
     "probability",
@@ -4427,7 +4427,7 @@
    "cluster": "a-deep",
    "stage": 2,
    "type": "course",
-   "summary": "神经网络的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "summary": "从感知机（perceptron）到多层感知机（multilayer perceptron，MLP），计算全连接前馈网络（fully connected feedforward network）的输出，并用反向传播（backpropagation）手算两层网络的梯度。用梯度检查（gradient checking）核对实现，再用独立验证集（validation set）诊断训练误差与验证误差的差异。",
    "prerequisites": [
     "machine-learning",
     "multivariable-calculus",
@@ -4448,7 +4448,7 @@
    "cluster": "a-deep",
    "stage": 3,
    "type": "course",
-   "summary": "深度学习的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "summary": "把神经网络加深后，追踪信号和梯度（gradient）在各层的尺度。学完能选择初始化（initialization）、归一化（normalization）、正则化（regularization）和优化器（optimizer），并用残差连接（residual connection）与对照实验诊断训练故障。",
    "prerequisites": [
     "neural-networks",
     "optimization-for-ml",
@@ -4488,7 +4488,7 @@
    "cluster": "a-deep",
    "stage": 3,
    "type": "course",
-   "summary": "序列模型的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "summary": "用循环神经网络（recurrent neural network，RNN）逐步更新状态，预测下一项或生成一段新的序列。学完能手算跨时间的梯度，解释门控为何能帮助保留较远的信息，并实现带截断的训练过程。",
    "prerequisites": [
     "deep-learning",
     "probability"
@@ -4508,7 +4508,7 @@
    "cluster": "a-deep",
    "stage": 4,
    "type": "course",
-   "summary": "注意力机制的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "summary": "把注意力（attention）写成查询（query）对键（key）打分、归一化后汇聚值（value）的运算。从 Bahdanau 加性注意力（additive attention）出发，算出缩放点积注意力（scaled dot-product attention）和多头注意力（multi-head attention）的输出，再用掩码和扰动实验检查实现。",
    "prerequisites": [
     "sequence-models",
     "linear-algebra"
@@ -4528,7 +4528,7 @@
    "cluster": "a-deep",
    "stage": 4,
    "type": "course",
-   "summary": "Transformer的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "summary": "搭建经典 Transformer 的编码器（encoder）和解码器（decoder），追踪源序列经位置编码（positional encoding）、注意力和前馈子层到达目标词元分布的路径。学完能构造掩码（mask）、计算训练损失，并验证逐步解码与并行训练各自能读取哪些信息。",
    "prerequisites": [
     "attention-mechanisms",
     "deep-learning"
