@@ -3899,7 +3899,7 @@
    "cluster": "a-foundations",
    "stage": 3,
    "type": "course",
-   "summary": "自动微分的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "summary": "把程序拆成基本运算的求值轨迹，沿轨迹正向传播切向量（前向模式）或反向传播伴随量（反向模式），得到精确到舍入误差的导数。学完能手算两种模式、比较它们的代价，并写出一个最小的反向模式实现。",
    "prerequisites": [
     "multivariable-calculus",
     "programming-languages"

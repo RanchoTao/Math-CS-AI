@@ -72,6 +72,15 @@
       "title": "Transformer",
       "aliases": [],
       "path": "./content/pages/transformer.json"
+    },
+    {
+      "slug": "automatic-differentiation",
+      "title": "自动微分",
+      "aliases": [
+        "autodiff",
+        "算法微分"
+      ],
+      "path": "./content/pages/automatic-differentiation.json"
     }
   ]
 }
