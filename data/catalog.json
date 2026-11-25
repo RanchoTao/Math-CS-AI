@@ -1228,7 +1228,7 @@
    "cluster": "m-probability",
    "stage": 2,
    "type": "course",
-   "summary": "概率论的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "summary": "在初等概率与微积分层面，学习事件、随机变量、条件概率、分布、期望、相关性与极限定理，为数理统计和AI概率建模准备语言与工具。",
    "prerequisites": [
     "calculus",
     "elementary-combinatorics"

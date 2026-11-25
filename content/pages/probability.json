@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "slug": "probability",
   "title": "概率论",
   "aliases": [],
@@ -8,6 +8,97 @@
   "kind": "course",
   "summary": "在初等概率与微积分层面，学习事件、随机变量、条件概率、分布、期望、相关性与极限定理，为数理统计和AI概率建模准备语言与工具。",
   "why": "概率论从已给定的随机模型推出事件和变量的规律；数理统计从数据推断未知模型，两者在catalog中是独立节点。本页只取 MIT 18.05 的概率部分，不把检验、估计或回归并入概率知识本体。必要前置由页面从catalog读取；入门自检是会组合数、有限求和、单变量积分。二维密度题会在题内解释积分区域，不把某校多元微积分要求升级成图谱硬依赖。学习时每章读一个主来源，先作答P-E题再看解析；题目与掌握阈值为本项目编写的draft，不是官方作业或考试。",
+  "lesson": {
+    "intuition": "概率是在不确定中做账的规则：所有可能结果的总份额是 1，一个事件拿走其中一部分。条件概率就是“知道了一点信息之后重新分账”——已知 E 发生，就把 E 之外的结果全部划掉，只在 E 内部按原来的比例重新归一。很多直觉错误都来自把条件的方向弄反：检测准确率高，说的是“有病时多半阳性”，而你真正想知道的是“阳性时有病的可能”，两者可以相差几十倍。Bayes 公式只是把这次重新分账写成算式：先按先验把人群分组，再看每组产生这条证据的比例，最后只在“产生了证据”的那部分人里看各组占多少。随机变量、期望和方差则把这套账从事件推广到数值：期望是按概率加权的平均，方差衡量偏离平均的程度，大数律说明大量独立重复时平均值会稳定下来。",
+    "definitions": [
+      {
+        "term": "条件概率",
+        "english": "conditional probability",
+        "statement": "设 P(E)>0，在 E 已发生的条件下 F 的条件概率定义为 P(F|E)=P(F∩E)/P(E)。",
+        "cite": {
+          "source": "P3-L",
+          "at": "“Conditional Probability” 小节"
+        }
+      },
+      {
+        "term": "独立事件",
+        "english": "independent events",
+        "statement": "两个事件 E、F 独立，当且仅当 P(E∩F)=P(E)P(F)；当 P(E)、P(F) 都为正时，这等价于 P(E|F)=P(E)，也等价于 P(F|E)=P(F)。",
+        "cite": {
+          "source": "P3-L",
+          "at": "“Independent Events” 小节"
+        }
+      },
+      {
+        "term": "假设组（划分）",
+        "english": "partition / hypotheses",
+        "statement": "事件 H₁,…,Hₘ 两两不相交且并集为整个样本空间 Ω 时，称它们构成 Ω 的一个划分；每个结果恰好落在其中一个 Hᵢ 里。",
+        "cite": {
+          "source": "P3-L",
+          "at": "“Bayes’ Formula” 小节"
+        }
+      }
+    ],
+    "derivation": {
+      "title": "Bayes 公式与全概率公式",
+      "claim": "若 H₁,…,Hₘ 是样本空间的划分，每个 P(Hₖ)>0，且 P(E)>0，则 P(Hᵢ|E)=P(Hᵢ)P(E|Hᵢ) / Σₖ P(Hₖ)P(E|Hₖ)。",
+      "assumptions": [
+        "H₁,…,Hₘ 两两不相交且并集为 Ω",
+        "每个 P(Hₖ)>0",
+        "P(E)>0"
+      ],
+      "steps": [
+        "按条件概率的定义，P(Hᵢ|E)=P(Hᵢ∩E)/P(E)。要做的是把分子和分母都换成已知的先验 P(Hₖ) 与似然 P(E|Hₖ)。",
+        "分子：对 P(E|Hᵢ)=P(E∩Hᵢ)/P(Hᵢ) 两边乘 P(Hᵢ)，得到乘法法则 P(Hᵢ∩E)=P(Hᵢ)P(E|Hᵢ)。",
+        "分母：因为 Hₖ 两两不相交且并集为 Ω，E 被切成互不相交的若干块 E=(H₁∩E)∪…∪(Hₘ∩E)，由概率的可加性 P(E)=Σₖ P(Hₖ∩E)。",
+        "对每一块再用一次乘法法则：P(Hₖ∩E)=P(Hₖ)P(E|Hₖ)，于是 P(E)=Σₖ P(Hₖ)P(E|Hₖ)，这就是全概率公式。",
+        "把第 2、4 步代回第 1 步的分子和分母。"
+      ],
+      "conclusion": "P(Hᵢ|E)=P(Hᵢ)P(E|Hᵢ) / Σₖ P(Hₖ)P(E|Hₖ)。分子是“属于 Hᵢ 且产生证据 E”的份额，分母是所有产生证据 E 的份额。",
+      "cite": {
+        "source": "P3-L",
+        "at": "“Bayes’ Formula” 小节"
+      }
+    },
+    "example": {
+      "title": "罕见病检测：阳性之后到底有多大可能患病",
+      "problem": "某种癌症在人群中的患病率是 0.001。检测对患者给出阳性的概率是 0.99，对非患者给出阴性的概率是 0.95。一个人检测为阳性，他患病的概率是多少？",
+      "steps": [
+        "设 C 为患病，+ 为阳性。已知 P(C)=0.001，P(+|C)=0.99；非患者阴性概率 0.95，所以假阳性率 P(+|非C)=0.05。",
+        "全概率公式求分母：P(+)=0.001×0.99+0.999×0.05=0.00099+0.04995=0.05094。",
+        "Bayes 公式：P(C|+)=0.00099/0.05094。",
+        "化简：0.00099/0.05094≈0.0194。"
+      ],
+      "answer": "约 0.019，不到 2%。检测本身很准，但患病率太低，阳性里绝大多数是假阳性。",
+      "check": "用 10 万人的频数表复核：100 名患者中 99 人阳性；99 900 名非患者中 4 995 人阳性。阳性共 5 094 人，其中患者 99 人，99/5094≈0.0194，与公式一致。",
+      "cite": {
+        "source": "P3-L",
+        "at": "Example 4.17"
+      }
+    },
+    "misconceptions": [
+      {
+        "wrong": "检测准确率 99%，阳性就说明有 99% 的可能患病。",
+        "right": "99% 是 P(阳性|患病)，问题问的是 P(患病|阳性)。两者由 Bayes 公式联系，还取决于患病率；患病率 0.001 时后者只有约 0.019。",
+        "cite": {
+          "source": "P3-L",
+          "at": "Example 4.17"
+        }
+      },
+      {
+        "wrong": "三个事件两两独立，就一定相互独立。",
+        "right": "掷两枚公平硬币，A=第一枚正面，B=第二枚正面，C=两枚相同。任意两个都独立，但 P(A∩B∩C)=1/4≠1/8，三者不相互独立。相互独立要求每个子族都满足乘法公式。"
+      },
+      {
+        "wrong": "协方差为零的两个随机变量互相独立。",
+        "right": "X 均匀取 −1、0、1，Y=X²。Cov(X,Y)=E[X³]−E[X]E[Y]=0，但 P(Y=0|X=0)=1≠P(Y=0)=1/3，两者不独立。零协方差只排除线性关系。"
+      },
+      {
+        "wrong": "概率密度在某点的值就是取到该点的概率，所以不能超过 1。",
+        "right": "连续随机变量取任一单点的概率都是 0，密度乘上区间长度才近似区间概率。f(x)=2x（0<x<1）在 x=0.9 处等于 1.8，完全合法。"
+      }
+    ]
+  },
   "learningObjectives": [
     "明确样本空间、等可能假设与抽样方式，使用加法／乘法法则和组合计数。",
     "通过条件概率、全概率和Bayes公式完成更新，区分独立、互斥与条件独立。",
@@ -212,6 +303,7 @@
   },
   "sources": [
     {
+      "id": "P1",
       "sourceType": "大学课程",
       "title": "[P1] Harvard Stat 110：课程主题与前置",
       "institution": "Harvard University",
@@ -220,6 +312,7 @@
       "checkedAt": "2026-10-11"
     },
     {
+      "id": "P1-X",
       "sourceType": "大学课程",
       "title": "[P1-X] Harvard Stat 110：官方练习与解答入口",
       "institution": "Harvard University",
@@ -228,6 +321,7 @@
       "checkedAt": "2026-10-11"
     },
     {
+      "id": "P2",
       "sourceType": "大学课程",
       "title": "[P2] MIT 18.05，Spring 2022：syllabus（仅取概率部分）",
       "institution": "MIT",
@@ -236,6 +330,7 @@
       "checkedAt": "2026-10-11"
     },
     {
+      "id": "P2-R",
       "sourceType": "大学课程",
       "title": "[P2-R] MIT 18.05：Unit 1阅读与课堂练习目录",
       "institution": "MIT",
@@ -244,12 +339,22 @@
       "checkedAt": "2026-10-11"
     },
     {
+      "id": "P3",
       "sourceType": "教材",
       "title": "[P3] Grinstead–Snell，CHANCE开放版本（2006-07-04），第1–9章",
       "institution": "Dartmouth College",
       "url": "https://math.dartmouth.edu/~prob/prob/prob.pdf",
       "verification": "已核验",
       "checkedAt": "2026-10-11"
+    },
+    {
+      "id": "P3-L",
+      "sourceType": "教材",
+      "title": "[P3-L] Grinstead–Snell，Introductory Probability（LibreTexts 版）§4.1 Discrete Conditional Probability",
+      "institution": "Dartmouth College / LibreTexts",
+      "url": "https://stats.libretexts.org/Bookshelves/Probability_Theory/Introductory_Probability_(Grinstead_and_Snell)/04%3A_Conditional_Probability/4.01%3A_Discrete_Conditional_Probability",
+      "verification": "已核验",
+      "checkedAt": "2026-11-25"
     }
   ]
 }
