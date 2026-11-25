@@ -1,0 +1,262 @@
+{
+  "schemaVersion": 1,
+  "slug": "calculus",
+  "title": "微积分",
+  "aliases": [],
+  "tier": "标准页",
+  "status": "draft",
+  "kind": "course",
+  "summary": "从一元函数的极限（limit）出发，用导数（derivative）刻画局部变化，用积分（integral）计算累积量。学完能说明计算步骤成立的条件，并用级数（series）判断无限求和是否有意义、估计简单近似的误差。",
+  "why": "概率论用定积分把密度变成区间概率，常微分方程用导数描述状态随时间的变化，实分析 I 会追问这些计算规则为何成立。本页处理实值一元函数的极限、导数、积分和级数入门，多元微积分负责多变量情形，实分析 I 负责构造严格的分析基础与证明体系。开始前，试着把 x²−x−12 分解并写出 (x²−x−12)/(x−4) 约分时要排除的值，再用弧度算出 sin(π/6) 和 cos(π/6)。每章先读一处教材或官方讲义，独立完成指定的 CAL-E 题，再核对解析中的适用条件和误差。习题与完成门槛是本项目编写的草稿（draft），并非任何学校的作业或评分标准。",
+  "learningObjectives": [
+    "计算一元分段函数的左极限（left-hand limit）和右极限（right-hand limit），判断能否通过补定义得到连续函数（continuous function），并用 ε–δ 定义（epsilon–delta definition）证明一个多项式的极限。",
+    "用差商（difference quotient）求分段函数的导数，再用积法则（product rule）和链式法则（chain rule）求复合函数的切线方程。",
+    "核对中值定理（mean value theorem）的区间条件并用它给出增量界，比较所有内部临界点和端点以确定闭区间上的全局极值（global extrema）。",
+    "从等分区间的黎曼和（Riemann sum）推导一个定积分，使用微积分基本定理（fundamental theorem of calculus）求变限积分的导数。",
+    "选用换元（substitution）或分部积分（integration by parts）计算定积分，用单侧极限处理端点奇异，并分段计算几何面积。",
+    "通过部分和（partial sum）、几何级数（geometric series）公式和正项比较判断例子的敛散性，构造简单函数的泰勒多项式（Taylor polynomial）并给出截断误差。"
+  ],
+  "coreTopics": [
+    "单侧极限、连续性与 ε–δ 定义",
+    "差商、切线与求导法则",
+    "微分中值定理与闭区间极值",
+    "黎曼和与定积分",
+    "微积分基本定理与变限积分",
+    "换元与分部积分",
+    "广义积分（improper integral）与有符号面积（signed area）",
+    "数列、部分和与收敛判别",
+    "幂级数（power series）、泰勒多项式与截断误差"
+  ],
+  "syllabus": [
+    {
+      "title": "极限与连续",
+      "topics": [
+        "两侧都能趋近 a 时，有限的左右极限须相同才有双侧极限，而连续还要求该值等于 f(a)。",
+        "对有限极限 L，ε–δ 定义要求每个 ε>0 都有 δ>0，使 0<|x−a|<δ 时 |f(x)−L|<ε，使用约分计算时须保证原式分母非零。",
+        "阅读 [CAL2] 第 2 章，或 [CAL4] §1.3–1.4、§1.6–1.7，然后完成 CAL-E01、CAL-E02。"
+      ]
+    },
+    {
+      "title": "导数、求导法则与切线",
+      "topics": [
+        "当差商 [f(a+h)−f(a)]/h 在 h→0 时有有限极限，导数 f′(a) 就是切线斜率，而折点说明函数连续时导数也可能不存在。",
+        "先确认函数在所求点有定义，再用积法则 (uv)′=u′v+uv′ 或商法则（quotient rule）拆开运算，对嵌套项应用链式法则 (f∘g)′(x)=f′(g(x))g′(x)。",
+        "阅读 [CAL1] 单元 1A 的第 1–3、6–12 讲，或 [CAL2] 第 3 章的差商、求导法则与链式法则部分，然后完成 CAL-E03、CAL-E04。"
+      ]
+    },
+    {
+      "title": "中值定理、单调性与极值",
+      "topics": [
+        "f 在 [a,b] 连续且在 (a,b) 可导时，中值定理给出某个 c∈(a,b) 满足 f′(c)=[f(b)−f(a)]/(b−a)，可由导数界推出函数的增量界。",
+        "导数的正负可判断单调区间，而求闭区间上连续函数的全局极值时，需要比较端点与所有内部临界点，包括 f′=0 或导数不存在的点。",
+        "阅读 [CAL1] 单元 2A–2C 的曲线、最优化与中值定理部分，或 [CAL2] 第 4 章的极值和中值定理部分，然后完成 CAL-E05、CAL-E06。"
+      ]
+    },
+    {
+      "title": "黎曼和、定积分与基本定理",
+      "topics": [
+        "对闭区间上的连续 f，分割的最大子区间长度趋于零时，黎曼和 Σ f(ξᵢ)Δxᵢ 趋于定积分 ∫ₐᵇ f(x) dx，每一项同时含函数值与区间宽度。",
+        "微积分基本定理给出累积量 A(x)=∫ₐˣ f(t) dt 的导数 A′(x)=f(x)，并说明若 F′=f，则 ∫ₐᵇ f(x) dx=F(b)−F(a)，常数项自动抵消。",
+        "阅读 [CAL1] 单元 3A–3B 的积分定义与两条基本定理，或 [CAL5] §1.1–1.3，然后完成 CAL-E07、CAL-E08。"
+      ]
+    },
+    {
+      "title": "换元、分部积分与结果核对",
+      "topics": [
+        "换元积分反用链式法则，把 ∫ₐᵇ f(g(x))g′(x) dx 改写为对 f(u) 在 g(a) 到 g(b) 上的积分，确保上下限与被积表达式都用新变量 u。",
+        "分部积分反用积法则，在可连续求导的例子中 ∫ u v′ dx=uv−∫ u′v dx，遇到嵌套和乘积可以先换元再分部，并用求导核对原函数（antiderivative）。",
+        "阅读 [CAL5] §1.4、§1.7（分部积分还可参考 [CAL1] 单元 4B 第 76 讲），再完成 CAL-E09。"
+      ]
+    },
+    {
+      "title": "几何面积与广义积分",
+      "topics": [
+        "定积分记录有符号面积，当曲线穿过横轴时按符号分段，几何面积等于 ∫ |f(x)| dx。",
+        "广义积分通过截断后取极限定义，例如 ∫₀¹ x^(−p) dx 在 p<1 时收敛，而奇点若在区间内部，左右的单侧积分要分别收敛才能相加。",
+        "阅读 [CAL1] 单元 3B 的面积与单元 5A 的广义积分部分，或 [CAL5] §1.5、§1.12，然后完成 CAL-E10。"
+      ]
+    },
+    {
+      "title": "从数列极限到级数收敛",
+      "topics": [
+        "无穷级数 Σ aₙ 在部分和 Sₙ=a₁+⋯+aₙ 有有限极限时收敛，aₙ→0 只是其中一个必要条件。",
+        "几何级数 Σ 从 n=0 到 ∞ 的 rⁿ 在 |r|<1 时等于 1/(1−r)，而对正项级数还可用比较判别法（comparison test），例如用发散级数作下界推出发散。",
+        "阅读 [CAL1] 单元 5B 第 94–95 讲，或 [CAL3] §5.1–5.2、§5.4 的数列、部分和与比较部分，然后完成 CAL-E11，并在 CAL-E12 使用几何级数。"
+      ]
+    },
+    {
+      "title": "幂级数、泰勒近似与节点边界",
+      "topics": [
+        "幂级数需说明收敛范围，在中心 a 的 m 次泰勒多项式中，(x−a)ᵏ 的系数是 f⁽ᵏ⁾(a)/k!，有限展开还需给出余项（remainder）才能判断精度。",
+        "本页用简单例子计算函数精确值与截断值的差，更一般的函数列收敛与逐项运算条件在实分析中处理，涉及多个自变量的求导与积分在多元微积分中处理。",
+        "阅读 [CAL3] §6.1、§6.3 的收敛区间与泰勒展开部分，或 [CAL5] §3.5–3.6 的对应部分，然后完成 CAL-E12。"
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "type": "公开课",
+      "title": "[CAL1] MIT 18.01SC Single Variable Calculus（2010 年秋）：一元微积分自学课程",
+      "author": "David Jerison（授课教师）",
+      "institution": "MIT OpenCourseWare",
+      "url": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/",
+      "verification": "已核验"
+    },
+    {
+      "type": "主教材",
+      "title": "[CAL2] OpenStax Calculus Volume 1：极限、导数与积分",
+      "author": "Gilbert Strang、Edwin Herman",
+      "institution": "OpenStax（Rice University）",
+      "url": "https://openstax.org/books/calculus-volume-1/pages/preface",
+      "verification": "已核验"
+    },
+    {
+      "type": "主教材",
+      "title": "[CAL3] OpenStax Calculus Volume 2：积分技巧、数列与级数",
+      "author": "Gilbert Strang、Edwin Herman",
+      "institution": "OpenStax（Rice University）",
+      "url": "https://openstax.org/books/calculus-volume-2/pages/preface",
+      "verification": "已核验"
+    },
+    {
+      "type": "主教材",
+      "title": "[CAL4] CLP-1 Differential Calculus：极限与微分的教材习题合订本",
+      "author": "Joel Feldman、Andrew Rechnitzer、Elyse Yeager",
+      "institution": "University of British Columbia",
+      "url": "https://personal.math.ubc.ca/~CLP/CLP1/combined_clp_1.pdf",
+      "verification": "已核验"
+    },
+    {
+      "type": "主教材",
+      "title": "[CAL5] CLP-2 Integral Calculus：积分与级数的教材习题合订本",
+      "author": "Joel Feldman、Andrew Rechnitzer、Elyse Yeager",
+      "institution": "University of British Columbia",
+      "url": "https://personal.math.ubc.ca/~CLP/CLP2/combined_clp_2.pdf",
+      "verification": "已核验"
+    },
+    {
+      "type": "参考资料",
+      "title": "[CAL6] MIT 18.01SC 第 102 讲：期末试题与解答入口",
+      "institution": "MIT OpenCourseWare",
+      "url": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/final-exam/",
+      "verification": "已核验"
+    }
+  ],
+  "exercises": [
+    {
+      "type": "基础题",
+      "description": "CAL-E01｜题目：f(x) 在 x<2 时为 (x²+x−6)/(x−2)，x=2 时为 −1，x>2 时为 x²+1。求 x→2 的两侧极限，并判断只改一点是否能使 f 在 2 连续。\n解析：左支分子为 (x−2)(x+3)，x<2 时可以约分，故左极限是 5。右支是多项式，右极限为 2²+1=5。双侧极限是 5，原值 −1 使函数在 2 不连续。设 f(2)=5 即可且只有这个取值可行。\n掌握检查：分别写出两侧计算，能指出约分没有赋予原分式在 2 的值。"
+    },
+    {
+      "type": "证明题",
+      "description": "CAL-E02｜题目：只用 ε–δ 定义证明 x→1 时 3x²−2x→1，并给出 ε=7/20 时可用的 δ。\n解析：分解误差 |3x²−2x−1|=|x−1||3x+1|。先限制 |x−1|<1，则 0<x<2，所以 |3x+1|<7。对任意 ε>0 取 δ=min(1,ε/7)，只要 0<|x−1|<δ，误差就小于 7δ≤ε。取 ε=7/20 时得到 δ=1/20。\n掌握检查：先写出对任意 ε 的选法，再说明 δ≤1 如何给乘数提供统一上界。"
+    },
+    {
+      "type": "证明题",
+      "description": "CAL-E03｜题目：对 f(x)=x|x|，用差商求 f′(0)，给出全实数上的 f′，再判断 f″(0) 是否存在。\n解析：f(h)/h=|h|，所以 f′(0)=0。对 x>0 有 f=x²、f′=2x。对 x<0 有 f=−x²、f′=−2x。因此 f′(x)=2|x| 对所有 x 成立。第二次差商 [f′(h)−f′(0)]/h=2|h|/h 的左右极限分别为 −2 与 2，故 f″(0) 不存在。\n掌握检查：把第二次差商写出来，并说明 f′ 在 0 连续却在 0 不可导。"
+    },
+    {
+      "type": "综合题",
+      "description": "CAL-E04｜题目：设 f(x)=(1+sin(2x))e^(−3x)，计算 f′(x)，并写出 x=0 处的切线。\n解析：积法则给两项，第一因子的导数是 2cos(2x)，第二因子的导数是 −3e^(−3x)。合并得 f′(x)=e^(−3x)[2cos(2x)−3(1+sin(2x))]。因 f(0)=1、f′(0)=−1，切线方程为 y=1−x。\n掌握检查：两次链式求导都要写出内层因子 2 或 −3，切线要同时通过 (0,1) 且斜率为 −1。"
+    },
+    {
+      "type": "证明题",
+      "description": "CAL-E05｜题目：用中值定理给 √17−4 一个正的上下界。再解释为何在 [−1,2] 上对 g(x)=|x| 无法得出同样形式的中值等式。\n解析：√x 在 [16,17] 连续且在 (16,17) 可导，所以 √17−4=1/(2√c)，其中 16<c<17。由 x↦1/(2√x) 严格递减得 1/(2√17)<√17−4<1/8。对 g，区间平均斜率是 (2−1)/3=1/3，而所有可导点的斜率只有 −1 或 1，找不到所需的 c。g 在内部的 0 不可导。\n掌握检查：保持界的方向正确，并指出反例失效的是内部可导这一条条件。"
+    },
+    {
+      "type": "综合题",
+      "description": "CAL-E06｜题目：在 [0,4] 上求 f(x)=x³−6x²+9x+1 的全局最大值和最小值，列出所有取得这些值的点。\n解析：多项式在闭区间连续，极值一定能取得。f′(x)=3(x−1)(x−3)，区间内部只在 1、3 为零且处处可导。比较四个候选点，得 f(0)=1、f(1)=5、f(3)=1、f(4)=5。全局最大值 5 在 1 和 4 处取得，全局最小值 1 在 0 和 3 处取得。\n掌握检查：端点和内部点都要评估，并写全达到同一极值的点。"
+    },
+    {
+      "type": "综合题",
+      "description": "CAL-E07｜题目：把 [0,2] 分成 n 个等长子区间，取右端点计算 f(x)=3x²−1 的黎曼和，先求 n=2 的和，再取极限并用原函数核对。可用 Σ 从 k=1 到 n 的 k²=n(n+1)(2n+1)/6。\n解析：宽度 Δx=2/n，第 k 个右端点是 2k/n。求和得 Sₙ=(24/n³)Σ k²−2=6+12/n+4/n²，所以 S₂=13。连续性保证右端点和的极限等于定积分，极限为 6。原函数 x³−x 在 2 和 0 的取值差也为 6。\n掌握检查：每项先乘 2/n，能解释有限 n 的近似为什么与精确积分值不同。"
+    },
+    {
+      "type": "综合题",
+      "description": "CAL-E08｜题目：H(x) 是从 x 到 x² 对 √(1+t²) 积分得到的函数。求 H′(x)，并给出 H(1)、H′(1)。\n解析：记 A(u)=∫₀ᵘ √(1+t²) dt，连续性和基本定理给 A′(u)=√(1+u²)。由 H(x)=A(x²)−A(x) 与链式法则，H′(x)=2x√(1+x⁴)−√(1+x²)。在 x=1 两个积分限相同，所以 H(1)=0。代入导数公式得 H′(1)=√2。\n掌握检查：下限的贡献带负号，上限的贡献乘 2x。某点积分值为零不决定该点的导数。"
+    },
+    {
+      "type": "综合题",
+      "description": "CAL-E09｜题目：把 ∫₀¹ x³e^(x²) dx 改写成更简单的定积分，再计算精确值。\n解析：令 u=x²，则 x³ dx=x²·x dx=(u/2)du，上下限仍为 0、1，积分变成 (1/2)∫₀¹ u eᵘ du。对它分部积分，∫ u eᵘ du=u eᵘ−eᵘ+C=(u−1)eᵘ+C。上下限的原函数值为 0 和 −1，所以答案是 1/2。也可对 (x²−1)e^(x²)/2 求导，得到原被积函数。\n掌握检查：换元后只保留 u，写清 1/2 来自微分关系以及在下限处的减法。"
+    },
+    {
+      "type": "综合题",
+      "description": "CAL-E10｜题目：设 f(x)=x^(−1/3)−2（0<x≤1）。判断从 0 到 1 的广义积分是否收敛，求它的值以及曲线和横轴围成的总几何面积。\n解析：在 [ε,1] 上用原函数 F(x)=(3/2)x^(2/3)−2x。F(ε)→0，所以广义积分收敛且等于 F(1)=−1/2。符号在 x=1/8 处从正变负。F(1/8)=1/8，故上方区域面积 1/8，下方区域面积 F(1/8)−F(1)=5/8。总几何面积为 3/4。\n掌握检查：先写 ε→0⁺ 的积分极限，再分别取两段的面积。不能对整个有符号积分取绝对值来求总面积。"
+    },
+    {
+      "type": "证明题",
+      "description": "CAL-E11｜题目：两级数都从 n=1 开始。求 Σ 3/[n(n+3)] 的和及前 N 项之后的尾和，判断 Σ 1/(3n+2) 的敛散性。\n解析：3/[n(n+3)]=1/n−1/(n+3)。相减的两个有限和在分母 4 到 N 的项上抵消，可把前 N 项和写成 1+1/2+1/3−1/(N+1)−1/(N+2)−1/(N+3)，这个式子对 N=1、2 也成立。取极限得 11/6，尾和就是最后三个倒数的和。对第二个级数，n≥1 时 3n+2≤5n，所以 1/(3n+2)≥1/(5n)，由调和级数（harmonic series）发散得原级数发散。\n掌握检查：用部分和解释消去项，比较发散时选发散下界。两题的通项都趋零。"
+    },
+    {
+      "type": "综合题",
+      "description": "CAL-E12｜题目：用几何级数展开 f(x)=1/(1+2x)，给出它的收敛区间、以 0 为中心的三次泰勒多项式 P₃(x)，并求 x=1/8 时的截断误差 f(x)−P₃(x)。\n解析：公比 r=−2x，因此在 |x|<1/2 时 f(x)=Σ 从 k=0 到 ∞ 的 (−2x)ᵏ，两个端点的通项均未趋零，区间为 (−1/2,1/2)。此处 P₃(x)=1−2x+4x²−8x³。用有限几何和公式得 f(x)−P₃(x)=16x⁴/(1+2x)，代入 1/8 得 1/320，也等于 4/5−51/64。\n掌握检查：端点分别用通项检验。能说清 P₃ 对所有实数都有定义，而无穷级数等式只在收敛区间成立。"
+    }
+  ],
+  "projects": [
+    {
+      "title": "右端点近似误差表",
+      "description": "用 CAL-E07 的函数和区间，对 n=4、8、16、32 分别直接求右端点和，列出与精确值 6 的差及相邻两次误差的比值。再由误差公式证明对每个 n≥1，误差不超过 16/n，并说明误差比为何趋于 1/2。可用分数手算或用代码计算。",
+      "deliverable": "四行积分值与误差表、右端点和的简化过程、误差上界与比值极限证明。"
+    },
+    {
+      "title": "给泰勒截断定精度",
+      "description": "把 CAL-E12 推广到 0≤x≤1/4 的 m 次截断，通过有限几何和导出每点的精确误差表达式，再选一个 m，使整段的绝对误差都小于 1/1000。比较同次多项式在 x=1/8、1/4 的实际误差和统一上界。",
+      "deliverable": "m 次多项式、误差表达式及统一上界的推导、满足目标的次数与两个检验点的计算。"
+    }
+  ],
+  "completion": {
+    "basic": "独立完成 CAL-E01–CAL-E12 中至少 9 题。CAL-E01 的左右极限、CAL-E04 的链式因子、CAL-E08 的变限符号与 CAL-E11 的收敛理由必须正确，并能复述每题所用条件。",
+    "proficient": "独立完成 CAL-E01–CAL-E12 全部题并核查解析，再从 [CAL6] 选两道未见过的范围内试题，一道导数应用、一道积分或级数，写出所用条件后对照解答并记录修订。",
+    "researchReady": "复写 CAL-E02 和 CAL-E05 的证明，完成 CAL-E07 或 CAL-E12 对应的项目，提交一个对整个参数范围有效的误差界。准备继续多元微积分或实分析 I 时核对图谱所列前置。本页的例题和误差界不足以证明一般函数列可以交换极限与积分。"
+  },
+  "sources": [
+    {
+      "sourceType": "大学课程",
+      "title": "[CAL1] MIT 18.01SC（2010 年秋）：微分、定积分、积分技巧与无穷过程的课程目录",
+      "institution": "MIT OpenCourseWare",
+      "url": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/",
+      "verification": "已核验",
+      "checkedAt": "2026-11-24"
+    },
+    {
+      "sourceType": "教材",
+      "title": "[CAL2] OpenStax Calculus Volume 1：第 2–5 章目录、教材范围与作者",
+      "institution": "OpenStax（Rice University）",
+      "url": "https://openstax.org/books/calculus-volume-1/pages/preface",
+      "verification": "已核验",
+      "checkedAt": "2026-11-24"
+    },
+    {
+      "sourceType": "教材",
+      "title": "[CAL3] OpenStax Calculus Volume 2：第 5–6 章目录、教材范围与作者",
+      "institution": "OpenStax（Rice University）",
+      "url": "https://openstax.org/books/calculus-volume-2/pages/preface",
+      "verification": "已核验",
+      "checkedAt": "2026-11-24"
+    },
+    {
+      "sourceType": "教材",
+      "title": "[CAL4] CLP-1 Differential Calculus 合订本：第 1 章极限与第 2 章导数",
+      "institution": "University of British Columbia",
+      "url": "https://personal.math.ubc.ca/~CLP/CLP1/combined_clp_1.pdf",
+      "verification": "已核验",
+      "checkedAt": "2026-11-24"
+    },
+    {
+      "sourceType": "教材",
+      "title": "[CAL5] CLP-2 Integral Calculus 合订本：第 1 章积分与第 3 章级数",
+      "institution": "University of British Columbia",
+      "url": "https://personal.math.ubc.ca/~CLP/CLP2/combined_clp_2.pdf",
+      "verification": "已核验",
+      "checkedAt": "2026-11-24"
+    },
+    {
+      "sourceType": "大学课程",
+      "title": "[CAL6] MIT 18.01SC 第 102 讲：期末试题与解答入口",
+      "institution": "MIT OpenCourseWare",
+      "url": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/final-exam/",
+      "verification": "已核验",
+      "checkedAt": "2026-11-24"
+    }
+  ]
+}
