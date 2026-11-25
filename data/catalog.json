@@ -442,7 +442,7 @@
    "cluster": "m-analysis",
    "stage": 3,
    "type": "course",
-   "summary": "最优化的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "summary": "用凸性判断局部最优何时就是全局最优，用梯度下降、线搜索和牛顿法求解，并用条件数解释收敛快慢。学完能推导二次函数上梯度下降的稳定步长与收敛因子，并解等式约束的拉格朗日问题。",
    "prerequisites": [
     "multivariable-calculus",
     "linear-algebra"

@@ -81,6 +81,15 @@
         "算法微分"
       ],
       "path": "./content/pages/automatic-differentiation.json"
+    },
+    {
+      "slug": "optimization",
+      "title": "最优化",
+      "aliases": [
+        "优化",
+        "optimization"
+      ],
+      "path": "./content/pages/optimization.json"
     }
   ]
 }
