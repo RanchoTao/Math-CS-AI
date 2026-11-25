@@ -6346,6 +6346,25 @@
   ]
  ],
  "paths": {
+  "ml-foundations": {
+   "title": "从线性代数到 Transformer",
+   "description": "十一个节点的主干学习路径：先打数学基础，再走机器学习、神经网络与深度学习，终点是 Transformer。每一页都按内容标准 v2 撰写并逐条核对来源。",
+   "standard": 2,
+   "status": "draft",
+   "nodes": [
+    "linear-algebra",
+    "probability",
+    "mathematical-statistics",
+    "optimization",
+    "machine-learning",
+    "neural-networks",
+    "automatic-differentiation",
+    "deep-learning",
+    "sequence-models",
+    "attention-mechanisms",
+    "transformer"
+   ]
+  },
   "llm": {
    "title": "大语言模型主干",
    "nodes": [

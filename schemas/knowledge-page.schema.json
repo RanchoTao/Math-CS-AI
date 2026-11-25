@@ -19,25 +19,91 @@
     "sources"
   ],
   "properties": {
-    "schemaVersion": { "const": 1 },
-    "slug": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
-    "title": { "type": "string", "minLength": 1 },
-    "aliases": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
-    "tier": { "enum": ["基础页", "标准页", "精品页"] },
-    "status": { "enum": ["draft", "validated", "reviewed", "published"] },
-    "kind": { "enum": ["course", "practice", "tool", "frontier"] },
-    "summary": { "type": "string", "minLength": 1 },
-    "why": { "type": "string", "minLength": 1 },
-    "learningObjectives": { "type": "array", "items": { "type": "string" } },
-    "coreTopics": { "type": "array", "items": { "type": "string" } },
+    "schemaVersion": {
+      "enum": [
+        1,
+        2
+      ]
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "aliases": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "tier": {
+      "enum": [
+        "基础页",
+        "标准页",
+        "精品页"
+      ]
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "validated",
+        "reviewed",
+        "published"
+      ]
+    },
+    "kind": {
+      "enum": [
+        "course",
+        "practice",
+        "tool",
+        "frontier"
+      ]
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "why": {
+      "type": "string",
+      "minLength": 1
+    },
+    "lesson": {
+      "$ref": "#/$defs/lesson"
+    },
+    "learningObjectives": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "coreTopics": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
     "syllabus": {
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["title", "topics"],
+        "required": [
+          "title",
+          "topics"
+        ],
         "properties": {
-          "title": { "type": "string" },
-          "topics": { "type": "array", "items": { "type": "string" } }
+          "title": {
+            "type": "string"
+          },
+          "topics": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
         },
         "additionalProperties": false
       }
@@ -46,14 +112,41 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["type", "title", "verification"],
+        "required": [
+          "type",
+          "title",
+          "verification"
+        ],
         "properties": {
-          "type": { "enum": ["主教材", "进阶教材", "公开课", "讲义", "工具", "官方文档", "参考资料"] },
-          "title": { "type": "string" },
-          "author": { "type": "string" },
-          "institution": { "type": "string" },
-          "url": { "type": "string" },
-          "verification": { "enum": ["待核验", "已核验"] }
+          "type": {
+            "enum": [
+              "主教材",
+              "进阶教材",
+              "公开课",
+              "讲义",
+              "工具",
+              "官方文档",
+              "参考资料"
+            ]
+          },
+          "title": {
+            "type": "string"
+          },
+          "author": {
+            "type": "string"
+          },
+          "institution": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "verification": {
+            "enum": [
+              "待核验",
+              "已核验"
+            ]
+          }
         },
         "additionalProperties": false
       }
@@ -62,10 +155,24 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["type", "description"],
+        "required": [
+          "type",
+          "description"
+        ],
         "properties": {
-          "type": { "enum": ["基础题", "证明题", "综合题", "编程题", "实验题", "研究型问题"] },
-          "description": { "type": "string" }
+          "type": {
+            "enum": [
+              "基础题",
+              "证明题",
+              "综合题",
+              "编程题",
+              "实验题",
+              "研究型问题"
+            ]
+          },
+          "description": {
+            "type": "string"
+          }
         },
         "additionalProperties": false
       }
@@ -74,22 +181,41 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["title", "description"],
+        "required": [
+          "title",
+          "description"
+        ],
         "properties": {
-          "title": { "type": "string" },
-          "description": { "type": "string" },
-          "deliverable": { "type": "string" }
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "deliverable": {
+            "type": "string"
+          }
         },
         "additionalProperties": false
       }
     },
     "completion": {
       "type": "object",
-      "required": ["basic", "proficient", "researchReady"],
+      "required": [
+        "basic",
+        "proficient",
+        "researchReady"
+      ],
       "properties": {
-        "basic": { "type": "string" },
-        "proficient": { "type": "string" },
-        "researchReady": { "type": "string" }
+        "basic": {
+          "type": "string"
+        },
+        "proficient": {
+          "type": "string"
+        },
+        "researchReady": {
+          "type": "string"
+        }
       },
       "additionalProperties": false
     },
@@ -97,18 +223,217 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["sourceType", "title", "verification"],
+        "required": [
+          "sourceType",
+          "title",
+          "verification"
+        ],
         "properties": {
-          "sourceType": { "enum": ["大学课程", "教师讲义", "教材", "官方文档", "其他"] },
-          "title": { "type": "string" },
-          "institution": { "type": "string" },
-          "url": { "type": "string" },
-          "verification": { "enum": ["待核验", "已核验"] },
-          "checkedAt": { "type": "string" }
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9-]+$"
+          },
+          "sourceType": {
+            "enum": [
+              "大学课程",
+              "教师讲义",
+              "教材",
+              "官方文档",
+              "其他"
+            ]
+          },
+          "title": {
+            "type": "string"
+          },
+          "institution": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "verification": {
+            "enum": [
+              "待核验",
+              "已核验"
+            ]
+          },
+          "checkedAt": {
+            "type": "string"
+          }
         },
         "additionalProperties": false
       }
     }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "$defs": {
+    "cite": {
+      "type": "object",
+      "required": [
+        "source",
+        "at"
+      ],
+      "properties": {
+        "source": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9-]+$"
+        },
+        "at": {
+          "type": "string",
+          "minLength": 2
+        }
+      },
+      "additionalProperties": false
+    },
+    "lesson": {
+      "type": "object",
+      "required": [
+        "intuition",
+        "definitions",
+        "derivation",
+        "example",
+        "misconceptions"
+      ],
+      "properties": {
+        "intuition": {
+          "type": "string",
+          "minLength": 1
+        },
+        "definitions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "term",
+              "statement",
+              "cite"
+            ],
+            "properties": {
+              "term": {
+                "type": "string",
+                "minLength": 1
+              },
+              "english": {
+                "type": "string"
+              },
+              "statement": {
+                "type": "string",
+                "minLength": 1
+              },
+              "cite": {
+                "$ref": "#/$defs/cite"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "derivation": {
+          "type": "object",
+          "required": [
+            "title",
+            "claim",
+            "steps",
+            "conclusion",
+            "cite"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1
+            },
+            "claim": {
+              "type": "string",
+              "minLength": 1
+            },
+            "assumptions": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "steps": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "conclusion": {
+              "type": "string",
+              "minLength": 1
+            },
+            "cite": {
+              "$ref": "#/$defs/cite"
+            }
+          },
+          "additionalProperties": false
+        },
+        "example": {
+          "type": "object",
+          "required": [
+            "title",
+            "problem",
+            "steps",
+            "answer",
+            "check",
+            "cite"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1
+            },
+            "problem": {
+              "type": "string",
+              "minLength": 1
+            },
+            "steps": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "answer": {
+              "type": "string",
+              "minLength": 1
+            },
+            "check": {
+              "type": "string",
+              "minLength": 1
+            },
+            "cite": {
+              "$ref": "#/$defs/cite"
+            }
+          },
+          "additionalProperties": false
+        },
+        "misconceptions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "wrong",
+              "right"
+            ],
+            "properties": {
+              "wrong": {
+                "type": "string",
+                "minLength": 1
+              },
+              "right": {
+                "type": "string",
+                "minLength": 1
+              },
+              "cite": {
+                "$ref": "#/$defs/cite"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
 }

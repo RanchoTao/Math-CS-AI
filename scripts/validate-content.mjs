@@ -1,5 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
+import { validateSchema } from "./lib/schema.mjs";
+import { checkPage, formatReport, TEMPLATE_SUMMARY } from "./lib/checklist.mjs";
 
 const root = process.cwd();
 let errors = 0;
@@ -19,7 +21,10 @@ const loadReferenced = (entry, kind) => {
   try { return { file, value: readJson(file) }; } catch (error) { fail(`${file} 不是合法 JSON: ${error.message}`); return null; }
 };
 
-for (const schema of ['schemas/knowledge-page.schema.json', 'schemas/course-implementation.schema.json', 'schemas/learning-experience.schema.json']) readJson(schema);
+const pageSchema = readJson('schemas/knowledge-page.schema.json');
+const courseSchema = readJson('schemas/course-implementation.schema.json');
+const experienceSchema = readJson('schemas/learning-experience.schema.json');
+const schemaFail = (file, schema, value) => { for (const e of validateSchema(schema, value)) fail(`${file} 不符合 schema：${e}`); };
 const catalog = readJson('data/catalog.json');
 const nodes = Array.isArray(catalog.nodes) ? catalog.nodes : Object.entries(catalog.nodes || {}).map(([id,item]) => ({id,...item}));
 const nodeTitles = new Set(nodes.map(node => clean(node.title)));
@@ -59,6 +64,8 @@ const knowledgeExists = value => nodeTitles.has(clean(value));
 const requiredPage = ['schemaVersion','slug','title','tier','status','kind','summary','why','learningObjectives','coreTopics','resources','completion','sources'];
 const forbiddenRelations = ['domain','stage','cluster','prerequisite','prerequisites','recommended'];
 const seenSlugs = new Set();
+const pagesBySlug = new Map();
+let checkedPages = 0;
 for (const entry of loadManifestItems('content/manifest.json', 'pages')) {
   if (!entry.slug) { fail('knowledge manifest 页面缺少 slug'); continue; }
   if (seenSlugs.has(entry.slug)) fail(`重复 slug: ${entry.slug}`);
@@ -66,8 +73,16 @@ for (const entry of loadManifestItems('content/manifest.json', 'pages')) {
   const loaded = loadReferenced(entry, 'KnowledgePage');
   if (!loaded) continue;
   const {file, value: page} = loaded;
+  schemaFail(file, pageSchema, page);
   for (const key of requiredPage) if (!(key in page)) fail(`${file} 缺少字段 ${key}`);
-  if (page.schemaVersion !== 1) fail(`${file} schemaVersion 必须为 1`);
+  pagesBySlug.set(page.slug, page);
+  // schemaVersion 2：按检查清单逐条判定，任何一条不通过都阻断部署。
+  if (page.schemaVersion === 2) {
+    const node = nodes.find(n => clean(n.title) === clean(page.title));
+    const results = checkPage(page, { root, node });
+    if (results.some(r => !r.ok)) fail(`${file} 未通过内容检查清单\n${formatReport(page.slug, results)}`);
+    else checkedPages += 1;
+  }
   if (!['course','practice','tool','frontier'].includes(page.kind)) fail(`${file} kind 非法: ${page.kind}`);
   if (!['基础页','标准页','精品页'].includes(page.tier)) fail(`${file} tier 非法: ${page.tier}`);
   if (!['draft','validated','reviewed','published'].includes(page.status)) fail(`${file} status 非法: ${page.status}`);
@@ -82,7 +97,7 @@ for (const entry of loadManifestItems('content/manifest.json', 'pages')) {
   }
   for (const s of page.sources || []) if (s.verification === '已核验' && !/^\d{4}-\d{2}-\d{2}$/.test(s.checkedAt || '')) fail(`${file} 已核验来源缺少 checkedAt（YYYY-MM-DD）：${s.title}`);
   // 标准页质量提示：不阻断部署，供审核时参考。
-  if (page.tier !== '基础页') {
+  if (page.tier !== '基础页' && page.schemaVersion === 1) {
     const ex = page.exercises || [];
     const warn = message => { console.warn(`WARN: ${file} ${message}`); warnings += 1; };
     if (ex.length < 8) warn(`练习少于 8 题（${ex.length}）`);
@@ -102,6 +117,7 @@ for (const entry of loadManifestItems('content/courses/manifest.json', 'courses'
   const loaded = loadReferenced(entry, 'CourseImplementation');
   if (!loaded) continue;
   const {file, value: course} = loaded;
+  schemaFail(file, courseSchema, course);
   for (const key of requiredCourse) if (!(key in course)) fail(`${file} 缺少字段 ${key}`);
   if (!course.id || seenCourseIds.has(course.id)) fail(`${file} CourseImplementation id 缺失或重复: ${course.id}`);
   seenCourseIds.add(course.id);
@@ -126,6 +142,7 @@ for (const entry of loadManifestItems('content/experiences/manifest.json', 'expe
   if (!loaded) continue;
   experienceCount += 1;
   const {file, value: experience} = loaded;
+  schemaFail(file, experienceSchema, experience);
   for (const key of requiredExperience) if (!(key in experience)) fail(`${file} 缺少字段 ${key}`);
   if (experience.schemaVersion !== 1) fail(`${file} schemaVersion 必须为 1`);
   if (!knowledgeExists(experience.knowledgeNode)) fail(`${file} knowledgeNode 不存在: ${experience.knowledgeNode}`);
@@ -135,5 +152,22 @@ for (const entry of loadManifestItems('content/experiences/manifest.json', 'expe
   for (const key of ['hardestParts','mostValuableParts','recommendedPreparation','advice']) if (!Array.isArray(experience[key])) fail(`${file} ${key} 必须是数组`);
 }
 
+// 学习路径：standard 为 2 的路径逐节点统计达标情况；status 为 published 时必须全部达标且经维护者审阅。
+for (const [key, route] of Object.entries(catalog.paths || {})) {
+  if (route.standard !== 2) continue;
+  const rows = route.nodes.map(id => {
+    const node = nodes.find(n => n.id === id);
+    const page = [...pagesBySlug.values()].find(p => clean(p.title) === clean(node?.title));
+    const ok = page?.schemaVersion === 2 && checkPage(page, { root, node }).every(r => r.ok);
+    return { id, ok, reviewed: ['reviewed', 'published'].includes(page?.status), template: TEMPLATE_SUMMARY.test(node?.summary || '') };
+  });
+  const done = rows.filter(r => r.ok).length;
+  console.log(`PATH ${key}（${route.title}）：${done}/${rows.length} 个节点达到内容标准，${rows.filter(r => r.reviewed).length} 个已审阅；仍为模板摘要：${rows.filter(r => r.template).map(r => r.id).join('、') || '无'}`);
+  if (route.status === 'published') for (const r of rows) {
+    if (!r.ok) fail(`已发布路径 ${key} 的节点 ${r.id} 未达到内容标准`);
+    if (!r.reviewed) fail(`已发布路径 ${key} 的节点 ${r.id} 尚未经维护者审阅（status 需为 reviewed 或 published）`);
+  }
+}
+
 if (errors) process.exit(1);
-console.log(`PASS: ${seenSlugs.size} 个知识页面、${seenCourseIds.size} 个课程实现、${experienceCount} 条学习经验通过校验；图谱包含 ${nodes.length} 个节点。`);
+console.log(`PASS: ${seenSlugs.size} 个知识页面（其中 ${checkedPages} 个通过新版检查清单）、${seenCourseIds.size} 个课程实现、${experienceCount} 条学习经验通过校验；图谱包含 ${nodes.length} 个节点。`);

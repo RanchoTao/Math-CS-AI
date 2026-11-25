@@ -4,12 +4,15 @@
   "private": true,
   "description": "Math · CS · AI 公共知识地图：纯静态站点，没有运行时依赖。",
   "type": "module",
-  "engines": { "node": ">=20" },
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "serve": "python3 -m http.server 8000",
     "validate": "node scripts/validate-content.mjs",
     "test": "node --test \"tests/**/*.test.mjs\"",
     "check": "npm run validate && npm test",
-    "brief": "node scripts/node-brief.mjs"
+    "brief": "node scripts/node-brief.mjs",
+    "checklist": "node scripts/checklist.mjs"
   }
 }
