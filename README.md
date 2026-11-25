@@ -163,10 +163,11 @@ node --test tests/knowledge-content.test.mjs
 ## 本地运行
 
 ```bash
-python -m http.server 8000
+npm run serve      # 等同于 python3 -m http.server 8000
+npm run check      # 内容与图谱校验 + 测试
 ```
 
-打开 `http://localhost:8000`。网站是纯静态页面，没有构建步骤。
+打开 `http://localhost:8000`。网站是纯静态页面，没有构建步骤，也没有运行时依赖；`package.json` 只登记校验和测试脚本。
 
 ## 代码结构
 
@@ -180,7 +181,6 @@ assets/fonts/         自托管字体：Instrument Serif、Noto Serif SC 子集�
 data/catalog.json     图谱唯一事实源：节点、学科群、示例路线、培养方案图层
 ```
 
-`src/` 下是早期的 Next.js 原型，当前不参与部署。
 
 ## 地图的三种模式
 
