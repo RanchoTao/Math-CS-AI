@@ -354,7 +354,7 @@
     },
     {
       "id": "DL-H",
-      "sourceType": "论文",
+      "sourceType": "其他",
       "title": "[DL-H] He、Zhang、Ren、Sun《Delving Deep into Rectifiers》，arXiv:1502.01852，§2.2 初始化",
       "institution": "Microsoft Research",
       "url": "https://arxiv.org/pdf/1502.01852",
