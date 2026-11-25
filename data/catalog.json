@@ -4427,7 +4427,7 @@
    "cluster": "a-deep",
    "stage": 2,
    "type": "course",
-   "summary": "神经网络的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "summary": "从感知机（perceptron）到多层感知机（multilayer perceptron，MLP），计算全连接前馈网络（fully connected feedforward network）的输出，并用反向传播（backpropagation）手算两层网络的梯度。用梯度检查（gradient checking）核对实现，再用独立验证集（validation set）诊断训练误差与验证误差的差异。",
    "prerequisites": [
     "machine-learning",
     "multivariable-calculus",
