@@ -4448,7 +4448,7 @@
    "cluster": "a-deep",
    "stage": 3,
    "type": "course",
-   "summary": "深度学习的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "summary": "把神经网络加深后，追踪信号和梯度（gradient）在各层的尺度。学完能选择初始化（initialization）、归一化（normalization）、正则化（regularization）和优化器（optimizer），并用残差连接（residual connection）与对照实验诊断训练故障。",
    "prerequisites": [
     "neural-networks",
     "optimization-for-ml",

@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "slug": "deep-learning",
   "title": "深度学习",
   "aliases": [],
@@ -8,6 +8,101 @@
   "kind": "course",
   "summary": "把神经网络加深后，追踪信号和梯度（gradient）在各层的尺度。学完能选择初始化（initialization）、归一化（normalization）、正则化（regularization）和优化器（optimizer），并用残差连接（residual connection）与对照实验诊断训练故障。",
   "why": "后续的序列模型和 Transformer 都要面对深层表示（deep representation）如何训练、该保存哪个检查点的问题。本页承接神经网络的前向与反向计算，在小型深层前馈网络中考察训练机制，架构专门化由各后续节点展开。开始前可自测：能否写出两层网络的权重梯度与形状，能否用自动微分（automatic differentiation）和手算核对一个参数的梯度，再计算一次小批量梯度更新。先读 [DL-D] 的公式和实现，再用 [DL-S2]、[DL-S3] 的诊断建议找证据，逐题完成 DL-E01–DL-E12，最后对照解析和参考结果。习题和完成门槛是本项目编写的草稿（draft），学校作业与评分标准另见各课程官网。",
+  "lesson": {
+    "intuition": "把网络加深，就是把很多层的变换连乘起来。连乘最怕的是每一层都把信号放大一点或缩小一点：乘上几十次，前向的激活会爆掉或缩没，反向的梯度也一样，于是靠前的层几乎学不到东西。深度学习里的很多“技巧”其实都在管这件事。初始化决定开始时每层把信号缩放多少——He 初始化按输入个数和 ReLU 只保留一半的特点算出权重方差，让每层输出的方差在开始时大致不变；归一化层在训练中不断把每层的输出拉回到固定尺度；残差连接让每层只学“在输入上改多少”，即使这部分学得很差，信号和梯度也能沿恒等捷径直接通过。剩下的事交给优化器（动量、Adam 调整每一步走多远）和正则化（权重衰减、随机失活限制模型去死记训练集）。判断这些选择是否有效，要靠固定其余条件的对照实验，而不是一次训练曲线。",
+    "definitions": [
+      {
+        "term": "He 初始化",
+        "english": "He (Kaiming) initialization",
+        "statement": "对 ReLU 网络，若第 l 层的权重零均值独立、方差满足 ½·nₗ·Var[wₗ]=1（nₗ 为该层每个输出连接的输入个数），则各层响应的方差在初始化时保持不变；即用标准差为 √(2/nₗ) 的零均值高斯分布初始化，偏置取 0。",
+        "cite": {
+          "source": "DL-H",
+          "at": "§2.2 式 (10)"
+        }
+      },
+      {
+        "term": "残差块",
+        "english": "residual building block",
+        "statement": "y=F(x,{Wᵢ})+x，其中 F 是要学习的残差映射（如 F=W₂σ(W₁x)），F+x 通过恒等捷径和逐元素相加实现；捷径不增加参数和计算量，要求 x 与 F 的维度相同。",
+        "cite": {
+          "source": "DL-R",
+          "at": "§3.2 式 (1)"
+        }
+      },
+      {
+        "term": "层响应的方差递推",
+        "english": "variance of layer responses",
+        "statement": "对 yₗ=Wₗxₗ+bₗ，若 xₗ 的各元素独立同分布、与零均值的 Wₗ 独立，则 Var[yₗ]=nₗVar[wₗ]E[xₗ²]，其中 E[xₗ²] 是输入元素平方的期望，而不是方差。",
+        "cite": {
+          "source": "DL-H",
+          "at": "§2.2 式 (7)"
+        }
+      }
+    ],
+    "derivation": {
+      "title": "He 初始化：为什么是 2/n",
+      "claim": "在 ReLU 网络中，若 ½·nₗ·Var[wₗ]=1 对每层成立，则 Var[y_L]=Var[y₁]，前向信号的方差不随深度衰减或放大。",
+      "assumptions": [
+        "xₗ 的元素独立同分布，且与 Wₗ 独立",
+        "wₗ 零均值、关于 0 对称，偏置为 0",
+        "xₗ=ReLU(yₗ₋₁)"
+      ],
+      "steps": [
+        "单个响应 yₗ=Σᵢ wᵢxᵢ 是 nₗ 个独立项之和，方差相加：Var[yₗ]=nₗVar[wₗxₗ]。",
+        "w 与 x 独立且 E[w]=0：Var[wx]=E[w²x²]−(E[w]E[x])²=E[w²]E[x²]=Var[w]E[x²]。于是 Var[yₗ]=nₗVar[wₗ]E[xₗ²]。注意这里是 E[x²]，ReLU 输出均值不为 0，不能写成 Var[x]。",
+        "求 E[xₗ²]：wₗ₋₁ 关于 0 对称且偏置为 0，所以 yₗ₋₁ 均值为 0、分布关于 0 对称。ReLU 把负半边置零、保留正半边，平方的期望恰好剩一半：E[xₗ²]=½E[yₗ₋₁²]=½Var[yₗ₋₁]。",
+        "代回：Var[yₗ]=½·nₗ·Var[wₗ]·Var[yₗ₋₁]。",
+        "逐层连乘：Var[y_L]=Var[y₁]·∏ₗ₌₂ᴸ(½·nₗ·Var[wₗ])。要让这个乘积不随 L 指数增长或衰减，充分条件是每个因子都等于 1，即 Var[wₗ]=2/nₗ。"
+      ],
+      "conclusion": "ReLU 会把二阶矩砍掉一半，所以权重方差要比线性网络的 1/n 多一倍，取 2/nₗ。这是初始化时、在独立性假设下的论证，不保证训练过程中方差保持不变。",
+      "cite": {
+        "source": "DL-H",
+        "at": "§2.2 式 (7)–(10)"
+      }
+    },
+    "example": {
+      "title": "十层 ReLU 网络里的信号还剩多少",
+      "problem": "每层宽度 n=256，偏置为 0，输入第一层响应的方差 Var[y₁]=1。比较两种权重方差：Var[w]=1/n（只按输入个数缩放）与 Var[w]=2/n（He 初始化）。到第 10 层时 Var[y₁₀] 约为多少？",
+      "steps": [
+        "由推导第 4 步，每过一层方差乘以因子 ½·n·Var[w]。",
+        "Var[w]=1/n：因子是 ½·256·(1/256)=1/2。从第 2 层到第 10 层共 9 个因子，Var[y₁₀]=(1/2)⁹=1/512≈0.00195。",
+        "Var[w]=2/n：因子是 ½·256·(2/256)=1，Var[y₁₀]=1。",
+        "换成标准差：前者约 0.044，信号缩小到原来的 4% 左右；后者保持在 1 附近。"
+      ],
+      "answer": "Var[w]=1/n 时 Var[y₁₀]≈0.00195，He 初始化时 Var[y₁₀]≈1。",
+      "check": "用 NumPy 构造宽 256 的十层 ReLU 网络，输入 2000 个标准正态样本，测第 10 层响应的经验方差：Var[w]=1/n 时约 0.0019；He 初始化时对 20 个随机网络取平均约 0.97，单个网络在 0.6 到 1.7 之间波动。理论值是对权重取期望的结果，单个有限宽度网络会有偏差。",
+      "cite": {
+        "source": "DL-H",
+        "at": "§2.2 式 (8)–(9)"
+      }
+    },
+    "misconceptions": [
+      {
+        "wrong": "把所有权重初始化为 0 最安全。",
+        "right": "同一层的隐藏单元若初始参数完全相同，它们收到的梯度也相同，更新后仍然相同，网络永远只相当于一个单元。必须用随机初始化打破对称。"
+      },
+      {
+        "wrong": "更深的网络训练误差反而更高，说明它过拟合了。",
+        "right": "过拟合表现为训练误差低而验证误差高。ResNet 论文观察到的退化现象是更深的普通网络训练误差本身就更高，属于优化困难，不是过拟合；残差连接正是为解决这个问题提出的。",
+        "cite": {
+          "source": "DL-R",
+          "at": "§1 引言"
+        }
+      },
+      {
+        "wrong": "用了 He 初始化，训练全程每层的方差都会保持稳定。",
+        "right": "推导只在初始化时、在权重与输入独立、权重对称等假设下成立。训练开始后权重与数据相关，这些假设不再成立，所以还需要归一化、合适的学习率等手段。",
+        "cite": {
+          "source": "DL-H",
+          "at": "§2.2"
+        }
+      },
+      {
+        "wrong": "随机失活在推理时也要随机丢弃神经元，再把结果取平均。",
+        "right": "常用的“倒置”失活在训练时把保留下来的激活除以保留概率 q，使期望不变；推理时直接使用完整网络、不再丢弃，也不需要再缩放。"
+      }
+    ]
+  },
   "learningObjectives": [
     "证明等参数隐单元在对称更新下仍同质，并在给定层宽及输入二阶矩（second moment）时算出 Xavier 与 He 初始化的尺度。",
     "用层雅可比矩阵（Jacobian matrix）的乘积解释深层梯度消失与爆炸（vanishing and exploding gradients），并计算简单网络的前向尺度和梯度比。",
@@ -199,6 +294,7 @@
   },
   "sources": [
     {
+      "id": "DL-D",
       "sourceType": "教材",
       "title": "[DL-D] Dive into Deep Learning 1.0.3：§3.7、§5.4、§5.6、§8.5–8.6、§12.5–12.6、§12.10–12.11",
       "url": "https://en.d2l.ai/",
@@ -206,6 +302,7 @@
       "checkedAt": "2026-11-24"
     },
     {
+      "id": "DL-G",
       "sourceType": "教材",
       "title": "[DL-G] Goodfellow、Bengio、Courville《Deep Learning》：第 7–8 章",
       "institution": "MIT Press",
@@ -214,6 +311,7 @@
       "checkedAt": "2026-11-24"
     },
     {
+      "id": "DL-S2",
       "sourceType": "教师讲义",
       "title": "[DL-S2] Stanford CS231n Neural Networks Part 2：Weight Initialization、Batch Normalization、Regularization",
       "institution": "Stanford University",
@@ -222,6 +320,7 @@
       "checkedAt": "2026-11-24"
     },
     {
+      "id": "DL-S3",
       "sourceType": "教师讲义",
       "title": "[DL-S3] Stanford CS231n Neural Networks Part 3：训练监控、小批量更新与超参数选择",
       "institution": "Stanford University",
@@ -230,6 +329,7 @@
       "checkedAt": "2026-11-24"
     },
     {
+      "id": "DL-N",
       "sourceType": "其他",
       "title": "[DL-N] Ba、Kiros、Hinton《Layer Normalization》，arXiv:1607.06450v1，§3",
       "url": "https://arxiv.org/html/1607.06450v1",
@@ -237,18 +337,29 @@
       "checkedAt": "2026-11-24"
     },
     {
+      "id": "DL-R",
       "sourceType": "其他",
       "title": "[DL-R] He 等《Deep Residual Learning for Image Recognition》，arXiv:1512.03385v1，§3.1–3.2",
       "url": "https://arxiv.org/html/1512.03385v1",
       "verification": "已核验",
-      "checkedAt": "2026-11-24"
+      "checkedAt": "2026-11-25"
     },
     {
+      "id": "DL-W",
       "sourceType": "其他",
       "title": "[DL-W] Loshchilov、Hutter《Decoupled Weight Decay Regularization》，arXiv:1711.05101，§2",
       "url": "https://arxiv.org/html/1711.05101",
       "verification": "已核验",
       "checkedAt": "2026-11-24"
+    },
+    {
+      "id": "DL-H",
+      "sourceType": "论文",
+      "title": "[DL-H] He、Zhang、Ren、Sun《Delving Deep into Rectifiers》，arXiv:1502.01852，§2.2 初始化",
+      "institution": "Microsoft Research",
+      "url": "https://arxiv.org/pdf/1502.01852",
+      "verification": "已核验",
+      "checkedAt": "2026-11-25"
     }
   ]
 }
