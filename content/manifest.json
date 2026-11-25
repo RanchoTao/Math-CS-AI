@@ -42,6 +42,66 @@
       "title": "概率论",
       "aliases": [],
       "path": "./content/pages/probability.json"
+    },
+    {
+      "slug": "calculus",
+      "title": "微积分",
+      "aliases": [],
+      "path": "./content/pages/calculus.json"
+    },
+    {
+      "slug": "programming-fundamentals",
+      "title": "程序设计基础",
+      "aliases": [],
+      "path": "./content/pages/programming-fundamentals.json"
+    },
+    {
+      "slug": "data-structures",
+      "title": "数据结构",
+      "aliases": [],
+      "path": "./content/pages/data-structures.json"
+    },
+    {
+      "slug": "neural-networks",
+      "title": "神经网络",
+      "aliases": [],
+      "path": "./content/pages/neural-networks.json"
+    },
+    {
+      "slug": "deep-learning",
+      "title": "深度学习",
+      "aliases": [],
+      "path": "./content/pages/deep-learning.json"
+    },
+    {
+      "slug": "sequence-models",
+      "title": "序列模型",
+      "aliases": [],
+      "path": "./content/pages/sequence-models.json"
+    },
+    {
+      "slug": "attention-mechanisms",
+      "title": "注意力机制",
+      "aliases": [],
+      "path": "./content/pages/attention-mechanisms.json"
+    },
+    {
+      "slug": "transformer",
+      "title": "Transformer",
+      "aliases": [],
+      "path": "./content/pages/transformer.json"
+    },
+    {
+      "slug": "self-supervised-learning",
+      "title": "自监督学习",
+      "aliases": [],
+      "path": "./content/pages/self-supervised-learning.json"
+    },
+    {
+      "slug": "foundation-models",
+      "title": "基础模型",
+      "aliases": [],
+      "path": "./content/pages/foundation-models.json"
     }
   ]
 }

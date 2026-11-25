@@ -1,0 +1,234 @@
+{
+  "schemaVersion": 1,
+  "slug": "programming-fundamentals",
+  "title": "程序设计基础",
+  "aliases": [],
+  "tier": "标准页",
+  "status": "draft",
+  "kind": "course",
+  "summary": "用 Python 3 把明确的规则写成可运行的小程序。学完后能追踪变量（variable）和控制流（control flow），用函数（function）与模块（module）拆分任务，并用给定输入复核输出。",
+  "why": "过程式编程中的任务拆分和数据结构中的列表（list）遍历，都依赖读得懂状态变化、写得出返回值（return value）明确的小函数。本页覆盖单个小程序的表达式（expression）、分支、循环（loop）、基本容器、函数、模块和文本输入输出（input/output, I/O）。数据结构节点再研究不同容器和算法的代价，调试与测试基础再系统讨论怎样定位故障和设计测试。入门自检可以在纸上做，把「从 2 开始，每次加 3，第一次达到或超过 8 时停」逐步写出来，并指出初始值与结果。先读公开课讲义或开放教材，运行其中的短例子，再做 PF-E01–E12 并核对解析。习题与完成门槛由本项目编写，目前是 draft。各学校的作业和评分标准以其官方材料为准。",
+  "learningObjectives": [
+    "逐行追踪一个含整数（integer）和字符串（string）的 Python 片段，记录赋值（assignment）后的值与类型，并预测打印内容。",
+    "根据互斥的收费区间编写条件分支（conditional branch），独立检查阈值处及阈值两侧的输出。",
+    "用 for 遍历有限序列，用 while 实现首次达到目标的过程，并指出每步更新的状态和停止条件。",
+    "把计算写成接受参数、返回结果的函数，区分返回值与打印输出，并从另一文件导入它。",
+    "对字符串列表做清洗和筛选，再用字典（dictionary）按键累加，检查顺序、重复项和空输入约定。",
+    "从终端或 UTF-8 文本读取数据，分开处理非法输入、合法的零值和正常结果。",
+    "为短程序构造常规、边界和空输入用例，根据失败输出定位控制流错误并再次运行。"
+  ],
+  "coreTopics": [
+    "值、类型、变量与表达式",
+    "布尔表达式与条件分支",
+    "有限遍历、循环状态与停止条件",
+    "函数参数、返回值与局部变量",
+    "字符串、列表与字典",
+    "文本输入输出与异常处理",
+    "模块导入与脚本入口",
+    "测试用例（test case）、手工追踪与调试"
+  ],
+  "syllabus": [
+    {
+      "title": "值、变量和表达式 [PF1, PF2, PF3]",
+      "topics": [
+        "赋值先求右边表达式的值，再把左边的名字绑定到结果，后续重新赋值时不会重新计算先前的表达式。",
+        "整数上的 // 与 % 给出商和余数，字符串的 + 连接文本，数字与文本拼接前需要显式转换。",
+        "阅读 [PF1] 第 0 周、[PF2] Part 1 第 2–4 节或 [PF3] 第 2 章，完成 PF-E01–E02。"
+      ]
+    },
+    {
+      "title": "布尔表达式与分支 [PF1, PF2, PF3]",
+      "topics": [
+        "布尔值（Boolean）记录条件是真是假，可以用 and、or 与 not 组合，条件分支按顺序判断并执行第一个成立的 if／elif 分支。",
+        "把区间端点写进条件并逐个试算，留意两个独立的 if 可以连续执行，if／elif 链最多选择一个分支。",
+        "阅读 [PF1] 第 1 周、[PF2] Part 2 第 2–3 节或 [PF3] 第 5 章的条件语句部分，完成 PF-E03。"
+      ]
+    },
+    {
+      "title": "循环、状态与停止条件 [PF1, PF2, PF3]",
+      "topics": [
+        "循环用 for 遍历序列中的各项，或用 while 在条件为真时重复执行，累加器（accumulator）应在循环外初始化，在循环内逐步更新。",
+        "识别计数与求和的不同更新规则，并在预先读到终止标记（sentinel）时先检查标记再累加，并指出 while 的条件在什么变化后会变假。",
+        "阅读 [PF1] 第 2 周、[PF2] Part 3 第 1、3 节及 Part 4 第 4 节，或 [PF3] 第 7 章的迭代部分，完成 PF-E04–E05。"
+      ]
+    },
+    {
+      "title": "函数、局部名字与返回值 [PF1, PF2, PF3]",
+      "topics": [
+        "函数通过参数（parameter）接收实参（argument），把计算中间值写入局部变量（local variable），用 return 结束当前调用并交回结果。",
+        "调用方可以把返回值用于下一步计算，print 写出可见文字，函数执行到末尾而没有 return 时自动返回 None。",
+        "阅读 [PF1] 第 0 周的函数部分、[PF2] Part 3 第 4 节及 Part 4 第 2 节，或 [PF3] 第 6 章，完成 PF-E06。"
+      ]
+    },
+    {
+      "title": "字符串、列表与按键汇总 [PF1, PF2, PF3]",
+      "topics": [
+        "字符串和列表都可按顺序遍历，字符串方法返回新值，列表可以原地追加，若输入应保持原状，可新建列表逐项追加结果。",
+        "字典按键（key）查找，列表按位置查找，用字典累加时要明确新键的初始值，保留出现过但总量为零的键。",
+        "阅读 [PF1] 第 2 周的列表与字典部分、[PF2] Part 4 第 3、6 节和 Part 5 第 2–4 节，或 [PF3] 第 8 章的字符串部分及第 9–11 章，完成 PF-E07–E08。"
+      ]
+    },
+    {
+      "title": "文本输入输出与异常 [PF1, PF2, PF3]",
+      "topics": [
+        "输入输出连接程序和外部数据，input() 读入文本，print() 输出文本，打开已知编码的文本文件后可以逐行处理。",
+        "用 try／except 捕获预期的转换异常（exception），把转换失败、转换成功但值不合规则、合法零值分开计入结果。",
+        "阅读 [PF1] 第 3、6 周、[PF2] Part 6 第 1、3 节，或 [PF3] 第 13 章的文件部分，完成 PF-E09 和 PF-E11。"
+      ]
+    },
+    {
+      "title": "模块与可导入的程序 [PF1, PF2, PF4]",
+      "topics": [
+        "将可复用函数放入单独的 .py 文件，再通过 import 导入，顶层语句可以在导入时运行，因此应把交互放进 main()。",
+        "用 if __name__ == '__main__' 控制脚本入口（entry point），直接运行时调用 main()，从别处导入时则能独立使用函数。",
+        "阅读 [PF1] 第 4 周、[PF2] Part 7 第 1、5 节或 [PF4] 第 6.1.1 节，完成 PF-E10 并复用函数做 PF-E11。"
+      ]
+    },
+    {
+      "title": "小用例与故障定位 [PF1, PF2]",
+      "topics": [
+        "测试用例由具体输入和可比较的期望结果组成，可用断言（assertion）assert 在结果不符时报告失败，常见用例包括普通输入、临界值和空输入。",
+        "逐轮记录变量可以定位故障，包括 return 缩进造成的提前退出，修复后应重跑原先通过和曾经失败的用例。",
+        "阅读 [PF1] 第 5 周的断言部分或 [PF2] Part 4 第 1 节的调试（debugging）部分，完成 PF-E12。"
+      ]
+    },
+    {
+      "title": "节点边界与后续阅读",
+      "topics": [
+        "本页的列表和字典用于遍历与汇总，容器的实现、选型代价及更一般的搜索算法交给数据结构与算法思维。",
+        "本页只用顺序、分支和循环组织小程序，过程式编程继续扩展函数之间的组织，递归与分治思维另行讲授自调用。",
+        "复看 [PF3] 第 6–7 章的返回值和迭代部分，用 PF-E10–E12 核对调用、停止与用例三项。"
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "type": "公开课",
+      "title": "[PF1] Harvard CS50P：第 0–6 周讲义与练习入口",
+      "institution": "Harvard University",
+      "url": "https://cs50.harvard.edu/python/",
+      "verification": "已核验"
+    },
+    {
+      "type": "公开课",
+      "title": "[PF2] 赫尔辛基大学 Python Programming MOOC 2025：入门 Parts 1–7",
+      "institution": "University of Helsinki",
+      "url": "https://programming-25.mooc.fi/",
+      "verification": "已核验"
+    },
+    {
+      "type": "主教材",
+      "title": "[PF3] Think Python 第 3 版：变量、流程、函数和基本容器",
+      "author": "Allen B. Downey",
+      "url": "https://allendowney.github.io/ThinkPython/",
+      "verification": "已核验"
+    },
+    {
+      "type": "官方文档",
+      "title": "[PF4] Python 3 官方教程：控制流、模块、文件和异常速查",
+      "institution": "Python Software Foundation",
+      "url": "https://docs.python.org/3/tutorial/index.html",
+      "verification": "已核验"
+    }
+  ],
+  "exercises": [
+    {
+      "type": "基础题",
+      "description": "PF-E01｜题目：按顺序执行 count = 4、unit = 3、subtotal = count * unit、count = count + 1、print(str(count) + ':' + str(subtotal))。预测输出，并写出打印前 count 与 subtotal 的类型和值。\n解析：前三句令 count、unit、subtotal 分别是整数 4、3、12。第四句只把 count 重新绑定为整数 5，subtotal 仍是整数 12。str 把两个值转成文本，再连接冒号，因此输出一行 5:12。\n掌握检查：逐行写出发生变化的名字，解释打印前重新计算 count * unit 为 15，原先的 subtotal 仍为 12。"
+    },
+    {
+      "type": "编程题",
+      "description": "PF-E02｜题目：用 Python 实现 split_duration(total_seconds)，把非负整数秒数换成三元组 (小时, 分钟, 秒)，小时不限于 0–23。给 0、3661、90061 秒，期望返回 (0, 0, 0)、(1, 1, 1)、(25, 1, 1)。\n解析：先取 hours = total_seconds // 3600 与 rest = total_seconds % 3600，再取 minutes = rest // 60 与 seconds = rest % 60，返回 (hours, minutes, seconds)。例如 90061 = 25 × 3600 + 61，61 = 1 × 60 + 1。\n掌握检查：验证 3599 秒得到 (0, 59, 59)，3600 秒得到 (1, 0, 0)，且 3600 * hours + 60 * minutes + seconds 等于原值。"
+    },
+    {
+      "type": "编程题",
+      "description": "PF-E03｜题目：写 Python 函数 pickup_fee(minutes)，输入非负整数分钟，返回费用，单位为分，结果为整数。0 分钟免费，1–30 分钟为 200 分，31–90 分钟为 500 分，91 分钟起为 800 分。对 0、1、30、31、90、91 给出结果。\n解析：依次判断 minutes == 0、minutes <= 30、minutes <= 90，成立时分别返回 0、200、500，最后返回 800。较宽区间放在后面，六个输入对应 0、200、200、500、500、800。\n掌握检查：六个边界输入全部通过，明确 30 和 90 分别归属哪个区间，并检查是否把 0 分钟误计为 200 分。"
+    },
+    {
+      "type": "编程题",
+      "description": "PF-E04｜题目：写 Python 函数 sum_until_stop(values)。输入是由非负整数和停止标记 -1 组成的列表，返回第一个 -1 之前的 (项数, 总和)，无标记就遍历完整列表。对 [4, 0, 7, -1, 99] 返回 (3, 11)，对 [] 返回 (0, 0)。\n解析：在 for 循环前把 count 和 total 置零。每轮先判断 value == -1，成立就 break，否则执行 count += 1 和 total += value。返回二元组。样例恰好加过 4、0、7 三项，检测标记时状态仍是 (3, 11)。\n掌握检查：检查 [-1, 4] 得 (0, 0)，[0, 2] 得 (2, 2)。0 算作有效一项，-1 与其后的记录都不计。"
+    },
+    {
+      "type": "编程题",
+      "description": "PF-E05｜题目：写 Python 函数 steps_to_target(start, daily, target)，三个参数都是整数，daily > 0。每天增加 daily，返回首次达到或超过目标时的 (天数, 最终值)。输入 (12, 7, 30) 得 (3, 33)，输入 (30, 7, 30) 得 (0, 30)。\n解析：令 days = 0、value = start。只要 value < target 就依次执行 value += daily 和 days += 1，循环结束返回 (days, value)。样例依次走到 19、26、33。每天有正增量，所以初值较小时也会在有限天数内达到阈值。\n掌握检查：再查 (12, 6, 30) 得 (3, 30)，避免用 <= 导致恰好达标时多一次循环。对任意有步数的返回值，最后一次增加前的值必须低于目标。"
+    },
+    {
+      "type": "基础题",
+      "description": "PF-E06｜题目：定义两个 Python 函数。show_total(price, qty) 的函数体是 print(price * qty)，line_total(price, qty) 的函数体是 return price * qty。依次执行 a = show_total(7, 3)、b = line_total(7, 3)、print(a, b)，预测输出。\n解析：调用 show_total 时会打印 21，函数执行到末尾交回 None，故 a 是 None。line_total 把 21 交给调用方且不打印，b 为 21。最后的 print 再输出 None 21，因此总共两行，先是 21，再是 None 21。若只想计算两倍金额，可写 2 * line_total(7, 3)，结果是 42。\n掌握检查：指出哪一次函数调用打印了内容，哪一次提供了可继续计算的整数。"
+    },
+    {
+      "type": "编程题",
+      "description": "PF-E07｜题目：用 Python 写 clean_labels(labels)，输入由 ASCII 字符串组成的列表。去掉每个标签两端的空白、转小写并丢弃空项，保留其余标签的顺序和重复次数，原列表保持原样。示例 [' A1 ', '', '  b2', 'A1', ' '] 返回 ['a1', 'b2', 'a1']。\n解析：新建空结果列表，逐个用 label.strip().lower() 得到新字符串。若清洗结果不等于 ''，用 append 加入结果列表，最后返回结果。示例中第二和第五项变为空，第一与第四项分别追加同一个文本 a1。\n掌握检查：检查 [] 返回 []，处理前后的输入逐项相同，输出中 a1 仍出现两次。"
+    },
+    {
+      "type": "编程题",
+      "description": "PF-E08｜题目：写 Python 函数 by_room(rows)，rows 是由 (房间名, 非负整数计数) 二元组组成的列表。返回房间名到累计计数的字典。对 [('A', 3), ('B', 4), ('A', 2), ('C', 0)]，期望 {'A': 5, 'B': 4, 'C': 0}。对 [] 期望 {}。\n解析：新建字典 totals，每次遍历到 (room, count) 时执行 totals[room] = totals.get(room, 0) + count。get 在键未出现时给出 0。第二个 A 把 3 更新成 5，C 也创建字典项，值为 0。返回 totals。\n掌握检查：用同一个键的两个正计数检查是否发生覆盖，确认各房间计数相加等于输入的计数之和，且总量为零的 C 仍在结果中。"
+    },
+    {
+      "type": "编程题",
+      "description": "PF-E09｜题目：写 Python 函数 parse_quantity(text)，输入是字符串。若 int(text) 得到非负整数，就返回该整数。转换失败或值小于 0 都返回 None。' 03 '、'0'、'2.0'、'-1'、'' 依次应得 3、0、None、None、None。\n解析：在 try 中用 value = int(text) 转换，except ValueError 时返回 None。转换成功后检查 value < 0，成立就返回 None，否则返回 value。int(' 03 ') 得到 3，int('2.0') 无法直接把小数文本转换成整数。\n掌握检查：用 value is None 判定无效值。仅用 if not value 会把有效的 0 也当作无效。"
+    },
+    {
+      "type": "编程题",
+      "description": "PF-E10｜题目：用两个 Python 文件复用 PF-E09。把 parse_quantity 放在 quantities.py，demo.py 导入它并读取一行输入。合法值输出 qty=数值，非法值输出 invalid。直接运行 demo.py，输入 '0' 或 '2.0' 时应分别只输出 qty=0 或 invalid。单独 import demo 时无输出、不读输入。\n解析：quantities.py 只定义解析函数。demo.py 用 from quantities import parse_quantity 导入，在 main() 中将 input() 的结果交给 parse_quantity，然后用 is None 选择两种输出，合法的分支可用 print(f'qty={value}')。将 main() 的调用放在 if __name__ == '__main__' 条件体内。\n掌握检查：在两个独立 Python 进程中分别运行和导入。检查脚本不输出提示文字，导入不会等待输入。"
+    },
+    {
+      "type": "编程题",
+      "description": "PF-E11｜题目：用 Python 写 summarize_file(filename)，逐行读已存在的 UTF-8 文本文件，空白行忽略，其余行交给 PF-E09 的函数判断。返回 (合法行数, 合法数量之和, 非法行数)。文件依次写入 3、空行、bad、两侧带空格的 2、-1、0，各占一行，期望 (3, 5, 2)。\n解析：用 with open(filename, encoding='utf-8') as stream，再 for line in stream 逐行读。line.strip() == '' 时 continue。其余行传入 parse_quantity，若返回 None 则非法数加一，否则合法数加一并将值累加。三个计数初始为零，遍历结束后返回。样例有效值 3、2、0 之和是 5，bad 与 -1 各算一次非法。\n掌握检查：再测空文件与只有空白行的文件都返回 (0, 0, 0)，确保忽略的空白行没有被算作出错，并核对 0 的行计数。"
+    },
+    {
+      "type": "实验题",
+      "description": "PF-E12｜题目：用 Python 排查一个计数函数。count_window(values, low, high) 的输入为整数列表和两个整数边界，应该返回满足 low <= value < high 的项数。某实现把 hits 初始化为 0，在 for 中遇到合格项就 hits += 1，却把 return hits 放在 for 循环体内、与 if 同级。运行空列表及 [9, 10, 14, 15, 10]，low=10、high=15，记录故障后修改缩进并用断言复测。\n解析：空列表让原函数直接走到末尾，返回 None。样例第一项 9 未命中，原函数在第一轮就返回 0。将 return hits 移到 for 之后，使整个列表都被检查，空列表返回 0，样例的 10、14、10 被计入，返回 3。另用只含 10 与只含 15 的列表检查左闭右开，期望分别为 1 与 0。\n掌握检查：保存同一批断言在修复前后的运行结果，包含一个原本就通过的用例，如 [10]，以及至少一个能暴露提前返回的用例。"
+    }
+  ],
+  "projects": [
+    {
+      "title": "领用记录汇总器",
+      "description": "用两个 Python 文件读取已存在的 UTF-8 文本。每条非空记录的格式为「类别,数量」，类别去掉两端空白后须非空，数量沿用 PF-E09。跳过空行，记录非法行的行号。按类别累计数量并按类别名排序输出，最后输出非法行号清单。用一份涵盖重复类别、合法零值、空行和非法记录的输入核对完整输出，再用空文件复测。",
+      "deliverable": "解析模块、可运行脚本、两份输入及各自的期望输出、实际输出和一条复现命令。"
+    },
+    {
+      "title": "计数程序的错误档案（选做）",
+      "description": "扩展 PF-E12，另造一个边界比较错误和一个循环内重置计数的错误。每种故障给出一个最小失败输入，标出实际值偏离期望值的第一轮，再把这两个用例加入修复后保留的断言。",
+      "deliverable": "三份故障片段及修复、可运行的断言脚本、失败输入与追踪表。"
+    }
+  ],
+  "completion": {
+    "basic": "独立完成 PF-E01–E12 中至少 9 题，其中至少 6 道编程题可运行，且 PF-E03 的六个边界、PF-E06 的返回值和输出、PF-E09 的零值与非法值必须正确。每道完成的编程题保留输入、期望结果和实际结果。",
+    "proficient": "独立完成 PF-E01–E12 全部题目，交付能直接运行和导入的 PF-E10、PF-E11，再完成领用记录汇总器或从 [PF2] Parts 3–6 独立完成两道未见编程题并复核用例。",
+    "researchReady": "完成 PF-E12 并复做 PF-E10–E11。能让别人跑出同一结果，能从失败例指出错在哪一轮，并写出有限用例仍未覆盖的情况。可以进入过程式编程、调试与测试基础或数据结构等后续学习。完成结果只覆盖小程序与有限测试，大型程序的正确性和容器复杂度需要另行验证。"
+  },
+  "sources": [
+    {
+      "sourceType": "大学课程",
+      "title": "[PF1] Harvard CS50P：第 0–6 周课程目录",
+      "institution": "Harvard University",
+      "url": "https://cs50.harvard.edu/python/",
+      "verification": "已核验",
+      "checkedAt": "2026-11-24"
+    },
+    {
+      "sourceType": "大学课程",
+      "title": "[PF2] 赫尔辛基大学 Python Programming MOOC 2025：Introduction to Programming（BSCS1001），Parts 1–7",
+      "institution": "University of Helsinki",
+      "url": "https://programming-25.mooc.fi/",
+      "verification": "已核验",
+      "checkedAt": "2026-11-24"
+    },
+    {
+      "sourceType": "教材",
+      "title": "[PF3] Allen B. Downey《Think Python》第 3 版：第 2–11 章与第 13 章文件部分",
+      "url": "https://allendowney.github.io/ThinkPython/",
+      "verification": "已核验",
+      "checkedAt": "2026-11-24"
+    },
+    {
+      "sourceType": "官方文档",
+      "title": "[PF4] Python 3 官方教程：第 3–8 章",
+      "institution": "Python Software Foundation",
+      "url": "https://docs.python.org/3/tutorial/index.html",
+      "verification": "已核验",
+      "checkedAt": "2026-11-24"
+    }
+  ]
+}
