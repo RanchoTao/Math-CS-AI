@@ -661,10 +661,10 @@ function renderRoutePanel() {
   $("#routeSummary").innerHTML = `
     <span class="rs-label mono">${S.route.preset ? "示例路线" : "目标"}</span>
     <span class="rs-title">${esc(S.route.preset ? S.paths[S.route.preset].title : t.title)}</span>
-    <span class="rs-meta">${S.route.steps.length ? `共 ${S.route.steps.length} 步${skipped > 0 ? `，已跳过你掌握的 ${skipped} 个节点` : ""}` : "你已经掌握了这条路线上的全部前置。"}</span>`;
+    <span class="rs-meta">${S.route.steps.length ? `共 ${S.route.steps.length} 步，已掌握 ${S.route.steps.filter((id) => S.mastered.has(id)).length} 步${skipped > 0 ? `，已跳过你掌握的 ${skipped} 个节点` : ""}` : "你已经掌握了这条路线上的全部前置。"}</span>`;
   $("#routeSteps").innerHTML = S.route.steps.map((id, i) => {
     const n = S.byId.get(id);
-    return `<li data-id="${id}"><button type="button" data-go="${id}"><span class="rs-n">${String(i + 1).padStart(2, "0")}</span><span class="rs-t"><i class="dot ${n.domain}"></i>${esc(n.title)}</span><span class="rs-s">L${n.stage}</span></button></li>`;
+    return `<li data-id="${id}"${S.mastered.has(id) ? ` class="is-mastered"` : ""}><button type="button" data-go="${id}"><span class="rs-n">${S.mastered.has(id) ? "✓" : String(i + 1).padStart(2, "0")}</span><span class="rs-t"><i class="dot ${n.domain}"></i>${esc(n.title)}</span><span class="rs-s">L${n.stage}</span></button></li>`;
   }).join("");
   $("#routePlay").textContent = "▶ 播放路线";
 }
@@ -1183,12 +1183,14 @@ async function boot() {
   if (deep && S.byId.has(deep)) {
     select(deep, { updateUrl: false });
     flyToNode(deep, { force: true, duration: 1 });
-  } else if (!storage.get(STORE_INTRO, false) && !params.has("nointro")) {
+  } else if (!storage.get(STORE_INTRO, false) && !params.has("nointro") && !params.has("path")) {
     showIntro();
   } else {
     entrance();
   }
-  if (mode === "route" || mode === "mine") setMode(mode);
+  const pathKey = params.get("path");
+  if (pathKey && S.paths[pathKey]) { setRouteTarget(null, { preset: pathKey }); }
+  else if (mode === "route" || mode === "mine") setMode(mode);
   setTimeout(hideHint, 9000);
 }
 

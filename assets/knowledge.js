@@ -72,6 +72,31 @@
   };
   const MASTERY = "atlas.mastery.v1";
   const mastered = new Set(storage.get(MASTERY, {}).mastered || []);
+  const saveMastery = () => storage.set(MASTERY, { version: 1, mastered: [...mastered], updatedAt: new Date().toISOString() });
+
+  // 学习路径：URL 指定 ?path= 时用它，否则用第一条包含本节点的路径。
+  const paths = catalog.paths || {};
+  const pathKey = [params.get("path"), ...Object.keys(paths)].find((k) => k && paths[k] && paths[k].nodes.includes(String(node.id)));
+  const route = pathKey ? { key: pathKey, ...paths[pathKey], steps: paths[pathKey].nodes.map((id) => nodeById.get(String(id))).filter(Boolean) } : null;
+  const at = route ? route.steps.findIndex((n) => String(n.id) === String(node.id)) : -1;
+  const pathLink = (n) => `${link(n)}&path=${encodeURIComponent(route.key)}`;
+  const pathBand = () => {
+    if (!route) return "";
+    const done = route.steps.filter((n) => mastered.has(String(n.id))).length;
+    return `<nav class="kn-path" aria-label="学习路径：${esc(route.title)}">
+      <div class="kp-head"><span class="kp-label mono">学习路径</span><a class="kp-title" href="./index.html?path=${encodeURIComponent(route.key)}">${esc(route.title)}</a>
+        <span class="kp-count mono" data-path-count>第 ${at + 1} / ${route.steps.length} 步 · 已掌握 ${done}</span></div>
+      <ol class="kp-steps">${route.steps.map((n, i) => `<li class="${i === at ? "is-here" : ""}${mastered.has(String(n.id)) ? " is-done" : ""}" data-step="${esc(n.id)}" data-d="${esc(n.domain)}">
+        <a href="${pathLink(n)}"${i === at ? ` aria-current="step"` : ""}><span class="kp-n mono">${String(i + 1).padStart(2, "0")}</span><span class="kp-t">${esc(n.title)}</span></a></li>`).join("")}</ol>
+    </nav>`;
+  };
+  const pager = () => {
+    if (!route) return "";
+    const prev = route.steps[at - 1];
+    const next = route.steps[at + 1];
+    const card = (n, dir) => `<a class="pg pg-${dir}" href="${pathLink(n)}"><span class="pg-k mono">${dir === "prev" ? "← 上一步" : "下一步 →"} · ${String(route.steps.indexOf(n) + 1).padStart(2, "0")}</span><span class="pg-t">${esc(n.title)}</span></a>`;
+    return `<nav class="kn-pager" aria-label="路径内导航">${prev ? card(prev, "prev") : `<span class="pg pg-empty">这是路径的第一步</span>`}${next ? card(next, "next") : `<a class="pg pg-next" href="./index.html?path=${encodeURIComponent(route.key)}"><span class="pg-k mono">路径终点</span><span class="pg-t">回到地图查看整条路径</span></a>`}</nav>`;
+  };
 
   const fallback = {
     tier: "基础页", status: "draft", kind: node.type || "course",
@@ -175,6 +200,13 @@
   const recommended = relationNodes(node.recommended);
   const tierLabel = page ? content.tier : "基础页";
   const statusLabel = STATUS[content.status] || content.status;
+  const missing = prereqs.filter((n) => !mastered.has(String(n.id)));
+  const readiness = prereqs.length ? `<aside class="kn-ready${missing.length ? "" : " is-ready"}" data-ready>
+      <p class="kr-k mono">${missing.length ? "开始之前" : "可以开始"}</p>
+      <p>${missing.length ? `这一页默认你已经会 ${prereqs.length} 个必要前置。下面 ${missing.length} 个你还没有标记为已掌握，没把握的话先回去看：` : `${prereqs.length} 个必要前置你都已标记为已掌握，可以直接开始。`}</p>
+      ${missing.length ? `<div class="pos-list">${missing.map(nodeChip).join("")}</div>` : ""}
+    </aside>` : "";
+  const masteryButton = `<button class="btn mastery-btn" type="button" data-mastery aria-pressed="${mastered.has(String(node.id))}">${mastered.has(String(node.id)) ? "✓ 已掌握" : "标记为已掌握"}</button>`;
   const basicNotice = page ? "" : `<aside class="unwritten"><div class="uw-mark" aria-hidden="true">…</div><div><h2>这一页还没有正文</h2><p>该节点已经拥有可访问页面，但目前只使用图谱元数据生成：核心内容、前置与后续都来自 <code>catalog.json</code>。正文会按<a href="https://github.com/RanchoTao/Math-CS-AI/blob/main/docs/CONTENT_STANDARD.md">内容标准</a>撰写、核验后升级为标准页。</p></div></aside>`;
 
   root.innerHTML = `
@@ -189,7 +221,10 @@
         <div><dt>必要前置</dt><dd><strong class="display">${prereqs.length}</strong></dd></div>
         <div><dt>直接后续</dt><dd><strong class="display">${nextNodes.length}</strong></dd></div>
       </dl>
+      <div class="kn-actions">${masteryButton}<span class="muted">进度只保存在这台设备的浏览器里，和地图的“我的进度”同步。</span></div>
     </header>
+
+    ${pathBand()}
 
     <section class="kn-position" aria-label="在地图中的位置">
       <div class="pos-col"><h2>必要前置 <span class="mono">${prereqs.length}</span></h2>${prereqs.length ? `<div class="pos-list">${prereqs.map(nodeChip).join("")}</div>` : `<p class="muted">无，可以直接开始</p>`}${recommended.length ? `<h2 class="pos-sub">推荐关联</h2><div class="pos-list">${recommended.map(nodeChip).join("")}</div>` : ""}</div>
@@ -197,16 +232,31 @@
       <div class="pos-col"><h2>可继续进入 <span class="mono">${nextNodes.length}</span></h2>${nextNodes.length ? `<div class="pos-list">${nextNodes.slice(0, 10).map(nodeChip).join("")}</div>${nextNodes.length > 10 ? `<details class="pos-more"><summary>展开其余 ${nextNodes.length - 10} 个</summary><div class="pos-list">${nextNodes.slice(10).map(nodeChip).join("")}</div></details>` : ""}` : `<p class="muted">当前地图上的终点</p>`}</div>
     </section>
 
+    ${readiness}
     ${basicNotice}
 
     <div class="kn-body">
       <nav class="toc" aria-label="本页目录"><p class="eyebrow mono">本页</p><ol>${sections.map((s) => `<li><a href="#${s.id}" data-toc="${s.id}">${esc(s.title)}</a></li>`).join("")}</ol></nav>
-      <div class="kn-main">${sections.map((s, i) => `<section class="kn-sec" id="${s.id}"><h2><span class="mono sec-n">${String(i + 1).padStart(2, "0")}</span>${esc(s.title)}</h2>${s.html}</section>`).join("")}</div>
+      <div class="kn-main">${sections.map((s, i) => `<section class="kn-sec" id="${s.id}"><h2><span class="mono sec-n">${String(i + 1).padStart(2, "0")}</span>${esc(s.title)}</h2>${s.html}</section>`).join("")}${pager()}</div>
     </div>
   </article>`;
 
   /* ---------- progressive enhancements (browser only) ---------- */
   if (typeof document.querySelectorAll !== "function") return;
+  const steps = document.querySelector(".kp-steps");
+  const here = steps?.querySelector(".is-here");
+  if (steps && here && steps.scrollWidth > steps.clientWidth) steps.scrollLeft = here.offsetLeft - (steps.clientWidth - here.offsetWidth) / 2;
+  document.querySelector("[data-mastery]")?.addEventListener("click", (e) => {
+    const id = String(node.id);
+    if (mastered.has(id)) mastered.delete(id); else mastered.add(id);
+    saveMastery();
+    const on = mastered.has(id);
+    e.currentTarget.setAttribute("aria-pressed", String(on));
+    e.currentTarget.textContent = on ? "✓ 已掌握" : "标记为已掌握";
+    document.querySelector(`[data-step="${CSS.escape(id)}"]`)?.classList.toggle("is-done", on);
+    const count = document.querySelector("[data-path-count]");
+    if (count && route) count.textContent = `第 ${at + 1} / ${route.steps.length} 步 · 已掌握 ${route.steps.filter((n) => mastered.has(String(n.id))).length}`;
+  });
   const bar = document.getElementById("readProgress");
   const onScroll = () => {
     const h = document.documentElement.scrollHeight - innerHeight;

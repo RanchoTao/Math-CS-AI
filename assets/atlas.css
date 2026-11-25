@@ -571,3 +571,5 @@ html, body.atlas-page { height: 100%; overflow: hidden; overscroll-behavior: non
   .wordmark-text { display: none; }
   .mode { padding: 0 10px; }
 }
+.route-steps li.is-mastered .rs-n, #routeSteps li.is-mastered .rs-n { color: var(--ai); font-weight: 700; }
+#routeSteps li.is-mastered .rs-t { color: var(--ink-2); }
