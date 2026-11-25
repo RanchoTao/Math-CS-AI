@@ -4488,7 +4488,7 @@
    "cluster": "a-deep",
    "stage": 3,
    "type": "course",
-   "summary": "序列模型的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "summary": "用循环神经网络（recurrent neural network，RNN）逐步更新状态，预测下一项或生成一段新的序列。学完能手算跨时间的梯度，解释门控为何能帮助保留较远的信息，并实现带截断的训练过程。",
    "prerequisites": [
     "deep-learning",
     "probability"

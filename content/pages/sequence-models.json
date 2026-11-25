@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "slug": "sequence-models",
   "title": "序列模型",
   "aliases": [],
@@ -8,6 +8,102 @@
   "kind": "course",
   "summary": "用循环神经网络（recurrent neural network，RNN）逐步更新状态，预测下一项或生成一段新的序列。学完能手算跨时间的梯度，解释门控为何能帮助保留较远的信息，并实现带截断的训练过程。",
   "why": "自然语言处理用序列模型计算词元（token）的条件概率，视频理解用逐步更新的状态汇总帧间信息。本页从单向循环到固定上下文编码器–解码器（encoder–decoder），训练内容聚焦参数共享、反向求导与长程依赖。前置的深度学习提供初始化和参数更新的方法，具体任务的评价由自然语言处理或视频理解展开。开始前，试着根据给定的三个条件概率写出它们对应路径的联合概率，再对两次串接的标量仿射变换应用链式法则求导。先看教材的展开图与推导，再完成 SQ-E01–SQ-E12，运行 SQ-E03、SQ-E09 的程序和 SQ-E05、SQ-E12 的诊断，最后对照解析。习题和完成门槛是本项目编写的草稿（draft），并非任何学校的作业或评分标准。",
+  "lesson": {
+    "intuition": "序列模型要回答的问题是：看过前面的内容之后，下一项最可能是什么。整句话的概率可以按链式法则拆成一串“已知前缀时下一个词的条件概率”的乘积，所以学会预测下一项，就学会了给整条序列打分和逐步生成。循环神经网络用一个固定大小的隐状态当作“读到这里的摘要”：每读一个新输入，就用同一组参数把旧摘要和新输入合成新摘要。参数在时间上共享，所以它能处理任意长度的序列。代价是训练时梯度要沿时间一步步往回传，每传一步都乘上一次同样的雅可比矩阵；乘几十次之后，梯度要么衰减到几乎为零（早期输入学不到），要么爆炸。LSTM 和 GRU 的门控给记忆开了一条“加法通道”：记忆单元按遗忘门的比例保留旧内容、再加上新内容，梯度沿这条通道回传时只乘遗忘门，遗忘门接近 1 时就能传得很远。",
+    "definitions": [
+      {
+        "term": "带隐状态的循环神经网络",
+        "english": "RNN with hidden states",
+        "statement": "在时间步 t，隐状态 Hₜ=φ(XₜW_xh + Hₜ₋₁W_hh + b_h)，输出 Oₜ=HₜW_hq + b_q；同一组参数 W_xh、W_hh、b_h 在所有时间步共享，Hₜ₋₁ 携带到上一步为止的序列信息。",
+        "cite": {
+          "source": "SQ2",
+          "at": "§9.4.2 式 (9.4.5)、(9.4.6)"
+        }
+      },
+      {
+        "term": "截断的时间反向传播",
+        "english": "truncated backpropagation through time",
+        "statement": "沿时间反向传播梯度时，只回传最近 τ 步就停止，得到真实梯度的一个近似；它让模型偏向短期影响，并显著减少计算量。",
+        "cite": {
+          "source": "SQ3",
+          "at": "§9.7.1.2 Truncating Time Steps"
+        }
+      },
+      {
+        "term": "LSTM 记忆单元",
+        "english": "LSTM memory cell",
+        "statement": "输入门 Iₜ、遗忘门 Fₜ、输出门 Oₜ 都由 σ(XₜW+Hₜ₋₁W+b) 给出；候选 C̃ₜ=tanh(XₜW_xc+Hₜ₋₁W_hc+b_c)；记忆更新 Cₜ=Fₜ⊙Cₜ₋₁+Iₜ⊙C̃ₜ；隐状态 Hₜ=Oₜ⊙tanh(Cₜ)。",
+        "cite": {
+          "source": "SQ4",
+          "at": "§10.1.1 式 (10.1.1)–(10.1.4)"
+        }
+      }
+    ],
+    "derivation": {
+      "title": "梯度为什么会沿时间消失或爆炸",
+      "claim": "对 hₜ=φ(aₜ)、aₜ=W_hh hₜ₋₁+W_hx xₜ+b，有 ∂h_T/∂hₜ = J_T J_{T−1}⋯J_{t+1}，其中 Jₛ=diag(φ′(aₛ))W_hh；若 |φ′|≤γ，则 ‖∂h_T/∂hₜ‖ ≤ (γ‖W_hh‖)^{T−t}。线性情形下这个乘积就是 W_hh^{T−t}。",
+      "assumptions": [
+        "列向量记号",
+        "φ 逐元素作用且可导，|φ′|≤γ（tanh 时 γ=1）",
+        "‖·‖ 为与向量 2-范数相容的矩阵范数"
+      ],
+      "steps": [
+        "单步雅可比：hₛ 的第 j 个分量是 φ(aₛ,ⱼ)，对 hₛ₋₁ 求导，先对 aₛ 求导得到 φ′(aₛ,ⱼ)，再乘 ∂aₛ/∂hₛ₋₁=W_hh 的第 j 行。写成矩阵即 Jₛ=∂hₛ/∂hₛ₋₁=diag(φ′(aₛ))W_hh。",
+        "链式法则：h_T 通过 h_{T−1},…,hₜ₊₁ 依赖 hₜ，所以 ∂h_T/∂hₜ=J_T J_{T−1}⋯J_{t+1}，共 T−t 个因子，每个因子都含同一个 W_hh。",
+        "取范数：矩阵范数满足 ‖AB‖≤‖A‖‖B‖，且对角矩阵 diag(φ′) 的 2-范数等于最大的 |φ′|，不超过 γ。于是 ‖Jₛ‖≤γ‖W_hh‖，乘起来得 ‖∂h_T/∂hₜ‖≤(γ‖W_hh‖)^{T−t}。",
+        "消失：若 γ‖W_hh‖<1，这个上界随 T−t 指数衰减，远处时间步对损失的梯度贡献趋于 0。",
+        "线性情形 φ(x)=x：Jₛ=W_hh，乘积就是 W_hh^{T−t}。若 W_hh=PΛP⁻¹ 可对角化，则 W_hh^{T−t}=PΛ^{T−t}P⁻¹，模小于 1 的特征值方向指数衰减，模大于 1 的方向指数增长，即梯度爆炸。",
+        "对照 LSTM：沿记忆单元的直接路径，固定各门时 ∂Cₜ/∂Cₜ₋₁=diag(Fₜ)，回传 T−t 步只乘遗忘门的乘积，不反复乘 W_hh；遗忘门接近 1 时梯度可以传得很远。"
+      ],
+      "conclusion": "普通 RNN 的长程梯度是 T−t 个含 W_hh 的雅可比矩阵之积，量级大致按 (γ‖W_hh‖)^{T−t} 变化，所以会消失或爆炸；门控单元提供了一条只乘遗忘门的加法通道，缓解但不保证消除这一问题。",
+      "cite": {
+        "source": "SQ3",
+        "at": "§9.7.2 式 (9.7.15) 及其后关于特征值的讨论"
+      }
+    },
+    "example": {
+      "title": "50 步之后还剩多少梯度",
+      "problem": "比较三条标量通道把梯度回传 50 步后的大小：线性 RNN hₜ=w·hₜ₋₁+xₜ，分别取 w=0.9 和 w=1.1；以及 LSTM 记忆通道，遗忘门恒为 f=0.99、其余门固定。求 ∂h₅₀/∂h₀ 或 ∂c₅₀/∂c₀。",
+      "steps": [
+        "线性 RNN 每步的导数就是 w，所以 ∂h₅₀/∂h₀=w⁵⁰。",
+        "w=0.9：0.9⁵⁰=exp(50 ln 0.9)=exp(−5.268)≈0.00515。",
+        "w=1.1：1.1⁵⁰=exp(50 ln 1.1)=exp(4.766)≈117.4。",
+        "LSTM 记忆通道每步导数是 f，0.99⁵⁰=exp(50 ln 0.99)=exp(−0.5025)≈0.605。"
+      ],
+      "answer": "w=0.9 时梯度缩小到约 0.5%，w=1.1 时放大约 117 倍；遗忘门为 0.99 的记忆通道仍保留约 60%。",
+      "check": "在 Python 中直接计算 0.9**50、1.1**50、0.99**50，或用 h₀ 的中心差分 (h₅₀(h₀+ε)−h₅₀(h₀−ε))/(2ε) 对线性 RNN 数值复核，结果一致。",
+      "cite": {
+        "source": "SQ3",
+        "at": "§9.7.2 式 (9.7.15)"
+      }
+    },
+    "misconceptions": [
+      {
+        "wrong": "梯度裁剪能解决梯度消失。",
+        "right": "裁剪只在梯度范数超过阈值时把它按比例缩小，用来防止爆炸；它不会把过小的梯度放大，对消失无能为力。缓解消失要靠门控结构、残差连接或更好的初始化。"
+      },
+      {
+        "wrong": "截断 BPTT 算出的就是完整梯度，只是省了内存。",
+        "right": "截断丢掉了超过 τ 步的依赖项，得到的是近似梯度，系统性地偏向短期影响；超过窗口的长程依赖无法通过它学到。",
+        "cite": {
+          "source": "SQ3",
+          "at": "§9.7.1.2"
+        }
+      },
+      {
+        "wrong": "LSTM 彻底消除了梯度消失。",
+        "right": "直接路径上的导数是遗忘门的乘积，遗忘门小于 1 时仍会衰减，只是可以学得接近 1；经过隐状态和各个门的其他路径仍然要反复乘权重矩阵。",
+        "cite": {
+          "source": "SQ4",
+          "at": "§10.1.1.4 式 (10.1.3)"
+        }
+      },
+      {
+        "wrong": "困惑度就是整条序列概率的倒数。",
+        "right": "困惑度是平均每个词元负对数似然的指数，相当于每步条件概率的几何平均的倒数。三步概率 1/2、1/4、1/8 时整句概率为 1/64，困惑度是 4，不是 64。"
+      }
+    ]
+  },
   "learningObjectives": [
     "给定条件概率和有效长度，计算序列概率、按有效项平均的负对数似然（negative log-likelihood）与困惑度（perplexity）。",
     "展开一个共享参数的 RNN，手算隐状态（hidden state）及输出，并为输入和权重标注形状。",
@@ -204,6 +300,7 @@
   },
   "sources": [
     {
+      "id": "SQ1",
       "sourceType": "教师讲义",
       "title": "[SQ1] Stanford CS224n Part V：第 1–4 节",
       "institution": "Stanford University",
@@ -212,27 +309,31 @@
       "checkedAt": "2026-11-24"
     },
     {
+      "id": "SQ2",
       "sourceType": "教材",
       "title": "[SQ2] Dive into Deep Learning 1.0.3：第 9.3–9.5 节",
       "url": "https://d2l.ai/chapter_recurrent-neural-networks/index.html",
       "verification": "已核验",
-      "checkedAt": "2026-11-24"
+      "checkedAt": "2026-11-25"
     },
     {
+      "id": "SQ3",
       "sourceType": "教材",
       "title": "[SQ3] Dive into Deep Learning 1.0.3：第 9.7 节完整与截断反传",
       "url": "https://d2l.ai/chapter_recurrent-neural-networks/bptt.html",
       "verification": "已核验",
-      "checkedAt": "2026-11-24"
+      "checkedAt": "2026-11-25"
     },
     {
+      "id": "SQ4",
       "sourceType": "教材",
       "title": "[SQ4] Dive into Deep Learning 1.0.3：第 10.1、10.2 和 10.7.1 节",
       "url": "https://d2l.ai/chapter_recurrent-modern/index.html",
       "verification": "已核验",
-      "checkedAt": "2026-11-24"
+      "checkedAt": "2026-11-25"
     },
     {
+      "id": "SQ5",
       "sourceType": "教材",
       "title": "[SQ5] Deep Learning 第 10 章：展开、BPTT、长程梯度与门控",
       "url": "https://www.deeplearningbook.org/contents/rnn",
@@ -240,6 +341,7 @@
       "checkedAt": "2026-11-24"
     },
     {
+      "id": "SQ6",
       "sourceType": "官方文档",
       "title": "[SQ6] PyTorch 2.15 torch.nn.GRU：公式与实现差异注记",
       "institution": "PyTorch",
