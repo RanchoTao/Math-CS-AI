@@ -65,6 +65,13 @@
   const link = (n) => `./knowledge.html?id=${encodeURIComponent(n.id)}&title=${encodeURIComponent(n.title)}`;
   const nodeChip = (n) => `<a class="chip" href="${link(n)}"><i class="dot ${esc(n.domain)}"></i>${esc(n.title)}<span class="mono chip-l">L${esc(n.stage)}</span></a>`;
   const list = (items, cls = "") => `<ul class="${cls}">${(items || []).map((x) => `<li>${esc(x)}</li>`).join("")}</ul>`;
+  const cite = (c) => (c && c.source ? `<a class="cite" href="#src-${esc(c.source)}" title="查看来源 ${esc(c.source)}"><span class="mono">${esc(c.source)}</span>${esc(c.at)}</a>` : "");
+  const storage = {
+    get(key, fallback) { try { const v = localStorage.getItem(key); return v == null ? fallback : JSON.parse(v); } catch { return fallback; } },
+    set(key, value) { try { localStorage.setItem(key, JSON.stringify(value)); } catch { /* unavailable */ } },
+  };
+  const MASTERY = "atlas.mastery.v1";
+  const mastered = new Set(storage.get(MASTERY, {}).mastered || []);
 
   const fallback = {
     tier: "基础页", status: "draft", kind: node.type || "course",
@@ -83,18 +90,43 @@
 
   if (content.why) add("why", "为什么学习", `<p class="lead-p">${esc(content.why)}</p>`);
   if (content.learningObjectives.length) add("objectives", "学习目标", `<ol class="objectives">${content.learningObjectives.map((x) => `<li>${esc(x)}</li>`).join("")}</ol>`);
-  if (content.coreTopics.length) add("topics", "核心内容", `<div class="chip-row topics">${content.coreTopics.map((t, i) => `<span class="chip"><span class="mono chip-l">${String(i + 1).padStart(2, "0")}</span>${esc(t)}</span>`).join("")}</div>`);
+  const L = content.lesson;
+  if (L) {
+    if (L.intuition) add("intuition", "直觉", `<p class="lead-p intuition">${esc(L.intuition)}</p>`);
+    if ((L.definitions || []).length) add("definitions", "正式定义", `<dl class="defs">${L.definitions.map((d) => `
+      <div class="def"><dt><span class="def-term">${esc(d.term)}</span>${d.english ? `<span class="def-en">${esc(d.english)}</span>` : ""}</dt><dd><p>${esc(d.statement)}</p>${cite(d.cite)}</dd></div>`).join("")}</dl>`);
+    if (L.derivation) {
+      const D = L.derivation;
+      add("derivation", "完整推导", `<div class="derivation"><h3>${esc(D.title)}</h3>
+        <p class="claim"><span class="tag">要证明</span>${esc(D.claim)}</p>
+        ${(D.assumptions || []).length ? `<p class="assume"><span class="tag">假设</span>${D.assumptions.map(esc).join("；")}</p>` : ""}
+        <ol class="steps">${D.steps.map((x) => `<li>${esc(x)}</li>`).join("")}</ol>
+        <p class="conclusion"><span class="tag">结论</span>${esc(D.conclusion)}</p>${cite(D.cite)}</div>`);
+    }
+    if (L.example) {
+      const E = L.example;
+      add("example", "例子", `<div class="example"><h3>${esc(E.title)}</h3><p class="claim"><span class="tag">题目</span>${esc(E.problem)}</p>
+        <ol class="steps">${E.steps.map((x) => `<li>${esc(x)}</li>`).join("")}</ol>
+        <p class="conclusion"><span class="tag">答案</span>${esc(E.answer)}</p><p class="check"><span class="tag">自检</span>${esc(E.check)}</p>${cite(E.cite)}</div>`);
+    }
+    if ((L.misconceptions || []).length) add("misconceptions", "常见误区", `<ul class="miscon">${L.misconceptions.map((m) => `
+      <li><p class="wrong"><span class="tag">误区</span>${esc(m.wrong)}</p><p class="right"><span class="tag">纠正</span>${esc(m.right)}</p>${cite(m.cite)}</li>`).join("")}</ul>`);
+  }
+  if (content.coreTopics.length && !L) add("topics", "核心内容", `<div class="chip-row topics">${content.coreTopics.map((t, i) => `<span class="chip"><span class="mono chip-l">${String(i + 1).padStart(2, "0")}</span>${esc(t)}</span>`).join("")}</div>`);
   if ((content.syllabus || []).length) {
     add("syllabus", "章节大纲", `<p class="note">该知识领域稳定的教学核心，不复制任何一所学校的 syllabus。</p><ol class="syllabus">${content.syllabus.map((s, i) => `
       <li><span class="syl-n">${String(i + 1).padStart(2, "0")}</span><div><h3>${esc(s.title)}</h3>${(s.topics || []).map((t) => `<p>${esc(t)}</p>`).join("")}</div></li>`).join("")}</ol>`);
   }
   if ((content.exercises || []).length) {
     const exercise = (x, i) => {
-      const lines = String(x.description || "").split("\n");
+      const raw = String(x.description || "");
+      const m = /^([A-Z][A-Z0-9]*-E\d+)[｜|]\s*(?:题目[:：])?/.exec(raw);
+      const label = m ? m[1] : String(i + 1).padStart(2, "0");
+      const lines = (m ? raw.slice(m[0].length) : raw).split("\n");
       const solIndex = lines.findIndex((l) => /^解析[:：]/.test(l));
       const prompt = solIndex < 0 ? lines : lines.slice(0, solIndex);
       const rest = solIndex < 0 ? [] : lines.slice(solIndex);
-      return `<article class="exercise"><header><span class="ex-type">${esc(x.type)}</span><span class="mono ex-n">${String(i + 1).padStart(2, "0")}</span></header>
+      return `<article class="exercise" id="${esc(label)}"><header><span class="ex-type">${esc(x.type)}</span><span class="mono ex-n">${esc(label)}</span></header>
         ${prompt.map((line) => `<p>${esc(line)}</p>`).join("")}
         ${rest.length ? `<details><summary><span>先独立作答，再查看解析</span><span class="mono" aria-hidden="true">+</span></summary><div class="solution">${rest.map((line) => `<p>${esc(line)}</p>`).join("")}</div></details>` : ""}
       </article>`;
@@ -135,7 +167,7 @@
   add("experiences", "学习经验", `<p class="note">以下内容是主观经验，不属于官方课程事实，也不会进入 canonical syllabus。</p>${experiences.length ? experiences.map(expCard).join("") : `<div class="empty"><strong>还没有学习经验</strong><p>这里不会用未经标注的主观评价填充课程信息。</p></div>`}`, { always: true });
 
   if ((content.sources || []).length) {
-    add("sources", "参考来源", `<ul class="refs">${content.sources.map((s) => `<li><div><strong>${esc(s.title)}</strong><small>${esc([s.sourceType, s.institution].filter(Boolean).join(" · "))}</small></div><div class="ref-side"><span class="verify">${esc(s.verification || "待核验")}${s.checkedAt ? ` · ${esc(s.checkedAt)}` : ""}</span>${ext(s.url, "核对来源")}</div></li>`).join("")}</ul>`);
+    add("sources", "参考来源", `<ul class="refs">${content.sources.map((s) => `<li${s.id ? ` id="src-${esc(s.id)}"` : ""}><div><strong>${esc(s.title)}</strong><small>${esc([s.sourceType, s.institution].filter(Boolean).join(" · "))}</small></div><div class="ref-side"><span class="verify">${esc(s.verification || "待核验")}${s.checkedAt ? ` · ${esc(s.checkedAt)}` : ""}</span>${ext(s.url, "核对来源")}</div></li>`).join("")}</ul>`);
   }
 
   /* ---------- page ---------- */

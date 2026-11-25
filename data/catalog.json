@@ -727,7 +727,7 @@
    "cluster": "m-algebra",
    "stage": 2,
    "type": "course",
-   "summary": "线性代数的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "summary": "从线性方程组出发，学习有限维实／复向量空间、线性映射、内积、谱分解与 SVD；兼顾高等代数中的证明训练与机器学习中的矩阵计算。",
    "prerequisites": [
     "elementary-algebra"
    ],
