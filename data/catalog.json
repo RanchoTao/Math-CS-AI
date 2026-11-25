@@ -1248,7 +1248,7 @@
    "cluster": "m-probability",
    "stage": 2,
    "type": "course",
-   "summary": "数理统计的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "summary": "从样本反推产生它的分布：用最大似然得到点估计，用无偏性与均方误差评价估计量，用置信区间和假设检验表达不确定性。学完能推导样本方差为什么除以 n−1，并正确解释置信区间。",
    "prerequisites": [
     "probability",
     "linear-algebra"

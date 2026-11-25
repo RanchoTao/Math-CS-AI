@@ -90,6 +90,14 @@
         "optimization"
       ],
       "path": "./content/pages/optimization.json"
+    },
+    {
+      "slug": "mathematical-statistics",
+      "title": "数理统计",
+      "aliases": [
+        "统计推断"
+      ],
+      "path": "./content/pages/mathematical-statistics.json"
     }
   ]
 }

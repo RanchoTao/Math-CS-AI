@@ -68,12 +68,12 @@ test('existing authored pages still render without requiring new fields', async 
   }
 });
 
-test('uncovered statistics keeps the metadata fallback and its own prerequisites', async () => {
-  const { html } = await render('mathematical-statistics');
+test('an uncovered node keeps the metadata fallback and its own prerequisites', async () => {
+  const { html } = await render('multivariable-calculus');
   assert.match(html, /这一页还没有正文/);
   assert.match(html, /该节点已经拥有可访问页面/);
   assert.match(html, /<span class="tier ">基础页<\/span>/);
-  assert.match(html, /knowledge.html\?id=probability&title=/);
+  assert.match(html, /knowledge.html\?id=calculus&title=/);
   assert.match(html, /knowledge.html\?id=linear-algebra&title=/);
   assert.doesNotMatch(html, /LA-E01|P-E01/);
 });
@@ -95,4 +95,18 @@ test('reference URLs reject unsafe protocols and absent URLs; text stays escaped
   assert.equal((html.match(/>打开资源<\/a>/g) || []).length, 1);
   assert.equal((html.match(/>核对来源<\/a>/g) || []).length, 0);
   assert.match(html, /<p>解析：1 &lt; 2<\/p>/);
+});
+
+test('a standard-v2 page renders the lesson, citations, exercise ids and path navigation', async () => {
+  const { html } = await render('probability');
+  for (const heading of ['直觉', '正式定义', '完整推导', '例子', '常见误区']) assert.match(html, new RegExp(`</span>${heading}</h2>`));
+  assert.match(html, /<a class="cite" href="#src-P3-L"/);
+  assert.match(html, /<li id="src-P3-L">/);
+  assert.match(html, /<span class="mono ex-n">P-E01<\/span>/);
+  assert.doesNotMatch(html, /<p>P-E01｜/);
+  assert.match(html, /第 2 \/ 11 步/);
+  assert.match(html, /aria-current="step"/);
+  assert.match(html, /pg-prev[^>]*href="[^"]*id=linear-algebra[^"]*path=ml-foundations"|href="[^"]*id=linear-algebra[^"]*path=ml-foundations"[^>]*>\s*<span class="pg-k mono">← 上一步/);
+  assert.match(html, /下一步 →/);
+  assert.match(html, /开始之前/);
 });
