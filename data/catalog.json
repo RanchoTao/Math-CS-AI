@@ -4528,7 +4528,7 @@
    "cluster": "a-deep",
    "stage": 4,
    "type": "course",
-   "summary": "Transformer的课程级知识模块，关注核心概念、典型方法、前置依赖与后续研究方向。",
+   "summary": "搭建经典 Transformer 的编码器（encoder）和解码器（decoder），追踪源序列经位置编码（positional encoding）、注意力和前馈子层到达目标词元分布的路径。学完能构造掩码（mask）、计算训练损失，并验证逐步解码与并行训练各自能读取哪些信息。",
    "prerequisites": [
     "attention-mechanisms",
     "deep-learning"

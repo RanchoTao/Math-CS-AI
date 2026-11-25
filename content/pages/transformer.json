@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "slug": "transformer",
   "title": "Transformer",
   "aliases": [],
@@ -8,6 +8,117 @@
   "kind": "course",
   "summary": "搭建经典 Transformer 的编码器（encoder）和解码器（decoder），追踪源序列经位置编码（positional encoding）、注意力和前馈子层到达目标词元分布的路径。学完能构造掩码（mask）、计算训练损失，并验证逐步解码与并行训练各自能读取哪些信息。",
   "why": "多模态学习会复用编码器和跨序列读取的接口，大语言模型会复用因果掩码与逐步生成。本页完整走一遍有配对源、目标序列的架构和训练；注意力机制节点负责算子本身，自监督学习与大语言模型节点负责预训练和大模型问题。开始前，试着画出两个查询读取四个键时的注意力分数形状，再为一条残差连接（residual connection）核对相加项的宽度。先读原论文的结构图与训练设置，再按教材和注释实现对照张量，完成 TF-E01–TF-E12 后核对解析。习题和完成门槛是本项目编写的草稿（draft），并非任何学校的作业或评分标准。",
+  "lesson": {
+    "intuition": "Transformer 把“读懂一句话”拆成反复做的两件事：先让每个位置去看其他位置（注意力，负责在位置之间搬运信息），再让每个位置各自加工手上的信息（逐位置前馈网络，不跨位置）。每一步都带残差连接——新结果是在旧表示上加一笔修改，而不是推倒重来——再做层归一化，把数值尺度稳住，这样才能堆很多层。注意力本身不知道顺序：把输入打乱，输出只会跟着同样打乱。所以要先在每个词向量上加一个位置编码，告诉模型谁在第几个。编码器一次性读完整个源序列；解码器逐个生成目标词，自注意力加了因果掩码，只能看已经生成的前缀，同时通过跨注意力去读编码器的输出。训练时目标序列已知，所有位置可以在掩码保护下并行计算；生成时却只能一个词接一个词地往后走。",
+    "definitions": [
+      {
+        "term": "编码器与解码器栈",
+        "english": "encoder and decoder stacks",
+        "statement": "编码器由 N=6 个相同的层堆叠而成，每层有多头自注意力和逐位置前馈网络两个子层；解码器同样有 N=6 层，在这两个子层之间再插入一个对编码器输出做多头注意力的子层，且解码器自注意力经过掩码，位置 i 的预测只能依赖小于 i 的已知输出。",
+        "cite": {
+          "source": "TF1",
+          "at": "§3.1"
+        }
+      },
+      {
+        "term": "残差连接与层归一化",
+        "english": "residual connection, layer normalization",
+        "statement": "每个子层的输出为 LayerNorm(x+Sublayer(x))，其中 Sublayer 是该子层实现的函数；为使残差相加成立，所有子层和嵌入层的输出维度都是 d_model=512。",
+        "cite": {
+          "source": "TF1",
+          "at": "§3.1"
+        }
+      },
+      {
+        "term": "逐位置前馈网络",
+        "english": "position-wise feed-forward network",
+        "statement": "FFN(x)=max(0, xW₁+b₁)W₂+b₂，对每个位置分别且相同地作用；输入输出维度 d_model=512，中间层维度 d_ff=2048。",
+        "cite": {
+          "source": "TF1",
+          "at": "§3.3"
+        }
+      },
+      {
+        "term": "正弦位置编码",
+        "english": "sinusoidal positional encoding",
+        "statement": "PE(pos,2i)=sin(pos/10000^(2i/d_model))，PE(pos,2i+1)=cos(pos/10000^(2i/d_model))；它与词嵌入维度相同，直接相加到编码器和解码器栈底部的输入嵌入上。",
+        "cite": {
+          "source": "TF1",
+          "at": "§3.5"
+        }
+      }
+    ],
+    "derivation": {
+      "title": "位置平移是位置编码上的一个线性变换",
+      "claim": "对任意固定的偏移 k，存在一个与 pos 无关的矩阵 M_k，使得对所有位置 pos 都有 PE(pos+k)=M_k·PE(pos)。",
+      "assumptions": [
+        "使用上面的正弦位置编码",
+        "d_model 为偶数，记 ωᵢ=1/10000^(2i/d_model)"
+      ],
+      "steps": [
+        "把编码按频率分成 d_model/2 对：第 i 对是 (sin(pos·ωᵢ), cos(pos·ωᵢ))。各对互不混合，只需对一对证明。",
+        "和角公式：sin((pos+k)ωᵢ)=sin(pos·ωᵢ)cos(kωᵢ)+cos(pos·ωᵢ)sin(kωᵢ)。",
+        "和角公式：cos((pos+k)ωᵢ)=−sin(pos·ωᵢ)sin(kωᵢ)+cos(pos·ωᵢ)cos(kωᵢ)。",
+        "写成矩阵：(sin((pos+k)ωᵢ), cos((pos+k)ωᵢ))ᵀ = [[cos kωᵢ, sin kωᵢ], [−sin kωᵢ, cos kωᵢ]] · (sin(pos·ωᵢ), cos(pos·ωᵢ))ᵀ。这个 2×2 矩阵只依赖 k 和 ωᵢ，不依赖 pos。",
+        "把所有频率对的 2×2 矩阵沿对角线排成分块对角矩阵 M_k，就得到 PE(pos+k)=M_k·PE(pos)。"
+      ],
+      "conclusion": "平移 k 个位置等价于在每个频率平面上旋转角度 kωᵢ，旋转矩阵与绝对位置无关。原论文据此猜测模型容易学会按相对位置关注；这个数学事实成立，但“模型确实利用了它”是假设，不是证明。",
+      "cite": {
+        "source": "TF4",
+        "at": "§11.6.3 Relative Positional Information，式 (11.6.3)"
+      }
+    },
+    "example": {
+      "title": "数一数 base 模型一个编码器层的参数",
+      "problem": "base Transformer 中 d_model=512、h=8、d_ff=2048。一个编码器层包括多头自注意力、前馈网络和两个层归一化，线性层都带偏置。这一层一共有多少个参数？",
+      "steps": [
+        "多头自注意力：8 个头的 Wᵢᑫ、Wᵢᴷ、Wᵢⱽ（每个 512×64）合起来等价于三个 512×512 矩阵，加上输出投影 Wᴼ（512×512）。四个矩阵各 512×512=262 144 个权重和 512 个偏置，共 4×262 656=1 050 624。",
+        "前馈网络：W₁ 为 512×2048，加 2048 个偏置，得 1 050 624；W₂ 为 2048×512，加 512 个偏置，得 1 049 088；合计 2 099 712。",
+        "两个层归一化各有 512 个缩放参数 γ 和 512 个平移参数 β，共 2×1024=2 048。",
+        "相加：1 050 624+2 099 712+2 048=3 152 384。"
+      ],
+      "answer": "约 315 万个参数，其中前馈网络占三分之二，注意力约占三分之一；参数个数与序列长度无关。",
+      "check": "在 PyTorch 中构造 nn.TransformerEncoderLayer(d_model=512, nhead=8, dim_feedforward=2048)，对 parameters() 的元素数求和，应得到 3 152 384。",
+      "cite": {
+        "source": "TF1",
+        "at": "§3.2.2、§3.3"
+      }
+    },
+    "misconceptions": [
+      {
+        "wrong": "自注意力天然知道词序，位置编码只是锦上添花。",
+        "right": "模型里没有循环和卷积，不加位置信息时，自注意力对输入顺序是置换等变的：把输入打乱，输出只是同样打乱。必须注入位置信息才能区分“猫追狗”和“狗追猫”。",
+        "cite": {
+          "source": "TF1",
+          "at": "§3.5"
+        }
+      },
+      {
+        "wrong": "Transformer 训练能并行，所以生成也能一次并行输出整句。",
+        "right": "训练时目标序列已知，靠因果掩码让所有位置同时计算；生成时下一个词依赖已经生成的词，仍然只能一步一步自回归地产生。",
+        "cite": {
+          "source": "TF1",
+          "at": "§3.1、§3.2.3"
+        }
+      },
+      {
+        "wrong": "前馈子层也在不同位置之间交换信息。",
+        "right": "前馈网络对每个位置分别、相同地作用，不跨位置；位置之间的信息交换只发生在注意力子层。",
+        "cite": {
+          "source": "TF1",
+          "at": "§3.3"
+        }
+      },
+      {
+        "wrong": "原论文证明了正弦位置编码能让模型学会相对位置。",
+        "right": "论文只是假设这样做有助于学习按相对位置关注；平移是线性变换这一数学性质成立，但模型是否用上它需要实验检验。论文还报告学习到的位置嵌入与正弦编码结果几乎相同。",
+        "cite": {
+          "source": "TF1",
+          "at": "§3.5"
+        }
+      }
+    ]
+  },
   "learningObjectives": [
     "把给定目标序列移位成解码器输入和监督标签，写出每一步允许依赖的源信息与目标前缀。",
     "计算指定位置的正弦位置编码并用三角恒等式推导相对位移关系，检查嵌入和位置张量的形状。",
@@ -190,13 +301,15 @@
   },
   "sources": [
     {
+      "id": "TF1",
       "sourceType": "其他",
       "title": "[TF1] arXiv:1706.03762v7，§3.1–3.5、§5.1–5.4 与表 3",
       "url": "https://arxiv.org/html/1706.03762v7",
       "verification": "已核验",
-      "checkedAt": "2026-11-24"
+      "checkedAt": "2026-11-25"
     },
     {
+      "id": "TF2",
       "sourceType": "教材",
       "title": "[TF2] Dive into Deep Learning 1.0.3：§11.7.1–11.7.6",
       "url": "https://en.d2l.ai/chapter_attention-mechanisms-and-transformers/transformer.html",
@@ -204,6 +317,7 @@
       "checkedAt": "2026-11-24"
     },
     {
+      "id": "TF3",
       "sourceType": "教师讲义",
       "title": "[TF3] The Annotated Transformer v2022：模型、掩码、优化与生成",
       "institution": "Harvard NLP",
@@ -212,11 +326,12 @@
       "checkedAt": "2026-11-24"
     },
     {
+      "id": "TF4",
       "sourceType": "教材",
       "title": "[TF4] Dive into Deep Learning 1.0.3：§11.6.3 正弦位置编码",
       "url": "https://en.d2l.ai/chapter_attention-mechanisms-and-transformers/self-attention-and-positional-encoding.html",
       "verification": "已核验",
-      "checkedAt": "2026-11-24"
+      "checkedAt": "2026-11-25"
     }
   ]
 }
